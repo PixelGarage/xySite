@@ -14,7 +14,7 @@ function tcpdf_document_libraries_info() {
     'download url' => 'http://sourceforge.net/projects/tcpdf/files/',
     'version arguments' => array(
        'file' => 'CHANGELOG.TXT',
-       // 6.0.091 (2014-08-13)
+       // 6.0.091
        'pattern' => '([0-9\.]+)',
        'lines' => 2,
        'cols' => 20,
@@ -75,26 +75,30 @@ function tcpdf_document_tcpdf_loaded() {
  * The returned PDFDocument instance can be edited with the all available TCPDF class methods and additional
  * methods defined in the class PDFDocument (see class description).
  *
- * @param array $options
- *   Associative array containing basic settings. All values have a default.
- *     'title' => Title of the document
- *     'subject' => Subject of the document
- *     'author' => Author of the document
- *     'keywords' => Comma separated list of keywords
- *     'header' => Array
+ * @param array  $options
+ *        Associative array containing basic settings. All values have a default.
+ *        'title' => Title of the document
+ *        'subject' => Subject of the document
+ *        'author' => Author of the document
+ *        'keywords' => Comma separated list of keywords
+ *        'header' => Array
  *        'html' => Html code of the header.
  *        'callback' => Document method that generates the header. If 'html' is set, it's ignored.
  *        'textcolor' => Array with rgb-values for header text color, default = array(0,0,0)
  *        'linecolor' => Array with rgb-values for header line color, default = array(0,0,0)
- *     'footer' => Array
+ *        'footer' => Array
  *        'html' => Html code of the footer.
  *        'callback' => Document method that generates the footer. If 'html' is set, it's ignored.
  *        'textcolor' => Array with rgb-values for header text color, default = array(0,0,0)
  *        'linecolor' => Array with rgb-values for header line color, default = array(0,0,0)
  *
- * @return obj The created and initialized pdf document.
+ * @param $orientation (string) page orientation. Possible values are (case insensitive):<ul><li>P or Portrait (default)</li><li>L or Landscape</li><li>'' (empty string) for automatic orientation</li></ul>
+ * @param $unit (string) User measure unit. Possible values are:<ul><li>pt: point</li><li>mm: millimeter (default)</li><li>cm: centimeter</li><li>in: inch</li></ul><br />A point equals 1/72 of inch, that is to say about 0.35 mm (an inch being 2.54 cm). This is a very common unit in typography; font sizes are expressed in that unit.
+ * @param $format (mixed) The format used for pages. It can be either: one of the string values specified at getPageSizeFromFormat() or an array of parameters specified at setPageFormat().
+ *
+ * @return \obj The created and initialized pdf document.
  */
-function tcpdf_document_instance($options = array()) {
+function tcpdf_document_instance($options = array(), $orientation='P', $unit='mm', $format='A4') {
   // check tcpdf library
   if (!tcpdf_document_tcpdf_loaded()) {
     drupal_set_message('The TCPDF library could not be loaded', 'error');
@@ -105,7 +109,7 @@ function tcpdf_document_instance($options = array()) {
   }
 
   // create pdf document
-  $pdf = new PDFDocument();
+  $pdf = new PDFDocument($orientation, $unit, $format);
   $pdf->InitializeDocument($options);
 
   return $pdf;
