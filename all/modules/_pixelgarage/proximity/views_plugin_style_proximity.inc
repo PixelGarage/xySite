@@ -14,6 +14,7 @@ class views_plugin_style_proximity extends views_plugin_style {
 
     // define default options
     $default_options = array(
+      'proximity_random_position' => 1,
       'proximity_trans_duration' => 400,
       'proximity_start_scale' => 1.0,
       'proximity_end_scale' => 1.3,
@@ -51,6 +52,14 @@ class views_plugin_style_proximity extends views_plugin_style {
     );
 
     // define proximity effect
+    $form['proximity_random_position'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Position items randomly'),
+      '#description' => t('Flag defines, if the position of the proximity items are randomly set inside the container or not.'),
+      '#default_value' => $default_values['proximity_random_position'],
+      '#weight' => 0,
+      '#fieldset' => 'proximity',
+    );
     $form['proximity_item_selector'] = array(
       '#type' => 'textfield',
       '#title' => t('Item selector'),
@@ -129,13 +138,7 @@ class views_plugin_style_proximity extends views_plugin_style {
 
     // display help text for proximity usage
     $form['proximity_help'] = array(
-      '#markup' => t('<br><h2>How to use proximity view</h2>' .
-        '<h3>Title</h3>' .
-        '<p>Text</p><br>.' .
-        '<h6>Best practice:</h6> <ol>' .
-        '<li></li>' .
-        '</ol>' .
-        '<em>Remark:</em> '),
+      '#markup' => t('Help text'),
       '#fieldset' => 'proximity',
     );
 

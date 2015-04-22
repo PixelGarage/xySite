@@ -1060,7 +1060,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'CallunaRegular';
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -5820,7 +5820,7 @@ button.close {
   z-index: 1070;
   display: block;
   visibility: visible;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'CallunaRegular';
   font-size: 12px;
   font-weight: normal;
   line-height: 1.4;
@@ -5927,7 +5927,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'CallunaRegular';
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -7228,6 +7228,9 @@ fieldset.features-export-component .component-select .form-type-checkbox input[t
 div.features-export-list .form-type-checkbox input[type=checkbox] {
   margin-top: 0;
 }
+/* --------------------------------------------------
+ * Pixelgarage fonts
+ * --------------------------------------------------*/
 /*!
  *  Font Awesome 4.0.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -8567,11 +8570,29 @@ div.features-export-list .form-type-checkbox input[type=checkbox] {
   content: "\f196";
 }
 @font-face {
-  font-family: 'Example';
-  src: url('../fonts/example/Example.eot');
-  src: url('../fonts/example/Example.eot?#iefix') format('embedded-opentype'), url('../fonts/example/Example.woff') format('woff'), url('../fonts/example/Example.ttf') format('truetype'), url('../fonts/example/Example.svg#fontawesomeregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'CallunaSansBold';
+  src: url('../fonts/CallunaSansBold/CallunaSansBold.eot');
+  src: url('../fonts/CallunaSansBold/CallunaSansBold.eot') format('embedded-opentype'), url('../fonts/CallunaSansBold/CallunaSansBold.woff2') format('woff2'), url('../fonts/CallunaSansBold/CallunaSansBold.woff') format('woff'), url('../fonts/CallunaSansBold/CallunaSansBold.ttf') format('truetype'), url('../fonts/CallunaSansBold/CallunaSansBold.svg#CallunaSansBold') format('svg');
+}
+@font-face {
+  font-family: 'CallunaRegular';
+  src: url('../fonts/CallunaRegular/CallunaRegular.eot');
+  src: url('../fonts/CallunaRegular/CallunaRegular.eot') format('embedded-opentype'), url('../fonts/CallunaRegular/CallunaRegular.woff2') format('woff2'), url('../fonts/CallunaRegular/CallunaRegular.woff') format('woff'), url('../fonts/CallunaRegular/CallunaRegular.ttf') format('truetype'), url('../fonts/CallunaRegular/CallunaRegular.svg#CallunaRegular') format('svg');
+}
+@font-face {
+  font-family: 'CallunaIt';
+  src: url('../fonts/CallunaIt/CallunaIt.eot');
+  src: url('../fonts/CallunaIt/CallunaIt.eot') format('embedded-opentype'), url('../fonts/CallunaIt/CallunaIt.woff2') format('woff2'), url('../fonts/CallunaIt/CallunaIt.woff') format('woff'), url('../fonts/CallunaIt/CallunaIt.ttf') format('truetype'), url('../fonts/CallunaIt/CallunaIt.svg#CallunaIt') format('svg');
+}
+@font-face {
+  font-family: 'CallunaBold';
+  src: url('../fonts/CallunaBold/CallunaBold.eot');
+  src: url('../fonts/CallunaBold/CallunaBold.eot') format('embedded-opentype'), url('../fonts/CallunaBold/CallunaBold.woff2') format('woff2'), url('../fonts/CallunaBold/CallunaBold.woff') format('woff'), url('../fonts/CallunaBold/CallunaBold.ttf') format('truetype'), url('../fonts/CallunaBold/CallunaBold.svg#CallunaBold') format('svg');
+}
+@font-face {
+  font-family: 'CallunaSansRegular';
+  src: url('../fonts/CallunaSansRegular/CallunaSansRegular.eot');
+  src: url('../fonts/CallunaSansRegular/CallunaSansRegular.eot') format('embedded-opentype'), url('../fonts/CallunaSansRegular/CallunaSansRegular.woff2') format('woff2'), url('../fonts/CallunaSansRegular/CallunaSansRegular.woff') format('woff'), url('../fonts/CallunaSansRegular/CallunaSansRegular.ttf') format('truetype'), url('../fonts/CallunaSansRegular/CallunaSansRegular.svg#CallunaSansRegular') format('svg');
 }
 /* --------------------------------------------------
  * Pixelgarage Mixins library
