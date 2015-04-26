@@ -14,6 +14,11 @@ Locked Modules (no update)
 Security settings Going LIVE
 ============================
 1) Run security review (fix reported security threads)
-2) Run MD5 Check to create checksum for all modules
-3) Setup aes security (use key in db)
-4) DB backup only with encryption (see Backup and migrate)
+    a) Get help about site_audit specific commands
+    drush help --filter=site_audit
+
+    b) Start a report and save it as html
+    drush aa --html --bootstrap --detail --skip=insights > ~/Desktop/report.html
+
+2) Setup aes security (use key in db)
+3) DB and files backup only with encryption (see Backup and migrate)
