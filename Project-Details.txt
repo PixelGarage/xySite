@@ -2,12 +2,11 @@ Specific Project Details:
 
 Changes in Modules (Patches)
 ============================
-1)
+1) Libraries module patched (get version of library corrected)
 
 
 Locked Modules (no update)
 ===================
-1) Adaptive Theme 3.1 nicht updaten
 
 
 
