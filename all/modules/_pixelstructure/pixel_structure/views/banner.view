@@ -18,30 +18,22 @@ $handler->display->display_options['cache']['type'] = 'none';
 $handler->display->display_options['query']['type'] = 'views_query';
 $handler->display->display_options['exposed_form']['type'] = 'basic';
 $handler->display->display_options['pager']['type'] = 'none';
-$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['style_plugin'] = 'views_bootstrap_carousel_plugin_style';
+$handler->display->display_options['style_options']['interval'] = '5000';
+$handler->display->display_options['style_options']['navigation'] = 1;
+$handler->display->display_options['style_options']['indicators'] = 0;
+$handler->display->display_options['style_options']['pause'] = 1;
 $handler->display->display_options['row_plugin'] = 'fields';
-/* Field: Content: Picture */
-$handler->display->display_options['fields']['field_picture']['id'] = 'field_picture';
-$handler->display->display_options['fields']['field_picture']['table'] = 'field_data_field_picture';
-$handler->display->display_options['fields']['field_picture']['field'] = 'field_picture';
-$handler->display->display_options['fields']['field_picture']['label'] = '';
-$handler->display->display_options['fields']['field_picture']['element_type'] = '0';
-$handler->display->display_options['fields']['field_picture']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['field_picture']['click_sort_column'] = 'fid';
-$handler->display->display_options['fields']['field_picture']['type'] = 'image_url';
-$handler->display->display_options['fields']['field_picture']['settings'] = array(
-  'image_style' => 'banner',
-  'image_link' => '',
-);
-/* Field: Content: Links */
-$handler->display->display_options['fields']['field_banner_links']['id'] = 'field_banner_links';
-$handler->display->display_options['fields']['field_banner_links']['table'] = 'field_data_field_banner_links';
-$handler->display->display_options['fields']['field_banner_links']['field'] = 'field_banner_links';
-$handler->display->display_options['fields']['field_banner_links']['label'] = '';
-$handler->display->display_options['fields']['field_banner_links']['element_label_colon'] = FALSE;
-$handler->display->display_options['fields']['field_banner_links']['click_sort_column'] = 'url';
-$handler->display->display_options['fields']['field_banner_links']['delta_offset'] = '0';
-$handler->display->display_options['fields']['field_banner_links']['multi_type'] = 'ul';
+/* Field: Content: Rendered Node */
+$handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
+$handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_node';
+$handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';
+$handler->display->display_options['fields']['rendered_entity']['label'] = '';
+$handler->display->display_options['fields']['rendered_entity']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
+$handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
+$handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'full';
+$handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
 /* Sort criterion: Global: Random */
 $handler->display->display_options['sorts']['random']['id'] = 'random';
 $handler->display->display_options['sorts']['random']['table'] = 'views';
@@ -79,28 +71,6 @@ $handler->display->display_options['filters']['type']['field'] = 'type';
 $handler->display->display_options['filters']['type']['value'] = array(
   'banner' => 'banner',
 );
-/* Filter criterion: Content: Segment (field_segment) */
-$handler->display->display_options['filters']['field_segment_tid']['id'] = 'field_segment_tid';
-$handler->display->display_options['filters']['field_segment_tid']['table'] = 'field_data_field_segment';
-$handler->display->display_options['filters']['field_segment_tid']['field'] = 'field_segment_tid';
-$handler->display->display_options['filters']['field_segment_tid']['operator'] = 'empty';
-$handler->display->display_options['filters']['field_segment_tid']['value'] = '';
-$handler->display->display_options['filters']['field_segment_tid']['vocabulary'] = 'segments';
-
-/* Display: Segment Block */
-$handler = $view->new_display('block', 'Segment Block', 'block_1');
-$handler->display->display_options['defaults']['arguments'] = FALSE;
-/* Contextual filter: Content: Segment (field_segment) */
-$handler->display->display_options['arguments']['field_segment_tid']['id'] = 'field_segment_tid';
-$handler->display->display_options['arguments']['field_segment_tid']['table'] = 'field_data_field_segment';
-$handler->display->display_options['arguments']['field_segment_tid']['field'] = 'field_segment_tid';
-$handler->display->display_options['arguments']['field_segment_tid']['default_action'] = 'default';
-$handler->display->display_options['arguments']['field_segment_tid']['default_argument_type'] = 'context';
-$handler->display->display_options['arguments']['field_segment_tid']['default_argument_options']['namespace'] = 'hso';
-$handler->display->display_options['arguments']['field_segment_tid']['default_argument_options']['attribute'] = 'current_segment';
-$handler->display->display_options['arguments']['field_segment_tid']['summary']['number_of_records'] = '0';
-$handler->display->display_options['arguments']['field_segment_tid']['summary']['format'] = 'default_summary';
-$handler->display->display_options['arguments']['field_segment_tid']['summary_options']['items_per_page'] = '25';
 $translatables['banners'] = array(
   t('Master'),
   t('more'),
@@ -110,6 +80,4 @@ $translatables['banners'] = array(
   t('Asc'),
   t('Desc'),
   t('Home Block'),
-  t('Segment Block'),
-  t('All'),
 );
