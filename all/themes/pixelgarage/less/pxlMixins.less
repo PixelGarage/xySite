@@ -55,5 +55,71 @@
     box-sizing: @size;
   }
 
+  // three part elements
+  .three-part-element (@left-img; @middle-img; @right-img; @bg-color: transparent; @height: 30px; @ends-width: 15px) {
+    position: relative;
+    display: block;
+    height: @height;
+    width: auto;
+
+    /* give the pseudo-elements space due to absolute positioning */
+    margin: 0 @ends-width;
+    border: 0;
+    outline: 0;
+    background: @bg-color @middle-img top left / auto 100% repeat-x;
+
+    &::before,
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      width: @ends-width;
+      height: @height;
+    }
+    &::before {
+      left: -@ends-width;
+      background: @bg-color @left-img top right / auto 100%  no-repeat;
+    }
+    &::after {
+      right: -@ends-width;
+      background: @bg-color @right-img top left / auto 100%  no-repeat;
+    }
+  }
+
+
+  // wysiwyg body
+  .wysiwyg-body() {
+    h1, h2, h3, h4, h5, h6 {
+      font-family: @pxl-text-font;
+      font-size: @font-size-base;
+    }
+    h1, h2, h3 {
+      font-size: @font-size-large;
+    }
+
+    p, tbody td {
+      font-family: @pxl-text-font;
+      font-size: @font-size-base;
+    }
+
+    pre, address {
+      font-family: @pxl-text-font-italics;
+      font-size: @font-size-base;
+    }
+
+    hr {
+      border: 0;
+      border-bottom: 2px solid @text-color;
+      background: none;
+    }
+
+    img, embed, video, audio, iframe {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+
 }
 

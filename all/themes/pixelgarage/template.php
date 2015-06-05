@@ -14,7 +14,6 @@ include_once($pixelgarage_path . '/inc/process.inc');      // all process overri
 include_once($pixelgarage_path . '/inc/theme.inc');        // all theme overrides
 
 
-
 /* =============================================================================
  *
  *      PxlTest theming
