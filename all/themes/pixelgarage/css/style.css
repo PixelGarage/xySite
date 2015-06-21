@@ -3319,8 +3319,8 @@ fieldset[disabled] .btn-link:focus {
 }
 .btn-lg,
 .btn-group-lg > .btn,
-.page-user-login .btn,
 #user-create-account .login-register,
+#user_login_form .form-actions-wrapper .form-actions .btn,
 #user-register-form .form-actions .btn,
 #user-pass .form-actions .btn {
   padding: 10px 16px;
@@ -8650,18 +8650,37 @@ div.features-export-list .form-type-checkbox input[type=checkbox] {
 #user_register_form,
 #user_login_form,
 #user-create-account,
-#user_pass_form,
-#user_login_form {
+#user_pass_form {
   clear: both;
   float: none;
   width: auto;
 }
-.page-user-login .btn,
-#user-create-account .login-register,
-#user-register-form .form-actions .btn,
-#user-pass .form-actions .btn {
+/* User login page */
+form#user-login {
+  position: relative;
+  padding: 2em;
   border: none;
-  color: #fff;
+}
+/* account register form */
+#user-create-account {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 0 2em;
+  width: 100%;
+}
+@media screen and (min-width: 992px) {
+  #user-create-account {
+    padding: 2em;
+    width: 50%;
+  }
+}
+#user-create-account .form-actions-wrapper {
+  position: relative;
+  padding: 1em 0 0;
+}
+#user-create-account .login-register {
+  border: none;
+  color: #ffffff;
   -moz-border-radius: 0.25em;
   -webkit-border-radius: 0.25em;
   border-radius: 0.25em;
@@ -8670,11 +8689,14 @@ div.features-export-list .form-type-checkbox input[type=checkbox] {
   background-image: linear-gradient(to bottom, #a70014 0%, #410008 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa70014', endColorstr='#ff410008', GradientType=0);
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  vertical-align: middle;
+  margin: 0;
 }
-.page-user-login .btn:hover,
-#user-create-account .login-register:hover,
-#user-register-form .form-actions .btn:hover,
-#user-pass .form-actions .btn:hover {
+#user-create-account .login-register:hover {
+  color: #ffffff;
   background-image: -webkit-linear-gradient(top, #410008 0%, #a70014 100%);
   background-image: -o-linear-gradient(top, #410008 0%, #a70014 100%);
   background-image: linear-gradient(to bottom, #410008 0%, #a70014 100%);
@@ -8682,40 +8704,22 @@ div.features-export-list .form-type-checkbox input[type=checkbox] {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff410008', endColorstr='#ffa70014', GradientType=0);
   text-decoration: none;
 }
-/* User login page */
-form#user-login {
-  position: relative;
-  padding: 2em;
-  border: none;
-}
-#user-create-account,
+/* user login form */
 #user_login_form {
   display: inline-block;
   vertical-align: top;
   padding: 0 0 2em;
   width: 100%;
-}
-#user-create-account .form-actions-wrapper {
-  position: relative;
-  padding: 1em 0 0;
-}
-#user-create-account .login-register {
-  display: inline-block;
-  position: absolute;
-  right: 0;
-  vertical-align: middle;
-  margin: 0;
+  border: 0;
+  border-bottom: 1px solid #eeeeee;
 }
 @media screen and (min-width: 992px) {
-  #user-create-account,
   #user_login_form {
     padding: 2em;
     width: 50%;
+    border: 0;
+    border-right: 1px solid #eeeeee;
   }
-}
-#user_login_form {
-  border: 0;
-  border-bottom: 1px solid #eeeeee;
 }
 #user_login_form .form-actions-wrapper {
   position: relative;
@@ -8728,35 +8732,48 @@ form#user-login {
   vertical-align: middle;
   margin: 0;
 }
-#user_login_form .btn {
+#user_login_form .form-actions-wrapper .form-actions .btn {
+  border: none;
+  color: #ffffff;
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+  background-image: -webkit-linear-gradient(top, #a70014 0%, #410008 100%);
+  background-image: -o-linear-gradient(top, #a70014 0%, #410008 100%);
+  background-image: linear-gradient(to bottom, #a70014 0%, #410008 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa70014', endColorstr='#ff410008', GradientType=0);
   background-image: -webkit-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
   background-image: -o-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
   background-image: linear-gradient(to bottom, #2698f2 0%, #0a62a8 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2698f2', endColorstr='#ff0a62a8', GradientType=0);
 }
-#user_login_form .btn:hover {
+#user_login_form .form-actions-wrapper .form-actions .btn:hover {
+  color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #410008 0%, #a70014 100%);
+  background-image: -o-linear-gradient(top, #410008 0%, #a70014 100%);
+  background-image: linear-gradient(to bottom, #410008 0%, #a70014 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff410008', endColorstr='#ffa70014', GradientType=0);
+  text-decoration: none;
+}
+#user_login_form .form-actions-wrapper .form-actions .btn:hover {
   background-image: -webkit-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
   background-image: -o-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
   background-image: linear-gradient(to bottom, #0a62a8 0%, #2698f2 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0a62a8', endColorstr='#ff2698f2', GradientType=0);
 }
-#user_login_form .login-password {
+#user_login_form .form-actions-wrapper .login-password {
   display: inline-block;
   margin: 0.5em 0;
   color: #2698f2;
 }
-#user_login_form .login-password:hover {
+#user_login_form .form-actions-wrapper .login-password:hover {
+  color: #2698f2;
   text-decoration: underline;
 }
-@media screen and (min-width: 992px) {
-  #user_login_form {
-    border: 0;
-    border-right: 1px solid #eeeeee;
-  }
-}
-/* User register / password pages */
+/* User register / password forms */
 #user-register-form,
 #user-pass {
   display: inline-block;
@@ -8795,7 +8812,27 @@ form#user-login {
 }
 #user-register-form .form-actions .btn,
 #user-pass .form-actions .btn {
+  border: none;
+  color: #ffffff;
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+  background-image: -webkit-linear-gradient(top, #a70014 0%, #410008 100%);
+  background-image: -o-linear-gradient(top, #a70014 0%, #410008 100%);
+  background-image: linear-gradient(to bottom, #a70014 0%, #410008 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa70014', endColorstr='#ff410008', GradientType=0);
   float: right;
+}
+#user-register-form .form-actions .btn:hover,
+#user-pass .form-actions .btn:hover {
+  color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #410008 0%, #a70014 100%);
+  background-image: -o-linear-gradient(top, #410008 0%, #a70014 100%);
+  background-image: linear-gradient(to bottom, #410008 0%, #a70014 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff410008', endColorstr='#ffa70014', GradientType=0);
+  text-decoration: none;
 }
 /*
  *  ShareThis component
