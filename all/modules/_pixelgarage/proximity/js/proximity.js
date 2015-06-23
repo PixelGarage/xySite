@@ -7,28 +7,88 @@
  */
 
 (function($) {
+    /**
+     * Proximity event handler (default implementation).
+     *
+     * The default event handler can be overwritten by adding a new handler to the Drupal.settings.proximityEventHandler
+     * in a separate java script file. Make sure that the script file is loaded after this script file to have any effect.
+     *
+     * The following parameters are available in the event handler:
+     *
+     * @param event object  The event object with the all event properties.
+     *                      The event.data object contains the following proximity event specific data:
+     *                          min                 : defined max. distance (pixels) from item with proximity factor equal 1 (default = 0)
+     *                          max                 : outside this defined distance (pixels) the proximity factor is 0 (proximity extent)
+     *                          startScale          : starting item scale factor (float) of proximity effect (defined in proximity view settings)
+     *                          endScale	        : ending item scale factor (float) of proximity effect (defined in proximity view settings)
+     *                          startOpacity        : starting item opacity factor (float) of proximity effect (defined in proximity view settings)
+     *                          endOpacity          : ending item opacity factor (float) of proximity effect (defined in proximity view settings)
+     *                          containerSelector   : css-selector of proximity container (can be used to define different proximity effects for different containers)
+     *                          descrSelector       : css-selector of the item description element, that can be displayed when pointer is close.
+     *
+     * @param proximity float  The proximity factor [0,1]. 0 means no proximity effect (too far away from item), 1 means full proximity effect (closer than min. distance)
+     *
+     * @param distance  int     Distance of pointer from item (bounding box) in pixels.
+     *
+     */
+    Drupal.settings.proximityEventHandler = function(event, proximity, distance) {
+        // scale and / or change opacity of item depending on the mouse-item distance
+        var $item		= $(this),
+            d           = event.data,
+            $descr      = $item.find(d.descrSelector),
+            scaleVal	= proximity * ( d.endScale - d.startScale ) + d.startScale,
+            scaleExp	= 'scale(' + scaleVal + ')',
+            opacityVal  = proximity * (d.endOpacity - d.startOpacity ) + d.startOpacity;
+
+        // force the item to the front when proximity equals 1 and show its description, if available
+        if (proximity == 1) {
+            // put cell to front
+            $item.css( 'z-index', 10 );
+            $descr.fadeIn(d.transDuration);
+
+        } else {
+            // reset cell, stop animation and hide description
+            $item.css( 'z-index', 1 );
+            $descr.stop(true,true).hide();
+
+        }
+
+        // scale item and set its transparency
+        $item.css({
+            '-webkit-transform'	: scaleExp,
+            '-moz-transform'	: scaleExp,
+            '-o-transform'		: scaleExp,
+            '-ms-transform'		: scaleExp,
+            'transform'			: scaleExp,
+            'opacity'			: opacityVal
+        });
+    };
+
 
     /**
-     * This behavior adds the proximity event to all items in the responsive proximity widget.
+     * This behavior initialises the proximity items in the responsive proximity widget (proximity behavior and item positioning).
      * The proximity event is supported in IE 9+, Chrome, Firefox, Safari and Opera.
      */
     Drupal.behaviors.proximityInitItems =  {
         attach: function() {
 
-          // Iterate through all proximity view instances
+          // Iterate through all proximity container instances
           $.each(Drupal.settings.proximity, function (container, settings) {
 
-              var $container  = $(container),
+              var $container  = $('#' + container),
                   $items      = $container.find(settings.item_selector),
-                  minScale    = parseFloat(settings.start_scale),
-                  maxScale	  = parseFloat(settings.end_scale),
-                  minOpacity  = parseFloat(settings.start_opacity),
-                  maxOpacity  = parseFloat(settings.end_opacity),
                   eventData   = {
-                    min             : 0,
-                    max             : parseInt(settings.extent),
-                    throttle        : 20,
-                    fireOutOfBounds : true
+                      min               : 0,
+                      max               : parseInt(settings.extent),
+                      throttle          : 20,
+                      fireOutOfBounds   : true,
+                      startScale        : parseFloat(settings.start_scale),
+                      endScale	        : parseFloat(settings.end_scale),
+                      startOpacity      : parseFloat(settings.start_opacity),
+                      endOpacity        : parseFloat(settings.end_opacity),
+                      transDuration     : parseInt(settings.trans_duration),
+                      containerSelector : container,
+                      descrSelector     : settings.desc_selector
                   },
                   _getRandomInt = function(min, max) {
                       return Math.floor(Math.random() * (max - min)) + min;
@@ -36,16 +96,16 @@
 
 
               // random positioning on tablets and bigger screens, if requested
-              if (settings.random_position) {
+              if (settings.position_randomly) {
                   var randomlyPositioned = false;
 
                   // add window load and resize events
                   $(window).off('.proximity');
                   $(window).on('load.proximity resize.proximity', function() {
                       // initialize grid for random item positioning
-                      var whItem = 60,
-                          xGrid = Math.floor($container.width() / whItem),
-                          yGrid = Math.floor($container.height() / whItem),
+                      var cellSize = parseInt(settings.random_grid_cell_size),
+                          xGrid = Math.floor($container.width() / cellSize),
+                          yGrid = Math.floor($container.height() / cellSize),
                           grid = new Array(xGrid * yGrid),
                           _randomItemPosInGrid = function($itemPos) {
                               var xPos = _getRandomInt(0, xGrid-1),
@@ -57,30 +117,16 @@
                                   grid[index] = 1;
                                   if (xPos > 0) grid[index-1] = 1;
                                   if (xPos < xGrid-1) grid[index+1] = 1;
-                                  $itemPos.iTop = yPos*whItem;
-                                  $itemPos.iLeft = xPos*whItem;
+                                  $itemPos.iTop = yPos*cellSize;
+                                  $itemPos.iLeft = xPos*cellSize;
                                   return true;
                               }
                               return false;
-                          },
-                          _posItemDialog = function($item, $dialog, iTop, iLeft) {
-                              // size and position the dialog based on the scaled item
-                              var dist        = 20,
-                                  wItem       = $item.width() + dist,
-                                  wShift      = $container.offset().left,
-                              // show dialog always inside of the item container (left or right of cell
-                                  leftPos     = (iLeft + wItem + $dialog.width() > $container.width())
-                                      ? Math.max(iLeft + wShift - $dialog.width() - dist, wShift)    // left of cell
-                                      : iLeft + wShift + wItem;                               // right of cell
-
-                              // position dialog
-                              $dialog.css({'position': 'absolute', 'top': iTop, 'left': leftPos});
                           };
 
-                      // position all items and their dialogs
+                      // position all items
                       $items.each(function () {
-                          var $item = $(this),
-                              $dialog = $item.next().find('.modal-dialog');
+                          var $item = $(this);
 
                           if ($(window).width() >= 768) {
                               // random positioning once per page load
@@ -95,12 +141,10 @@
                               } while (!_randomItemPosInGrid($pos) && count < 10);
 
                               $item.css({'position': 'absolute', 'top': $pos.iTop, 'left': $pos.iLeft});
-                              //_posItemDialog($item, $dialog, $pos.iTop, $pos.iLeft);
 
                           } else {
-                              // normal positioning of item and dialog
+                              // position item in css
                               $item.css({'position': 'static', 'top': 'auto', 'left': 'auto'});
-                              //$dialog.css({'position': 'relative', 'top': 0, 'left': 0});
                           }
                       });
 
@@ -112,53 +156,7 @@
 
               // attach the proximity event handler to all proximity items (once)
               $items.once('pe', function() {
-                $(this).on('proximity', eventData, function(event, proximity, distance) {
-                    // scale and / or change opacity of item depending on the mouse-item distance
-                    var $item		= $(this),
-                        scaleVal	= proximity * ( maxScale - minScale ) + minScale,
-                        scaleExp	= 'scale(' + scaleVal + ')',
-                        opacityVal  = proximity * ( maxOpacity - minOpacity ) + minOpacity;
-
-                    // force the cell to the front when it reaches the maximum scale value and show its description, if available
-                    if (scaleVal === maxScale) {
-                        // put cell to front
-                        $item.css( 'z-index', 10 );
-
-                    } else {
-                        // reset cell, stop animation and hide description
-                        $item.css( 'z-index', 1 );
-
-                    }
-
-                    // scale cell and set its transparency
-                    $item.css({
-                        '-webkit-transform'	: scaleExp,
-                        '-moz-transform'	: scaleExp,
-                        '-o-transform'		: scaleExp,
-                        '-ms-transform'		: scaleExp,
-                        'transform'			: scaleExp,
-                        'opacity'			: opacityVal
-                    });
-                });
-              });
-
-              // attach click event to all proximity items to load dialog content via AJAX
-              $items.once('click', function() {
-                $(this).on('click', function(ev) {
-                    var $button = $(this).find('a.btn'),
-                        $target = $('#pe-modal-dialog .modal-body'),
-                        param = $button.attr('data-ajax-load-param'),
-                        ajax_url = settings.ajax_url + param;
-
-                    // set the loading html on the target and load target content via ajax
-                    $target.html(settings.ajax_loading);
-                    $target.load(ajax_url, function( response, status, xhr ) {
-                        if ( status == "error" ) {
-                            var msg = "Content could not be loaded: ";
-                            $target.html( msg + xhr.status + " " + xhr.statusText );
-                        }
-                    });
-                });
+                  $(this).on('proximity', eventData, Drupal.settings.proximityEventHandler);
               });
 
               // init all proximity items with given settings by triggering a mouse move on document
@@ -168,7 +166,6 @@
 
         }
     };
-
 
 })(jQuery);
 
