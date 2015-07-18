@@ -24,6 +24,22 @@
     border-radius: @radius;
   }
 
+  // flexible word wrapping
+  .word-break() {
+    // Warning: Needed for oldIE support, but words are broken up letter-by-letter
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+    // Non standard for webkit, breaks between words
+    word-break: break-word;
+
+    // uses dictionaries for correct word breaking in supported languages
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+
   // centers an element vertically in its container (block with height)
   .center-vertically {
     position: relative;
