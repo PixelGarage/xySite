@@ -8582,39 +8582,6 @@ div.features-export-list .form-type-checkbox input[type=checkbox] {
  * Pixelgarage Components
  * --------------------------------------------------*/
 /*
- *  pxlTest component
- * --------------------------------------------------*/
-/* Resize icon to navbar dimensions */
-.navbar-header .logo img {
-  max-height: 32px;
-}
-/* PxlTest content type */
-.view-pxltest .views-row {
-  border-bottom: 1px solid #eeeeee;
-}
-.view-pxltest .views-row .node-pxltest {
-  margin: 50px 0 20px;
-}
-/* View mode switcher */
-.switch-view-mode-field > span {
-  display: block;
-  float: right;
-  padding: 10px 15px;
-  color: #31708f;
-  border-radius: 4px;
-  border: 1px solid #eeeeee;
-}
-.switch-view-mode-field > span > a {
-  display: block;
-  color: #777777;
-}
-.switch-view-mode-field > span > a:hover {
-  text-decoration: underline;
-}
-.switch-view-mode-field > span + span {
-  margin-right: 5px;
-}
-/*
  *  Login form component
  *  (see inc/login.inc for login form alteration)
  * --------------------------------------------------*/
@@ -8827,12 +8794,31 @@ form#user-login {
 }
 .sharethis-wrapper {
   margin: 0;
-  text-align: left;
+  text-align: right;
 }
 .sharethis-wrapper > span .stButton {
   margin: 0;
 }
 .sharethis-wrapper > span .stButton .stLarge {
+  font-family: "SSSocial-Circle";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  -o-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  font-size: 2em;
+  color: #ffffff;
+  height: 1.2em;
+  background-image: none !important;
+}
+.sharethis-wrapper > span .stButton .stLarge:hover {
   font-family: "SSSocial-Regular";
   font-style: normal;
   font-weight: normal;
@@ -8846,13 +8832,7 @@ form#user-login {
   -o-font-feature-settings: "liga";
   font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
-  background-image: none !important;
-  font-size: 2em;
-  color: #888;
-  height: 1.2em;
-}
-.sharethis-wrapper > span .stButton .stLarge:hover {
-  color: #333;
+  opacity: 1.0;
 }
 .sharethis-wrapper > span .stButton .stLarge:before {
   display: inline-block;
@@ -8873,6 +8853,93 @@ form#user-login {
 }
 .st_pinterest_large .stButton .stLarge:before {
   content: "\f650";
+}
+#block-follow-site .follow-links .follow-link-wrapper {
+  margin: 0;
+}
+#block-follow-site .follow-links .follow-link-wrapper a.follow-link {
+  padding: 0 10px;
+  font-family: "SSSocial-Circle";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  -o-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  font-size: 24px;
+  color: #777777;
+  background-image: none !important;
+}
+#block-follow-site .follow-links .follow-link-wrapper a.follow-link:hover {
+  font-family: "SSSocial-Regular";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  -o-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+#block-follow-site .follow-links .follow-link-wrapper a.follow-link.follow-link-facebook:before {
+  content: "\f610";
+}
+#block-follow-site .follow-links .follow-link-wrapper a.follow-link.follow-link-twitter:before {
+  content: "\f611";
+}
+/*
+ *  Language block component
+ * --------------------------------------------------*/
+#block-locale-language {
+  display: inline-block;
+  font-family: 'Droid Serif', serif;
+  font-size: 16px;
+}
+#block-locale-language ul.language-switcher-locale-url {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#block-locale-language ul.language-switcher-locale-url > li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin: 0 -0.25em 0 0;
+  padding: 0 10px;
+  line-height: 1;
+  border-right: 1px solid #333333;
+}
+#block-locale-language ul.language-switcher-locale-url > li.first {
+  margin-left: 0;
+  padding-left: 0;
+}
+#block-locale-language ul.language-switcher-locale-url > li.last {
+  border-right: none;
+}
+#block-locale-language ul.language-switcher-locale-url > li a.language-link {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #337ab7;
+  outline: none;
+}
+#block-locale-language ul.language-switcher-locale-url > li a.language-link.active,
+#block-locale-language ul.language-switcher-locale-url > li a.language-link:hover {
+  font-family: 'BrandonGrotesque-Bold';
+  text-decoration: none;
+}
+#block-locale-language ul.language-switcher-locale-url > li span.locale-untranslated {
+  color: #555555;
 }
 /*
  *  Header section (navigation)

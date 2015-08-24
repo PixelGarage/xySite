@@ -6,6 +6,9 @@
 // -------------------------
 @ss-font-path: "@{pxl-font-path}/ss-social";
 @ss-sub-font: "Circle"; // supported sub-fonts are "Circle" and "Regular"
+@ss-sub-font-hover: "Regular";
+@pxl-share-color: #fff;
+@pxl-follow-color: @gray-light;
 
 
 // Social icon Fonts
@@ -57,20 +60,21 @@
 }
 .sharethis-wrapper {
   margin: 0;
-  text-align: left;
+  text-align: right;
 
   > span .stButton {
     margin: 0;
 
     .stLarge {
-      .ss-social("Regular");
-      background-image: none !important;
+      .ss-social(@ss-sub-font);
       font-size: 2em;
-      color: #888;
+      color: @pxl-share-color;
       height: 1.2em;
+      background-image: none !important;
 
       &:hover {
-        color: #333;
+        .ss-social(@ss-sub-font-hover);
+        opacity: 1.0;
       }
 
       &:before {
@@ -97,4 +101,35 @@
 }
 .st_pinterest_large .stButton .stLarge:before {
   content: "\f650";
+}
+
+//
+// Follow site block settings
+// --------------------------
+#block-follow-site {
+  .follow-links {
+    .follow-link-wrapper {
+      margin: 0;
+
+      a.follow-link {
+        padding: 0 10px;
+        .ss-social(@ss-sub-font);
+        font-size: @font-size-larger;
+        color: @pxl-follow-color;
+        background-image: none !important;
+
+        &:hover {
+          .ss-social(@ss-sub-font-hover);
+        }
+
+        &.follow-link-facebook:before {
+          content: "\f610";
+        }
+        &.follow-link-twitter:before {
+          content: "\f611";
+        }
+
+      }
+    }
+  }
 }
