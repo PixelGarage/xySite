@@ -3,6 +3,8 @@ Specific Project Details:
 Changes in Modules (Patches)
 ============================
 1) Libraries module patched (get version of library corrected)
+2) Webform module patched (log error corrected)
+3) Webform_localizaation.module patched (serial id fix for translations)
 
 
 Locked Modules (no update)
