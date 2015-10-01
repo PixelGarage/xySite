@@ -5,37 +5,30 @@
 // Variables
 // -------------------------
 @webform-max-width: 100%;
-@webform-inline-input-width: 72%;
+@webform-inline-input-width: 58.333333%;
 
-@webform-color-submit: #0054bf;
 @webform-color-label: @text-color;
-@webform-color-text: #0054bf;
-@webform-color-border: #ddd;
-@webform-color-border-active: #3fa9e5;
-@webform-color-shadow: #0054bf;
-
-
-
+@webform-color-text: @text-color;
+@webform-color-border: transparent;
+@webform-color-border-active: @brand-primary;
+@webform-bg-color-input: #eee;
+@webform-color-shadow: @gray-lighter;
+@webform-color-submit: @text-color;
+@webform-bg-color-submit: @gray-lighter;
 
 
 
 // Mixins
 // -------------------------
 .form-label() {
+  padding: 0;
   width: auto;
-  font-family: @pxl-text-font;
-  font-size: @resp-font-size-min;
-  letter-spacing: 1.2px;
+  font-family: @pxl-text-font-bold;
+  #pxl-mixins.font-size-responsive(@resp-font-size-min, @resp-font-size-max);
+  font-weight: normal;
+  line-height: 1.5em;
   text-align: left;
-  text-transform: uppercase;
   color: @webform-color-label;
-
-  @media @narrow {
-    font-size: @resp-font-size;
-  }
-  @media @tablet {
-    font-size: @resp-font-size-max;
-  }
 
   span.form-required {
     color: @webform-color-text;
@@ -47,23 +40,19 @@
   margin: 0;
   padding: 0.5em 1em;
   font-family: @pxl-text-font-bold;
-  font-size: @resp-font-size;
+  #pxl-mixins.font-size-responsive(@resp-font-size-min, @resp-font-size-max);
   line-height: 1;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: @color;
   outline: none;
-  #pxl-mixins.border-radius(@border-radius-base);
-  border: 1px solid darken(@bg-color, 5%);
+  #pxl-mixins.border-radius(0);
+  border: none;
   background-color: @bg-color;
-
-  @media @tablet {
-    font-size: 17px;
-  }
 
   &:hover, &:focus {
     color: @bg-color;
-    background: none;
+    background: @color;
   }
 }
 
@@ -71,36 +60,17 @@
 
 // General settings
 // -------------------------
-.node-webform {
+.node-page.view-mode-anmeldung {
   div.col-sm-12 {
     width: 100%;
 
-    @media @normal {
-      width: 70%;
-    }
-
     .field-name-title {
-      h2 {
-        font-family: @pxl-text-font-bold;
-        font-size: @resp-font-size-large-min;
-        letter-spacing: 1.2px;
-        text-transform: uppercase;
-        color: @webform-color-text;
-
-        @media @narrow {
-          font-size: @resp-font-size-large;
-        }
-        @media @tablet {
-          font-size: @resp-font-size-large-max;
-        }
-      }
+      display: none;
     }
 
     form.webform-client-form {
-      margin-top: 20px;
-
       .webform-component {
-        margin: 0 auto 30px;
+        margin: 0 auto 0.8em;
         padding: 0;
         max-width: @webform-max-width;
         background-color: #fff;
@@ -117,22 +87,17 @@
         }
 
         input, textarea {
-          height: auto;
-          font-family: @pxl-text-font;
-          font-size: @resp-font-size-min;
-          letter-spacing: 1.1px;
+          padding: 0 10px;
+          height: 100%;
+          font-family: @pxl-text-font-light;
+          #pxl-mixins.font-size-responsive(@resp-font-size-min, @resp-font-size-max);
+          line-height: 1.5em;
           text-align: left;
           color: @webform-color-text;
           box-shadow: none;
-          #pxl-mixins.border-radius(@border-radius-base);
+          #pxl-mixins.border-radius(0);
           border: 1px solid @webform-color-border;
-
-          @media @narrow {
-            font-size: @resp-font-size;
-          }
-          @media @tablet {
-            font-size: @resp-font-size-max;
-          }
+          background-color: @webform-bg-color-input;
         }
         input:focus,
         textarea:focus {
@@ -146,6 +111,22 @@
           }
         }
 
+        select {
+          font-family: @pxl-text-font-light;
+          #pxl-mixins.font-size-responsive(@resp-font-size-min, @resp-font-size-max);
+          line-height: 1em;
+          text-align: left;
+          color: @webform-color-text;
+          #pxl-mixins.border-radius(0);
+          border: 1px solid @webform-color-border;
+          background-color: @webform-bg-color-input;
+          outline: none;
+
+          &:focus, &:active {
+            outline: none;
+          }
+        }
+
         .form-managed-file {
           display:inline-block;
           position: absolute;
@@ -154,7 +135,7 @@
           width: @webform-inline-input-width;
           white-space: nowrap;
           border: 1px solid @webform-color-border;
-          #pxl-mixins.border-radius(@border-radius-base);
+          #pxl-mixins.border-radius(0);
 
           input {
             position: relative;
@@ -163,10 +144,11 @@
             width: 80%;
             text-align: left;
             border: none;
+            background-color: @webform-bg-color-input;
           }
 
           button.btn {
-            .resp-submit-button(#fff, @webform-color-submit);
+            .resp-submit-button(@webform-color-submit, @webform-bg-color-submit);
             margin: 0 1%;
             vertical-align: baseline;
 
@@ -189,6 +171,26 @@
           }
         }
 
+        &.webform-component-markup {
+          margin-bottom: 25px;
+          padding-top: 15px;
+
+          h2 {
+            font-family: @pxl-text-font-bold;
+            font-weight: normal;
+            #pxl-mixins.font-size-responsive(@resp-font-size-min, @resp-font-size-max);
+            line-height: 1em;
+            text-align: left;
+          }
+          p {
+            font-family: @pxl-text-font-light;
+            #pxl-mixins.font-size-responsive(12px, 15px);
+            line-height: 22px;
+            text-align: left;
+            color: @webform-color-text;
+          }
+        }
+
         //
         // inline components
         &.webform-container-inline {
@@ -198,7 +200,7 @@
             display: inline-block;
           }
 
-          input.form-text {
+          input.form-text, select {
             position: absolute;
             right: 0;
             width: @webform-inline-input-width;
@@ -208,8 +210,11 @@
       }
 
       div.form-actions {
+        padding-top: 25px;
+
         button.webform-submit {
-          .resp-submit-button(#fff, @webform-color-submit);
+          float: right;
+          .resp-submit-button(@webform-color-submit, @webform-bg-color-submit);
         }
       }
     }
