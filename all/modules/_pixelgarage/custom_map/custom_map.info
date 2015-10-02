@@ -1,8 +1,9 @@
 name = Custom map
 description = "Provides a views style plugin allowing to display markers and routes in a custom map."
 core = 7.x
-package = PixelGarage
+package = Pixelgarage
 configure = admin/config/content/custom_map
+version = "7.x-1.0"
 
 files[] = views_plugin_style_custom_map.inc
 

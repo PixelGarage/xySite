@@ -1,6 +1,6 @@
 name = Vacuspeed Verlege-Tool
 description = "Implements the forms and logic needed for the Vacuspeed Verlege-Tool."
 core = 7.x
-package = PixelGarage
-
+package = Pixelgarage
+version = "7.x-1.1"
 dependencies[] = libraries (>=2.x)

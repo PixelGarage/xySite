@@ -1,8 +1,9 @@
 name = Pixel structure
 description = "Externalize parts of the site structure to code. Views, nodes, taxonomies are supported."
 core = 7.x
-package = PixelGarage
+package = Pixelgarage
 configure = admin/structure/pixel_structure
+version = "7.x-1.2"
 
 dependencies[] = views
 dependencies[] = bundle_copy

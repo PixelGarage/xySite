@@ -1,8 +1,9 @@
 name = Responsive widgets
 description = Provides several types of fully responsive widgets as blocks, ready to be added to your site.
 core = 7.x
-package = PixelGarage
+package = Pixelgarage
 configure = admin/structure/responsive_widgets
+version = "7.x-1.0"
 
 files[] = responsive_widgets.module
 files[] = responsive_widgets.classes.inc
