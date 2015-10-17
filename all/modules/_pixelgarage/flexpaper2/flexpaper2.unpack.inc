@@ -38,16 +38,14 @@ function flexpaper2_extract_archive_batch_process($file, &$context) {
     $extracted_dir = drupal_realpath($tmp_dir) . '/' . $top_dir;
   }
   catch (Exception $e) {
-    $context['results']['error_msg'] = $e->getMessage();
-    $context['results']['error'] = TRUE;
-    $context['finished'] = 1;
+    _flexpaper2_batch_error($e->getMessage(), null,  $context);
     return;
   }
 
   //
   // prepare files publish directory and check archive content
   $publish_directory = flexpaper2_get_files_folder_path($file);
-  if(!file_prepare_directory(drupal_realpath($publish_directory), FILE_CREATE_DIRECTORY)) {
+  if(!file_prepare_directory($publish_directory, FILE_CREATE_DIRECTORY)) {
     watchdog('flexpaper2', 'Error in the attempt to create %directory folder. Check flexpaper folder permissions.',
       array('%directory' => $publish_directory), WATCHDOG_ERROR);
     $context['message'] = t('Error in the attempt to create %directory folder.',
@@ -58,9 +56,8 @@ function flexpaper2_extract_archive_batch_process($file, &$context) {
   }
   $files = scandir($extracted_dir . '/docs');
   if (!$files) {
-    $context['results']['error_msg'] = t('No published files found in archive. Check flexpaper archive!');
-    $context['results']['error'] = TRUE;
-    $context['finished'] = 1;
+    $msg = t('No published files found in archive. Check flexpaper archive!');
+    _flexpaper2_batch_error($msg, $publish_directory, $context);
     return;
   }
 
@@ -70,12 +67,13 @@ function flexpaper2_extract_archive_batch_process($file, &$context) {
     $pattern = sprintf('/\%s$/', $ext);
     $files = file_scan_directory($extracted_dir . '/docs', $pattern);
     $i = 1;
+    $factor = ($ext == '.js') ? 10 : 1;
+
     foreach ($files as $uri => $obj) {
-      $destination = $publish_directory . '/' . $file->fid . '_' . $i . $ext;
+      $destination = $publish_directory . '/' . $file->fid . '_' . $i*$factor . $ext;
       if (!file_unmanaged_move($uri, $destination, FILE_EXISTS_REPLACE)) {
-        $context['results']['error_msg'] = t('Error in the attempt to copy %file to publish folder.', array('%file' => $uri));
-        $context['results']['error'] = TRUE;
-        $context['finished'] = 1;
+        $msg = t('Error in the attempt to copy %file to publish folder.', array('%file' => $uri));
+        _flexpaper2_batch_error($msg, $publish_directory, $context);
         return;
       }
       $i++;
@@ -91,7 +89,6 @@ function flexpaper2_extract_archive_batch_process($file, &$context) {
   }
 
   // finished with success.
-  $context['results']['file'] = $file;
   $context['finished'] = 1;
 }
 
@@ -118,11 +115,6 @@ function flexpaper2_extract_archive_batch_finished($success, $results) {
     }
     drupal_set_message($message, 'error');
 
-    // delete publish directory, if already created
-    $publish_directory = flexpaper2_get_files_folder_path($results['file']);
-    if (file_exists($publish_directory)) {
-      file_unmanaged_delete_recursive($publish_directory);
-    }
   }
   else {
     $message = t('Extracting published pdf archive was succesfully completed.');
@@ -172,6 +164,10 @@ function flexpaper2_parse_settings_file($file) {
     }
   }
 
+  // TODO: replace UIConfig file
+  $js_settings['UIConfig'] = '';
+
+
   return $js_settings;
 }
 
@@ -180,6 +176,18 @@ function flexpaper2_parse_settings_file($file) {
 /* -----------------------------------------------------------------
  *  Local helper functions
  * ----------------------------------------------------------------- */
+
+function _flexpaper2_batch_error($msg, $dir, &$context) {
+  // set results in context
+  $context['results']['error_msg'] = $msg;
+  $context['results']['error'] = TRUE;
+  $context['finished'] = 1;
+
+  // delete publish directory, if already created
+  if ($dir && file_exists($dir)) {
+    file_unmanaged_delete_recursive($dir);
+  }
+}
 
 /**
  * Returns a short unique identifier for this Drupal installation.
