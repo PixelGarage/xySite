@@ -11,6 +11,7 @@ with the Flexpaper Desktop Publisher Zine application. See below for more inform
 
 The actual version of Flexpaper Desktop Publisher Zine at development time was Version 2.3.8.
 
+
 -----------------------------------------------------------------------------
 ABOUT THIS MODULE
 -----------------------------------------------------------------------------
@@ -86,6 +87,21 @@ administrator access on the server. If you do not have these rights use the clie
 3. pdftk (optional): To provide highly performing FlipBooks in HTML5, the pdftk command line tool has to be
    installed on the server (splits PDFs into pdf pages).
 4. Your server should allow PHP exec() and shell_exec() to run the specific command line tools.
+
+
+-----------------------------------------------------------------------------
+ERROR HANDLING
+-----------------------------------------------------------------------------
+Problems that can occur when building a site with Flexpaper viewer:
+
+1. The Flexpaper viewer is not shown at all after publishing
+    CAUSE:
+    The publishing of the PDF has been interrupted in the middle of the process
+    SOLUTION:
+    All files are published in the folder /sites/default/files/flexpaper. To recreate a corrupted file publish folder
+    just remove the folder. Next time you view the page, the folder is recreated.
+    REMARK:
+    The name of a file publish folder is [fid]_files. Do not remove the uploaded file that can also be found in this folder.
 
 
 
