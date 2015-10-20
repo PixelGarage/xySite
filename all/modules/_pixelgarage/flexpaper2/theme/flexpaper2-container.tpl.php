@@ -6,12 +6,15 @@
  */
 ?>
 <div class="flexpaper-container">
-  <?php if ($file_link): ?>
-  <div class="flexpaper-link-container">
-    <?php print $file_link ?>
+  <div class="flexpaper-header">
+    <select class="<?php print $select_classes; ?>">
+      <?php foreach($options as $option): ?>
+        <?php print render($option); ?>
+      <?php endforeach; ?>
+    </select>
+    <div class="flexpaper-link-container"></div>
   </div>
-  <?php endif; ?>
-  <?php if ($show_flexpaper): ?>
-    <div class="flexpaper_viewer"><?php print $flexpaper_info; ?></div>
-  <?php endif; ?>
+
+  <!-- Do not change following element structure, it will be overridden by Flexpaper -->
+  <div class="flexpaper_viewer"><?php print $flexpaper_info; ?></div>
 </div>

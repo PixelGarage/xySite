@@ -329,7 +329,7 @@ function flexpaper2_field_formatter_view($entity_type, $entity, $field, $instanc
       // complete publishing
       $show_file_link = $display['settings']['show_file_link'] == 1;
       $js_settings = _flexpaper2_prepare_settings($status, $display['settings']);
-      flexpaper2_complete_file_publishing($status, $show_file_link, $js_settings, $element);
+      flexpaper2_complete_file_publishing($status, $show_file_link, $js_settings, $options);
 
       // load flexpaper2 css- and  js-files
       $instance_name = str_replace('_', '-', $instance['field_name']);
@@ -337,19 +337,19 @@ function flexpaper2_field_formatter_view($entity_type, $entity, $field, $instanc
       drupal_add_css(drupal_get_path('module', 'flexpaper2') . '/css/flexpaper2.css');
       drupal_add_js(array('flexpaper2' => array($instance_name => $js_settings)), 'setting');
 
+      // create flexpaper render array
+      $element[0] = array(
+        '#theme' => 'flexpaper2_container',
+        '#options' => $options,
+      );
+
     }
     else {
-      $index = 0;
-      foreach ($files as $fid => $file) {
-        $element[$index] = array(
-          '#theme' => 'flexpaper2_container',
-          '#show_file_link' => true,
-          '#file' => $file,
-          '#show_flexpaper' => true,
-          '#flexpaper_info' => t('Warning - No FlexPaperViewer available: The flexpaper library is not installed')
-        );
-        $index++;
-      }
+      $element[0] = array(
+        '#theme' => 'flexpaper2_container',
+        '#options' => array(),
+        '#flexpaper_info' => t('Warning - No FlexPaperViewer available: The flexpaper library is not installed'),
+      );
     }
   }
   return $element;
@@ -451,40 +451,38 @@ function _flexpaper2_prepare_settings($status, $settings) {
   global $base_url;
   $path = $base_url . '/' . libraries_get_path('flexpaper');
   $js_settings = array();
-  $delta = 0;
 
   foreach ($status as $fid => $split_mode) {
     $file = file_load($fid);
     if ($split_mode) {
       switch ($split_mode) {
         case 'archive':
-          $js_settings[$delta] = flexpaper2_parse_settings_file($file);
+          $js_settings[$fid] = flexpaper2_parse_settings_file($file);
           break;
 
         default:
-        $js_settings[$delta]['Scale'] = $settings['scale'];
-        $js_settings[$delta]['ZoomTransition'] = $settings['zoom_transition'];
-        $js_settings[$delta]['ZoomTime'] = $settings['zoom_time'];
-        $js_settings[$delta]['ZoomInterval'] = $settings['zoom_interval'];
-        $js_settings[$delta]['FitPageOnLoad'] = $settings['fit_page_on_load'];
-        $js_settings[$delta]['FitWidthOnLoad'] = $settings['fit_width_on_load'];
-        $js_settings[$delta]['FullScreenAsMaxWindow'] = $settings['full_screen_as_max_window'];
-        $js_settings[$delta]['ProgressiveLoading'] = $settings['progressive_loading'];
-        $js_settings[$delta]['MinZoomSize'] = $settings['min_zoom_size'];
-        $js_settings[$delta]['MaxZoomSize'] = $settings['max_zoom_size'];
-        $js_settings[$delta]['SearchMatchAll'] = $settings['search_match_all'];
-        $js_settings[$delta]['InitViewMode'] = $settings['init_view_mode'];
-        $js_settings[$delta]['RenderingOrder'] = $settings['rendering_order'];
-        $js_settings[$delta]['ViewModeToolsVisible'] = $settings['view_mode_tools_visible'];
-        $js_settings[$delta]['ZoomToolsVisible'] = $settings['zoom_tools_visible'];
-        $js_settings[$delta]['NavToolsVisible'] = $settings['nav_tools_visible'];
-        $js_settings[$delta]['CursorToolsVisible'] = $settings['cursor_tools_visible'];
-        $js_settings[$delta]['SearchToolsVisible'] = $settings['search_tools_visible'];
-        $js_settings[$delta]['UIConfig'] = '';//$base_url . '/' . drupal_get_path('module', 'flexpaper2') . '/config/UIConfig_standard.pdf.xml';
+        $js_settings[$fid]['Scale'] = $settings['scale'];
+        $js_settings[$fid]['ZoomTransition'] = $settings['zoom_transition'];
+        $js_settings[$fid]['ZoomTime'] = $settings['zoom_time'];
+        $js_settings[$fid]['ZoomInterval'] = $settings['zoom_interval'];
+        $js_settings[$fid]['FitPageOnLoad'] = $settings['fit_page_on_load'];
+        $js_settings[$fid]['FitWidthOnLoad'] = $settings['fit_width_on_load'];
+        $js_settings[$fid]['FullScreenAsMaxWindow'] = $settings['full_screen_as_max_window'];
+        $js_settings[$fid]['ProgressiveLoading'] = $settings['progressive_loading'];
+        $js_settings[$fid]['MinZoomSize'] = $settings['min_zoom_size'];
+        $js_settings[$fid]['MaxZoomSize'] = $settings['max_zoom_size'];
+        $js_settings[$fid]['SearchMatchAll'] = $settings['search_match_all'];
+        $js_settings[$fid]['InitViewMode'] = $settings['init_view_mode'];
+        $js_settings[$fid]['RenderingOrder'] = $settings['rendering_order'];
+        $js_settings[$fid]['ViewModeToolsVisible'] = $settings['view_mode_tools_visible'];
+        $js_settings[$fid]['ZoomToolsVisible'] = $settings['zoom_tools_visible'];
+        $js_settings[$fid]['NavToolsVisible'] = $settings['nav_tools_visible'];
+        $js_settings[$fid]['CursorToolsVisible'] = $settings['cursor_tools_visible'];
+        $js_settings[$fid]['SearchToolsVisible'] = $settings['search_tools_visible'];
+        $js_settings[$fid]['UIConfig'] = '';//$base_url . '/' . drupal_get_path('module', 'flexpaper2') . '/config/UIConfig_standard.pdf.xml';
         break;
       }
     }
-    $delta++;
   }
   $js_settings['jsDirectory'] = $path . '/js/';
   $js_settings['cssDirectory'] = $path . '/css/';
@@ -496,10 +494,11 @@ function _flexpaper2_prepare_settings($status, $settings) {
 /**
  * Completes the file publishing, e.g. the missing js-settings for the FlexPaper Viewer are set.
  */
-function flexpaper2_complete_file_publishing($status, $show_file_link, &$js_settings, &$element) {
-  $delta = 0;
+function flexpaper2_complete_file_publishing($status, $show_file_link, &$js_settings, &$options) {
   foreach ($status as $fid => $split_mode) {
     $file = file_load($fid);
+
+    // complete js settings for each file
     if ($split_mode) {
       // get file folder and created files
       $files_directory = flexpaper2_get_files_folder_path($file);
@@ -514,17 +513,17 @@ function flexpaper2_complete_file_publishing($status, $show_file_link, &$js_sett
         case 'split':
           $swf_files = file_scan_directory($files_directory, '/\.swf$/');
           $swf_count = count($swf_files);
-          $js_settings[$delta]['swfFiles'] = ($swf_count > 0) ? $folder_relative_path . '/{' . $fid . '_[*,0].swf,' . $swf_count . '}' : '';
-          $js_settings[$delta]['imgFiles'] = $folder_relative_path . '/' . $fid . '_{page}.png';
-          $js_settings[$delta]['pdfFiles'] = $folder_relative_path . '/' . $fid . '_[*,0].pdf';
-          $js_settings[$delta]['jsonFiles'] = (in_array($fid . '.js', $files_arr)) ? $folder_relative_path . '/' . $fid . '.js' : '';
+          $js_settings[$fid]['swfFiles'] = ($swf_count > 0) ? $folder_relative_path . '/{' . $fid . '_[*,0].swf,' . $swf_count . '}' : '';
+          $js_settings[$fid]['imgFiles'] = $folder_relative_path . '/' . $fid . '_{page}.png';
+          $js_settings[$fid]['pdfFiles'] = $folder_relative_path . '/' . $fid . '_[*,0].pdf';
+          $js_settings[$fid]['jsonFiles'] = (in_array($fid . '.js', $files_arr)) ? $folder_relative_path . '/' . $fid . '.js' : '';
           break;
 
         case 'single':
-          $js_settings[$delta]['swfFiles'] = '';
-          $js_settings[$delta]['imgFiles'] = '';
-          $js_settings[$delta]['pdfFiles'] = $folder_relative_path . '/' . $fid . '.pdf';
-          $js_settings[$delta]['jsonFiles'] = (in_array($fid . '.js', $files_arr)) ? $folder_relative_path . '/' . $fid . '.js' : '';
+          $js_settings[$fid]['swfFiles'] = '';
+          $js_settings[$fid]['imgFiles'] = '';
+          $js_settings[$fid]['pdfFiles'] = $folder_relative_path . '/' . $fid . '.pdf';
+          $js_settings[$fid]['jsonFiles'] = (in_array($fid . '.js', $files_arr)) ? $folder_relative_path . '/' . $fid . '.js' : '';
           break;
 
         case 'archive':
@@ -534,28 +533,36 @@ function flexpaper2_complete_file_publishing($status, $show_file_link, &$js_sett
           $pdf_files = file_scan_directory($files_directory, '/\.pdf$/');
           $jsonFiles = file_scan_directory($files_directory, '/\.js$/');
           $swf_count = count($swf_files);
-          $js_settings[$delta]['swfFiles'] = ($swf_count > 0) ? $folder_relative_path . '/{' . $fid . '_[*,0].swf,' . $swf_count . '}' : '';
-          $js_settings[$delta]['imgFiles'] = (count($jpg_files) > 0) ? $folder_relative_path . '/' . $fid . '_{page}.jpg' : '';
-          $js_settings[$delta]['thumbFiles'] = (count($thumb_files) > 0) ? $folder_relative_path . '/' . $fid . '_{page}_thumb.jpg' : '';
-          $js_settings[$delta]['pdfFiles'] = (count($pdf_files) > 0) ? $folder_relative_path . '/' . $fid . '_[*,0].pdf' : '';
-          $js_settings[$delta]['jsonFiles'] = (count($jsonFiles) > 0) ? $folder_relative_path . '/' . $fid . '_{page}.js' : '';
+          $js_settings[$fid]['swfFiles'] = ($swf_count > 0) ? $folder_relative_path . '/{' . $fid . '_[*,0].swf,' . $swf_count . '}' : '';
+          $js_settings[$fid]['imgFiles'] = (count($jpg_files) > 0) ? $folder_relative_path . '/' . $fid . '_{page}.jpg' : '';
+          $js_settings[$fid]['thumbFiles'] = (count($thumb_files) > 0) ? $folder_relative_path . '/' . $fid . '_{page}_thumb.jpg' : '';
+          $js_settings[$fid]['pdfFiles'] = (count($pdf_files) > 0) ? $folder_relative_path . '/' . $fid . '_[*,0].pdf' : '';
+          $js_settings[$fid]['jsonFiles'] = (count($jsonFiles) > 0) ? $folder_relative_path . '/' . $fid . '_{page}.js' : '';
           break;
       }
       // flexpaper viewer can be shown
-      $element[$delta]['#show_flexpaper'] = TRUE;
+      $js_settings[$fid]['show_flexpaper'] = TRUE;
+      $js_settings[$fid]['flexpaper_info'] = t('The file publishing is in process...');
     }
     else {
       // no publishing took place, don't show flexpaper viewer
-      $element[$delta]['#show_flexpaper'] = FALSE;
+      $js_settings[$fid]['show_flexpaper'] = FALSE;
+      $js_settings[$fid]['flexpaper_info'] = t('An error occurred in the publishing process of file "%file".', array('%file' => $file->filename));
     }
 
-    $element[$delta] += array(
-      '#theme' => 'flexpaper2_container',
-      '#show_file_link' => $show_file_link,
+    // render file link, if needed
+    if ($show_file_link) {
+      $js_settings[$fid]['file_link'] = theme('file_link', array(
+        'file' => $file,
+        'icon_directory' => variable_get('file_icon_directory', drupal_get_path('module', 'file') . '/icons'),
+      ));
+    }
+
+    // define file option for select control
+    $options[$fid] = array(
+      '#theme' => 'flexpaper2_item',
       '#file' => $file,
-      '#flexpaper_info' => t('The file publishing is in process...')
     );
-    $delta++;
   }
 }
 
@@ -572,29 +579,36 @@ function flexpaper2_theme() {
     'flexpaper2_container' => array(
       'template' => 'theme/flexpaper2-container',
       'variables' => array(
-        'show_file_link' => NULL,
-        'file' => NULL,
-        'show_flexpaper' => NULL,
+        'options' => array(),
+        'select_classes' => NULL,
         'flexpaper_info' => NULL,
+      ),
+    ),
+    'flexpaper2_item' => array(
+      'variables' => array(
+        'file' => NULL,
       ),
     ),
   );
 }
 
 /**
+ * Themes a single file as option of a select form control.
+ */
+function theme_flexpaper2_item (&$variables) {
+  $file = $variables['file'];
+  $key = $file->fid;
+  $value = $file->filename;
+  return '<option value="' . check_plain($key) . '">' . check_plain($value) . '</option>';
+}
+
+/**
  * Implements template_preprocess_HOOK() for theme_flexpaper2_container().
  */
 function template_preprocess_flexpaper2_container(&$variables) {
-  if ($variables['show_file_link']) {
-    $file = $variables['file'];
-    $variables['file_link'] = theme('file_link', array(
-      'file' => $file,
-      'icon_directory' => variable_get('file_icon_directory', drupal_get_path('module', 'file') . '/icons'),
-    ));
-  }
-  else {
-    $variables['file_link'] = FALSE;
-  }
+  $variables['select_classes'] = implode(' ', array('flexpaper-select','form-control'));
+  $variables['flexpaper_info'] = t('The file publishing is in process...');
+
 }
 
 /* -----------------------------------------------------------------
