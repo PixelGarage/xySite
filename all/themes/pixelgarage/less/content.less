@@ -54,10 +54,17 @@ body {
       }
 
       //
-      // Page content
-      div.row {
+      // Frames of: Page title, Messages, Admin tabs, Action links and Main content
+      .row {
         section { // column(s)
-          div.messages {
+
+          h1.page-header {
+            margin: 20px 0 10px;
+            font-family: @pxl-text-font-bold;
+            font-size: @font-size-h1;
+          }
+
+          .messages {
             margin-top: 20px;
           }
 
@@ -97,6 +104,8 @@ body {
       }
     }
 
+    //
+    // fading area on top and bottom of main container
     .fading {
       display: none; // will be enabled via event
       position: absolute;
