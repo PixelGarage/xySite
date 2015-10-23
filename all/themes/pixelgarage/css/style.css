@@ -8966,7 +8966,7 @@ form#user-login {
 }
 @media screen and (min-width: 480px) {
   .node-page div.col-sm-12 .field-name-title h2 {
-    font-size: 3.6vw;
+    font-size: 5vw;
   }
 }
 @media screen and (min-width: 768px) {
@@ -8981,7 +8981,7 @@ form#user-login {
 .node-page div.col-sm-12 .field-name-body h5,
 .node-page div.col-sm-12 .field-name-body h6 {
   font-family: 'CallunaRegular';
-  font-size: 11px;
+  font-size: 13px;
 }
 @media screen and (min-width: 480px) {
   .node-page div.col-sm-12 .field-name-body h1,
@@ -8990,7 +8990,7 @@ form#user-login {
   .node-page div.col-sm-12 .field-name-body h4,
   .node-page div.col-sm-12 .field-name-body h5,
   .node-page div.col-sm-12 .field-name-body h6 {
-    font-size: 3.5vw;
+    font-size: 2.83333333vw;
   }
 }
 @media screen and (min-width: 768px) {
@@ -9000,7 +9000,7 @@ form#user-login {
   .node-page div.col-sm-12 .field-name-body h4,
   .node-page div.col-sm-12 .field-name-body h5,
   .node-page div.col-sm-12 .field-name-body h6 {
-    font-size: 21px;
+    font-size: 17px;
   }
 }
 .node-page div.col-sm-12 .field-name-body h1,
@@ -9116,7 +9116,7 @@ form#user-login {
   padding: 0;
   width: auto;
   font-family: 'CallunaBold';
-  font-size: 11px;
+  font-size: 13px;
   font-weight: normal;
   line-height: 1.5em;
   text-align: left;
@@ -9124,12 +9124,12 @@ form#user-login {
 }
 @media screen and (min-width: 480px) {
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component label {
-    font-size: 3.5vw;
+    font-size: 2.83333333vw;
   }
 }
 @media screen and (min-width: 768px) {
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component label {
-    font-size: 21px;
+    font-size: 17px;
   }
 }
 .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component label span.form-required {
@@ -9139,14 +9139,14 @@ form#user-login {
   display: block;
   margin: 10px 0 0;
   font-family: 'CallunaRegular';
-  font-size: 11px;
+  font-size: 13px;
 }
 .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component input,
 .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component textarea {
   padding: 0 10px;
   height: 100%;
   font-family: 'CallunaRegular';
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.5em;
   text-align: left;
   color: #333333;
@@ -9160,13 +9160,13 @@ form#user-login {
 @media screen and (min-width: 480px) {
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component input,
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component textarea {
-    font-size: 3.5vw;
+    font-size: 2.83333333vw;
   }
 }
 @media screen and (min-width: 768px) {
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component input,
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component textarea {
-    font-size: 21px;
+    font-size: 17px;
   }
 }
 .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component input:focus,
@@ -9180,7 +9180,7 @@ form#user-login {
 }
 .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component select {
   font-family: 'CallunaRegular';
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1em;
   text-align: left;
   color: #333333;
@@ -9193,12 +9193,12 @@ form#user-login {
 }
 @media screen and (min-width: 480px) {
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component select {
-    font-size: 3.5vw;
+    font-size: 2.83333333vw;
   }
 }
 @media screen and (min-width: 768px) {
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component select {
-    font-size: 21px;
+    font-size: 17px;
   }
 }
 .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component select:focus,
@@ -9231,7 +9231,7 @@ form#user-login {
   margin: 0;
   padding: 0.5em 1em;
   font-family: 'CallunaBold';
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -9247,12 +9247,12 @@ form#user-login {
 }
 @media screen and (min-width: 480px) {
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component .form-managed-file button.btn {
-    font-size: 3.5vw;
+    font-size: 2.83333333vw;
   }
 }
 @media screen and (min-width: 768px) {
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component .form-managed-file button.btn {
-    font-size: 21px;
+    font-size: 17px;
   }
 }
 .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component .form-managed-file button.btn:hover,
@@ -9282,18 +9282,18 @@ form#user-login {
 .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component.webform-component-markup h2 {
   font-family: 'CallunaBold';
   font-weight: normal;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1em;
   text-align: left;
 }
 @media screen and (min-width: 480px) {
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component.webform-component-markup h2 {
-    font-size: 3.5vw;
+    font-size: 2.83333333vw;
   }
 }
 @media screen and (min-width: 768px) {
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component.webform-component-markup h2 {
-    font-size: 21px;
+    font-size: 17px;
   }
 }
 .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form .webform-component.webform-component-markup p {
@@ -9335,7 +9335,7 @@ form#user-login {
   margin: 0;
   padding: 0.5em 1em;
   font-family: 'CallunaBold';
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -9349,12 +9349,12 @@ form#user-login {
 }
 @media screen and (min-width: 480px) {
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form div.form-actions button.webform-submit {
-    font-size: 3.5vw;
+    font-size: 2.83333333vw;
   }
 }
 @media screen and (min-width: 768px) {
   .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form div.form-actions button.webform-submit {
-    font-size: 21px;
+    font-size: 17px;
   }
 }
 .node-page.view-mode-anmeldung div.col-sm-12 form.webform-client-form div.form-actions button.webform-submit:hover,
