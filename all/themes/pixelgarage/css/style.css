@@ -8569,11 +8569,19 @@ div.features-export-list .form-type-checkbox input[type=checkbox] {
 /* --------------------------------------------------
  * Pixelgarage Mixins library
  *
+ * All mixins have to be in the namespace #pxl-mixins to prevent overriding.
+ *
  * Usage:
  * .class {
  *     #pxl-mixins.mixin;
  * }
  *
+ * --------------------------------------------------*/
+/*
+ *  General mixins
+ * --------------------------------------------------*/
+/*
+ *  Box modificarion mixins
  * --------------------------------------------------*/
 #pxl-mixins .center-horizontally {
   left: 50%;
@@ -8588,6 +8596,18 @@ div.features-export-list .form-type-checkbox input[type=checkbox] {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+/*
+ *  Transformation mixins
+ * --------------------------------------------------*/
+/*
+ *  Text mixins
+ * --------------------------------------------------*/
+/*
+ *  Three part element mixins
+ * --------------------------------------------------*/
+/*
+ *  Bootstrap accordion mixin
+ * --------------------------------------------------*/
 /* --------------------------------------------------
  * Pixelgarage Components
  * --------------------------------------------------*/
@@ -9076,26 +9096,6 @@ form#user-login {
   display: block;
   max-width: 100%;
   height: auto;
-}
-@media screen and (min-width: 992px) {
-  .node-page div.col-sm-12 .field-name-body {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-    -webkit-column-gap: 30px;
-    -moz-column-gap: 30px;
-    column-gap: 30px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .node-page div.col-sm-12 .field-name-body {
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
-    -webkit-column-gap: 30px;
-    -moz-column-gap: 30px;
-    column-gap: 30px;
-  }
 }
 /*
  *  Node / block webform component
