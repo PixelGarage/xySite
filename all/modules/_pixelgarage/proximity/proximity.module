@@ -214,10 +214,6 @@ function template_preprocess_views_view_proximity(&$vars) {
   $vars['ajax_load_params'] = $ajax_load_params;
   $vars['item_base_url'] = $item_base_url;
 
-  // define percentage width of items (floating grid layout)
-  $count = count($view->result);
-  $vars['percentage_width'] = 100 / min($count, 6); // max. 6 items on a row
-
   // close button text
   $vars['close_text'] = t('Schliessen');
 
