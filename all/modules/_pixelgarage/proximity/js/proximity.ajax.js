@@ -95,7 +95,7 @@
         $target.html(msg + xhr.status + " " + xhr.statusText);
       } else {
         // make sure all behaviors are attached to new content
-        Drupal.attachBehaviors($target, settings);
+        Drupal.attachBehaviors($target);
 
         // show target container animated
         if (settings.ajax_container == 'page_cont') {
@@ -223,43 +223,6 @@
             // This prevents the modal trigger button to be clicked (default behavior)
             // and instead opens the modal dialog when AJAX returns.
             return false;
-          });
-        });
-
-      }); // proximity container instances
-    }
-  };
-
-  /**
-   *  Modal dialog handling.
-   *
-   *  Opens the modal dialog, if a full page request is performed (no ajax involved) and
-   *  guarantees, that all content is cleared (audio, video stopped) on modal dialog closing.
-   */
-  Drupal.behaviors.modalDialogHandling = {
-    attach: function () {
-      // Iterate through all proximity container instances
-      $.each(Drupal.settings.proximity, function (container, settings) {
-
-        var $container    = $('#' + container),
-            $dialog       = $container.find('.modal'),
-            transDuration = parseInt(settings.trans_duration);
-
-
-        //
-        // open modal dialog, if a full item page request occurred (no ajax)
-        if (!settings.ajax_request) {
-          $dialog.fadeIn(transDuration).modal('show');
-          // reset flag
-          settings.ajax_request = false;
-
-        }
-
-        // when modal dialog is closed, make sure that all content is cleared (videos, audios etc.)
-        $dialog.once('modal-hidden', function () {
-          $dialog.on('hidden.bs.modal', function () {
-            // empty the modal body stopping all media etc.
-            $(this).find('.modal-body').empty();
           });
         });
 
