@@ -8,8 +8,10 @@
   /**
    *  Modal dialog handling.
    *
-   *  Opens the modal dialog, if a full page request is performed (no ajax involved) and
-   *  guarantees, that all content is cleared (audio, video stopped) on modal dialog closing.
+   *  Opens the modal dialog once, if a full page request is performed. The flag show_modal is only set
+   *  when a proximity item request is performed without AJAX.
+   *  Additionally the hidden.modal event implementation guarantees, that all content is cleared (audio, video stopped)
+   *  when the modal dialog is closed.
    */
   Drupal.behaviors.modalDialogHandling = {
     attach: function () {
@@ -22,11 +24,12 @@
 
 
         //
-        // open modal dialog, if a full item page request occurred (no ajax)
+        // Open modal dialog on a full page load (show_modal flag is TRUE)
+        // REMARK: behaviors are also called during each ajax request, so reset the flag to guarantee that
+        // the modal dialog is only opened once
         if (settings.show_modal) {
           $dialog.fadeIn(transDuration).modal('show');
-          // reset flag
-          settings.show_modal = false;
+          settings.show_modal = false; // disable to open modal dialog on subsequent calls
 
         }
 
