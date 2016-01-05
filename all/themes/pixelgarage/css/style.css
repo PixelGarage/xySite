@@ -6536,6 +6536,12 @@ button.close {
     display: none !important;
   }
 }
+/**
+ * Variable Overrides.
+ *
+ * Modify this file to override the Bootstrap Framework variables. You can copy
+ * these variables directly from ../bootstrap/less/variables.less to this file.
+ */
 html.overlay-open .navbar-fixed-top {
   z-index: 400;
 }
@@ -6616,9 +6622,6 @@ body #admin-menu {
 body #admin-menu .dropdown li {
   line-height: normal;
 }
-.navbar.container {
-  margin-top: 20px;
-}
 @media screen and (min-width: 768px) {
   .navbar.container {
     max-width: 720px;
@@ -6634,7 +6637,12 @@ body #admin-menu .dropdown li {
     max-width: 1140px;
   }
 }
-.navbar.container > .container {
+.navbar.container,
+.navbar.container-fluid {
+  margin-top: 20px;
+}
+.navbar.container > .container,
+.navbar.container-fluid > .container-fluid {
   margin: 0;
   padding: 0;
   width: auto;
@@ -6719,6 +6727,9 @@ form#search-block-form {
     float: right;
   }
 }
+.navbar #block-search-form .input-group-btn {
+  width: auto;
+}
 .navbar-search .control-group {
   margin-bottom: 0px;
 }
@@ -6774,8 +6785,50 @@ fieldset .panel-heading a.panel-title:hover {
 .form-actions {
   clear: both;
 }
+.managed-files.table td:first-child {
+  width: 100%;
+}
+div.image-widget-data {
+  float: none;
+  overflow: hidden;
+}
+table.sticky-header {
+  z-index: 1;
+}
 .resizable-textarea textarea {
   border-radius: 4px 4px 0 0;
+}
+.text-format-wrapper {
+  margin-bottom: 15px;
+}
+.text-format-wrapper > .form-type-textarea,
+.text-format-wrapper .filter-wrapper {
+  margin-bottom: 0;
+}
+.filter-wrapper {
+  border-radius: 0 0 4px 4px;
+}
+.filter-wrapper .panel-body {
+  padding: 7px;
+}
+.filter-wrapper .form-type-select {
+  min-width: 30%;
+}
+.filter-wrapper .form-type-select .filter-list {
+  width: 100%;
+}
+.filter-help {
+  margin-top: 5px;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .filter-help {
+    float: right;
+  }
+}
+.filter-help .glyphicon {
+  margin: 0 5px 0 0;
+  vertical-align: text-top;
 }
 .radio:first-child,
 .checkbox:first-child {
@@ -6855,20 +6908,27 @@ ul li.leaf {
 .form-type-password-confirm {
   position: relative;
 }
-.form-type-password-confirm .form-type-password {
-  clear: left;
-}
 .form-type-password-confirm label {
   display: block;
 }
 .form-type-password-confirm label .label {
   float: right;
 }
-.form-type-password-confirm .help-block {
-  border-left: 1px solid #dddddd;
-  display: inline-block;
-  margin-left: 2em;
+.form-type-password-confirm .password-help {
   padding-left: 2em;
+}
+@media (min-width: 768px) {
+  .form-type-password-confirm .password-help {
+    border-left: 1px solid #dddddd;
+    left: 50%;
+    margin-left: 15px;
+    position: absolute;
+  }
+}
+@media (min-width: 992px) {
+  .form-type-password-confirm .password-help {
+    left: 33.33333333%;
+  }
 }
 .form-type-password-confirm .progress {
   background: transparent;
@@ -6880,10 +6940,16 @@ ul li.leaf {
   height: 4px;
   margin: -5px 0px 0;
 }
+.form-type-password-confirm .form-type-password {
+  clear: left;
+}
 .form-type-password-confirm .form-control-feedback {
   right: 15px;
 }
-.pagination ul > li > a.progress-disabled {
+.form-type-password-confirm .help-block {
+  clear: both;
+}
+ul.pagination li > a.progress-disabled {
   float: left;
 }
 .form-autocomplete .glyphicon {
@@ -6896,9 +6962,24 @@ ul li.leaf {
 .form-autocomplete .input-group-addon {
   background-color: #ffffff;
 }
-.ajax-progress .glyphicon {
-  font-size: 90%;
-  margin: 0 -0.25em 0 0.5em;
+.ajax-progress-bar {
+  border-radius: 0 0 4px 4px;
+  border: 1px solid #cccccc;
+  margin: -1px 0 0;
+  padding: 6px 12px;
+  width: 100%;
+}
+.ajax-progress-bar .progress {
+  height: 8px;
+  margin: 0;
+}
+.ajax-progress-bar .percentage,
+.ajax-progress-bar .message {
+  color: #777777;
+  font-size: 14px;
+  line-height: 1em;
+  margin: 5px 0 0;
+  padding: 0;
 }
 .glyphicon-spin {
   display: inline-block;
@@ -6950,13 +7031,6 @@ a .glyphicon-spin {
   100% {
     transform: rotate(359deg);
   }
-}
-.glyphicon-refresh {
-  -webkit-transform-origin: 50% 45%;
-  -moz-transform-origin: 50% 45%;
-  -ms-transform-origin: 50% 45%;
-  -o-transform-origin: 50% 45%;
-  transform-origin: 50% 45%;
 }
 /**
  * Missing Bootstrap 2 tab styling.
@@ -7199,6 +7273,38 @@ div.features-export-list .form-type-checkbox {
 fieldset.features-export-component .component-select .form-type-checkbox input[type=checkbox],
 div.features-export-list .form-type-checkbox input[type=checkbox] {
   margin-top: 0;
+}
+body.navbar-is-fixed-top.navbar-administration.navbar-horizontal.navbar-tray-open .navbar-fixed-top {
+  top: 79px;
+}
+body.navbar-is-fixed-top.navbar-administration .navbar-fixed-top {
+  top: 39px;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  body.navbar-is-fixed-top.navbar-administration.navbar-vertical.navbar-tray-open .navbar-fixed-top {
+    left: 240px;
+    left: 24rem;
+  }
+}
+.navbar-administration #navbar-administration.navbar-oriented .navbar-bar {
+  z-index: 1032;
+}
+.navbar-administration #navbar-administration .navbar-tray {
+  z-index: 1031;
+}
+body.navbar-is-fixed-top.navbar-administration {
+  padding-top: 103px!important;
+}
+body.navbar-is-fixed-top.navbar-administration.navbar-horizontal.navbar-tray-open {
+  padding-top: 143px!important;
+}
+body.navbar-tray-open.navbar-vertical.navbar-fixed {
+  margin-left: 240px;
+  margin-left: 24rem;
+}
+#navbar-administration.navbar-oriented .navbar-tray-vertical {
+  width: 24rem;
 }
 /* --------------------------------------------------
  * Pixelgarage fonts
