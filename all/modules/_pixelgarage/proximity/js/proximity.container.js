@@ -19,6 +19,7 @@
         var $container    = $('#' + container),
             $modal        = $container.find('.modal'),
             transDuration = parseInt(settings.trans_duration);
+
         // backdrop height calculation
         var _backdropHeight = function() {
           var $dialog       = $modal.find('> .modal-dialog'),
@@ -28,6 +29,7 @@
           // adjust backdrop height
           $modal.find('.modal-backdrop').css('height', hBackdrop);
         };
+
         // scroll behavior of modal dialog
         var _modalScrollBehavior = function() {
           var $modalBody    = $modal.find('.modal-body'),
@@ -68,7 +70,7 @@
         //
         // set modal dialog scrolling behavior when modal is opened and make sure,
         // all media is stopped on modal closing
-        $modal.once('modal-hidden', function () {
+        $modal.once('modal', function () {
           // show modal dialog
           $(this).on('shown.bs.modal', function() {
             // disable body scrolling
@@ -86,8 +88,12 @@
             // enable background scrolling
             $('body').css('overflow', 'auto');
 
+            // set scroll position to top of container
+            var offset = $container.offset().top - 50;
+            $(window).scrollTop(offset);
+
             // redirect to home page to update view
-            window.location = '/';
+            //window.location = '/';
           });
 
           // modal dialog scrolling adapts backdrop height
