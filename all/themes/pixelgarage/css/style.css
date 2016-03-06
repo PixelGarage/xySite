@@ -9115,7 +9115,7 @@ form#user-login {
 .node-page div.col-sm-12 .field-name-body h4,
 .node-page div.col-sm-12 .field-name-body h5,
 .node-page div.col-sm-12 .field-name-body h6 {
-  font-family: 'CallunaRegular';
+  font-family: 'CallunaBold';
   font-size: 13px;
 }
 @media screen and (min-width: 480px) {
@@ -9125,7 +9125,7 @@ form#user-login {
   .node-page div.col-sm-12 .field-name-body h4,
   .node-page div.col-sm-12 .field-name-body h5,
   .node-page div.col-sm-12 .field-name-body h6 {
-    font-size: 2.21354167vw;
+    font-size: 2.70833333vw;
   }
 }
 @media screen and (min-width: 768px) {
@@ -9141,20 +9141,20 @@ form#user-login {
 .node-page div.col-sm-12 .field-name-body h1,
 .node-page div.col-sm-12 .field-name-body h2,
 .node-page div.col-sm-12 .field-name-body h3 {
-  font-size: 13.75px;
+  font-size: 18.75px;
 }
 @media screen and (min-width: 480px) {
   .node-page div.col-sm-12 .field-name-body h1,
   .node-page div.col-sm-12 .field-name-body h2,
   .node-page div.col-sm-12 .field-name-body h3 {
-    font-size: 2.86458333vw;
+    font-size: 3.90625vw;
   }
 }
 @media screen and (min-width: 768px) {
   .node-page div.col-sm-12 .field-name-body h1,
   .node-page div.col-sm-12 .field-name-body h2,
   .node-page div.col-sm-12 .field-name-body h3 {
-    font-size: 22px;
+    font-size: 30px;
   }
 }
 .node-page div.col-sm-12 .field-name-body p,
@@ -9172,7 +9172,7 @@ form#user-login {
 @media screen and (min-width: 480px) {
   .node-page div.col-sm-12 .field-name-body p,
   .node-page div.col-sm-12 .field-name-body tbody td {
-    font-size: 2.08333333vw;
+    font-size: 2.70833333vw;
   }
 }
 @media screen and (min-width: 768px) {
@@ -9189,14 +9189,17 @@ form#user-login {
 @media screen and (min-width: 480px) {
   .node-page div.col-sm-12 .field-name-body pre,
   .node-page div.col-sm-12 .field-name-body address {
-    font-size: 1.953125vw;
+    font-size: 2.70833333vw;
   }
 }
 @media screen and (min-width: 768px) {
   .node-page div.col-sm-12 .field-name-body pre,
   .node-page div.col-sm-12 .field-name-body address {
-    font-size: 15px;
+    font-size: 16px;
   }
+}
+.node-page div.col-sm-12 .field-name-body strong {
+  font-family: 'CallunaBold';
 }
 .node-page div.col-sm-12 .field-name-body hr {
   border: 0;
@@ -9543,7 +9546,7 @@ form.webform-client-form .webform-component.webform-component-markup p {
 }
 @media screen and (min-width: 480px) {
   form.webform-client-form .webform-component.webform-component-markup p {
-    font-size: 1.953125vw;
+    font-size: 2.70833333vw;
   }
 }
 @media screen and (min-width: 768px) {
