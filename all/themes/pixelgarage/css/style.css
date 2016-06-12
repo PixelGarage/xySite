@@ -9094,19 +9094,19 @@ form#user-login {
 }
 .node-page div.col-sm-12 .field-name-title h2 {
   font-family: 'CallunaBold';
-  font-size: 20px;
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #333333;
+  font-size: 15px;
 }
 @media screen and (min-width: 480px) {
   .node-page div.col-sm-12 .field-name-title h2 {
-    font-size: 5vw;
+    font-size: 3.125vw;
   }
 }
 @media screen and (min-width: 768px) {
   .node-page div.col-sm-12 .field-name-title h2 {
-    font-size: 30px;
+    font-size: 16px;
   }
 }
 .node-page div.col-sm-12 .field-name-body h1,
@@ -9116,7 +9116,7 @@ form#user-login {
 .node-page div.col-sm-12 .field-name-body h5,
 .node-page div.col-sm-12 .field-name-body h6 {
   font-family: 'CallunaBold';
-  font-size: 13px;
+  font-size: 15px;
 }
 @media screen and (min-width: 480px) {
   .node-page div.col-sm-12 .field-name-body h1,
@@ -9125,7 +9125,7 @@ form#user-login {
   .node-page div.col-sm-12 .field-name-body h4,
   .node-page div.col-sm-12 .field-name-body h5,
   .node-page div.col-sm-12 .field-name-body h6 {
-    font-size: 2.70833333vw;
+    font-size: 3.125vw;
   }
 }
 @media screen and (min-width: 768px) {
@@ -9135,32 +9135,32 @@ form#user-login {
   .node-page div.col-sm-12 .field-name-body h4,
   .node-page div.col-sm-12 .field-name-body h5,
   .node-page div.col-sm-12 .field-name-body h6 {
-    font-size: 17px;
+    font-size: 20px;
   }
 }
 .node-page div.col-sm-12 .field-name-body h1,
 .node-page div.col-sm-12 .field-name-body h2,
 .node-page div.col-sm-12 .field-name-body h3 {
-  font-size: 18.75px;
+  font-size: 15px;
 }
 @media screen and (min-width: 480px) {
   .node-page div.col-sm-12 .field-name-body h1,
   .node-page div.col-sm-12 .field-name-body h2,
   .node-page div.col-sm-12 .field-name-body h3 {
-    font-size: 3.90625vw;
+    font-size: 3.125vw;
   }
 }
 @media screen and (min-width: 768px) {
   .node-page div.col-sm-12 .field-name-body h1,
   .node-page div.col-sm-12 .field-name-body h2,
   .node-page div.col-sm-12 .field-name-body h3 {
-    font-size: 30px;
+    font-size: 24px;
   }
 }
 .node-page div.col-sm-12 .field-name-body p,
 .node-page div.col-sm-12 .field-name-body tbody td {
   font-family: 'CallunaRegular';
-  font-size: 13px;
+  font-size: 15px;
   -ms-word-break: break-all;
   word-break: break-word;
   -webkit-hyphens: auto;
@@ -9172,7 +9172,7 @@ form#user-login {
 @media screen and (min-width: 480px) {
   .node-page div.col-sm-12 .field-name-body p,
   .node-page div.col-sm-12 .field-name-body tbody td {
-    font-size: 2.70833333vw;
+    font-size: 3.125vw;
   }
 }
 @media screen and (min-width: 768px) {
@@ -9184,12 +9184,12 @@ form#user-login {
 .node-page div.col-sm-12 .field-name-body pre,
 .node-page div.col-sm-12 .field-name-body address {
   font-family: 'CallunaIt';
-  font-size: 13px;
+  font-size: 15px;
 }
 @media screen and (min-width: 480px) {
   .node-page div.col-sm-12 .field-name-body pre,
   .node-page div.col-sm-12 .field-name-body address {
-    font-size: 2.70833333vw;
+    font-size: 3.125vw;
   }
 }
 @media screen and (min-width: 768px) {
@@ -9200,6 +9200,17 @@ form#user-login {
 }
 .node-page div.col-sm-12 .field-name-body strong {
   font-family: 'CallunaBold';
+  font-size: 15px;
+}
+@media screen and (min-width: 480px) {
+  .node-page div.col-sm-12 .field-name-body strong {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .node-page div.col-sm-12 .field-name-body strong {
+    font-size: 18px;
+  }
 }
 .node-page div.col-sm-12 .field-name-body hr {
   border: 0;
@@ -9214,7 +9225,8 @@ form#user-login {
   display: block;
   overflow: hidden;
   margin: 20px auto;
-  width: 80%;
+  padding: 15px;
+  width: 100%;
   max-width: 100%;
   height: auto;
   min-height: 350px;
@@ -9539,14 +9551,14 @@ form.webform-client-form .webform-component.webform-component-markup h2 {
 }
 form.webform-client-form .webform-component.webform-component-markup p {
   font-family: 'CallunaRegular';
-  font-size: 13px;
+  font-size: 15px;
   line-height: 22px;
   text-align: left;
   color: #333333;
 }
 @media screen and (min-width: 480px) {
   form.webform-client-form .webform-component.webform-component-markup p {
-    font-size: 2.70833333vw;
+    font-size: 3.125vw;
   }
 }
 @media screen and (min-width: 768px) {
