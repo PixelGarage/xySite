@@ -83,6 +83,17 @@
       .hyphenate;
     }
 
+    a {
+      font-family: @pxl-text-font;
+      .font-size-responsive(@text-size, @resp-font-size-min);
+
+      &:hover, &:focus {
+        color: @link-hover-color;
+        text-decoration: none;
+        background: none;
+      }
+    }
+
     pre, address {
       font-family: @pxl-text-font-italic;
       .font-size-responsive(@text-size);

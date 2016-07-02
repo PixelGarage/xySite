@@ -11,6 +11,12 @@
 
 //== Scaffolding
 //
+@link-color:            darken(@gray-darker, 15%);
+//** Link hover color set via `darken()` function.
+@link-hover-color:      @gray-darker;
+//** Link hover decoration.
+@link-hover-decoration: underline;
+
 @pxl-box-shadow: 0 0 4px rgba(100,100,100, 0.4);
 
 
@@ -84,6 +90,17 @@
 //== Grid system
 //
 //## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+@grid-columns:              12;
+//** Padding between columns. Gets divided in half for the left and right.
+@grid-gutter-width:         30px;
+@grid-gutter-width-tablet:  110px;
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+@grid-float-breakpoint:     3000px;
+//** Point at which the navbar begins collapsing.
+@grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
 
 
 //== Container sizes
