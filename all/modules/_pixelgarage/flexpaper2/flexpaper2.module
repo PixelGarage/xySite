@@ -479,7 +479,7 @@ function _flexpaper2_prepare_settings($status, $settings) {
         $js_settings[$fid]['NavToolsVisible'] = $settings['nav_tools_visible'];
         $js_settings[$fid]['CursorToolsVisible'] = $settings['cursor_tools_visible'];
         $js_settings[$fid]['SearchToolsVisible'] = $settings['search_tools_visible'];
-        $js_settings[$fid]['UIConfig'] = '';//$base_url . '/' . drupal_get_path('module', 'flexpaper2') . '/config/UIConfig_standard.pdf.xml';
+        $js_settings[$fid]['UIConfig'] = $path . '/UIConfig_standard.pdf.xml';
         break;
       }
     }
@@ -517,6 +517,7 @@ function flexpaper2_complete_file_publishing($status, $show_file_link, &$js_sett
           $js_settings[$fid]['imgFiles'] = $folder_relative_path . '/' . $fid . '_{page}.png';
           $js_settings[$fid]['pdfFiles'] = $folder_relative_path . '/' . $fid . '_[*,0].pdf';
           $js_settings[$fid]['jsonFiles'] = (in_array($fid . '.js', $files_arr)) ? $folder_relative_path . '/' . $fid . '.js' : '';
+          $pdf_file = $file;
           break;
 
         case 'single':
@@ -524,6 +525,7 @@ function flexpaper2_complete_file_publishing($status, $show_file_link, &$js_sett
           $js_settings[$fid]['imgFiles'] = '';
           $js_settings[$fid]['pdfFiles'] = $folder_relative_path . '/' . $fid . '.pdf';
           $js_settings[$fid]['jsonFiles'] = (in_array($fid . '.js', $files_arr)) ? $folder_relative_path . '/' . $fid . '.js' : '';
+          $pdf_file = $file;
           break;
 
         case 'archive':
@@ -533,11 +535,28 @@ function flexpaper2_complete_file_publishing($status, $show_file_link, &$js_sett
           $pdf_files = file_scan_directory($files_directory, '/\.pdf$/');
           $jsonFiles = file_scan_directory($files_directory, '/\.js$/');
           $swf_count = count($swf_files);
-          $js_settings[$fid]['swfFiles'] = ($swf_count > 0) ? $folder_relative_path . '/{' . $fid . '_[*,0].swf,' . $swf_count . '}' : '';
-          $js_settings[$fid]['imgFiles'] = (count($jpg_files) > 0) ? $folder_relative_path . '/' . $fid . '_{page}.jpg' : '';
-          $js_settings[$fid]['thumbFiles'] = (count($thumb_files) > 0) ? $folder_relative_path . '/' . $fid . '_{page}_thumb.jpg' : '';
-          $js_settings[$fid]['pdfFiles'] = (count($pdf_files) > 0) ? $folder_relative_path . '/' . $fid . '_[*,0].pdf' : '';
-          $js_settings[$fid]['jsonFiles'] = (count($jsonFiles) > 0) ? $folder_relative_path . '/' . $fid . '_{page}.js' : '';
+          $js_settings[$fid]['swfFiles'] = ($swf_count > 0) ? $folder_relative_path . '/{' . $fid . '_[*,2].swf,' . $swf_count . '}' : '';
+          $js_settings[$fid]['imgFiles'] = (count($jpg_files) > 0) ? $folder_relative_path . '/' . $fid . '.pdf_{page}.jpg' : '';
+          $js_settings[$fid]['thumbFiles'] = (count($thumb_files) > 0) ? $folder_relative_path . '/' . $fid . '.pdf_{page}_thumb.jpg' : '';
+          $js_settings[$fid]['pdfFiles'] = (count($pdf_files) > 0) ? $folder_relative_path . '/' . $fid . '_[*,2].pdf' : '';
+          $js_settings[$fid]['jsonFiles'] = (count($jsonFiles) > 0) ? $folder_relative_path . '/' . $fid . '.pdf_{page}.js' : '';
+
+          // set pdf as link file, if available
+          $pos = strpos($file->filename, '.zip');
+          $pdf_name = substr($file->filename, 0, $pos) . '.pdf';
+          $pdf_path = $files_directory . '/' . $pdf_name;
+          if ($show_file_link && file_exists($pdf_path)) {
+            $pdf_file = new stdClass();
+            $pdf_file->uid      = 1;
+            $pdf_file->filename = $pdf_name;
+            $pdf_file->uri      = $pdf_path;
+            $pdf_file->filemime = file_get_mimetype($pdf_path);
+            $pdf_file->filesize = filesize($pdf_path);
+            $pdf_file->status   = 1;
+          }
+          else {
+            $show_file_link = false;
+          }
           break;
       }
       // flexpaper viewer can be shown
@@ -553,7 +572,7 @@ function flexpaper2_complete_file_publishing($status, $show_file_link, &$js_sett
     // render file link, if needed
     if ($show_file_link) {
       $js_settings[$fid]['file_link'] = theme('file_link', array(
-        'file' => $file,
+        'file' => $pdf_file,
         'icon_directory' => variable_get('file_icon_directory', drupal_get_path('module', 'file') . '/icons'),
       ));
     }

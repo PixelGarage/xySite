@@ -26,7 +26,7 @@
           $('#' + element_id).FlexPaperViewer(
             {
               config: {
-                SWFFile: fileSettings.swfFiles,
+                //SWFFile: fileSettings.swfFiles,
                 JSONFile: fileSettings.jsonFiles,
                 IMGFiles: fileSettings.imgFiles,
                 PDFFile: fileSettings.pdfFiles,
@@ -67,7 +67,7 @@
 
                 localeChain: 'en_US',
                 WMode : 'transparent',
-                JSONDataType: 'json',
+                //JSONDataType: 'json',
                 key: settings.licenseKey
               }
             }
