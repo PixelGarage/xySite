@@ -9253,86 +9253,201 @@ form#user-login {
 /*
  *  Node / block webform component
  * --------------------------------------------------*/
-.node-webform {
+.node.node-webform {
   padding-bottom: 30px;
 }
-body.node-type-webform .node-webform {
-  padding: 20px 0 100px;
+.node.node-webform .row .col-sm-12 {
+  padding: 50px 20px 50px;
 }
 @media screen and (min-width: 480px) {
-  body.node-type-webform .node-webform {
-    padding: 20px 30px 100px;
+  .node.node-webform .row .col-sm-12 {
+    padding: 50px 30px 50px;
   }
 }
-.node-webform div.col-sm-12 {
-  width: 100%;
-}
-ul.webform-submission-actions {
-  margin: 10px 0;
-  padding: 0;
-  width: 100%;
-  text-align: right;
-}
-@media screen and (min-width: 480px) {
-  ul.webform-submission-actions {
-    padding: 0 30px;
+@media screen and (min-width: 768px) {
+  .node.node-webform .row .col-sm-12 {
+    padding: 75px 80px 50px;
   }
 }
-ul.webform-submission-actions li {
-  display: inline-block;
-}
-ul.webform-submission-actions li a {
-  padding: 5px 10px;
-  font-family: 'CallunaRegular';
-  font-size: 16px;
-  color: #333333;
-  text-decoration: none;
-  border-radius: 3px;
-  border: 2px solid #333333;
-  background: none;
-  outline: none;
-}
-ul.webform-submission-actions li a:hover,
-ul.webform-submission-actions li a:active {
-  color: #fff;
-  background: #333333 none;
-  outline: none;
-}
-.webform-submission {
-  padding: 20px 0 100px;
-}
-@media screen and (min-width: 480px) {
-  .webform-submission {
-    padding: 20px 30px 100px;
+@media screen and (min-width: 992px) {
+  .node.node-webform .row .col-sm-12 {
+    padding: 75px 100px 50px;
   }
 }
-.webform-confirmation {
+.node.node-webform .row .col-sm-12 .field-name-field-slogan .field-item {
+  font-family: 'CallunaBold';
+  font-size: 34px;
+  line-height: 38px;
+  letter-spacing: -0.02em;
   text-align: center;
 }
-.webform-confirmation .fa {
-  margin: 0;
-  padding: 0;
-  width: 60px;
-  height: 60px;
-  font-size: 40px;
-  line-height: 60px;
-  -moz-border-radius: 30px;
-  -webkit-border-radius: 30px;
-  border-radius: 30px;
+@media screen and (min-width: 768px) {
+  .node.node-webform .row .col-sm-12 .field-name-field-slogan .field-item {
+    font-size: 52px;
+    line-height: 58px;
+    letter-spacing: -0.02em;
+    text-align: left;
+  }
 }
-.webform-confirmation .fa.fa-check {
-  color: #5cb85c;
-  border: 2px solid #5cb85c;
+.node.node-webform .row .col-sm-12 .field-name-field-image img {
+  margin: 0 auto;
+  width: 90%;
+  height: auto;
 }
-.webform-confirmation .fa.fa-times {
-  color: #d9534f;
-  border: 2px solid #d9534f;
+.node.node-webform .row .col-sm-12 .field-name-body {
+  text-align: center;
 }
-.webform-confirmation .fa.fa-exclamation {
-  color: #f0ad4e;
-  border: 2px solid #f0ad4e;
+.node.node-webform .row .col-sm-12 .field-name-body h1,
+.node.node-webform .row .col-sm-12 .field-name-body h2,
+.node.node-webform .row .col-sm-12 .field-name-body h3,
+.node.node-webform .row .col-sm-12 .field-name-body h4,
+.node.node-webform .row .col-sm-12 .field-name-body h5,
+.node.node-webform .row .col-sm-12 .field-name-body h6 {
+  font-family: 'CallunaBold';
+  font-size: 15px;
 }
-.webform-confirmation .confirmation-message p {
+@media screen and (min-width: 480px) {
+  .node.node-webform .row .col-sm-12 .field-name-body h1,
+  .node.node-webform .row .col-sm-12 .field-name-body h2,
+  .node.node-webform .row .col-sm-12 .field-name-body h3,
+  .node.node-webform .row .col-sm-12 .field-name-body h4,
+  .node.node-webform .row .col-sm-12 .field-name-body h5,
+  .node.node-webform .row .col-sm-12 .field-name-body h6 {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .node.node-webform .row .col-sm-12 .field-name-body h1,
+  .node.node-webform .row .col-sm-12 .field-name-body h2,
+  .node.node-webform .row .col-sm-12 .field-name-body h3,
+  .node.node-webform .row .col-sm-12 .field-name-body h4,
+  .node.node-webform .row .col-sm-12 .field-name-body h5,
+  .node.node-webform .row .col-sm-12 .field-name-body h6 {
+    font-size: 20px;
+  }
+}
+.node.node-webform .row .col-sm-12 .field-name-body h1,
+.node.node-webform .row .col-sm-12 .field-name-body h2,
+.node.node-webform .row .col-sm-12 .field-name-body h3 {
+  font-size: 15px;
+}
+@media screen and (min-width: 480px) {
+  .node.node-webform .row .col-sm-12 .field-name-body h1,
+  .node.node-webform .row .col-sm-12 .field-name-body h2,
+  .node.node-webform .row .col-sm-12 .field-name-body h3 {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .node.node-webform .row .col-sm-12 .field-name-body h1,
+  .node.node-webform .row .col-sm-12 .field-name-body h2,
+  .node.node-webform .row .col-sm-12 .field-name-body h3 {
+    font-size: 24px;
+  }
+}
+.node.node-webform .row .col-sm-12 .field-name-body p,
+.node.node-webform .row .col-sm-12 .field-name-body tbody td {
+  font-family: 'CallunaRegular';
+  font-size: 15px;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+@media screen and (min-width: 480px) {
+  .node.node-webform .row .col-sm-12 .field-name-body p,
+  .node.node-webform .row .col-sm-12 .field-name-body tbody td {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .node.node-webform .row .col-sm-12 .field-name-body p,
+  .node.node-webform .row .col-sm-12 .field-name-body tbody td {
+    font-size: 16px;
+  }
+}
+.node.node-webform .row .col-sm-12 .field-name-body a {
+  font-family: 'CallunaRegular';
+  font-size: 15px;
+}
+@media screen and (min-width: 480px) {
+  .node.node-webform .row .col-sm-12 .field-name-body a {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .node.node-webform .row .col-sm-12 .field-name-body a {
+    font-size: 16px;
+  }
+}
+.node.node-webform .row .col-sm-12 .field-name-body a:hover,
+.node.node-webform .row .col-sm-12 .field-name-body a:focus {
+  color: #222222;
+  text-decoration: none;
+  background: none;
+}
+.node.node-webform .row .col-sm-12 .field-name-body pre,
+.node.node-webform .row .col-sm-12 .field-name-body address {
+  font-family: 'CallunaIt';
+  font-size: 15px;
+}
+@media screen and (min-width: 480px) {
+  .node.node-webform .row .col-sm-12 .field-name-body pre,
+  .node.node-webform .row .col-sm-12 .field-name-body address {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .node.node-webform .row .col-sm-12 .field-name-body pre,
+  .node.node-webform .row .col-sm-12 .field-name-body address {
+    font-size: 16px;
+  }
+}
+.node.node-webform .row .col-sm-12 .field-name-body strong {
+  font-family: 'CallunaBold';
+  font-size: 15px;
+}
+@media screen and (min-width: 480px) {
+  .node.node-webform .row .col-sm-12 .field-name-body strong {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .node.node-webform .row .col-sm-12 .field-name-body strong {
+    font-size: 18px;
+  }
+}
+.node.node-webform .row .col-sm-12 .field-name-body hr {
+  border: 0;
+  border-bottom: 2px solid #333333;
+  background: none;
+}
+.node.node-webform .row .col-sm-12 .field-name-body img,
+.node.node-webform .row .col-sm-12 .field-name-body embed,
+.node.node-webform .row .col-sm-12 .field-name-body video,
+.node.node-webform .row .col-sm-12 .field-name-body audio,
+.node.node-webform .row .col-sm-12 .field-name-body iframe {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 350px;
+}
+@media screen and (min-width: 768px) {
+  .node.node-webform .row .col-sm-12 .field-name-body {
+    text-align: left;
+  }
+}
+/*
+ *  Webform Addons component
+ * --------------------------------------------------*/
+form.webform-client-form {
   margin-top: 20px;
 }
 form.webform-client-form fieldset.panel .panel-heading {
@@ -9383,10 +9498,10 @@ form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.dra
   height: auto;
   display: inline-block;
   margin: 0;
-  padding: 0.3em 1em;
+  padding: 6px 12px;
   font-family: 'CallunaBold';
-  font-size: 18px;
-  line-height: 1;
+  font-size: 15px;
+  line-height: 20px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #ffffff;
@@ -9394,20 +9509,32 @@ form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.dra
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  border: 2px solid #ffffff;
+  border: 1px solid #6a6a6a;
   background-color: #777777;
   font-size: 14px;
+}
+@media screen and (min-width: 480px) {
+  form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button {
+    font-size: 18px;
+  }
 }
 form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button:hover,
 form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button:focus {
   color: #777777;
-  border: 2px solid #777777;
-  background: #ffffff;
+  background: none;
 }
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file {
   margin: 0;
   padding: 0;
   max-width: 100%;
+}
+form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file label.control-label {
+  display: none;
 }
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn {
   display: inline-block;
@@ -9421,10 +9548,10 @@ form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .fo
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
   display: inline-block;
   margin: 0;
-  padding: 0.3em 1em;
+  padding: 6px 12px;
   font-family: 'CallunaBold';
-  font-size: 18px;
-  line-height: 1;
+  font-size: 15px;
+  line-height: 20px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #ffffff;
@@ -9432,61 +9559,88 @@ form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .fo
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  border: 2px solid #ffffff;
+  border: 1px solid #6a6a6a;
   background-color: #777777;
   font-size: 16px;
   z-index: 10;
 }
+@media screen and (min-width: 480px) {
+  form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
+    font-size: 18px;
+  }
+}
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button:hover,
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button:focus {
   color: #777777;
-  border: 2px solid #777777;
-  background: #ffffff;
+  background: none;
 }
 form.webform-client-form .webform-component {
-  margin: 0 auto 15px;
+  margin: 0 auto 30px;
   padding: 0;
   max-width: 100%;
   background-color: #fff;
 }
-form.webform-client-form .webform-component .control-label {
-  margin: 5px 10px 10px 0;
-  padding: 0;
+form.webform-client-form .webform-component label {
   width: auto;
-  font-family: 'CallunaBold';
-  font-size: 18px;
-  font-weight: normal;
-  line-height: 1.5em;
+  font-family: 'CallunaRegular';
+  font-size: 15px;
+  letter-spacing: 1.2px;
   text-align: left;
-  color: #ffffff;
+  text-transform: uppercase;
+  color: #333333;
 }
-form.webform-client-form .webform-component .control-label span.form-required {
+@media screen and (min-width: 480px) {
+  form.webform-client-form .webform-component label {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  form.webform-client-form .webform-component label {
+    font-size: 21px;
+  }
+}
+form.webform-client-form .webform-component label span.form-required {
   color: #333333;
 }
 form.webform-client-form .webform-component div.description {
   display: block;
-  margin: 0;
-  padding: 5px 0 10px;
+  margin: 10px 0 0;
   font-family: 'CallunaRegular';
-  font-size: 14px;
+  font-size: 15px;
 }
-form.webform-client-form .webform-component input,
+form.webform-client-form .webform-component input.form-text,
 form.webform-client-form .webform-component textarea {
-  padding: 5px 10px;
+  padding: 2px 10px 0;
   height: auto;
   font-family: 'CallunaRegular';
-  font-size: 18px;
-  line-height: 1.5em;
+  font-size: 15px;
+  letter-spacing: 1.1px;
   text-align: left;
   color: #333333;
   box-shadow: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
   border: 1px solid #777777;
-  background-color: #eeeeee;
 }
-form.webform-client-form .webform-component input:focus,
+@media screen and (min-width: 480px) {
+  form.webform-client-form .webform-component input.form-text,
+  form.webform-client-form .webform-component textarea {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  form.webform-client-form .webform-component input.form-text,
+  form.webform-client-form .webform-component textarea {
+    font-size: 16px;
+  }
+}
+form.webform-client-form .webform-component input.form-text:focus,
 form.webform-client-form .webform-component textarea:focus {
   border: 1px solid #337ab7;
   -webkit-box-shadow: 0 0 3px #eeeeee;
@@ -9499,7 +9653,7 @@ form.webform-client-form .webform-component select {
   padding: 5px 10px;
   height: auto;
   font-family: 'CallunaRegular';
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.2em;
   text-align: left;
   color: #333333;
@@ -9510,9 +9664,45 @@ form.webform-client-form .webform-component select {
   background-color: #eeeeee;
   outline: none;
 }
+@media screen and (min-width: 480px) {
+  form.webform-client-form .webform-component select {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  form.webform-client-form .webform-component select {
+    font-size: 16px;
+  }
+}
 form.webform-client-form .webform-component select:focus,
 form.webform-client-form .webform-component select:active {
   outline: none;
+  border: 1px solid #337ab7;
+}
+form.webform-client-form .webform-component .form-radios {
+  vertical-align: top;
+}
+form.webform-client-form .webform-component .form-radios .radio > label {
+  padding-left: 20px;
+  font-family: 'CallunaRegular';
+  font-size: 15px;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
+}
+@media screen and (min-width: 480px) {
+  form.webform-client-form .webform-component .form-radios .radio > label {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  form.webform-client-form .webform-component .form-radios .radio > label {
+    font-size: 18px;
+  }
+}
+form.webform-client-form .webform-component .form-radios .radio > label > input.form-radio {
+  margin: 3px 10px 0 -20px;
+  vertical-align: top;
 }
 form.webform-client-form .webform-component .form-managed-file {
   display: block;
@@ -9520,26 +9710,39 @@ form.webform-client-form .webform-component .form-managed-file {
   overflow-x: auto;
   white-space: nowrap;
   border: 1px solid #777777;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
 }
 form.webform-client-form .webform-component .form-managed-file input {
   position: relative;
   float: none;
-  padding: 0.3em;
-  width: 60%;
+  padding: 0;
+  font-size: 15px;
   text-align: left;
   border: none;
-  background: none;
+}
+@media screen and (min-width: 480px) {
+  form.webform-client-form .webform-component .form-managed-file input {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  form.webform-client-form .webform-component .form-managed-file input {
+    font-size: 18px;
+  }
 }
 form.webform-client-form .webform-component .form-managed-file button.btn {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
   display: inline-block;
   margin: 0;
-  padding: 0.3em 1em;
+  padding: 6px 12px;
   font-family: 'CallunaBold';
-  font-size: 18px;
-  line-height: 1;
+  font-size: 15px;
+  line-height: 20px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #ffffff;
@@ -9547,15 +9750,23 @@ form.webform-client-form .webform-component .form-managed-file button.btn {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  border: 2px solid #ffffff;
-  background-color: #777777;
-  z-index: 10;
+  border: 1px solid #1d3854;
+  background-color: #234567;
+}
+@media screen and (min-width: 480px) {
+  form.webform-client-form .webform-component .form-managed-file button.btn {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  form.webform-client-form .webform-component .form-managed-file button.btn {
+    font-size: 18px;
+  }
 }
 form.webform-client-form .webform-component .form-managed-file button.btn:hover,
 form.webform-client-form .webform-component .form-managed-file button.btn:focus {
-  color: #777777;
-  border: 2px solid #777777;
-  background: #ffffff;
+  color: #234567;
+  background: none;
 }
 form.webform-client-form .webform-component.webform-component-markup {
   margin-bottom: 25px;
@@ -9564,14 +9775,24 @@ form.webform-client-form .webform-component.webform-component-markup {
 form.webform-client-form .webform-component.webform-component-markup h2 {
   font-family: 'CallunaBold';
   font-weight: normal;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1em;
   text-align: left;
+}
+@media screen and (min-width: 480px) {
+  form.webform-client-form .webform-component.webform-component-markup h2 {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  form.webform-client-form .webform-component.webform-component-markup h2 {
+    font-size: 21px;
+  }
 }
 form.webform-client-form .webform-component.webform-component-markup p {
   font-family: 'CallunaRegular';
   font-size: 15px;
-  line-height: 22px;
+  line-height: 20px;
   text-align: left;
   color: #333333;
 }
@@ -9582,7 +9803,7 @@ form.webform-client-form .webform-component.webform-component-markup p {
 }
 @media screen and (min-width: 768px) {
   form.webform-client-form .webform-component.webform-component-markup p {
-    font-size: 15px;
+    font-size: 18px;
   }
 }
 form.webform-client-form .webform-component.webform-container-inline {
@@ -9609,25 +9830,33 @@ form.webform-client-form .webform-component.webform-container-inline select {
   form.webform-client-form .webform-component.webform-container-inline select {
     position: absolute;
     right: 0;
-    width: 58.333333%;
+    width: 55%;
   }
 }
-form.webform-client-form .webform-component-multiple-file label.control-label {
-  display: none;
+form.webform-client-form .webform-component.webform-container-inline .form-radios {
+  display: inline-block;
 }
-form.webform-client-form div.form-actions {
-  margin: 50px 0;
-  padding-top: 0;
-  text-align: center;
+form.webform-client-form .webform-component.webform-container-inline .form-radios .radio {
+  display: inline-block;
+}
+form.webform-client-form .webform-component.webform-container-inline .form-radios .radio > label {
+  display: block;
+}
+form.webform-client-form .webform-component.webform-container-inline .form-radios .radio > label > input.form-radio {
+  display: inline-block;
+}
+@media screen and (min-width: 480px) {
+  form.webform-client-form .webform-component.webform-container-inline .form-radios .radio > label {
+    display: inline;
+  }
 }
 form.webform-client-form div.form-actions button.webform-submit {
-  min-width: 50%;
   display: inline-block;
   margin: 0;
-  padding: 0.3em 1em;
+  padding: 6px 12px;
   font-family: 'CallunaBold';
-  font-size: 18px;
-  line-height: 1;
+  font-size: 15px;
+  line-height: 20px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #ffffff;
@@ -9635,15 +9864,127 @@ form.webform-client-form div.form-actions button.webform-submit {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  border: 2px solid #ffffff;
-  background-color: #777777;
-  padding: 15px 20px;
+  border: 1px solid #1d3854;
+  background-color: #234567;
+}
+@media screen and (min-width: 480px) {
+  form.webform-client-form div.form-actions button.webform-submit {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  form.webform-client-form div.form-actions button.webform-submit {
+    font-size: 18px;
+  }
 }
 form.webform-client-form div.form-actions button.webform-submit:hover,
 form.webform-client-form div.form-actions button.webform-submit:focus {
-  color: #777777;
-  border: 2px solid #777777;
-  background: #ffffff;
+  color: #234567;
+  background: none;
+}
+/*
+ *  Webform confirmation component
+ * --------------------------------------------------*/
+.webform-confirmation .confirmation-message {
+  padding: 50px 20px 50px;
+}
+@media screen and (min-width: 480px) {
+  .webform-confirmation .confirmation-message {
+    padding: 50px 30px 50px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .webform-confirmation .confirmation-message {
+    padding: 75px 80px 50px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .webform-confirmation .confirmation-message {
+    padding: 75px 100px 50px;
+  }
+}
+.webform-confirmation .confirmation-message .first-paragraph,
+.webform-confirmation .confirmation-message .second-paragraph,
+.webform-confirmation .confirmation-message .third-paragraph,
+.webform-confirmation .confirmation-message p {
+  font-family: 'CallunaBold';
+  font-size: 30px;
+  line-height: 1.2;
+  text-align: center;
+  color: #234567;
+}
+@media screen and (min-width: 768px) {
+  .webform-confirmation .confirmation-message .first-paragraph,
+  .webform-confirmation .confirmation-message .second-paragraph,
+  .webform-confirmation .confirmation-message .third-paragraph,
+  .webform-confirmation .confirmation-message p {
+    font-size: 40px;
+    text-align: left;
+  }
+}
+.webform-confirmation .confirmation-message .second-paragraph,
+.webform-confirmation .confirmation-message p {
+  color: #000000;
+}
+.webform-confirmation .confirmation-message .third-paragraph {
+  color: #234567;
+}
+.links {
+  text-align: center;
+  margin: 10px 20px;
+}
+@media screen and (min-width: 768px) {
+  .links {
+    text-align: left;
+    margin-left: 80px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .links {
+    margin-left: 100px;
+  }
+}
+/*
+ *  Webform submission component
+ * --------------------------------------------------*/
+.webform-submission {
+  padding: 20px 0 100px;
+}
+@media screen and (min-width: 480px) {
+  .webform-submission {
+    padding: 20px 30px 100px;
+  }
+}
+ul.webform-submission-actions {
+  margin: 10px 0;
+  padding: 0;
+  width: 100%;
+  text-align: right;
+}
+@media screen and (min-width: 480px) {
+  ul.webform-submission-actions {
+    padding: 0 30px;
+  }
+}
+ul.webform-submission-actions li {
+  display: inline-block;
+}
+ul.webform-submission-actions li a {
+  padding: 5px 10px;
+  font-family: 'CallunaRegular';
+  font-size: 16px;
+  color: #333333;
+  text-decoration: none;
+  border-radius: 3px;
+  border: 2px solid #333333;
+  background: none;
+  outline: none;
+}
+ul.webform-submission-actions li a:hover,
+ul.webform-submission-actions li a:active {
+  color: #fff;
+  background: #333333 none;
+  outline: none;
 }
 /*
  *  Header section (navigation)
