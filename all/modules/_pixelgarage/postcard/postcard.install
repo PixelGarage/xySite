@@ -1,0 +1,68 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ralph
+ * Date: 21.07.16
+ * Time: 21:48
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function postcard_schema()
+{
+  $schema = array();
+
+  $schema['postcard_webform_multistep'] = array(
+    'description' => 'Stores previous nid and sid of a multi-step webform for navigation purpose.',
+    'fields' => array(
+      'nid' => array(
+        'description' => 'The node identifier of a webform.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'sid' => array(
+        'description' => 'The submission identifier of the webform.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'prev_nid' => array(
+        'description' => 'The node identifier of the previous webform in a multi-step webform.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'prev_sid' => array(
+        'description' => 'The submission identifier of the previous webform in a multi-step webform.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('nid', 'sid'),
+    'indexes' => array(
+      'nid_sid' => array('nid', 'sid'),
+      'prev_nid_prev_sid' => array('prev_nid', 'prev_sid'),
+    ),
+  );
+  return $schema;
+}
+
+
+/**
+ * Implements hook_uninstall().
+ */
+function postcard_uninstall() {
+  variable_del('postcard_convert_path');
+  variable_del('postcard_pdf_dpi');
+  variable_del('postcard_img_quality');
+  variable_del('postcard_img_sharpen');
+  variable_del('postcard_debug');
+}
+

@@ -44,11 +44,14 @@ class PDFDocument extends TCPDF {
    *
    * @param array $options
    *   Associative array containing basic settings. All values have a default.
+   *   If the header and/or footer is set to null, the section is not printed.
+   *
+   *    $options = array(
    *     'title' => Title of the document
    *     'subject' => Subject of the document
    *     'author' => Author of the document
    *     'keywords' => Comma separated list of keywords
-   *     'header' => Array
+   *     'header' => Array(
    *        'html' => Html code of the header.
    *        'callback' => array(              // Array of callback information
    *          'function' => NULL,             // Function that generates the header. If 'html' is set, it's ignored.
@@ -57,7 +60,8 @@ class PDFDocument extends TCPDF {
    *            'linecolor' => array(0,0,0)   // Array with rgb-values for header line color, default = array(0,0,0)
    *          )
    *        )
-   *     'footer' => Array
+   *      )
+   *     'footer' => Array(
    *        'html' => Html code of the footer.
    *        'callback' => array(              // Array of callback information
    *          'function' => NULL,             // Function that generates the header. If 'html' is set, it's ignored.
@@ -66,20 +70,33 @@ class PDFDocument extends TCPDF {
    *            'linecolor' => array(0,0,0)   // Array with rgb-values for header line color, default = array(0,0,0)
    *          )
    *        )
-   *
+   *      )
+   *    )
    */
   function InitializeDocument($options = array(), $font_family = 'helvetica') {
     // default meta data
-    $title = isset($options['title']) ? $options['title'] : variable_get('site_name', 'Title');
-    $author = isset($options['author']) ? $options['author'] : variable_get('site_name', 'Drupal');
+    $title = isset($options['title']) ? $options['title'] : variable_get('site_name', PDF_HEADER_TITLE);
+    $author = isset($options['author']) ? $options['author'] : variable_get('site_name', 'Pixelgarage');
     $subject = isset($options['subject']) ? $options['subject'] : variable_get('site_name', 'Subject') ;
-    $keywords = isset($options['keywords']) ? $options['keywords'] : 'pdf, Drupal, TCPDF, Pixelgarage';
+    $keywords = isset($options['keywords']) ? $options['keywords'] : 'Pixelgarage, PDF, Drupal, TCPDF';
 
     // define header / footer creation
-    $options['header']['callback']['context'] = isset($options['header']['callback']['context']) ? array_merge($this->pdfHeader['callback']['context'], $options['header']['callback']['context']) : $this->pdfHeader['callback']['context'];
-    $this->pdfHeader = isset($options['header']) ? array_merge($this->pdfHeader, $options['header']) : $this->pdfHeader;
-    $options['footer']['callback']['context'] = isset($options['footer']['callback']['context']) ? array_merge($this->pdfFooter['callback']['context'], $options['footer']['callback']['context']) : $this->pdfFooter['callback']['context'];
-    $this->pdfFooter = isset($options['footer']) ? array_merge($this->pdfFooter, $options['footer']) : $this->pdfFooter;
+    $no_header = false;
+    $no_footer = false;
+    if (isset($options['header'])) {
+      $options['header']['callback']['context'] = isset($options['header']['callback']['context']) ? array_merge($this->pdfHeader['callback']['context'], $options['header']['callback']['context']) : $this->pdfHeader['callback']['context'];
+      $this->pdfHeader = array_merge($this->pdfHeader, $options['header']);
+    }
+    else {
+      $no_header = true;
+    }
+    if (isset($options['footer'])) {
+      $options['footer']['callback']['context'] = isset($options['footer']['callback']['context']) ? array_merge($this->pdfFooter['callback']['context'], $options['footer']['callback']['context']) : $this->pdfFooter['callback']['context'];
+      $this->pdfFooter = array_merge($this->pdfFooter, $options['footer']);
+    }
+    else {
+      $no_footer = true;
+    }
 
     // set document meta information
     $this->SetCreator(PDF_CREATOR);
@@ -88,21 +105,34 @@ class PDFDocument extends TCPDF {
     $this->SetSubject($subject);
     $this->SetKeywords($keywords);
 
-    // set default header / footer data
-    $this->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, $title, $subject, $this->pdfHeader['callback']['context']['textcolor'], $this->pdfHeader['callback']['context']['linecolor']);
-    $this->setFooterData($this->pdfFooter['callback']['context']['textcolor'], $this->pdfFooter['callback']['context']['linecolor']);
 
-    // set default header and footer fonts
-    $this->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-    $this->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+    // set header
+    if ($no_header) {
+      $this->setPrintHeader(false);
+    }
+    else {
+      // set header data and font
+      $this->setHeaderMargin(PDF_MARGIN_HEADER);
+      $this->setHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, $title, $subject, $this->pdfHeader['callback']['context']['textcolor'], $this->pdfHeader['callback']['context']['linecolor']);
+      $this->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+    }
+
+    // set footer
+    if ($no_footer) {
+      $this->setPrintFooter(false);
+    }
+    else {
+      // set header data and font
+      $this->setFooterMargin(PDF_MARGIN_FOOTER);
+      $this->setFooterData($this->pdfFooter['callback']['context']['textcolor'], $this->pdfFooter['callback']['context']['linecolor']);
+      $this->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+    }
 
     // set default monospaced font
     $this->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
     // set document margins
     $this->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-    $this->SetHeaderMargin(PDF_MARGIN_HEADER);
-    $this->SetFooterMargin(PDF_MARGIN_FOOTER);
 
     // set auto page breaks
     $this->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);

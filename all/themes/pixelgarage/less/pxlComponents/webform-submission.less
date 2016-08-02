@@ -14,45 +14,55 @@
 // Submission settings
 // -------------------------
 .webform-submission {
-  padding: 20px 0 100px;
+  margin: 20px auto 100px;
+  width: 100%;
 
   @media @narrow {
-    padding: 20px 30px 100px;
+    margin: 20px auto 100px;
+    max-width: 600px;
   }
 
 }
 
+.submission-actions {
+  text-align: center;
 
-ul.webform-submission-actions {
-  margin: 10px 0;
-  padding: 0;
-  width: 100%;
-  text-align: right;
-
-  @media @narrow {
-    padding: 0 30px;
-  }
-
-  li {
+  >ul.webform-submission-actions {
     display: inline-block;
+    float: none;
+    margin: 10px auto;
+    padding: 0;
+    width: 100%;
+    text-align: right;
 
-    a {
-      padding: 5px 10px;
-      font-family: @pxl-text-font;
-      font-size: @font-size-base;
-      color: @text-color;
-      text-decoration: none;
-      border-radius: 3px;
-      border: 2px solid @text-color;
-      background: none;
-      outline: none;
+    @media @narrow {
+      margin: 20px auto;
+      max-width: 600px;
+    }
 
-      &:hover, &:active {
-        color: #fff;
-        background: @text-color none;
+    li {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+
+      a {
+        padding: 5px 10px;
+        font-family: @pxl-text-font;
+        font-size: @font-size-base;
+        color: @pxl-color-main;
+        text-decoration: none;
+        border-radius: 3px;
+        border: 2px solid @pxl-color-main;
+        background: none;
         outline: none;
+
+        &:hover, &:active {
+          color: #fff;
+          background: @pxl-color-main none;
+          outline: none;
+        }
       }
     }
   }
-}
 
+}

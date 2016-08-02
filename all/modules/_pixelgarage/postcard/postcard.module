@@ -1,0 +1,234 @@
+<?php
+/**
+* @file
+* A description of what your module does.
+*/
+
+//
+// implements a postcard pdf creator
+require_once 'includes/postcard.lib.inc';
+
+//
+// implements a multi-step webform with anonymous access rights
+require_once 'includes/webform.multistep.inc';
+
+//
+// implements webform submission mail alteration (token replacements)
+//require_once 'includes/webform.mail.inc';
+
+
+
+/* --------------------------------------------------
+ * Postcard session data
+ * --------------------------------------------------*/
+/**
+ * Session wide data container.
+ *
+ * @return array Returns the session data array.
+ */
+function &postcard_session_data() {
+  if (!isset($_SESSION['postcard'])) {
+    $_SESSION['postcard'] = array();
+  }
+  return $_SESSION['postcard'];
+}
+
+
+/* --------------------------------------------------
+ * Postcard hook implementations
+ * --------------------------------------------------*/
+
+/**
+ * Implements hook_menu().
+ *
+ * Define the postcard menu as top node of the admin menu.
+ * All administration of the PxlTrade latform is added below this menu.
+ * @return mixed
+ */
+function postcard_menu() {
+  //
+  // postcard settings form
+  $items['admin/config/media/postcard'] = array(
+    'title' => 'Postcard settings',
+    'description' => t('Configure the postcard creation process.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('postcard_settings_form'),
+    'access arguments' => array('administer postcard'),
+    'file' => 'postcard.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+  //
+  // view / edit / delete webform submission by anonymous user (submission token needed)
+  $items['postcard/%postcard_menu/submission/%postcard_menu_submission/anonym_view'] = array(
+    'title' => 'View',
+    'load arguments' => array(1),
+    'page callback' => 'webform_submission_page',
+    'page arguments' => array(1, 3, 'html'),
+    'access callback' => 'postcard_anonym_submission_access',
+    'access arguments' => array(1, 3, 'anonym_view'),
+    'weight' => 0,
+    'file path' => drupal_get_path('module', 'webform'),
+    'file' => 'includes/webform.submissions.inc',
+    'type' => MENU_CALLBACK,
+  );
+  $items['postcard/%postcard_menu/submission/%postcard_menu_submission/anonym_edit'] = array(
+    'title' => 'Edit',
+    'load arguments' => array(1),
+    'page callback' => 'webform_submission_page',
+    'page arguments' => array(1, 3, 'form'),
+    'access callback' => 'postcard_anonym_submission_access',
+    'access arguments' => array(1, 3, 'anonym_edit'),
+    'weight' => 1,
+    'file path' => drupal_get_path('module', 'webform'),
+    'file' => 'includes/webform.submissions.inc',
+    'type' => MENU_CALLBACK,
+  );
+  $items['postcard/%postcard_menu/submission/%postcard_menu_submission/anonym_remove'] = array(
+    'title' => 'Remove',
+    'load arguments' => array(1),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('postcard_webform_submission_remove_form', 1, 3),
+    'access callback' => 'postcard_anonym_submission_access',
+    'access arguments' => array(1, 3, 'anonym_delete'),
+    'weight' => 2,
+    'file' => 'includes/webform.submission.inc',
+    'type' => MENU_CALLBACK,
+  );
+  //
+  // debug menu to show postcard pdf
+  $items['show_postcard/%'] = array(
+    'title' => 'Create and show postcard PDF',
+    'page callback' => '_postcard_show_pdf',
+    'page arguments' => array(1),
+    'access arguments' => array('administer postcard'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Menu loader callback. Load a webform node if the given nid is a webform.
+ */
+function postcard_menu_load($nid) {
+  if (!is_numeric($nid)) {
+    return FALSE;
+  }
+  $node = node_load($nid);
+  if (!isset($node->type) || !variable_get('webform_node_' . $node->type, FALSE)) {
+    return FALSE;
+  }
+  return postcard_webform_master_form($node);
+}
+
+/**
+ * Menu loader callback. Load a webform submission of the given webform, if the given sid is valid.
+ */
+function postcard_menu_submission_load($sid, $nid) {
+  // load webform submission includes
+  module_load_include('inc', 'webform', 'includes/webform.submissions');
+
+  //
+  // get the submission of the webform
+  $node = node_load($nid);
+  $master = postcard_webform_master_form($node);
+  $submission = webform_get_submission($master->nid, $sid);
+  return !empty($submission) ? $submission : false;
+}
+
+/**
+ * Allows to view, edit or delete submissions, if anonymous user token is correct.
+ */
+function postcard_anonym_submission_access($node, $submission, $op = 'anonym_view', $account = NULL) {
+  $anonymous_access = $submission && isset($_GET['token']) &&
+    $_GET['token'] == webform_get_submission_access_token($submission);
+  switch ($op) {
+    case 'anonym_view':
+    case 'anonym_edit':
+    case 'anonym_delete':
+      return $anonymous_access;
+  }
+  return false;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function postcard_permission() {
+  return array(
+    'administer postcard' => array(
+      'title' => t('Administer postcard'),
+      'description' => t('Allows to administer the creation of postcard PDFs.'),
+    ),
+  );
+}
+
+
+
+
+/* --------------------------------------------------
+ * Postcard helpers
+ * --------------------------------------------------*/
+/**
+ * Gets the master webform of a translation set.
+ *
+ * Webforms, which are localized by string store all webform related data,
+ * e.g. submissions, components etc. only on the master.
+ *
+ * @param   $node   object
+ *    The webform node (translated or master webform node)
+ * @return  bool|mixed
+ *    Returns the master webform or false, if not found.
+ */
+function postcard_webform_master_form($node) {
+  // get the relevant node id
+  $tnid = $node->tnid ? $node->tnid : $node->nid;
+  return node_load($tnid);
+}
+
+/**
+ * Creates a URL to a specific submission, that can be access by an anonymous user.
+ * The created url is language aware, meaning the form is opened in the current language.
+ *
+ * If html flag is set, a HTML link with the created url is returned.
+ *
+ * @param $nid   int
+ *    The master webform node id
+ * @param $sid   int
+ *    The submission id
+ * @param $op   string
+ *    Operation to be performed on submission, e.g. anonym_view, anonym_edit, anonym_delete
+ * @param bool $html
+ *    Flag indicating if the output link is html or plain text, default = plain text
+ * @param bool $title
+ *    Set a link title for an html link (button).
+ * @return string HTML or plain text string containing a link to the submission accessible by anonymous users.
+ * HTML or plain text string containing a link to the submission accessible by anonymous users.
+ */
+function postcard_create_anonym_submission_link($nid, $sid, $op, $html = false, $title = false) {
+  global $language;
+
+  $node = node_load($nid);
+  $master = postcard_webform_master_form($node);
+  $submission = webform_get_submission($master->nid, $sid);
+  $transl_arr = translation_node_get_translations($master->nid);
+  $lang_nid = !empty($transl_arr) ? $transl_arr[$language->language]->nid : $master->nid;
+
+  // create html or text link
+  $token = webform_get_submission_access_token($submission);
+  $url = "postcard/{$lang_nid}/submission/{$sid}/" . $op;
+  if ($html) {
+    $text = $title ? t($title) : t('Back');
+    return l($text, $url, array(
+      'query' => array('token' => $token),
+      'attributes' => array('class' => array('back-link'))
+      )
+    );
+  }
+  else {
+    return $url . '?token=' . $token;
+  }
+
+}
+
+

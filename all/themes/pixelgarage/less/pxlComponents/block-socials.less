@@ -7,8 +7,12 @@
 @ss-font-path: "@{pxl-font-path}/ss-social";
 @ss-sub-font: "Circle"; // supported sub-fonts are "Circle" and "Regular"
 @ss-sub-font-hover: "Regular";
-@pxl-share-color: #fff;
-@pxl-follow-color: @gray-light;
+
+@pxl-share-color: @text-color;
+@pxl-share-align: left;
+@pxl-follow-color: @text-color;
+
+@pxl-share-icon-size: 40px;
 
 
 // Social icon Fonts
@@ -55,22 +59,42 @@
 
 // General settings
 // -------------------------
-.block-sharethis .block-inner {
-  margin: 0;
-}
-.sharethis-wrapper {
-  margin: 0;
-  text-align: right;
+//
+// Add2Any buttons floating
+.a2a_kit {
+  &.a2a_floating_style {
+    display: none;
+    #pxl-mixins.center-vertically(fixed);
+    right: 0;
+    #pxl-mixins.border-radius(5);
+    .border-right-radius(0);
+    background: white;
 
-  > span .stButton {
-    margin: 0;
+    @media @tablet {
+      display: block;
+    }
+  }
 
-    .stLarge {
+  &.a2a_vertical_style {}
+  &.a2a_horizontal_style {}
+
+  a {
+    margin: 0 0 10px;
+    padding: 0;
+
+    .a2a_label {
+      display: none;
+    }
+
+    .a2a_svg {
       .ss-social(@ss-sub-font);
-      font-size: 2em;
-      color: @pxl-share-color;
-      height: 1.2em;
-      background-image: none !important;
+      width: @pxl-share-icon-size;
+      height: @pxl-share-icon-size;
+      font-size: (@pxl-share-icon-size - 4px);
+      color: @pxl-color-main;
+      text-align: center;
+      line-height: @pxl-share-icon-size;
+      background: none !important;
 
       &:hover {
         .ss-social(@ss-sub-font-hover);
@@ -79,44 +103,80 @@
 
       &:before {
         display: inline-block;
-        padding: 0.25em 0 0;
+        vertical-align: text-bottom;
       }
 
     }
   }
-}
 
-/* Large social buttons */
-.st_facebook_large .stButton .stLarge:before {
-  content: "\f610";
-}
-.st_twitter_large .stButton .stLarge:before {
-  content: "\f611";
-}
-.st_googleplus_large .stButton .stLarge:before {
-  content: "\f613";
-}
-.st_email_large .stButton .stLarge:before {
-  content: "✉";
-}
-.st_pinterest_large .stButton .stLarge:before {
-  content: "\f650";
+  a.a2a_button_facebook {
+    .a2a_svg:before {
+      content: "\f610";
+    }
+  }
+  a.a2a_button_twitter {
+    .a2a_svg:before {
+      content: "\f611";
+    }
+  }
+  a.a2a_button_google_plus {
+    .a2a_svg:before {
+      content: "\f613";
+    }
+  }
+  a.a2a_button_email {
+    .a2a_svg:before {
+      content:'✉'
+    }
+  }
+  a.a2a_button_pinterest {
+    .a2a_svg:before {
+      content: "\f650";
+    }
+  }
 }
 
 //
 // Follow site block settings
 // --------------------------
 #block-follow-site {
+  display: inline-block;
+
+  .block-title {
+    display: none;
+    margin: 0;
+    vertical-align: middle;
+    font-family: @pxl-text-font-bold;
+    font-size: 18px;
+    line-height: 18px;
+    color: white;
+
+    @media @narrow {
+      display: inline-block;
+    }
+    @media @normal {
+      font-size: 23px;
+      line-height: 23px;
+    }
+  }
+
   .follow-links {
+    display: inline-block;
+    vertical-align: top;
+
     .follow-link-wrapper {
+      display: inline-block;
+      vertical-align: middle;
+
       margin: 0;
 
       a.follow-link {
-        padding: 0 10px;
+        padding: 0 5px;
         .ss-social(@ss-sub-font);
-        font-size: @font-size-larger;
-        color: @pxl-follow-color;
-        background-image: none !important;
+        font-size: 30px;
+        line-height: 30px;
+        color: white;
+        background: none !important;
 
         &:hover {
           .ss-social(@ss-sub-font-hover);

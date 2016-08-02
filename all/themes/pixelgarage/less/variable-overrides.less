@@ -7,14 +7,28 @@
 
 //== Colors
 //
+@pxl-color-border: #5f5e5e;
+@pxl-color-border-active: #234567;
 @pxl-color-main: #234567;
+
+
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+
+@brand-primary:         #337ab7;
+@brand-success:         #5cb85c;
+@brand-info:            #5bc0de;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;
 
 //== Scaffolding
 //
 @link-color:            darken(@gray-darker, 15%);
-//** Link hover color set via `darken()` function.
 @link-hover-color:      @gray-darker;
-//** Link hover decoration.
 @link-hover-decoration: underline;
 
 @pxl-box-shadow: 0 0 4px rgba(100,100,100, 0.4);
@@ -26,6 +40,8 @@
 //## Font, line-height, and color for body text, headings, and more.
 @text-color:            @gray-dark;
 @text-color-disabled:   @gray;
+@text-color-field: #5f5e5e;
+
 
 @font-size-base:          16px;
 @font-size-large:         ceil((@font-size-base * 1.25));
