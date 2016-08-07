@@ -9902,10 +9902,14 @@ form.webform-client-form .webform-component.webform-component-select:after {
   line-height: 30px;
   pointer-events: none;
 }
-form.webform-client-form .webform-component .form-radios {
+form.webform-client-form .webform-component .form-radios,
+form.webform-client-form .webform-component .form-checkboxes {
   vertical-align: top;
 }
-form.webform-client-form .webform-component .form-radios .radio > label {
+form.webform-client-form .webform-component .form-radios .radio > label,
+form.webform-client-form .webform-component .form-checkboxes .radio > label,
+form.webform-client-form .webform-component .form-radios .checkbox > label,
+form.webform-client-form .webform-component .form-checkboxes .checkbox > label {
   padding-left: 20px;
   font-family: 'CallunaRegular';
   font-size: 15px;
@@ -9914,16 +9918,25 @@ form.webform-client-form .webform-component .form-radios .radio > label {
   vertical-align: top;
 }
 @media screen and (min-width: 480px) {
-  form.webform-client-form .webform-component .form-radios .radio > label {
+  form.webform-client-form .webform-component .form-radios .radio > label,
+  form.webform-client-form .webform-component .form-checkboxes .radio > label,
+  form.webform-client-form .webform-component .form-radios .checkbox > label,
+  form.webform-client-form .webform-component .form-checkboxes .checkbox > label {
     font-size: 3.125vw;
   }
 }
 @media screen and (min-width: 768px) {
-  form.webform-client-form .webform-component .form-radios .radio > label {
+  form.webform-client-form .webform-component .form-radios .radio > label,
+  form.webform-client-form .webform-component .form-checkboxes .radio > label,
+  form.webform-client-form .webform-component .form-radios .checkbox > label,
+  form.webform-client-form .webform-component .form-checkboxes .checkbox > label {
     font-size: 19px;
   }
 }
-form.webform-client-form .webform-component .form-radios .radio > label > input.form-radio {
+form.webform-client-form .webform-component .form-radios .radio > label > input.form-radio,
+form.webform-client-form .webform-component .form-checkboxes .radio > label > input.form-radio,
+form.webform-client-form .webform-component .form-radios .checkbox > label > input.form-radio,
+form.webform-client-form .webform-component .form-checkboxes .checkbox > label > input.form-radio {
   margin: 3px 10px 0 -20px;
   vertical-align: top;
 }
@@ -9955,6 +9968,10 @@ form.webform-client-form .webform-component .form-managed-file input {
   form.webform-client-form .webform-component .form-managed-file input {
     font-size: 17px;
   }
+}
+form.webform-client-form .webform-component .form-managed-file span.file {
+  display: inline-block;
+  vertical-align: middle;
 }
 form.webform-client-form .webform-component .form-managed-file button.btn {
   position: absolute;

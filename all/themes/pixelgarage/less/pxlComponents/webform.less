@@ -349,10 +349,10 @@ form.webform-client-form {
       }
     }
 
-    .form-radios {
+    .form-radios, .form-checkboxes {
       vertical-align: top;
 
-      .radio {
+      .radio, .checkbox {
         > label {
           padding-left: 20px;
           font-family: @pxl-text-font;
@@ -386,6 +386,17 @@ form.webform-client-form {
         text-align: left;
         border: none;
         background-color: @webform-color-input-bg;
+      }
+
+      span.file {
+        display: inline-block;
+        vertical-align: middle;
+        >img {
+
+        }
+        a {
+
+        }
       }
 
       button.btn {
