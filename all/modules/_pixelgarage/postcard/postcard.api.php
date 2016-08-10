@@ -76,6 +76,22 @@ function hook_postcard_multi_step_submission_presave_alter(&$step_options, $node
   
 }
 
+/**
+ * Alter a specific step removal of a multi-step webform, prior of the submission deletion, e.g. delete objects
+ * you have created in the submission presave step.
+ *
+ * @param $step_key   string
+ *    The step key indicating which submission of the multi-step webform is going to be deleted
+ * @param $node   object
+ *    The webform node (tnid)
+ * @param $submission  object
+ *    The submission object.
+ */
+function hook_postcard_multi_step_submission_remove_alter($step_key, $node, $submission) {
+  //
+  // cleanup the step before submission is deleted
+}
+
 
 /* --------------------------------------------------
  * Postcard creation alter hooks

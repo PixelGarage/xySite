@@ -83,7 +83,12 @@ function postcard_webform_submission_insert($node, $submission) {
  * Menu title callback; Return the submission step as a title.
  */
 function postcard_webform_submission_title($node, $submission) {
-  return t('Edit @title', array('@title' => $node->title));
+  global $language;
+  $master = postcard_webform_master_form($node);
+  $transl_arr = translation_node_get_translations($master->nid);
+  $transl_nid = !empty($transl_arr) ? $transl_arr[$language->language]->nid : $master->nid;
+  $transl_node = node_load($transl_nid);
+  return t('Edit @title', array('@title' => $transl_node->title));
 }
 
 
@@ -144,6 +149,10 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
     $form['actions']['back'] = array(
       '#markup' => postcard_create_anonym_submission_link($prev_step['nid'], $prev_step['sid'], 'anonym_edit', true, $button_title),
     );
+    $done_title = t('Finish');
+    $form['actions']['done'] = array(
+      '#markup' => l($done_title, '/', array('attributes' => array('class' => array('done-link')))),
+    );
   }
 
   //
@@ -193,9 +202,9 @@ function _multi_step_webform_info() {
 }
 
 /**
- * Returns the tnid's from all multi-step webforms.
- * @return array
- *    An array of all tnid's.
+ * Checks, if a given webform node belongs to a multi-step form.
+ * @return bool
+ *    True, if webform belongs to a multistep form.
  */
 function _is_multistep_webform($node) {
   $master = postcard_webform_master_form($node);
@@ -218,8 +227,8 @@ function _is_multistep_webform($node) {
  *    The master webform node (tnid)
  * @param $step   string
  *     Step key to return, e.g. 'current' | 'prev' | 'next', default is 'current'
- * @return string
- *    The step key string.
+ * @return string|bool
+ *    The key string of the requested step or false, if no prev / next step is available.
  */
 function _get_step_key($master, $step = 'current') {
   $steps = _multi_step_webform_info();
@@ -251,7 +260,8 @@ function _get_step_key($master, $step = 'current') {
  *    The master webform node (tnid)
  * @param $step   string
  *     Step info to return, e.g. 'current' | 'prev' | 'next', default is 'current'
- * @return bool|mixed
+ * @return string|bool
+ *    The step info of the requested step or false, if no prev / next step is available.
  */
 function _get_step_info($master, $step = 'current') {
   $steps = _multi_step_webform_info();
@@ -426,7 +436,7 @@ function _save_step_submission($node, $submission) {
 
 
 /* ---------------------------------------------------------------------
- * Multi-step webform submission access by anonymous user (offer actions, access rights)
+ * Multi-step webform submission actions by anonymous user
  * ---------------------------------------------------------------------*/
 
 /**
@@ -442,9 +452,10 @@ function postcard_webform_submission_actions($node, $submission) {
   // show submission actions only for anonymous users with token access
   // and secure the action callbacks with token too
   if ($token_access) {
+    $master = postcard_webform_master_form($node);
     $actions['remove'] = array(
-      'title' => t('Remove post'),
-      'href' => 'postcard/' . $node->nid . '/submission/' . $submission->sid . '/anonym_remove',
+      'title' => _is_first_step($master) ? t('Remove post') : t('Remove order'),
+      'href' => 'postcard/' . $node->nid . '/submission/' . $submission->sid . '/anonym_delete',
       'query' => drupal_get_query_parameters(),
     );
   }
@@ -453,7 +464,7 @@ function postcard_webform_submission_actions($node, $submission) {
 }
 
 /**
- * Confirm form to delete a single form submission.
+ * Confirm form to delete a single form submission and hide its post node.
  *
  * @param $form
  *   The new form array.
@@ -465,39 +476,46 @@ function postcard_webform_submission_actions($node, $submission) {
  *   The submission to be deleted (including the attached offer).
  * @return mixed The confirmation form render array.
  */
-function postcard_webform_submission_remove_form($form, $form_state, $master, $submission) {
+function postcard_webform_submission_remove_form($form, $form_state, $node, $submission) {
   // Keep the NID and SID in the same location as the webform_client_form().
   // This helps mollom identify the same fields when deleting a submission.
   $form['#tree'] = TRUE;
   $form['details']['nid'] = array(
     '#type' => 'value',
-    '#value' => $master->nid,
+    '#value' => $node->nid,
   );
   $form['details']['sid'] = array(
     '#type' => 'value',
     '#value' => $submission->sid,
   );
 
+  global $language;
   $question = t('Are you sure you want to remove this submission?');
-  $query = drupal_http_build_query(array('token' => $_GET['token']));
-  $cancel_redirect = "postcard/{$master->nid}/submission/{$submission->sid}/anonym_view?" . $query;
+  $cancel_redirect = array(
+    'path'  => "postcard/{$node->nid}/submission/{$submission->sid}/anonym_edit",
+    'query' => array('token' => $_GET['token']),
+  );
 
   return confirm_form($form, NULL, $cancel_redirect, $question, t('Remove'), t('Cancel'));
 }
 
+/**
+ * Submit the remove form.
+ */
 function postcard_webform_submission_remove_form_submit($form, &$form_state) {
-  $master = node_load($form_state['values']['details']['nid']);
+  $node = node_load($form_state['values']['details']['nid']);
   $submission = webform_get_submission($form_state['values']['details']['nid'], $form_state['values']['details']['sid']);
-  $post_nid = _webform_submission_value($master, 'post_nid', $submission);
+  $master = postcard_webform_master_form($node);
+  $step_key = _get_step_key($master);
 
-  // TODO: remove all submissions of the multi-step webform
+  //
+  // allow others to alter submission removal before deleting
+  drupal_alter('postcard_multi_step_submission_remove', $step_key, $node, $submission);
 
-  // unpublish post
-  $post = node_load($post_nid);
-  $post->status = 0;
-  node_save($post);
-
-  drupal_set_message(t('Post successfully removed.'));
+  // delete submission
+  module_load_include('inc', 'webform', 'webform.submissions');
+  webform_submission_delete($master, $submission);
+  drupal_set_message(t('Submission successfully removed.'));
 
   // redirect to home
   $form_state['redirect'] = '/';

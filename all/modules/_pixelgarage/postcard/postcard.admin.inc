@@ -16,6 +16,7 @@ function postcard_settings_form() {
     '#type' => 'item',
     '#title' => t('ImageMagick setup'),
     '#markup' => t('<p>ImageMagick is a stand-alone program for image manipulation. It must be installed on the server and you need to know where it is located. Consult your server administrator or hosting provider for details.</p>'),
+    '#weight' => -20,
   );
   $form['postcard_convert_path'] = array(
     '#type' => 'textfield',
@@ -61,6 +62,15 @@ function postcard_settings_form() {
     '#default_value' => variable_get('postcard_img_sharpen', '0X1.0'),
     '#field_suffix' => '[radiusxsigma]',
     '#description' => t('Define a Gaussian operator of the given radius and standard deviation (sigma).'),
+  );
+  $form['postcard_image']['postcard_img_resize'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Postcard image resize'),
+    '#size' => 10,
+    '#maxlength' => 10,
+    '#default_value' => variable_get('postcard_img_resize', 100),
+    '#field_suffix' => '%',
+    '#description' => t('Define a resize factor in percentage for the image.'),
   );
 
   $form['postcard']['postcard_debug'] = array(

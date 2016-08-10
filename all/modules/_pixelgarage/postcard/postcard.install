@@ -63,6 +63,7 @@ function postcard_uninstall() {
   variable_del('postcard_pdf_dpi');
   variable_del('postcard_img_quality');
   variable_del('postcard_img_sharpen');
+  variable_del('postcard_img_resize');
   variable_del('postcard_debug');
 }
 

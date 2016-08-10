@@ -83,7 +83,7 @@ function postcard_menu() {
     'file' => 'includes/webform.submissions.inc',
     'type' => MENU_CALLBACK,
   );
-  $items['postcard/%postcard_menu/submission/%postcard_menu_submission/anonym_remove'] = array(
+  $items['postcard/%postcard_menu/submission/%postcard_menu_submission/anonym_delete'] = array(
     'title' => 'Remove',
     'load arguments' => array(1),
     'page callback' => 'drupal_get_form',
@@ -91,7 +91,7 @@ function postcard_menu() {
     'access callback' => 'postcard_anonym_submission_access',
     'access arguments' => array(1, 3, 'anonym_delete'),
     'weight' => 2,
-    'file' => 'includes/webform.submission.inc',
+    'file' => 'includes/webform.multistep.inc',
     'type' => MENU_CALLBACK,
   );
   //
