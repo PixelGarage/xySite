@@ -882,7 +882,7 @@ function webform_theme() {
       'file' => 'includes/webform.report.inc',
     ),
     'webform_results_table' => array(
-      'variables' => array('node' => NULL, 'components' => NULL, 'submissions' => NULL, 'node' => NULL, 'total_count' => NULL, 'pager_count' => NULL),
+      'variables' => array('node' => NULL, 'components' => NULL, 'submissions' => NULL, 'total_count' => NULL, 'pager_count' => NULL),
       'file' => 'includes/webform.report.inc',
     ),
     'webform_results_download_range' => array(
@@ -2584,31 +2584,7 @@ function webform_client_form($form, &$form_state, $node, $submission = FALSE, $r
         $prev_page_labels[$component['page_num']] = !empty($component['extra']['prev_page_label']) ? t($component['extra']['prev_page_label']) : t('< Previous Page');
       }
       if (!$filter || $sorter->componentVisibility($cid, $page_num)) {
-        if (isset($input_values[$cid])) {
-          $component_value = $input_values[$cid];
-        }
-        elseif (isset($input_values[$component['form_key']])) {
-          $component_value = $input_values[$component['form_key']];
-          // Hack to support multiple files on the same form. Do this for file
-          // components as well as any component that has children (since the
-          // children might contain file components of their own).
-          if ($component['type'] == 'file' || !empty($component['children'])) {
-            if (!isset($form_state['webform_file_storage'])) {
-              $form_state['webform_file_storage'] = array();
-            }
-            // Merge the current submitted file into $form_state storage so it
-            // can be used to populate the file widget on subsequent Ajax
-            // requests.
-            $form_state['webform_file_storage'] = drupal_array_merge_deep($form_state['webform_file_storage'], $input_values);
-          }
-        }
-        elseif (isset($form_state['webform_file_storage'][$component['form_key']])) {
-          // Use the file storage from above, if available.
-          $component_value = $form_state['webform_file_storage'][$component['form_key']];
-        }
-        else {
-          $component_value = NULL;
-        }
+        $component_value = isset($input_values[$cid]) ? $input_values[$cid] : NULL;
         _webform_client_form_add_component($node, $component, $component_value, $form['submitted'], $form, $input_values, 'form', $page_num, $filter);
       }
     }
@@ -2755,6 +2731,8 @@ function webform_client_form_process($form, $form_state) {
  * This function assists in the building of the client form, as well as the
  * display of results, and the text of e-mails.
  *
+ * @param $node
+ *   The current webform node.
  * @param $component
  *   The component to be added to the form.
  * @param $component_value
@@ -2773,6 +2751,8 @@ function webform_client_form_process($form, $form_state) {
  *   - form: Show as an editable form.
  *   - html: Show as HTML results.
  *   - text: Show as plain text.
+ * @param $page_num
+ *   The page number. Defaults to 0.
  * @param $filter
  *   Whether the form element properties should be filtered. Only set to FALSE
  *   if needing the raw properties for editing.
@@ -2865,15 +2845,7 @@ function _webform_client_form_add_component($node, $component, $component_value,
   if (isset($component['children']) && is_array($component['children'])) {
     $sorter = webform_get_conditional_sorter($node);
     foreach ($component['children'] as $scid => $subcomponent) {
-      if (isset($input_values[$scid])) {
-        $subcomponent_value = $input_values[$scid];
-      }
-      elseif (isset($component_value[$subcomponent['form_key']])) {
-        $subcomponent_value = $component_value[$subcomponent['form_key']];
-      }
-      else {
-        $subcomponent_value = NULL;
-      }
+      $subcomponent_value = isset($input_values[$scid]) ? $input_values[$scid] : NULL;
       // Include if always shown, or for forms, also if currently hidden but might be shown due to conditionals.
       $visibility = $sorter->componentVisibility($scid, $subcomponent['page_num']);
       if ($visibility == WebformConditionals::componentShown || ($format == 'form' && $visibility) || !$filter) {
@@ -4150,7 +4122,7 @@ function webform_get_cid(&$node, $form_key, $pid) {
 /**
  * Find the label of a given page based on page breaks.
  *
- * @param $webform
+ * @param $node
  *   The webform node.
  * @param $form_state
  *   The form's state, if available
@@ -5316,7 +5288,7 @@ function webform_clone_node_alter(&$node, $context) {
  * @param string $detect_key
  *   A key that will always be present in the posted data when an actual form
  *   submission has been made.
- * @param string parent_key
+ * @param string $parent_key
  *   Omit to not preflight the form, or the array key for the parent of where
  *   the preflight warning should be inserted into the form.
  */
@@ -5430,7 +5402,7 @@ function webform_count_input_vars($element) {
  * Counts terminals in an array. Useful for counting how many input_vars were
  * returned in $_POST.
  *
- * @params $a
+ * @param $a
  *   Array or array element to be counted
  * @return integer
  *   Number of non-array elements within $a.

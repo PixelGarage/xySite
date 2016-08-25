@@ -188,6 +188,18 @@ function addtoany_page_alter(&$page) {
           . "da2a.targets=[];" // Empty targets array so AJAX can reuse from index 0
         . "}"
       . "};"
+      // AJAX support
+      . "(function ($){"
+        . "Drupal.behaviors.addToAny = {"
+          . "attach: function (context, settings) {"
+            // If not the full document (it's probably AJAX), and window.da2a exists
+            . "if (context !== document && window.da2a) {"
+              . "if(da2a.script_ready)a2a.init_all('page');" // Init all uninitiated AddToAny instances
+              . "da2a.script_load();" // Load external script if not already called
+            . "}"
+          . "}"
+        . "}"
+      . "})(jQuery);"
       . "a2a_config.callbacks=a2a_config.callbacks||[];"
       . "a2a_config.callbacks.push({ready:da2a.script_onready});"
       . "a2a_config.templates=a2a_config.templates||{};"
@@ -243,34 +255,6 @@ function _addtoany_create_script($id_num, $link_name, $link_url) {
 
 	$_addtoany_targets[] = $button_config;
 
-	// If doing AJAX
-	if ( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && strtolower( $_SERVER['HTTP_X_REQUESTED_WITH'] ) == 'xmlhttprequest' ) {
-		$javascript_button_config = "<script type=\"text/javascript\">"
-			. "if(window.da2a&&da2a.targets)da2a.targets.push("
-				. $button_config
-			. ");";
-
-		// Output this JS just once
-		if ( ! $_addtoany_init) {
-			// Load once  via AJAX for infinite scroll, etc.
-			$javascript_button_config .= "(function ($)"
-  			. "{"
-          . "Drupal.behaviors.addToAny = {"
-            . "attach: function (context, settings) {"
-              // If not the full document (it's probably AJAX), and window.da2a exists
-              . "if (context !== document && window.da2a) {"
-                . "if(da2a.script_ready)da2a.init();"
-                . "da2a.script_load();" // Load external script if not already called
-              . "}"
-            . "}"
-          . "}"
-        . "})(jQuery)";
-		}
-
-		$javascript_button_config .= "</script>";
-	}
-	else $javascript_button_config = '';
-
 	if ( ! $_addtoany_init) {
 		$javascript_load_early = "<script type=\"text/javascript\">\n"
 			. "<!--//--><![CDATA[//><!--\n"
@@ -283,7 +267,7 @@ function _addtoany_create_script($id_num, $link_name, $link_url) {
 
 	$_addtoany_init = TRUE;
 
-	return $javascript_load_early . $javascript_button_config;
+	return $javascript_load_early;
 }
 
 /**
@@ -352,8 +336,6 @@ function addtoany_create_buttons($url = NULL, $title = NULL) {
   // Make an absolute link URL out of whatever URL/path we have been given.
   $link_url = url($url, array('absolute' => TRUE));
 
-  $javascript = _addtoany_create_script($_addtoany_num, $link_name, $link_url);
-
   $buttons_size = variable_get('addtoany_buttons_size', '32');
   // Must be a 3 digit positive integer.
   $buttons_size = (
@@ -410,15 +392,29 @@ function addtoany_create_buttons($url = NULL, $title = NULL) {
     $universal_button = '';
   }
 
-  // The ID is later removed by JS (for AJAX).
-  return ( sprintf('<span class="a2a_kit%s a2a_target addtoany_list" id="da2a_%s">
+  // If doing AJAX
+  if ( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && strtolower( $_SERVER['HTTP_X_REQUESTED_WITH'] ) == 'xmlhttprequest' ) {
+    $javascript = '';
+    $kit_data_attrs = drupal_attributes(array('data-a2a-url' => $link_url, 'data-a2a-title' => $link_name));
+    $kit_id_attr = '';
+    $kit_target_classname = '';
+  } else {
+    $javascript = _addtoany_create_script($_addtoany_num, $link_name, $link_url);
+    $kit_data_attrs = '';
+    $kit_id_attr = ' id="da2a_' . $_addtoany_num . '"'; // The ID is later removed by JS (to support AJAX, previously).
+    $kit_target_classname = ' a2a_target';
+  }
+
+  return ( sprintf('<span class="a2a_kit%s%s addtoany_list"%s%s>
       %s
       %s
       %s
     </span>
     %s',
     ($buttons_size != '16') ? ' a2a_kit_size_' . $buttons_size : '',
-    $_addtoany_num,
+    $kit_target_classname,
+    $kit_id_attr,
+    $kit_data_attrs,
     ($additional_html_placement == 'before') ? $additional_html : '',
     $universal_button,
     ($additional_html_placement == 'after') ? $additional_html : '',
