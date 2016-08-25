@@ -7,9 +7,18 @@
 
 //== Colors
 //
+@pxl-color-red: #ff0000;
+@pxl-color-yellow: #ffff00;
+@pxl-color-black: #000000;
+
+@pxl-color-main: @pxl-color-red;
+@pxl-color-active: @pxl-color-black;
+
 @pxl-color-border: #5f5e5e;
-@pxl-color-border-active: #234567;
-@pxl-color-main: #234567;
+@pxl-color-border-active: @pxl-color-main;
+
+@pxl-color-body-bg: @pxl-color-yellow;
+@pxl-color-box-bg: @pxl-color-red;
 
 
 @gray-base:              #000;
@@ -27,8 +36,10 @@
 
 //== Scaffolding
 //
-@link-color:            darken(@gray-darker, 15%);
-@link-hover-color:      @gray-darker;
+@link-color:            @pxl-color-black;
+//** Link hover color set via `darken()` function.
+@link-hover-color:      @pxl-color-red;
+//** Link hover decoration.
 @link-hover-decoration: underline;
 
 @pxl-box-shadow: 0 0 4px rgba(100,100,100, 0.4);
@@ -38,30 +49,31 @@
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-@text-color:            @gray-dark;
-@text-color-disabled:   @gray;
-@text-color-field: #5f5e5e;
-
+@text-color:            @pxl-color-black;
+@text-color-disabled:   @gray-lighter;
+@text-color-field:      @pxl-color-black;
+@text-color-placeholder: @pxl-color-red;
 
 @font-size-base:          16px;
 @font-size-large:         ceil((@font-size-base * 1.25));
 @font-size-larger:        ceil((@font-size-base * 1.5));
 @font-size-small:         ceil((@font-size-base * 0.85));
 @font-size-smaller:       ceil((@font-size-base * 0.7));
+@font-size-min:          14px;
 
 //
 // responsive font sizes
 @resp-font-size:          2vw;
-@resp-font-size-min:      15px;
-@resp-font-size-max:      16px;
+@resp-font-size-min:      12px;
+@resp-font-size-max:      17px;
 
 @resp-subtitle-size:      2.6vw;
 @resp-subtitle-size-min:  18px;
-@resp-subtitle-size-max:  20px;
+@resp-subtitle-size-max:  24px;
 
 @resp-title-size:         3.125vw;
-@resp-title-size-min:     20px;
-@resp-title-size-max:     24px;
+@resp-title-size-min:     22px;
+@resp-title-size-max:     30px;
 
 //
 // selected element font size
@@ -81,22 +93,35 @@
 
 //== Media queries breakpoints
 //
-// Media queries maximums
-@screen-xs-max:              (@screen-sm-min - 1);
-@screen-sm-max:              (@screen-md-min - 1);
-@screen-md-max:              (@screen-lg-min - 1);
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `@screen-xs-min` as of v3.2.0
+@screen-xs-min:              30em; // 480px
+// Small screen / tablet
+@screen-sm-min:              48em; // 768px
+// Medium screen / desktop
+@screen-md-min:              64em; // 1024px
+// Large screen / wide desktop
+@screen-lg-min:              80em; // 1280px
+// So media queries don't overlap when required, provide a maximum
+@screen-xss-max:  (@screen-xs-min - 0.0625em);
+@screen-xs-max:   (@screen-sm-min - 0.0625em);
+@screen-sm-max:   (@screen-md-min - 0.0625em);
+@screen-md-max:   (@screen-lg-min - 0.0625em);
 
 
 //== Media queries
 //
 //## Define your custom media queries.
+@mobile:  ~"screen and (max-width: @{screen-xss-max})";
 @narrow:  ~"screen and (min-width: @{screen-xs-min})";
 @tablet:  ~"screen and (min-width: @{screen-sm-min})";
 @normal:  ~"screen and (min-width: @{screen-md-min})";
 @wide:    ~"screen and (min-width: @{screen-lg-min})";
 
 // special break for menu items
-@menu-break: ~"screen and (min-width: 600px)";
+@special-break: ~"screen and (min-width: 640px)";
 
 // Media queries stacked
 @tablet-only:  ~"screen and (min-width: @{screen-sm-min}) and (max-width: @{screen-sm-max})";
@@ -114,7 +139,7 @@
 @grid-gutter-width-tablet:  110px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-@grid-float-breakpoint:     3000px;
+@grid-float-breakpoint:     @screen-sm-min;
 //** Point at which the navbar begins collapsing.
 @grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
 
@@ -144,3 +169,10 @@
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 
 
+//== Pagination
+//
+//##
+@pagination-color:                     @link-color;
+@pagination-hover-color:               @pxl-color-main;
+@pagination-active-color:              @pxl-color-main;
+@pagination-disabled-color:            @gray-light;

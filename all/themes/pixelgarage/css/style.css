@@ -1063,7 +1063,7 @@ body {
   font-family: 'CallunaRegular';
   font-size: 16px;
   line-height: 1.42857143;
-  color: #333333;
+  color: #000000;
   background-color: #fff;
 }
 input,
@@ -1080,7 +1080,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #222222;
+  color: #ff0000;
   text-decoration: underline;
 }
 a:focus {
@@ -1271,7 +1271,7 @@ p {
   font-weight: 300;
   line-height: 1.4;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .lead {
     font-size: 24px;
   }
@@ -1417,7 +1417,7 @@ dt {
 dd {
   margin-left: 0;
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .dl-horizontal dt {
     float: left;
     width: 160px;
@@ -1551,17 +1551,17 @@ pre code {
   padding-left: 15px;
   padding-right: 15px;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .container {
     width: 750px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 64em) {
   .container {
     width: 970px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 80em) {
   .container {
     width: 1170px;
   }
@@ -1738,7 +1738,7 @@ pre code {
 .col-xs-offset-0 {
   margin-left: 0%;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left;
   }
@@ -1896,7 +1896,7 @@ pre code {
     margin-left: 0%;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 64em) {
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left;
   }
@@ -2054,7 +2054,7 @@ pre code {
     margin-left: 0%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 80em) {
   .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     float: left;
   }
@@ -2407,7 +2407,7 @@ table th[class*="col-"] {
   overflow-x: auto;
   min-height: 0.01%;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 47.9375em) {
   .table-responsive {
     width: 100%;
     margin-bottom: 16.5px;
@@ -2860,9 +2860,9 @@ select[multiple].form-group-lg .form-control {
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #737373;
+  color: #404040;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .form-inline .form-group {
     display: inline-block;
     margin-bottom: 0;
@@ -2928,7 +2928,7 @@ select[multiple].form-group-lg .form-control {
   margin-left: -15px;
   margin-right: -15px;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .form-horizontal .control-label {
     text-align: right;
     margin-bottom: 0;
@@ -2938,12 +2938,12 @@ select[multiple].form-group-lg .form-control {
 .form-horizontal .has-feedback .form-control-feedback {
   right: 15px;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .form-horizontal .form-group-lg .control-label {
     padding-top: 14.333333px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .form-horizontal .form-group-sm .control-label {
     padding-top: 6px;
   }
@@ -3293,7 +3293,7 @@ fieldset[disabled] .btn-link {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #222222;
+  color: #ff0000;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -3505,7 +3505,7 @@ tbody.collapse.in {
   bottom: 100%;
   margin-bottom: 2px;
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .navbar-right .dropdown-menu {
     left: auto;
     right: 0;
@@ -3921,7 +3921,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   top: auto;
   left: auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .nav-tabs.nav-justified > li {
     display: table-cell;
     width: 1%;
@@ -3939,7 +3939,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs.nav-justified > .active > a:focus {
   border: 1px solid #ddd;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .nav-tabs.nav-justified > li > a {
     border-bottom: 1px solid #ddd;
     border-radius: 4px 4px 0 0;
@@ -3986,7 +3986,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   top: auto;
   left: auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .nav-justified > li {
     display: table-cell;
     width: 1%;
@@ -4007,7 +4007,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs-justified > .active > a:focus {
   border: 1px solid #ddd;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .nav-tabs-justified > li > a {
     border-bottom: 1px solid #ddd;
     border-radius: 4px 4px 0 0;
@@ -4037,12 +4037,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 22px;
   border: 1px solid transparent;
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .navbar {
     border-radius: 4px;
   }
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .navbar-header {
     float: left;
   }
@@ -4058,7 +4058,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-collapse.in {
   overflow-y: auto;
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .navbar-collapse {
     width: auto;
     border-top: 0;
@@ -4085,7 +4085,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-fixed-bottom .navbar-collapse {
   max-height: 340px;
 }
-@media (max-device-width: 480px) and (orientation: landscape) {
+@media (max-device-width: 30em) and (orientation: landscape) {
   .navbar-fixed-top .navbar-collapse,
   .navbar-fixed-bottom .navbar-collapse {
     max-height: 200px;
@@ -4098,7 +4098,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-right: -15px;
   margin-left: -15px;
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .container > .navbar-header,
   .container-fluid > .navbar-header,
   .container > .navbar-collapse,
@@ -4111,7 +4111,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   z-index: 1000;
   border-width: 0 0 1px;
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .navbar-static-top {
     border-radius: 0;
   }
@@ -4123,7 +4123,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   left: 0;
   z-index: 1030;
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .navbar-fixed-top,
   .navbar-fixed-bottom {
     border-radius: 0;
@@ -4152,7 +4152,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand > img {
   display: block;
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     margin-left: -15px;
@@ -4182,7 +4182,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .navbar-toggle {
     display: none;
   }
@@ -4195,7 +4195,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-bottom: 10px;
   line-height: 22px;
 }
-@media (max-width: 2999px) {
+@media (max-width: 47em) {
   .navbar-nav .open .dropdown-menu {
     position: static;
     float: none;
@@ -4217,7 +4217,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     background-image: none;
   }
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .navbar-nav {
     float: left;
     margin: 0;
@@ -4241,7 +4241,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-top: 7px;
   margin-bottom: 7px;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .navbar-form .form-group {
     display: inline-block;
     margin-bottom: 0;
@@ -4291,7 +4291,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     top: 0;
   }
 }
-@media (max-width: 2999px) {
+@media (max-width: 47em) {
   .navbar-form .form-group {
     margin-bottom: 5px;
   }
@@ -4299,7 +4299,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-bottom: 0;
   }
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .navbar-form {
     width: auto;
     border: 0;
@@ -4339,14 +4339,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-top: 14px;
   margin-bottom: 14px;
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .navbar-text {
     float: left;
     margin-left: 15px;
     margin-right: 15px;
   }
 }
-@media (min-width: 3000px) {
+@media (min-width: 48em) {
   .navbar-left {
     float: left !important;
     float: left;
@@ -4415,7 +4415,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #e7e7e7;
   color: #555;
 }
-@media (max-width: 2999px) {
+@media (max-width: 47em) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #777;
   }
@@ -4511,7 +4511,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-color: #080808;
   color: #fff;
 }
-@media (max-width: 2999px) {
+@media (max-width: 47em) {
   .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
     border-color: #080808;
   }
@@ -4612,7 +4612,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  color: #222222;
+  color: #ff0000;
   background-color: #eeeeee;
   border-color: #ddd;
 }
@@ -4623,7 +4623,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
   z-index: 2;
-  color: #fff;
+  color: #ff0000;
   background-color: #337ab7;
   border-color: #337ab7;
   cursor: default;
@@ -4844,7 +4844,7 @@ a.badge:focus {
 .jumbotron .container {
   max-width: 100%;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .jumbotron {
     padding: 48px 0;
   }
@@ -4882,7 +4882,7 @@ a.thumbnail.active {
 }
 .thumbnail .caption {
   padding: 9px;
-  color: #333333;
+  color: #000000;
 }
 .alert {
   padding: 15px;
@@ -5775,7 +5775,7 @@ button.close {
   height: 50px;
   overflow: scroll;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .modal-dialog {
     width: 600px;
     margin: 30px auto;
@@ -5788,7 +5788,7 @@ button.close {
     width: 300px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 64em) {
   .modal-lg {
     width: 900px;
   }
@@ -6214,7 +6214,7 @@ button.close {
 .carousel-caption .btn {
   text-shadow: none;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .carousel-control .glyphicon-chevron-left,
   .carousel-control .glyphicon-chevron-right,
   .carousel-control .icon-prev,
@@ -6348,7 +6348,7 @@ button.close {
 .visible-lg-inline-block {
   display: none !important;
 }
-@media (max-width: 767px) {
+@media (max-width: 47.9375em) {
   .visible-xs {
     display: block !important;
   }
@@ -6363,22 +6363,22 @@ button.close {
     display: table-cell !important;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 47.9375em) {
   .visible-xs-block {
     display: block !important;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 47.9375em) {
   .visible-xs-inline {
     display: inline !important;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 47.9375em) {
   .visible-xs-inline-block {
     display: inline-block !important;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 48em) and (max-width: 63.9375em) {
   .visible-sm {
     display: block !important;
   }
@@ -6393,22 +6393,22 @@ button.close {
     display: table-cell !important;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 48em) and (max-width: 63.9375em) {
   .visible-sm-block {
     display: block !important;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 48em) and (max-width: 63.9375em) {
   .visible-sm-inline {
     display: inline !important;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 48em) and (max-width: 63.9375em) {
   .visible-sm-inline-block {
     display: inline-block !important;
   }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 64em) and (max-width: 79.9375em) {
   .visible-md {
     display: block !important;
   }
@@ -6423,22 +6423,22 @@ button.close {
     display: table-cell !important;
   }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 64em) and (max-width: 79.9375em) {
   .visible-md-block {
     display: block !important;
   }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 64em) and (max-width: 79.9375em) {
   .visible-md-inline {
     display: inline !important;
   }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 64em) and (max-width: 79.9375em) {
   .visible-md-inline-block {
     display: inline-block !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 80em) {
   .visible-lg {
     display: block !important;
   }
@@ -6453,37 +6453,37 @@ button.close {
     display: table-cell !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 80em) {
   .visible-lg-block {
     display: block !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 80em) {
   .visible-lg-inline {
     display: inline !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 80em) {
   .visible-lg-inline-block {
     display: inline-block !important;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 47.9375em) {
   .hidden-xs {
     display: none !important;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 48em) and (max-width: 63.9375em) {
   .hidden-sm {
     display: none !important;
   }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 64em) and (max-width: 79.9375em) {
   .hidden-md {
     display: none !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 80em) {
   .hidden-lg {
     display: none !important;
   }
@@ -6621,17 +6621,17 @@ body #admin-menu {
 body #admin-menu .dropdown li {
   line-height: normal;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .navbar.container {
     max-width: 720px;
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 64em) {
   .navbar.container {
     max-width: 940px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 80em) {
   .navbar.container {
     max-width: 1140px;
   }
@@ -6683,7 +6683,7 @@ body #admin-menu .dropdown li {
   padding-left: 15px;
   padding-right: 15px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .navbar .logo {
     margin-right: 0;
     padding-left: 0;
@@ -6692,7 +6692,7 @@ body #admin-menu .dropdown li {
 ul.secondary {
   float: left;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   ul.secondary {
     float: right;
   }
@@ -6721,7 +6721,7 @@ form#search-block-form {
   float: none;
   margin: 5px 0 5px 5px;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 64em) {
   .navbar #block-search-form {
     float: right;
   }
@@ -6820,7 +6820,7 @@ table.sticky-header {
   margin-top: 5px;
   text-align: center;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .filter-help {
     float: right;
   }
@@ -6916,7 +6916,7 @@ ul li.leaf {
 .form-type-password-confirm .password-help {
   padding-left: 2em;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .form-type-password-confirm .password-help {
     border-left: 1px solid #ddd;
     left: 50%;
@@ -6924,7 +6924,7 @@ ul li.leaf {
     position: absolute;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 64em) {
   .form-type-password-confirm .password-help {
     left: 33.33333333%;
   }
@@ -7280,7 +7280,7 @@ body.navbar-is-fixed-top.navbar-administration .navbar-fixed-top {
   top: 39px;
 }
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   body.navbar-is-fixed-top.navbar-administration.navbar-vertical.navbar-tray-open .navbar-fixed-top {
     left: 240px;
     left: 24rem;
@@ -8737,7 +8737,7 @@ form#user-login {
   padding: 0 0 2em;
   width: 100%;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 64em) {
   #user-create-account {
     padding: 2em;
     width: 50%;
@@ -8782,7 +8782,7 @@ form#user-login {
   border: 0;
   border-bottom: 1px solid #eeeeee;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 64em) {
   #user_login_form {
     padding: 2em;
     width: 50%;
@@ -8935,7 +8935,7 @@ form#user-login {
   border-top-right-radius: 0;
   background: white;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .a2a_kit.a2a_floating_style {
     display: block;
   }
@@ -8964,7 +8964,7 @@ form#user-login {
   width: 40px;
   height: 40px;
   font-size: 36px;
-  color: #234567;
+  color: #ff0000;
   text-align: center;
   line-height: 40px;
   background: none !important;
@@ -9016,12 +9016,12 @@ form#user-login {
   line-height: 18px;
   color: white;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   #block-follow-site .block-title {
     display: inline-block;
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 64em) {
   #block-follow-site .block-title {
     font-size: 23px;
     line-height: 23px;
@@ -9098,7 +9098,7 @@ form#user-login {
   margin: 0 -0.25em 0 0;
   padding: 0 10px;
   line-height: 1;
-  border-right: 1px solid #333333;
+  border-right: 1px solid #000000;
 }
 #block-locale-language ul.language-switcher-locale-url > li.first {
   margin-left: 0;
@@ -9119,7 +9119,7 @@ form#user-login {
   text-decoration: none;
 }
 #block-locale-language ul.language-switcher-locale-url > li span.locale-untranslated {
-  color: #555555;
+  color: #eeeeee;
 }
 /*
  *  Node page component
@@ -9131,17 +9131,17 @@ form#user-login {
   font-family: 'CallunaBold';
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: #333333;
-  font-size: 15px;
+  color: #000000;
+  font-size: 12px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node-page div.col-sm-12 .field-name-title h2 {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node-page div.col-sm-12 .field-name-title h2 {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 .node-page div.col-sm-12 .field-name-body h1,
@@ -9153,7 +9153,7 @@ form#user-login {
   font-family: 'CallunaBold';
   font-size: 15px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node-page div.col-sm-12 .field-name-body h1,
   .node-page div.col-sm-12 .field-name-body h2,
   .node-page div.col-sm-12 .field-name-body h3,
@@ -9163,39 +9163,39 @@ form#user-login {
     font-size: 3.125vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node-page div.col-sm-12 .field-name-body h1,
   .node-page div.col-sm-12 .field-name-body h2,
   .node-page div.col-sm-12 .field-name-body h3,
   .node-page div.col-sm-12 .field-name-body h4,
   .node-page div.col-sm-12 .field-name-body h5,
   .node-page div.col-sm-12 .field-name-body h6 {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 .node-page div.col-sm-12 .field-name-body h1,
 .node-page div.col-sm-12 .field-name-body h2,
 .node-page div.col-sm-12 .field-name-body h3 {
-  font-size: 15px;
+  font-size: 18.75px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node-page div.col-sm-12 .field-name-body h1,
   .node-page div.col-sm-12 .field-name-body h2,
   .node-page div.col-sm-12 .field-name-body h3 {
-    font-size: 3.125vw;
+    font-size: 3.90625vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node-page div.col-sm-12 .field-name-body h1,
   .node-page div.col-sm-12 .field-name-body h2,
   .node-page div.col-sm-12 .field-name-body h3 {
-    font-size: 24px;
+    font-size: 30px;
   }
 }
 .node-page div.col-sm-12 .field-name-body p,
 .node-page div.col-sm-12 .field-name-body tbody td {
   font-family: 'CallunaRegular';
-  font-size: 15px;
+  font-size: 12px;
   -ms-word-break: break-all;
   word-break: break-word;
   -webkit-hyphens: auto;
@@ -9204,72 +9204,72 @@ form#user-login {
   -o-hyphens: auto;
   hyphens: auto;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node-page div.col-sm-12 .field-name-body p,
   .node-page div.col-sm-12 .field-name-body tbody td {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node-page div.col-sm-12 .field-name-body p,
   .node-page div.col-sm-12 .field-name-body tbody td {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 .node-page div.col-sm-12 .field-name-body a {
   font-family: 'CallunaRegular';
-  font-size: 15px;
+  font-size: 12px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node-page div.col-sm-12 .field-name-body a {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node-page div.col-sm-12 .field-name-body a {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 .node-page div.col-sm-12 .field-name-body a:hover,
 .node-page div.col-sm-12 .field-name-body a:focus {
-  color: #222222;
+  color: #ff0000;
   text-decoration: none;
   background: none;
 }
 .node-page div.col-sm-12 .field-name-body pre,
 .node-page div.col-sm-12 .field-name-body address {
   font-family: 'CallunaIt';
-  font-size: 15px;
+  font-size: 12px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node-page div.col-sm-12 .field-name-body pre,
   .node-page div.col-sm-12 .field-name-body address {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node-page div.col-sm-12 .field-name-body pre,
   .node-page div.col-sm-12 .field-name-body address {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 .node-page div.col-sm-12 .field-name-body strong {
   font-family: 'CallunaBold';
-  font-size: 15px;
+  font-size: 12px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node-page div.col-sm-12 .field-name-body strong {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node-page div.col-sm-12 .field-name-body strong {
-    font-size: 18px;
+    font-size: 19px;
   }
 }
 .node-page div.col-sm-12 .field-name-body hr {
   border: 0;
-  border-bottom: 2px solid #333333;
+  border-bottom: 2px solid #000000;
   background: none;
 }
 .node-page div.col-sm-12 .field-name-body img,
@@ -9301,15 +9301,15 @@ form#user-login {
   font-size: 18.75px;
   letter-spacing: normal;
   text-transform: none;
-  color: #333333;
+  color: #000000;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node.node-webform .row .col-sm-12 .field-name-title h2,
   .node.node-webform .row .col-sm-6 .field-name-title h2 {
     font-size: 3.90625vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node.node-webform .row .col-sm-12 .field-name-title h2,
   .node.node-webform .row .col-sm-6 .field-name-title h2 {
     font-size: 30px;
@@ -9340,7 +9340,7 @@ form#user-login {
   font-family: 'CallunaBold';
   font-size: 15px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node.node-webform .row .col-sm-12 .field-name-body h1,
   .node.node-webform .row .col-sm-6 .field-name-body h1,
   .node.node-webform .row .col-sm-12 .field-name-body h2,
@@ -9356,7 +9356,7 @@ form#user-login {
     font-size: 3.125vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node.node-webform .row .col-sm-12 .field-name-body h1,
   .node.node-webform .row .col-sm-6 .field-name-body h1,
   .node.node-webform .row .col-sm-12 .field-name-body h2,
@@ -9369,7 +9369,7 @@ form#user-login {
   .node.node-webform .row .col-sm-6 .field-name-body h5,
   .node.node-webform .row .col-sm-12 .field-name-body h6,
   .node.node-webform .row .col-sm-6 .field-name-body h6 {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 .node.node-webform .row .col-sm-12 .field-name-body h1,
@@ -9378,26 +9378,26 @@ form#user-login {
 .node.node-webform .row .col-sm-6 .field-name-body h2,
 .node.node-webform .row .col-sm-12 .field-name-body h3,
 .node.node-webform .row .col-sm-6 .field-name-body h3 {
-  font-size: 15px;
+  font-size: 18.75px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node.node-webform .row .col-sm-12 .field-name-body h1,
   .node.node-webform .row .col-sm-6 .field-name-body h1,
   .node.node-webform .row .col-sm-12 .field-name-body h2,
   .node.node-webform .row .col-sm-6 .field-name-body h2,
   .node.node-webform .row .col-sm-12 .field-name-body h3,
   .node.node-webform .row .col-sm-6 .field-name-body h3 {
-    font-size: 3.125vw;
+    font-size: 3.90625vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node.node-webform .row .col-sm-12 .field-name-body h1,
   .node.node-webform .row .col-sm-6 .field-name-body h1,
   .node.node-webform .row .col-sm-12 .field-name-body h2,
   .node.node-webform .row .col-sm-6 .field-name-body h2,
   .node.node-webform .row .col-sm-12 .field-name-body h3,
   .node.node-webform .row .col-sm-6 .field-name-body h3 {
-    font-size: 24px;
+    font-size: 30px;
   }
 }
 .node.node-webform .row .col-sm-12 .field-name-body p,
@@ -9405,7 +9405,7 @@ form#user-login {
 .node.node-webform .row .col-sm-12 .field-name-body tbody td,
 .node.node-webform .row .col-sm-6 .field-name-body tbody td {
   font-family: 'CallunaRegular';
-  font-size: 15px;
+  font-size: 12px;
   -ms-word-break: break-all;
   word-break: break-word;
   -webkit-hyphens: auto;
@@ -9414,15 +9414,15 @@ form#user-login {
   -o-hyphens: auto;
   hyphens: auto;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node.node-webform .row .col-sm-12 .field-name-body p,
   .node.node-webform .row .col-sm-6 .field-name-body p,
   .node.node-webform .row .col-sm-12 .field-name-body tbody td,
   .node.node-webform .row .col-sm-6 .field-name-body tbody td {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node.node-webform .row .col-sm-12 .field-name-body p,
   .node.node-webform .row .col-sm-6 .field-name-body p,
   .node.node-webform .row .col-sm-12 .field-name-body tbody td,
@@ -9433,15 +9433,15 @@ form#user-login {
 .node.node-webform .row .col-sm-12 .field-name-body a,
 .node.node-webform .row .col-sm-6 .field-name-body a {
   font-family: 'CallunaRegular';
-  font-size: 15px;
+  font-size: 12px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node.node-webform .row .col-sm-12 .field-name-body a,
   .node.node-webform .row .col-sm-6 .field-name-body a {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node.node-webform .row .col-sm-12 .field-name-body a,
   .node.node-webform .row .col-sm-6 .field-name-body a {
     font-size: 17px;
@@ -9451,7 +9451,7 @@ form#user-login {
 .node.node-webform .row .col-sm-6 .field-name-body a:hover,
 .node.node-webform .row .col-sm-12 .field-name-body a:focus,
 .node.node-webform .row .col-sm-6 .field-name-body a:focus {
-  color: #222222;
+  color: #ff0000;
   text-decoration: none;
   background: none;
 }
@@ -9460,17 +9460,17 @@ form#user-login {
 .node.node-webform .row .col-sm-12 .field-name-body address,
 .node.node-webform .row .col-sm-6 .field-name-body address {
   font-family: 'CallunaIt';
-  font-size: 15px;
+  font-size: 12px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node.node-webform .row .col-sm-12 .field-name-body pre,
   .node.node-webform .row .col-sm-6 .field-name-body pre,
   .node.node-webform .row .col-sm-12 .field-name-body address,
   .node.node-webform .row .col-sm-6 .field-name-body address {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node.node-webform .row .col-sm-12 .field-name-body pre,
   .node.node-webform .row .col-sm-6 .field-name-body pre,
   .node.node-webform .row .col-sm-12 .field-name-body address,
@@ -9481,15 +9481,15 @@ form#user-login {
 .node.node-webform .row .col-sm-12 .field-name-body strong,
 .node.node-webform .row .col-sm-6 .field-name-body strong {
   font-family: 'CallunaBold';
-  font-size: 15px;
+  font-size: 12px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .node.node-webform .row .col-sm-12 .field-name-body strong,
   .node.node-webform .row .col-sm-6 .field-name-body strong {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .node.node-webform .row .col-sm-12 .field-name-body strong,
   .node.node-webform .row .col-sm-6 .field-name-body strong {
     font-size: 19px;
@@ -9498,7 +9498,7 @@ form#user-login {
 .node.node-webform .row .col-sm-12 .field-name-body hr,
 .node.node-webform .row .col-sm-6 .field-name-body hr {
   border: 0;
-  border-bottom: 2px solid #333333;
+  border-bottom: 2px solid #000000;
   background: none;
 }
 .node.node-webform .row .col-sm-12 .field-name-body img,
@@ -9534,6 +9534,7 @@ form.webform-client-form {
 form.webform-client-form fieldset.panel {
   margin: 0 auto 30px;
   border: none;
+  background: none;
   box-shadow: none;
 }
 form.webform-client-form fieldset.panel .panel-heading {
@@ -9545,15 +9546,15 @@ form.webform-client-form fieldset.panel .panel-heading .panel-title {
   display: block;
   font-family: 'CallunaBold';
   font-size: 18.75px;
-  color: #333333;
+  color: #000000;
   text-align: left;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form fieldset.panel .panel-heading .panel-title {
     font-size: 3.90625vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   form.webform-client-form fieldset.panel .panel-heading .panel-title {
     font-size: 30px;
   }
@@ -9565,7 +9566,7 @@ form.webform-client-form fieldset.panel .panel-body .help-block {
   display: block;
   margin: 10px 0 0;
   font-family: 'CallunaRegular';
-  color: #333333;
+  color: #000000;
   font-size: 13px;
   line-height: 17px;
 }
@@ -9589,54 +9590,51 @@ form.webform-client-form fieldset.panel .panel-body fieldset.panel {
 }
 form.webform-client-form fieldset.panel .panel-body fieldset.panel .panel-body fieldset.panel {
   margin-top: 30px;
+  padding: 0 20px;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border-left: 2px solid #ff0000;
 }
-form.webform-client-form fieldset.panel .panel-body .btn.btn-success,
-form.webform-client-form fieldset.panel .panel-body .btn.btn-danger {
+form.webform-client-form fieldset.panel .panel-body .btn.btn-default {
   display: inline-block;
   vertical-align: middle;
   margin: 0;
   padding: 0 20px 0 0;
   font-family: 'CallunaRegular';
-  font-size: 15px;
+  font-size: 12px;
   letter-spacing: normal;
   text-align: left;
   text-transform: none;
-  color: #234567;
+  color: #ff0000;
   border: none;
   background: none;
-  opacity: 1.0;
 }
-@media screen and (min-width: 480px) {
-  form.webform-client-form fieldset.panel .panel-body .btn.btn-success,
-  form.webform-client-form fieldset.panel .panel-body .btn.btn-danger {
-    font-size: 3.125vw;
+@media screen and (min-width: 30em) {
+  form.webform-client-form fieldset.panel .panel-body .btn.btn-default {
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
-  form.webform-client-form fieldset.panel .panel-body .btn.btn-success,
-  form.webform-client-form fieldset.panel .panel-body .btn.btn-danger {
+@media screen and (min-width: 48em) {
+  form.webform-client-form fieldset.panel .panel-body .btn.btn-default {
     font-size: 19px;
   }
 }
-form.webform-client-form fieldset.panel .panel-body .btn.btn-success:hover,
-form.webform-client-form fieldset.panel .panel-body .btn.btn-danger:hover,
-form.webform-client-form fieldset.panel .panel-body .btn.btn-success:focus,
-form.webform-client-form fieldset.panel .panel-body .btn.btn-danger:focus {
-  opacity: 0.6;
-}
-form.webform-client-form fieldset.panel .panel-body .btn.btn-success:before,
-form.webform-client-form fieldset.panel .panel-body .btn.btn-danger:before {
+form.webform-client-form fieldset.panel .panel-body .btn.btn-default:before {
   display: inline-block;
   vertical-align: middle;
   padding-right: 10px;
   font-family: 'fontawesome';
   font-size: 30px;
-  color: #234567;
 }
-form.webform-client-form fieldset.panel .panel-body .btn.btn-success:before {
+form.webform-client-form fieldset.panel .panel-body .btn.btn-default:hover,
+form.webform-client-form fieldset.panel .panel-body .btn.btn-default:focus {
+  color: #000000;
+}
+form.webform-client-form fieldset.panel .panel-body [id*='webform-addmore-add']:before {
   content: '\f0fe';
 }
-form.webform-client-form fieldset.panel .panel-body .btn.btn-danger:before {
+form.webform-client-form fieldset.panel .panel-body [id*='webform-addmore-remove']:before {
   content: '\f146';
 }
 form.webform-client-form [id$=ajax-wrapper] {
@@ -9650,12 +9648,12 @@ form.webform-client-form [id$=ajax-wrapper] .table-responsive {
   cursor: all-scroll;
   max-width: 236px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form [id$=ajax-wrapper] .table-responsive {
     max-width: 356px;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   form.webform-client-form [id$=ajax-wrapper] .table-responsive {
     max-width: none;
   }
@@ -9672,6 +9670,7 @@ form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.dra
   width: auto;
   height: auto;
   display: inline-block;
+  vertical-align: middle;
   margin: 0;
   padding: 7px 27px;
   font-family: 'CallunaBold';
@@ -9679,29 +9678,29 @@ form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.dra
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
-  color: white;
+  color: #ffff00;
   outline: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  border: 1px solid #234567;
-  background-color: #234567;
-  opacity: 1.0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 1px solid #ff0000;
+  background-color: #ff0000;
   font-size: 14px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button {
     font-size: 3.515625vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button {
     font-size: 27px;
   }
 }
 form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button:hover,
 form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button:focus {
-  opacity: 0.6;
+  color: #ff0000;
+  background: none;
 }
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file {
   margin: 0;
@@ -9722,6 +9721,7 @@ form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .fo
 }
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
   display: inline-block;
+  vertical-align: middle;
   margin: 0;
   padding: 7px 27px;
   font-family: 'CallunaBold';
@@ -9729,30 +9729,30 @@ form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .fo
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
-  color: white;
+  color: #ffff00;
   outline: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  border: 1px solid #234567;
-  background-color: #234567;
-  opacity: 1.0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 1px solid #ff0000;
+  background-color: #ff0000;
   font-size: 16px;
   z-index: 10;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
     font-size: 3.515625vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
     font-size: 27px;
   }
 }
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button:hover,
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button:focus {
-  opacity: 0.6;
+  color: #ff0000;
+  background: none;
 }
 form.webform-client-form .webform-component {
   margin: 0 auto 30px;
@@ -9774,34 +9774,37 @@ form.webform-client-form .webform-component[class*="-city"] {
 form.webform-client-form .webform-component label {
   width: auto;
   font-family: 'CallunaRegular';
-  font-size: 15px;
+  font-size: 12px;
+  font-weight: normal;
   letter-spacing: normal;
   text-align: left;
   text-transform: none;
-  color: #333333;
+  color: #000000;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form .webform-component label {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   form.webform-client-form .webform-component label {
     font-size: 19px;
   }
 }
 form.webform-client-form .webform-component label span.form-required {
-  color: #234567;
+  color: #ff0000;
 }
-form.webform-client-form .webform-component div.description {
+form.webform-client-form .webform-component div.description,
+form.webform-client-form .webform-component div.help-block {
   display: block;
   margin: 10px 0 0;
   font-family: 'CallunaRegular';
-  color: #333333;
+  color: #000000;
   font-size: 13px;
   line-height: 17px;
 }
-form.webform-client-form .webform-component div.description strong {
+form.webform-client-form .webform-component div.description strong,
+form.webform-client-form .webform-component div.help-block strong {
   font-family: 'CallunaRegular';
 }
 form.webform-client-form .webform-component .form-control,
@@ -9812,35 +9815,55 @@ form.webform-client-form .webform-component input.form-text,
 form.webform-client-form .webform-component textarea {
   padding: 0 10px;
   font-family: 'CallunaRegular';
-  font-size: 15px;
-  color: #333333;
-  line-height: 22px;
+  font-size: 12px;
+  color: #000000;
+  line-height: 1.2;
   letter-spacing: normal;
   text-align: left;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #ff0000;
+  background-color: rgba(255, 255, 255, 0);
+  -webkit-box-shadow: none;
   box-shadow: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  border: 1px solid #5f5e5e;
-  background-color: white;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form .webform-component input.form-text,
   form.webform-client-form .webform-component textarea {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   form.webform-client-form .webform-component input.form-text,
   form.webform-client-form .webform-component textarea {
     font-size: 17px;
   }
 }
+form.webform-client-form .webform-component input.form-text::-moz-placeholder,
+form.webform-client-form .webform-component textarea::-moz-placeholder {
+  text-align: left;
+  color: #999;
+  opacity: 1;
+}
+form.webform-client-form .webform-component input.form-text:-ms-input-placeholder,
+form.webform-client-form .webform-component textarea:-ms-input-placeholder {
+  text-align: left;
+  color: #999;
+}
+form.webform-client-form .webform-component input.form-text::-webkit-input-placeholder,
+form.webform-client-form .webform-component textarea::-webkit-input-placeholder {
+  text-align: left;
+  color: #999;
+}
 form.webform-client-form .webform-component input.form-text:focus,
-form.webform-client-form .webform-component textarea:focus {
-  border: 1px solid #234567;
-  -webkit-box-shadow: 0 0 3px #eeeeee;
-  box-shadow: 0 0 3px #eeeeee;
+form.webform-client-form .webform-component input.form-text:hover,
+form.webform-client-form .webform-component textarea:focus,
+form.webform-client-form .webform-component textarea:hover {
+  border: 1px solid #ff0000;
+  -webkit-box-shadow: 0 0 3px #ff0000 inset;
+  box-shadow: 0 0 3px #ff0000 inset;
 }
 form.webform-client-form .webform-component .form-textarea-wrapper div.grippie {
   display: none;
@@ -9853,28 +9876,33 @@ form.webform-client-form .webform-component.webform-component-select select {
   -moz-appearance: none;
   appearance: none;
   position: absolute;
+  top: 0;
   right: 0;
-  padding: 5px 10px;
+  padding: 0 10px;
+  max-width: 65%;
+  width: auto;
   height: auto;
   font-family: 'CallunaRegular';
-  font-size: 15px;
-  color: #333333;
-  line-height: 22px;
+  font-size: 12px;
+  color: #000000;
+  line-height: 1.2;
   letter-spacing: normal;
   text-align: left;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  border: 1px solid #5f5e5e;
-  background-color: white;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 1px solid #ff0000;
+  background-color: rgba(255, 255, 255, 0);
   outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form .webform-component.webform-component-select select {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   form.webform-client-form .webform-component.webform-component-select select {
     font-size: 17px;
   }
@@ -9882,7 +9910,7 @@ form.webform-client-form .webform-component.webform-component-select select {
 form.webform-client-form .webform-component.webform-component-select select:focus,
 form.webform-client-form .webform-component.webform-component-select select:active {
   outline: none;
-  border: 1px solid #234567;
+  border: 1px solid #ff0000;
 }
 form.webform-client-form .webform-component.webform-component-select:after {
   content: '\f0d7';
@@ -9892,7 +9920,7 @@ form.webform-client-form .webform-component.webform-component-select:after {
   right: 5px;
   bottom: 0;
   font-family: 'fontawesome';
-  color: #234567;
+  color: #ff0000;
   line-height: 30px;
   pointer-events: none;
 }
@@ -9906,32 +9934,15 @@ form.webform-client-form .webform-component .form-radios .checkbox > label,
 form.webform-client-form .webform-component .form-checkboxes .checkbox > label {
   padding-left: 20px;
   font-family: 'CallunaRegular';
-  font-size: 15px;
-  font-weight: normal;
+  font-size: 13px;
   text-align: left;
   vertical-align: top;
-}
-@media screen and (min-width: 480px) {
-  form.webform-client-form .webform-component .form-radios .radio > label,
-  form.webform-client-form .webform-component .form-checkboxes .radio > label,
-  form.webform-client-form .webform-component .form-radios .checkbox > label,
-  form.webform-client-form .webform-component .form-checkboxes .checkbox > label {
-    font-size: 3.125vw;
-  }
-}
-@media screen and (min-width: 768px) {
-  form.webform-client-form .webform-component .form-radios .radio > label,
-  form.webform-client-form .webform-component .form-checkboxes .radio > label,
-  form.webform-client-form .webform-component .form-radios .checkbox > label,
-  form.webform-client-form .webform-component .form-checkboxes .checkbox > label {
-    font-size: 19px;
-  }
 }
 form.webform-client-form .webform-component .form-radios .radio > label > input.form-radio,
 form.webform-client-form .webform-component .form-checkboxes .radio > label > input.form-radio,
 form.webform-client-form .webform-component .form-radios .checkbox > label > input.form-radio,
 form.webform-client-form .webform-component .form-checkboxes .checkbox > label > input.form-radio {
-  margin: 3px 10px 0 -20px;
+  margin: 3px 7px 0 -20px;
   vertical-align: top;
 }
 form.webform-client-form .webform-component .form-managed-file {
@@ -9939,26 +9950,30 @@ form.webform-client-form .webform-component .form-managed-file {
   position: relative;
   overflow-x: auto;
   white-space: nowrap;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  background-color: white;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0);
 }
 form.webform-client-form .webform-component .form-managed-file input {
   position: relative;
   float: none;
   padding: 0;
-  font-size: 15px;
+  width: 75%;
+  font-size: 12px;
+  color: #000000;
   text-align: left;
   border: none;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form .webform-component .form-managed-file input {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   form.webform-client-form .webform-component .form-managed-file input {
     font-size: 17px;
   }
@@ -9967,12 +9982,19 @@ form.webform-client-form .webform-component .form-managed-file span.file {
   display: inline-block;
   vertical-align: middle;
 }
+form.webform-client-form .webform-component .form-managed-file span.file > img {
+  vertical-align: middle;
+}
+form.webform-client-form .webform-component .form-managed-file span.file a {
+  vertical-align: middle;
+}
 form.webform-client-form .webform-component .form-managed-file button.btn {
   position: absolute;
-  top: 3px;
-  right: 3px;
-  bottom: 3px;
+  top: 0;
+  right: 0;
+  bottom: 0;
   display: inline-block;
+  vertical-align: middle;
   margin: 0;
   padding: 7px 27px;
   font-family: 'CallunaBold';
@@ -9980,38 +10002,38 @@ form.webform-client-form .webform-component .form-managed-file button.btn {
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
-  color: white;
+  color: #ffff00;
   outline: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  border: 1px solid #234567;
-  background-color: #234567;
-  opacity: 1.0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 1px solid #ff0000;
+  background-color: #ff0000;
   padding: 0 12px;
-  font-size: 15px;
-  line-height: 17px;
+  font-size: 12px;
+  line-height: 1.2;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form .webform-component .form-managed-file button.btn {
     font-size: 3.515625vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   form.webform-client-form .webform-component .form-managed-file button.btn {
     font-size: 27px;
   }
 }
 form.webform-client-form .webform-component .form-managed-file button.btn:hover,
 form.webform-client-form .webform-component .form-managed-file button.btn:focus {
-  opacity: 0.6;
+  color: #ff0000;
+  background: none;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form .webform-component .form-managed-file button.btn {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   form.webform-client-form .webform-component .form-managed-file button.btn {
     font-size: 17px;
   }
@@ -10024,7 +10046,7 @@ form.webform-client-form .webform-component.webform-component-markup h2,
 form.webform-client-form .webform-component.webform-component-markup strong {
   font-family: 'CallunaRegular';
   font-weight: normal;
-  color: #333333;
+  color: #000000;
   font-size: 13px;
   line-height: 17px;
   text-align: left;
@@ -10032,7 +10054,7 @@ form.webform-client-form .webform-component.webform-component-markup strong {
 form.webform-client-form .webform-component.webform-component-markup p {
   font-family: 'CallunaRegular';
   font-size: 13px;
-  color: #333333;
+  color: #000000;
   line-height: 17px;
   text-align: left;
   background: none;
@@ -10044,7 +10066,7 @@ form.webform-client-form .webform-component.webform-container-inline label,
 form.webform-client-form .webform-component.webform-container-inline input {
   display: block;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form .webform-component.webform-container-inline label,
   form.webform-client-form .webform-component.webform-container-inline input {
     display: inline-block;
@@ -10056,7 +10078,7 @@ form.webform-client-form .webform-component.webform-container-inline select {
   right: auto;
   width: 100%;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form .webform-component.webform-container-inline input.form-text,
   form.webform-client-form .webform-component.webform-container-inline select {
     position: absolute;
@@ -10076,13 +10098,14 @@ form.webform-client-form .webform-component.webform-container-inline .form-radio
 form.webform-client-form .webform-component.webform-container-inline .form-radios .radio > label > input.form-radio {
   display: inline-block;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form .webform-component.webform-container-inline .form-radios .radio > label {
     display: inline;
   }
 }
 form.webform-client-form div.form-actions button.webform-submit {
   display: inline-block;
+  vertical-align: middle;
   margin: 0;
   padding: 7px 27px;
   font-family: 'CallunaBold';
@@ -10090,31 +10113,32 @@ form.webform-client-form div.form-actions button.webform-submit {
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
-  color: white;
+  color: #ffff00;
   outline: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  border: 1px solid #234567;
-  background-color: #234567;
-  opacity: 1.0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 1px solid #ff0000;
+  background-color: #ff0000;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form div.form-actions button.webform-submit {
     font-size: 3.515625vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   form.webform-client-form div.form-actions button.webform-submit {
     font-size: 27px;
   }
 }
 form.webform-client-form div.form-actions button.webform-submit:hover,
 form.webform-client-form div.form-actions button.webform-submit:focus {
-  opacity: 0.6;
+  color: #ff0000;
+  background: none;
 }
 form.webform-client-form div.form-actions a.back-link {
   display: inline-block;
+  vertical-align: middle;
   margin: 0;
   padding: 7px 27px;
   font-family: 'CallunaBold';
@@ -10122,33 +10146,95 @@ form.webform-client-form div.form-actions a.back-link {
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
-  color: #333333;
+  color: #000000;
   outline: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  border: 1px solid #234567;
-  background-color: #234567;
-  opacity: 1.0;
-  vertical-align: middle;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 1px solid #ff0000;
+  background-color: #ff0000;
+  font-size: 15px;
   padding-left: 0;
   border: none;
   background: none;
   text-decoration: none;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   form.webform-client-form div.form-actions a.back-link {
     font-size: 3.515625vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   form.webform-client-form div.form-actions a.back-link {
     font-size: 27px;
   }
 }
 form.webform-client-form div.form-actions a.back-link:hover,
 form.webform-client-form div.form-actions a.back-link:focus {
-  opacity: 0.6;
+  color: #ff0000;
+  background: none;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form div.form-actions a.back-link {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form div.form-actions a.back-link {
+    font-size: 24px;
+  }
+}
+form.webform-client-form div.form-actions a.done-link {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 7px 27px;
+  font-family: 'CallunaBold';
+  font-size: 16.875px;
+  line-height: 27px;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+  color: #000000;
+  outline: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 1px solid #ff0000;
+  background-color: #ff0000;
+  font-size: 15px;
+  color: #ff0000;
+  padding-left: 0;
+  border: none;
+  background: none;
+  text-decoration: none;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form div.form-actions a.done-link {
+    font-size: 3.515625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form div.form-actions a.done-link {
+    font-size: 27px;
+  }
+}
+form.webform-client-form div.form-actions a.done-link:hover,
+form.webform-client-form div.form-actions a.done-link:focus {
+  color: #ff0000;
+  background: none;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form div.form-actions a.done-link {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form div.form-actions a.done-link {
+    font-size: 24px;
+  }
+}
+form.webform-client-form div.form-actions a.done-link:hover {
+  color: #000000;
 }
 /*
  *  Webform confirmation component
@@ -10158,11 +10244,11 @@ form.webform-client-form div.form-actions a.back-link:focus {
   padding: 15px 30px;
   width: 80%;
   color: #fff;
-  border: 1px solid #234567;
+  border: 1px solid #ff0000;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background-color: #234567;
+  background-color: #ff0000;
 }
 .webform-confirmation .confirmation-title {
   font-family: 'CallunaBold';
@@ -10170,28 +10256,28 @@ form.webform-client-form div.form-actions a.back-link:focus {
   line-height: 30px;
   text-align: center;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .webform-confirmation .confirmation-title {
     font-size: 3.25520833vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .webform-confirmation .confirmation-title {
     font-size: 25px;
   }
 }
 .webform-confirmation .confirmation-message {
   font-family: 'CallunaRegular';
-  font-size: 15px;
+  font-size: 12px;
   line-height: 20px;
   text-align: center;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .webform-confirmation .confirmation-message {
-    font-size: 3.125vw;
+    font-size: 2.5vw;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .webform-confirmation .confirmation-message {
     font-size: 18px;
   }
@@ -10200,13 +10286,13 @@ form.webform-client-form div.form-actions a.back-link:focus {
   text-align: center;
   margin: 30px 20px 50px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .links {
     text-align: left;
     margin-left: 80px;
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 64em) {
   .links {
     margin-left: 100px;
   }
@@ -10218,7 +10304,7 @@ form.webform-client-form div.form-actions a.back-link:focus {
   margin: 20px auto 100px;
   width: 100%;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .webform-submission {
     margin: 20px auto 100px;
     max-width: 600px;
@@ -10235,7 +10321,7 @@ form.webform-client-form div.form-actions a.back-link:focus {
   width: 100%;
   text-align: right;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .submission-actions > ul.webform-submission-actions {
     margin: 20px auto;
     max-width: 600px;
@@ -10250,17 +10336,17 @@ form.webform-client-form div.form-actions a.back-link:focus {
   padding: 5px 10px;
   font-family: 'CallunaRegular';
   font-size: 16px;
-  color: #234567;
+  color: #ff0000;
   text-decoration: none;
   border-radius: 3px;
-  border: 2px solid #234567;
+  border: 2px solid #ff0000;
   background: none;
   outline: none;
 }
 .submission-actions > ul.webform-submission-actions li a:hover,
 .submission-actions > ul.webform-submission-actions li a:active {
   color: #fff;
-  background: #234567 none;
+  background: #ff0000 none;
   outline: none;
 }
 /*

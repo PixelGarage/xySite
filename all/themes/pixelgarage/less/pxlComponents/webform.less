@@ -14,17 +14,18 @@
 
 // field colors
 @webform-color-input: @text-color;
-@webform-color-input-bg: white;
-@webform-color-border: @pxl-color-border;
-@webform-color-border-active: @pxl-color-border-active;
+@webform-color-input-bg: rgba(255,255,255,0.0);
+@webform-color-placeholder: @text-color-placeholder;
+@webform-color-border: @pxl-color-main;
+@webform-color-border-active: @pxl-color-main;
 
 // field box
 @webform-control-height: 30px;
-@webform-border-radius: @border-radius-small;
-@webform-color-shadow: @gray-lighter;
+@webform-border-radius: 0;
+@webform-color-shadow: @pxl-color-main;
 
 // button colors
-@webform-color-submit: white;
+@webform-color-submit: @pxl-color-body-bg;
 @webform-color-submit-bg: @pxl-color-main;
 
 
@@ -34,6 +35,7 @@
   width: auto;
   font-family: @pxl-text-font;
   #pxl-mixins.font-size-responsive(19px, 14px);
+  font-weight: normal;
   letter-spacing: normal;
   text-align: left;
   text-transform: none;
@@ -46,6 +48,7 @@
 
 .resp-submit-button(@color: @webform-color-submit; @bg-color: @webform-color-submit-bg; @radius: @webform-border-radius) {
   display: inline-block;
+  vertical-align: middle;
   margin: 0;
   padding: 7px 27px;
   font-family: @pxl-text-font-bold;
@@ -58,10 +61,10 @@
   #pxl-mixins.border-radius(@radius);
   border: 1px solid @bg-color;
   background-color: @bg-color;
-  opacity: 1.0;
 
   &:hover, &:focus {
-    opacity: 0.6;
+    color: @bg-color;
+    background: none;
   }
 }
 
@@ -75,6 +78,7 @@ form.webform-client-form {
   fieldset.panel {
     margin: 0 auto 30px;
     border: none;
+    background:none;
     box-shadow: none;
 
     .panel-heading {
@@ -130,12 +134,16 @@ form.webform-client-form {
           fieldset.panel {
             // third level
             margin-top: 30px;
+            padding: 0 20px;
+            #pxl-mixins.border-radius(0);
+            border-left: 2px solid @pxl-color-main;
           }
         }
       }
 
-      // add more buttons
-      .btn.btn-success, .btn.btn-danger {
+      //
+      // ADD MORE buttons
+      .btn.btn-default {
         display: inline-block;
         vertical-align: middle;
         margin: 0;
@@ -148,11 +156,6 @@ form.webform-client-form {
         color: @pxl-color-main;
         border: none;
         background: none;
-        opacity: 1.0;
-
-        &:hover, &:focus {
-          opacity: 0.6;
-        }
 
         &:before {
           display: inline-block;
@@ -160,16 +163,18 @@ form.webform-client-form {
           padding-right: 10px;
           font-family: @pxl-icon-font;
           font-size: 30px;
-          color: @pxl-color-main;
+        }
+
+        &:hover, &:focus {
+          color: @pxl-color-active;
         }
       }
-      .btn.btn-success:before {
+      [id*='webform-addmore-add']:before {
         content: '\f0fe';
       }
-      .btn.btn-danger:before {
+      [id*='webform-addmore-remove']:before {
         content: '\f146';
       }
-
     }
   }
 
@@ -264,7 +269,7 @@ form.webform-client-form {
       .form-label;
     }
 
-    div.description {
+    div.description, div.help-block {
       display: block;
       margin: 10px 0 0;
       font-family: @pxl-text-font-light;
@@ -284,21 +289,23 @@ form.webform-client-form {
 
     input.form-text, textarea {
       padding: 0 10px;
-      font-family: @pxl-text-font-light;
+      font-family: @pxl-text-font;
       #pxl-mixins.font-size-responsive(17px, 14px);
       color: @webform-color-input;
-      line-height: 22px;
+      line-height: 1.2;
       letter-spacing: normal;
       text-align: left;
-      box-shadow: none;
       #pxl-mixins.border-radius(@webform-border-radius);
-      border: 1px solid @webform-color-border;
+      border: none;
+      border-bottom: 1px solid @webform-color-border;
       background-color: @webform-color-input-bg;
+      .box-shadow(none);
+      #pxl-mixins.placeholder();
     }
-    input.form-text:focus,
-    textarea:focus {
+    input.form-text:focus, input.form-text:hover,
+    textarea:focus, textarea:hover {
       border: 1px solid @webform-color-border-active;
-      .box-shadow(0 0 3px @webform-color-shadow);
+      .box-shadow(0 0 3px @webform-color-shadow inset);
     }
 
     .form-textarea-wrapper {
@@ -313,19 +320,23 @@ form.webform-client-form {
       select {
         #pxl-mixins.no-appearance();
         position: absolute;
+        top: 0;
         right: 0;
-        padding: 5px 10px;
+        padding: 0 10px;
+        max-width: 65%;
+        width: auto;
         height: auto;
         font-family: @pxl-text-font-light;
         #pxl-mixins.font-size-responsive(17px, 14px);
         color: @webform-color-input;
-        line-height: 22px;
+        line-height: 1.2;
         letter-spacing: normal;
         text-align: left;
         #pxl-mixins.border-radius(@webform-border-radius);
         border: 1px solid @webform-color-border;
         background-color: @webform-color-input-bg;
         outline: none;
+        .box-shadow(none);
 
         &:focus, &:active {
           outline: none;
@@ -355,15 +366,15 @@ form.webform-client-form {
       .radio, .checkbox {
         > label {
           padding-left: 20px;
-          font-family: @pxl-text-font;
-          #pxl-mixins.font-size-responsive(19px, 14px);
-          font-weight: normal;
+          font-family: @pxl-text-font-light;
+          font-size: 13px;
+          //#pxl-mixins.font-size-responsive(19px, 14px);
           text-align: left;
           vertical-align: top;
 
           > input.form-radio {
             //display: none;
-            margin: 3px 10px 0 -20px;
+            margin: 3px 7px 0 -20px;
             vertical-align: top;
           }
         }
@@ -378,37 +389,44 @@ form.webform-client-form {
       #pxl-mixins.border-radius(@webform-border-radius);
       background-color: @webform-color-input-bg;
 
+      // button and label to select file
       input {
         position: relative;
         float: none;
         padding: 0;
+        width: 75%;
         #pxl-mixins.font-size-responsive(17px, 14px);
+        color: @webform-color-input;
         text-align: left;
         border: none;
         background-color: @webform-color-input-bg;
+        .box-shadow(none);
       }
 
+      // image and name of uploaded file
       span.file {
         display: inline-block;
         vertical-align: middle;
         >img {
-
+          vertical-align: middle;
         }
         a {
-
+          vertical-align: middle;
         }
       }
 
+      // upload button
       button.btn {
         position: absolute;
-        top: 3px;
-        right: 3px;
-        bottom: 3px;
+        top: 0;
+        right: 0;
+        bottom: 0;
         margin: 0;
         .resp-submit-button();
         padding: 0 12px;
         #pxl-mixins.font-size-responsive(17px, 14px);
-        line-height: 17px;      }
+        line-height: 1.2;
+      }
     }
 
     &.webform-component-markup {
@@ -418,7 +436,7 @@ form.webform-client-form {
       h2, strong {
         font-family: @pxl-text-font;
         font-weight: normal;
-        color: @text-color;
+        color: @webform-color-input;
         font-size: 13px;
         line-height: 17px;
         text-align: left;
@@ -426,7 +444,7 @@ form.webform-client-form {
       p {
         font-family: @pxl-text-font-light;
         font-size: 13px;
-        color: @text-color;
+        color: @webform-color-input;
         line-height: 17px;
         text-align: left;
         background: none;
@@ -486,11 +504,24 @@ form.webform-client-form {
     }
     a.back-link {
       .resp-submit-button(@text-color);
-      vertical-align: middle;
+      #pxl-mixins.font-size-responsive(24px, 18px);
       padding-left: 0;
       border: none;
       background: none;
       text-decoration: none;
+    }
+    a.done-link {
+      .resp-submit-button(@text-color);
+      #pxl-mixins.font-size-responsive(24px, 18px);
+      color: @webform-color-submit-bg;
+      padding-left: 0;
+      border: none;
+      background: none;
+      text-decoration: none;
+
+      &:hover {
+        color: @text-color;
+      }
     }
   }
 }
