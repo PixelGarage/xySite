@@ -57,11 +57,19 @@
 
   // responsive font size with minimum and maximum size
   .font-size-responsive(@max-size: @resp-font-size-max; @min-size: @resp-font-size-min) {
-    font-size: max(@resp-font-size-min, @max-size*5/8);   // min = 480 / 768 * max
+    @min-font-size: max(@min-size, @max-size*5/8); // min = 480 / 768 * max
+    @min-max-breakpoint: unit((48 * @min-font-size / @max-size), em);
+    @font-break:  ~"screen and (min-width: @{min-max-breakpoint})";
 
-    @media @narrow {
-      font-size: max(unit(@max-size/7.68, vw), unit(@resp-font-size-min/4.8, vw));
+    // min font size
+    font-size: @min-font-size;
+
+    // dynamic font size
+    @media @font-break {
+      font-size: unit(@max-size/7.68, vw);
     }
+
+    // max.font size
     @media @tablet {
       font-size: @max-size;
     }
@@ -86,6 +94,7 @@
     a {
       font-family: @pxl-text-font;
       .font-size-responsive(@text-size, @resp-font-size-min);
+      color: @link-color;
 
       &:hover, &:focus {
         color: @link-hover-color;
@@ -110,7 +119,17 @@
       background: none;
     }
 
-    img, embed, video, audio, iframe {
+    img {
+      display: block;
+      overflow: hidden;
+      margin: 20px auto;
+      padding: 0;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+    }
+
+    embed, video, audio, iframe {
       display: block;
       overflow: hidden;
       margin: 20px auto;
