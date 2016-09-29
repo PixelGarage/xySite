@@ -24,6 +24,32 @@
   };
 
   /**
+   * Anchor menus: Scrolls smoothly to anchor due to menu click.
+   */
+  Drupal.behaviors.smoothScrolltoAnchors = {
+    attach: function(context, settings) {
+      $(function() {
+        $('.menu li.leaf a').click(function() {
+          var anchorPos = this.href.indexOf('#');
+          // no anchor available, perform click
+          if (anchorPos == -1) return true;
+
+          // menu item references anchor, get anchor target
+          var target = $(this.href.slice(pos));
+          if (target.length) {
+            $('html, body').stop().animate({
+              scrollTop: target.offset().top
+            }, 1000, 'swing');
+            return false;
+          }
+          // no target available, perform click
+          return true;
+        });
+      });
+    }
+  };
+
+  /**
    * Allows full size clickable items.
    Drupal.behaviors.fullSizeClickableItems = {
     attach: function () {
