@@ -11,16 +11,34 @@
 /**
  * Settings admin form for the postcard creation process.
  */
-function postcard_settings_form() {
-  $form['from'] = array(
+function postcard_settings_form($form, &$form_state) {
+  $form['postcard_enable_functionality'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable postcard functionality'),
+    '#default_value' => variable_get('postcard_enable_functionality', 0),
+    '#description' => t('Set flag to enable the postcard and preview functionality.'),
+  );
+  $form['postcard_fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Postcard PDF and preview image quality parameter settings'),
+    '#collapsible' => FALSE,
+    '#description' => t('Set specifc pdf and image quality parameters for the postcard and preview functionality.'),
+    '#states' => array(
+      // Hide the settings when the cancel notify checkbox is disabled.
+      'visible' => array(
+        ':input[name="postcard_enable_functionality"]' => array('checked' => TRUE),
+      ),
+    ),
+  );
+  $form['postcard_fieldset']['postcard_image_text'] = array(
     '#type' => 'item',
     '#title' => t('ImageMagick setup'),
-    '#markup' => t('<p>ImageMagick is a stand-alone program for image manipulation. It must be installed on the server and you need to know where it is located. Consult your server administrator or hosting provider for details.</p>'),
+    '#markup' => t('<p>ImageMagick is used for the preview function. ImageMagick is a stand-alone program for image manipulation. It must be installed on the server and you need to know where it is located. Consult your server administrator or hosting provider for details.</p>'),
     '#weight' => -20,
   );
-  $form['postcard_convert_path'] = array(
+  $form['postcard_fieldset']['postcard_convert_path'] = array(
     '#type' => 'textfield',
-    '#title' => t('Path to the "convert" binary'),
+    '#title' => t('Path to the ImageMagick binary (convert)'),
     '#default_value' => variable_get('postcard_convert_path', '/usr/local/bin/convert'),
     '#required' => TRUE,
     '#element_validate' => array('postcard_element_validate_path'),
@@ -28,13 +46,7 @@ function postcard_settings_form() {
     '#description' => t('The complete path and filename of the ImageMagick <kbd>convert</kbd> binary. For example: <kbd>/usr/bin/convert</kbd> or <kbd>C:\Program Files\ImageMagick-6.3.4-Q16\convert.exe</kbd>'),
   );
 
-  $form['postcard_image'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Postcard PDF and image quality parameter settings'),
-    '#collapsible' => FALSE,
-    '#description' => t('Set specifc pdf and image quality parameter for the postcard generation.'),
-  );
-  $form['postcard_image']['postcard_pdf_dpi'] = array(
+  $form['postcard_fieldset']['postcard_pdf_dpi'] = array(
     '#type' => 'textfield',
     '#title' => t('Postcard pdf quality (dpi)'),
     '#size' => 10,
@@ -44,7 +56,7 @@ function postcard_settings_form() {
     '#element_validate' => array('postcard_element_validate_pdf_dpi'),
     '#description' => t('Define the pdf quality in dpi. Higher values mean better pdf quality but bigger files.'),
   );
-  $form['postcard_image']['postcard_img_quality'] = array(
+  $form['postcard_fieldset']['postcard_img_quality'] = array(
     '#type' => 'textfield',
     '#title' => t('Postcard image quality'),
     '#size' => 10,
@@ -52,9 +64,9 @@ function postcard_settings_form() {
     '#default_value' => variable_get('postcard_img_quality', 75),
     '#field_suffix' => '%',
     '#element_validate' => array('postcard_element_validate_quality'),
-    '#description' => t('Define the image quality of processed images. Ranges from 0 to 100. Higher values mean better image quality but bigger files.'),
+    '#description' => t('Define the preview image quality. Ranges from 0 to 100. Higher values mean better image quality but bigger files.'),
   );
-  $form['postcard_image']['postcard_img_sharpen'] = array(
+  $form['postcard_fieldset']['postcard_img_sharpen'] = array(
     '#type' => 'textfield',
     '#title' => t('Postcard image sharpen'),
     '#size' => 10,
@@ -63,17 +75,17 @@ function postcard_settings_form() {
     '#field_suffix' => '[radiusxsigma]',
     '#description' => t('Define a Gaussian operator of the given radius and standard deviation (sigma).'),
   );
-  $form['postcard_image']['postcard_img_resize'] = array(
+  $form['postcard_fieldset']['postcard_img_resize'] = array(
     '#type' => 'textfield',
     '#title' => t('Postcard image resize'),
     '#size' => 10,
     '#maxlength' => 10,
     '#default_value' => variable_get('postcard_img_resize', 100),
     '#field_suffix' => '%',
-    '#description' => t('Define a resize factor in percentage for the image.'),
+    '#description' => t('Define a resize factor in percentage for the preview image.'),
   );
 
-  $form['postcard']['postcard_debug'] = array(
+  $form['postcard_debug'] = array(
     '#type' => 'checkbox',
     '#title' => t('Display debugging information'),
     '#default_value' => variable_get('postcard_debug', 0),
@@ -81,6 +93,7 @@ function postcard_settings_form() {
       '%permission' => t('administer postcard'),
     )),
   );
+
 
   return system_settings_form($form);
 }
@@ -113,7 +126,6 @@ function postcard_element_validate_quality($element, &$form_state) {
     form_error($element, t('!name must be a value between 0 and 100.', array('!name' => $element['#title'])));
   }
 }
-
 
 
 /* =============================================================================
