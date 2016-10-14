@@ -22,16 +22,17 @@
 @pxl-icon-font: 'fontawesome';
 
 // title font
-@pxl-title-font: 'CallunaBold';
+@pxl-title-font: 'SohoGothicProBold';
 
 // text fonts
-@pxl-text-font: 'CallunaRegular';
-@pxl-text-font-light: @pxl-text-font;
+@pxl-text-font: 'SohoGothicProRegular';
+@pxl-text-font-light: 'SohoGothicProLight';
 @pxl-text-font-medium: @pxl-text-font;
-@pxl-text-font-bold: 'CallunaBold';
-@pxl-text-font-italic: 'CallunaIt';
-@pxl-text-font-light-italic: 'CallunaIt';
-@pxl-text-font-bold-italic: 'CallunaBold';
+@pxl-text-font-bold: 'SohoGothicProBold';
+@pxl-text-font-italic: 'SohoGothicProRegular';
+@pxl-text-font-light-italic: 'SohoGothicProLight';
+@pxl-text-font-medium-italic: @pxl-text-font;
+@pxl-text-font-bold-italic: 'SohoGothicProBold';
 
 // form font
 @pxl-form-font: @pxl-text-font;
@@ -41,60 +42,37 @@
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+
 // overrides
 @font-family-base: @pxl-text-font;
 
 //
 // font faces
 //
-// title font
 @font-face {
-  font-family: 'CallunaSansBold';
-  src: url('@{pxl-font-path}/CallunaSansBold/CallunaSansBold.eot');
-  src: url('@{pxl-font-path}/CallunaSansBold/CallunaSansBold.eot') format('embedded-opentype'),
-  url('@{pxl-font-path}/CallunaSansBold/CallunaSansBold.woff2') format('woff2'),
-  url('@{pxl-font-path}/CallunaSansBold/CallunaSansBold.woff') format('woff'),
-  url('@{pxl-font-path}/CallunaSansBold/CallunaSansBold.ttf') format('truetype'),
-  url('@{pxl-font-path}/CallunaSansBold/CallunaSansBold.svg#CallunaSansBold') format('svg');
-}
-
-// text fonts
-@font-face {
-  font-family: 'CallunaRegular';
-  src: url('@{pxl-font-path}/CallunaRegular/CallunaRegular.eot');
-  src: url('@{pxl-font-path}/CallunaRegular/CallunaRegular.eot') format('embedded-opentype'),
-  url('@{pxl-font-path}/CallunaRegular/CallunaRegular.woff2') format('woff2'),
-  url('@{pxl-font-path}/CallunaRegular/CallunaRegular.woff') format('woff'),
-  url('@{pxl-font-path}/CallunaRegular/CallunaRegular.ttf') format('truetype'),
-  url('@{pxl-font-path}/CallunaRegular/CallunaRegular.svg#CallunaRegular') format('svg');
+  font-family: 'SohoGothicProRegular';
+  src: url('@{pxl-font-path}/SohoGothicProRegular/SohoGothicProRegular.eot');
+  src: url('@{pxl-font-path}/SohoGothicProRegular/SohoGothicProRegular.eot') format('embedded-opentype'),
+  url('@{pxl-font-path}/SohoGothicProRegular/SohoGothicProRegular.woff2') format('woff2'),
+  url('@{pxl-font-path}/SohoGothicProRegular/SohoGothicProRegular.woff') format('woff'),
+  url('@{pxl-font-path}/SohoGothicProRegular/SohoGothicProRegular.ttf') format('truetype'),
+  url('@{pxl-font-path}/SohoGothicProRegular/SohoGothicProRegular.svg#SohoGothicProRegular') format('svg');
 }
 @font-face {
-  font-family: 'CallunaIt';
-  src: url('@{pxl-font-path}/CallunaIt/CallunaIt.eot');
-  src: url('@{pxl-font-path}/CallunaIt/CallunaIt.eot') format('embedded-opentype'),
-  url('@{pxl-font-path}/CallunaIt/CallunaIt.woff2') format('woff2'),
-  url('@{pxl-font-path}/CallunaIt/CallunaIt.woff') format('woff'),
-  url('@{pxl-font-path}/CallunaIt/CallunaIt.ttf') format('truetype'),
-  url('@{pxl-font-path}/CallunaIt/CallunaIt.svg#CallunaIt') format('svg');
+  font-family: 'SohoGothicProLight';
+  src: url('@{pxl-font-path}/SohoGothicProLight/SohoGothicProLight.eot');
+  src: url('@{pxl-font-path}/SohoGothicProLight/SohoGothicProLight.eot') format('embedded-opentype'),
+  url('@{pxl-font-path}/SohoGothicProLight/SohoGothicProLight.woff2') format('woff2'),
+  url('@{pxl-font-path}/SohoGothicProLight/SohoGothicProLight.woff') format('woff'),
+  url('@{pxl-font-path}/SohoGothicProLight/SohoGothicProLight.ttf') format('truetype'),
+  url('@{pxl-font-path}/SohoGothicProLight/SohoGothicProLight.svg#SohoGothicProLight') format('svg');
 }
 @font-face {
-  font-family: 'CallunaBold';
-  src: url('@{pxl-font-path}/CallunaBold/CallunaBold.eot');
-  src: url('@{pxl-font-path}/CallunaBold/CallunaBold.eot') format('embedded-opentype'),
-  url('@{pxl-font-path}/CallunaBold/CallunaBold.woff2') format('woff2'),
-  url('@{pxl-font-path}/CallunaBold/CallunaBold.woff') format('woff'),
-  url('@{pxl-font-path}/CallunaBold/CallunaBold.ttf') format('truetype'),
-  url('@{pxl-font-path}/CallunaBold/CallunaBold.svg#CallunaBold') format('svg');
-}
-
-
-// form font
-@font-face {
-  font-family: 'CallunaSansRegular';
-  src: url('@{pxl-font-path}/CallunaSansRegular/CallunaSansRegular.eot');
-  src: url('@{pxl-font-path}/CallunaSansRegular/CallunaSansRegular.eot') format('embedded-opentype'),
-  url('@{pxl-font-path}/CallunaSansRegular/CallunaSansRegular.woff2') format('woff2'),
-  url('@{pxl-font-path}/CallunaSansRegular/CallunaSansRegular.woff') format('woff'),
-  url('@{pxl-font-path}/CallunaSansRegular/CallunaSansRegular.ttf') format('truetype'),
-  url('@{pxl-font-path}/CallunaSansRegular/CallunaSansRegular.svg#CallunaSansRegular') format('svg');
+  font-family: 'SohoGothicProBold';
+  src: url('@{pxl-font-path}/SohoGothicProBold/SohoGothicProBold.eot');
+  src: url('@{pxl-font-path}/SohoGothicProBold/SohoGothicProBold.eot') format('embedded-opentype'),
+  url('@{pxl-font-path}/SohoGothicProBold/SohoGothicProBold.woff2') format('woff2'),
+  url('@{pxl-font-path}/SohoGothicProBold/SohoGothicProBold.woff') format('woff'),
+  url('@{pxl-font-path}/SohoGothicProBold/SohoGothicProBold.ttf') format('truetype'),
+  url('@{pxl-font-path}/SohoGothicProBold/SohoGothicProBold.svg#SohoGothicProBold') format('svg');
 }

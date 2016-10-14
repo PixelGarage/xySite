@@ -47,7 +47,7 @@ if(typeof(CKEDITOR) !== 'undefined') {
             // These styles are already available in the "Format" drop-down list, so they are
             // not needed here by default. You may enable them to avoid placing the
             // "Format" drop-down list in the toolbar, maintaining the same features.
-            { name : 'Paragraph'		, element : 'p' },
+            { name : 'Normal'		    , element : 'p' },
             { name : 'Heading 1'		, element : 'h1' },
             { name : 'Heading 2'		, element : 'h2' },
             { name : 'Heading 3'		, element : 'h3' },
@@ -57,7 +57,7 @@ if(typeof(CKEDITOR) !== 'undefined') {
             { name : 'Preformatted Text', element : 'pre' },
             { name : 'Address'			, element : 'address' },
 
-            /* Inline Styles */
+            /* Inline Styles
 
             // These are core styles available as toolbar buttons. You may opt enabling
             // some of them in the "Styles" drop-down list, removing them from the toolbar.
@@ -88,7 +88,7 @@ if(typeof(CKEDITOR) !== 'undefined') {
 
             { name : 'Language: RTL'	, element : 'span', attributes : { 'dir' : 'rtl' } },
             { name : 'Language: LTR'	, element : 'span', attributes : { 'dir' : 'ltr' } },
-
+             */
             /* Object Styles */
             {
                     name : 'Image on Left',
