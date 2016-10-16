@@ -73,12 +73,14 @@
 
 
   .wysiwyg-body(@text-size: @resp-font-size-max; @title-size: @resp-title-size-max; @subtitle-size: @resp-subtitle-size-max) {
-    h1, h2, h3, h4, h5, h6 {
-      font-family: @pxl-title-font;
-      .font-size-responsive(@subtitle-size, @resp-subtitle-size-min);
-    }
     h1, h2, h3 {
+      font-family: @pxl-title-font;
       .font-size-responsive(@title-size, @resp-title-size-min);
+    }
+
+    h4, h5, h6 {
+      font-family: @pxl-text-font;
+      .font-size-responsive(@subtitle-size, @resp-subtitle-size-min);
     }
 
     p, tbody td {

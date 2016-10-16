@@ -9137,36 +9137,8 @@ form#user-login {
 }
 .node-page .row div.col-sm-12 .field-name-body h1,
 .node-page .row div.col-sm-12 .field-name-body h2,
-.node-page .row div.col-sm-12 .field-name-body h3,
-.node-page .row div.col-sm-12 .field-name-body h4,
-.node-page .row div.col-sm-12 .field-name-body h5,
-.node-page .row div.col-sm-12 .field-name-body h6 {
-  font-family: 'SohoGothicProBold';
-  font-size: 18px;
-}
-@media screen and (min-width: 36em) {
-  .node-page .row div.col-sm-12 .field-name-body h1,
-  .node-page .row div.col-sm-12 .field-name-body h2,
-  .node-page .row div.col-sm-12 .field-name-body h3,
-  .node-page .row div.col-sm-12 .field-name-body h4,
-  .node-page .row div.col-sm-12 .field-name-body h5,
-  .node-page .row div.col-sm-12 .field-name-body h6 {
-    font-size: 3.125vw;
-  }
-}
-@media screen and (min-width: 48em) {
-  .node-page .row div.col-sm-12 .field-name-body h1,
-  .node-page .row div.col-sm-12 .field-name-body h2,
-  .node-page .row div.col-sm-12 .field-name-body h3,
-  .node-page .row div.col-sm-12 .field-name-body h4,
-  .node-page .row div.col-sm-12 .field-name-body h5,
-  .node-page .row div.col-sm-12 .field-name-body h6 {
-    font-size: 24px;
-  }
-}
-.node-page .row div.col-sm-12 .field-name-body h1,
-.node-page .row div.col-sm-12 .field-name-body h2,
 .node-page .row div.col-sm-12 .field-name-body h3 {
+  font-family: 'SohoGothicProBold';
   font-size: 22px;
 }
 @media screen and (min-width: 35.2em) {
@@ -9181,6 +9153,26 @@ form#user-login {
   .node-page .row div.col-sm-12 .field-name-body h2,
   .node-page .row div.col-sm-12 .field-name-body h3 {
     font-size: 30px;
+  }
+}
+.node-page .row div.col-sm-12 .field-name-body h4,
+.node-page .row div.col-sm-12 .field-name-body h5,
+.node-page .row div.col-sm-12 .field-name-body h6 {
+  font-family: 'SohoGothicProRegular';
+  font-size: 18px;
+}
+@media screen and (min-width: 36em) {
+  .node-page .row div.col-sm-12 .field-name-body h4,
+  .node-page .row div.col-sm-12 .field-name-body h5,
+  .node-page .row div.col-sm-12 .field-name-body h6 {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node-page .row div.col-sm-12 .field-name-body h4,
+  .node-page .row div.col-sm-12 .field-name-body h5,
+  .node-page .row div.col-sm-12 .field-name-body h6 {
+    font-size: 24px;
   }
 }
 .node-page .row div.col-sm-12 .field-name-body p,
@@ -9329,54 +9321,8 @@ form#user-login {
 .node.node-webform .row .col-sm-12 .field-name-body h2,
 .node.node-webform .row .col-sm-6 .field-name-body h2,
 .node.node-webform .row .col-sm-12 .field-name-body h3,
-.node.node-webform .row .col-sm-6 .field-name-body h3,
-.node.node-webform .row .col-sm-12 .field-name-body h4,
-.node.node-webform .row .col-sm-6 .field-name-body h4,
-.node.node-webform .row .col-sm-12 .field-name-body h5,
-.node.node-webform .row .col-sm-6 .field-name-body h5,
-.node.node-webform .row .col-sm-12 .field-name-body h6,
-.node.node-webform .row .col-sm-6 .field-name-body h6 {
-  font-family: 'SohoGothicProBold';
-  font-size: 18px;
-}
-@media screen and (min-width: 36em) {
-  .node.node-webform .row .col-sm-12 .field-name-body h1,
-  .node.node-webform .row .col-sm-6 .field-name-body h1,
-  .node.node-webform .row .col-sm-12 .field-name-body h2,
-  .node.node-webform .row .col-sm-6 .field-name-body h2,
-  .node.node-webform .row .col-sm-12 .field-name-body h3,
-  .node.node-webform .row .col-sm-6 .field-name-body h3,
-  .node.node-webform .row .col-sm-12 .field-name-body h4,
-  .node.node-webform .row .col-sm-6 .field-name-body h4,
-  .node.node-webform .row .col-sm-12 .field-name-body h5,
-  .node.node-webform .row .col-sm-6 .field-name-body h5,
-  .node.node-webform .row .col-sm-12 .field-name-body h6,
-  .node.node-webform .row .col-sm-6 .field-name-body h6 {
-    font-size: 3.125vw;
-  }
-}
-@media screen and (min-width: 48em) {
-  .node.node-webform .row .col-sm-12 .field-name-body h1,
-  .node.node-webform .row .col-sm-6 .field-name-body h1,
-  .node.node-webform .row .col-sm-12 .field-name-body h2,
-  .node.node-webform .row .col-sm-6 .field-name-body h2,
-  .node.node-webform .row .col-sm-12 .field-name-body h3,
-  .node.node-webform .row .col-sm-6 .field-name-body h3,
-  .node.node-webform .row .col-sm-12 .field-name-body h4,
-  .node.node-webform .row .col-sm-6 .field-name-body h4,
-  .node.node-webform .row .col-sm-12 .field-name-body h5,
-  .node.node-webform .row .col-sm-6 .field-name-body h5,
-  .node.node-webform .row .col-sm-12 .field-name-body h6,
-  .node.node-webform .row .col-sm-6 .field-name-body h6 {
-    font-size: 24px;
-  }
-}
-.node.node-webform .row .col-sm-12 .field-name-body h1,
-.node.node-webform .row .col-sm-6 .field-name-body h1,
-.node.node-webform .row .col-sm-12 .field-name-body h2,
-.node.node-webform .row .col-sm-6 .field-name-body h2,
-.node.node-webform .row .col-sm-12 .field-name-body h3,
 .node.node-webform .row .col-sm-6 .field-name-body h3 {
+  font-family: 'SohoGothicProBold';
   font-size: 22px;
 }
 @media screen and (min-width: 35.2em) {
@@ -9397,6 +9343,35 @@ form#user-login {
   .node.node-webform .row .col-sm-12 .field-name-body h3,
   .node.node-webform .row .col-sm-6 .field-name-body h3 {
     font-size: 30px;
+  }
+}
+.node.node-webform .row .col-sm-12 .field-name-body h4,
+.node.node-webform .row .col-sm-6 .field-name-body h4,
+.node.node-webform .row .col-sm-12 .field-name-body h5,
+.node.node-webform .row .col-sm-6 .field-name-body h5,
+.node.node-webform .row .col-sm-12 .field-name-body h6,
+.node.node-webform .row .col-sm-6 .field-name-body h6 {
+  font-family: 'SohoGothicProRegular';
+  font-size: 18px;
+}
+@media screen and (min-width: 36em) {
+  .node.node-webform .row .col-sm-12 .field-name-body h4,
+  .node.node-webform .row .col-sm-6 .field-name-body h4,
+  .node.node-webform .row .col-sm-12 .field-name-body h5,
+  .node.node-webform .row .col-sm-6 .field-name-body h5,
+  .node.node-webform .row .col-sm-12 .field-name-body h6,
+  .node.node-webform .row .col-sm-6 .field-name-body h6 {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-webform .row .col-sm-12 .field-name-body h4,
+  .node.node-webform .row .col-sm-6 .field-name-body h4,
+  .node.node-webform .row .col-sm-12 .field-name-body h5,
+  .node.node-webform .row .col-sm-6 .field-name-body h5,
+  .node.node-webform .row .col-sm-12 .field-name-body h6,
+  .node.node-webform .row .col-sm-6 .field-name-body h6 {
+    font-size: 24px;
   }
 }
 .node.node-webform .row .col-sm-12 .field-name-body p,
@@ -9531,6 +9506,213 @@ form#user-login {
 .node.node-webform .row .col-sm-6 .field-name-body p {
   line-height: 22px;
   text-align: left;
+}
+/*
+ *  Text paragraph component
+ * --------------------------------------------------*/
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-title .field-item {
+  font-family: 'SohoGothicProBold';
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #000000;
+  font-size: 24px;
+}
+@media screen and (min-width: 38.4em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-title .field-item {
+    font-size: 3.90625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-title .field-item {
+    font-size: 30px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h1,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h2,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h3 {
+  font-family: 'SohoGothicProBold';
+  font-size: 22px;
+}
+@media screen and (min-width: 35.2em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h1,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h2,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h3 {
+    font-size: 3.90625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h1,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h2,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h3 {
+    font-size: 30px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h4,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h5,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h6 {
+  font-family: 'SohoGothicProRegular';
+  font-size: 18px;
+}
+@media screen and (min-width: 36em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h4,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h5,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h6 {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h4,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h5,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h6 {
+    font-size: 24px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item p,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item tbody td {
+  font-family: 'SohoGothicProRegular';
+  font-size: 12.5px;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+@media screen and (min-width: 30em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item p,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item tbody td {
+    font-size: 2.60416667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item p,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item tbody td {
+    font-size: 20px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item a {
+  font-family: 'SohoGothicProRegular';
+  font-size: 12.5px;
+  color: #000000;
+}
+@media screen and (min-width: 30em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item a {
+    font-size: 2.60416667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item a {
+    font-size: 20px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item a:hover,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item a:focus {
+  color: #ff0000;
+  text-decoration: none;
+  background: none;
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item pre,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item address {
+  font-family: 'SohoGothicProRegular';
+  font-size: 12.5px;
+}
+@media screen and (min-width: 30em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item pre,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item address {
+    font-size: 2.60416667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item pre,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item address {
+    font-size: 20px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item strong {
+  font-family: 'SohoGothicProBold';
+  font-size: 16px;
+}
+@media screen and (min-width: 34.90909090909091em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item strong {
+    font-size: 2.86458333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item strong {
+    font-size: 22px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item hr {
+  border: 0;
+  border-bottom: 2px solid #000000;
+  background: none;
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item img {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 0;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item embed,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item video,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item audio,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item iframe {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 350px;
+}
+/*
+ *  Block paragraph component
+ * --------------------------------------------------*/
+.entity-paragraphs-item.paragraphs-item-block-paragraph .content .field-name-field-title .field-item {
+  font-family: 'SohoGothicProBold';
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #000000;
+  font-size: 24px;
+}
+@media screen and (min-width: 38.4em) {
+  .entity-paragraphs-item.paragraphs-item-block-paragraph .content .field-name-field-title .field-item {
+    font-size: 3.90625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-block-paragraph .content .field-name-field-title .field-item {
+    font-size: 30px;
+  }
+}
+/*
+ *  Image paragraph component
+ * --------------------------------------------------*/
+.entity-paragraphs-item.paragraphs-item-image-paragraph .content .field-name-field-title .field-item {
+  font-family: 'SohoGothicProBold';
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #000000;
+  font-size: 24px;
+}
+@media screen and (min-width: 38.4em) {
+  .entity-paragraphs-item.paragraphs-item-image-paragraph .content .field-name-field-title .field-item {
+    font-size: 3.90625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-image-paragraph .content .field-name-field-title .field-item {
+    font-size: 30px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-image-paragraph .content .field-name-field-images .field-item img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
 }
 /*
  *  BS carousel paragraph component
