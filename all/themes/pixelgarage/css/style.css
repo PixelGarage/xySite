@@ -9739,6 +9739,25 @@ form#user-login {
   margin: 0;
   padding: 0;
 }
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel.carousel-fade > .carousel-inner .item {
+  opacity: 0;
+  left: 0;
+  -webkit-transition: opacity 2s;
+  -o-transition: opacity 2s;
+  transition: opacity 2s;
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel.carousel-fade > .carousel-inner .item.active {
+  opacity: 1.0;
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel.carousel-fade > .carousel-inner .item.active.left,
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel.carousel-fade > .carousel-inner .item.active.right {
+  opacity: 0;
+  z-index: 1;
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel.carousel-fade > .carousel-inner .item.left.next,
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel.carousel-fade > .carousel-inner .item.right.prev {
+  opacity: 1.0;
+}
 .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > .carousel-inner {
   margin-top: 0;
 }
@@ -10709,6 +10728,9 @@ header#navbar .container .navbar-collapse nav ul.navbar-nav li a {
   .container {
     -webkit-font-smoothing: subpixel-antialiased;
   }
+}
+.container img[src*=".svg"] {
+  width: 100%;
 }
 .container a {
   outline: none;

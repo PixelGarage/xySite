@@ -23,7 +23,7 @@ function pixelgarage_bootstrap_carousel_if($vars) {
   }
   $filecount = count($files);
   $output = '
-      <div id="' . $vars['id'] . '" class="carousel slide" data-ride="carousel" data-interval="' . $vars['interval'] . '" data-pause="' . $vars['pause'] . '" data-wrap="' . $vars['wrap'] .'" data-keyboard="' . $vars['keyboard'] . '">';
+      <div id="' . $vars['id'] . '" class="carousel carousel-fade slide" data-ride="carousel" data-interval="' . $vars['interval'] . '" data-pause="' . $vars['pause'] . '" data-wrap="' . $vars['wrap'] .'" data-keyboard="' . $vars['keyboard'] . '">';
   if ($vars['indicators'] && $filecount > 1) {
     $output .= '<!-- Indicators -->
         <ol class="carousel-indicators">';

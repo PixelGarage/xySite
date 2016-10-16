@@ -23,6 +23,29 @@
     padding: 0;
     height: auto;
 
+    // fading carousel
+    &.carousel-fade {
+      > .carousel-inner {
+        .item {
+          opacity: 0;
+          #pxl-mixins.transition(opacity 1.5s);
+
+          &.active {
+            opacity: 1.0;
+
+            &.left, &.right {
+              left: 0;
+              opacity: 0;
+              z-index: 1;
+            }
+          }
+          &.left.next, &.right.prev {
+            opacity: 1.0;
+          }
+        }
+      }
+    }
+
     > .carousel-inner {
       margin-top: 0;
 
