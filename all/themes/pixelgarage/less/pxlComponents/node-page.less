@@ -14,22 +14,32 @@
 // General settings
 // -------------------------
 .node-page {
-  div.col-sm-12 {
-    width: 100%;
+  .row {
+    div.col-sm-12 {
+      width: 100%;
 
-    .field-name-title {
-      h2 {
-        font-family: @pxl-text-font-bold;
-        letter-spacing: 1.2px;
-        text-transform: uppercase;
-        color: @text-color;
-        #pxl-mixins.font-size-responsive();
+      .field-name-title {
+        h2 {
+          font-family: @pxl-text-font-bold;
+          letter-spacing: 1.2px;
+          text-transform: uppercase;
+          color: @text-color;
+          #pxl-mixins.font-size-responsive();
+        }
       }
-    }
 
-    .field-name-body {
-      #pxl-mixins.wysiwyg-body;
-    }
+      .field-name-body {
+        #pxl-mixins.wysiwyg-body;
+      }
 
+      .paragraphs-items {
+        .field-name-field-paragraphs {
+          .field-item {
+            // see paragraph-item-... less files
+          }
+        }
+      }
+
+    }
   }
 }

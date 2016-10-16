@@ -125,7 +125,7 @@ function bootstrap_carousel_if_field_formatter_view($entity_type, $entity, $fiel
         'background_pos' => $display['settings']['background_pos'],
         'width' => $display['settings']['width'],
         'height' => $display['settings']['height'],
-        'id' => drupal_clean_css_identifier($entity->title . ' ' . $instance['field_name']),
+        'id' => drupal_clean_css_identifier($entity_type . '_' . $instance['field_name'] . '_' . $instance['id']),
         'items' => $items,
       )
     ),

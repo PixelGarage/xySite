@@ -59,48 +59,39 @@
     > a.carousel-control {
       display: block;
       position: absolute;
-      top: @carousel-control-top-small;
-      bottom: auto;
+      top: 0;
+      bottom: 0;
       padding: 0;
-      width: @carousel-control-width;
-      font-size: 50px;
-      text-shadow: none;
-      color: @text-color;
-      #pxl-mixins.border-radius(20px);
-      border: 2px solid @text-color;
-      background: #fff;
-
-      @media @narrow {
-        top: @carousel-control-top;
-      }
+      width: 50%;
+      #pxl-mixins.font-size-responsive(80px, 50px);
+      text-shadow: 0 0 2px #222;
+      text-align: unset;
+      color: #fff;
+      #pxl-mixins.border-radius(0);
+      border: none;
+      background: none;
 
       &.left {
-        left: @carousel-control-shift-small;
+        left: 0;
         .border-left-radius(0);
         border-left-width: 0;
-        .box-shadow(@carousel-control-shadow-left);
-
-        @media @narrow {
-          left: @carousel-control-shift;
-        }
 
         .fa {
-          margin-left: -10px;
+          display: inline-block;
+          #pxl-mixins.center-vertically(absolute);
+          left: 5%;
         }
       }
 
       &.right {
-        right: @carousel-control-shift-small;
+        right: 0;
         .border-right-radius(0);
         border-right-width: 0;
-        .box-shadow(@carousel-control-shadow-right);
-
-        @media @narrow {
-          right: @carousel-control-shift;
-        }
 
         .fa {
-          margin-right: -10px;
+          display: inline-block;
+          #pxl-mixins.center-vertically(absolute);
+          right: 5%;
         }
       }
     }

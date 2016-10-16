@@ -9115,10 +9115,10 @@ form#user-login {
 /*
  *  Node page component
  * --------------------------------------------------*/
-.node-page div.col-sm-12 {
+.node-page .row div.col-sm-12 {
   width: 100%;
 }
-.node-page div.col-sm-12 .field-name-title h2 {
+.node-page .row div.col-sm-12 .field-name-title h2 {
   font-family: 'SohoGothicProBold';
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -9126,65 +9126,65 @@ form#user-login {
   font-size: 12px;
 }
 @media screen and (min-width: 33.88235294117647em) {
-  .node-page div.col-sm-12 .field-name-title h2 {
+  .node-page .row div.col-sm-12 .field-name-title h2 {
     font-size: 2.21354167vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-title h2 {
+  .node-page .row div.col-sm-12 .field-name-title h2 {
     font-size: 17px;
   }
 }
-.node-page div.col-sm-12 .field-name-body h1,
-.node-page div.col-sm-12 .field-name-body h2,
-.node-page div.col-sm-12 .field-name-body h3,
-.node-page div.col-sm-12 .field-name-body h4,
-.node-page div.col-sm-12 .field-name-body h5,
-.node-page div.col-sm-12 .field-name-body h6 {
+.node-page .row div.col-sm-12 .field-name-body h1,
+.node-page .row div.col-sm-12 .field-name-body h2,
+.node-page .row div.col-sm-12 .field-name-body h3,
+.node-page .row div.col-sm-12 .field-name-body h4,
+.node-page .row div.col-sm-12 .field-name-body h5,
+.node-page .row div.col-sm-12 .field-name-body h6 {
   font-family: 'SohoGothicProBold';
   font-size: 18px;
 }
 @media screen and (min-width: 36em) {
-  .node-page div.col-sm-12 .field-name-body h1,
-  .node-page div.col-sm-12 .field-name-body h2,
-  .node-page div.col-sm-12 .field-name-body h3,
-  .node-page div.col-sm-12 .field-name-body h4,
-  .node-page div.col-sm-12 .field-name-body h5,
-  .node-page div.col-sm-12 .field-name-body h6 {
+  .node-page .row div.col-sm-12 .field-name-body h1,
+  .node-page .row div.col-sm-12 .field-name-body h2,
+  .node-page .row div.col-sm-12 .field-name-body h3,
+  .node-page .row div.col-sm-12 .field-name-body h4,
+  .node-page .row div.col-sm-12 .field-name-body h5,
+  .node-page .row div.col-sm-12 .field-name-body h6 {
     font-size: 3.125vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-body h1,
-  .node-page div.col-sm-12 .field-name-body h2,
-  .node-page div.col-sm-12 .field-name-body h3,
-  .node-page div.col-sm-12 .field-name-body h4,
-  .node-page div.col-sm-12 .field-name-body h5,
-  .node-page div.col-sm-12 .field-name-body h6 {
+  .node-page .row div.col-sm-12 .field-name-body h1,
+  .node-page .row div.col-sm-12 .field-name-body h2,
+  .node-page .row div.col-sm-12 .field-name-body h3,
+  .node-page .row div.col-sm-12 .field-name-body h4,
+  .node-page .row div.col-sm-12 .field-name-body h5,
+  .node-page .row div.col-sm-12 .field-name-body h6 {
     font-size: 24px;
   }
 }
-.node-page div.col-sm-12 .field-name-body h1,
-.node-page div.col-sm-12 .field-name-body h2,
-.node-page div.col-sm-12 .field-name-body h3 {
+.node-page .row div.col-sm-12 .field-name-body h1,
+.node-page .row div.col-sm-12 .field-name-body h2,
+.node-page .row div.col-sm-12 .field-name-body h3 {
   font-size: 22px;
 }
 @media screen and (min-width: 35.2em) {
-  .node-page div.col-sm-12 .field-name-body h1,
-  .node-page div.col-sm-12 .field-name-body h2,
-  .node-page div.col-sm-12 .field-name-body h3 {
+  .node-page .row div.col-sm-12 .field-name-body h1,
+  .node-page .row div.col-sm-12 .field-name-body h2,
+  .node-page .row div.col-sm-12 .field-name-body h3 {
     font-size: 3.90625vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-body h1,
-  .node-page div.col-sm-12 .field-name-body h2,
-  .node-page div.col-sm-12 .field-name-body h3 {
+  .node-page .row div.col-sm-12 .field-name-body h1,
+  .node-page .row div.col-sm-12 .field-name-body h2,
+  .node-page .row div.col-sm-12 .field-name-body h3 {
     font-size: 30px;
   }
 }
-.node-page div.col-sm-12 .field-name-body p,
-.node-page div.col-sm-12 .field-name-body tbody td {
+.node-page .row div.col-sm-12 .field-name-body p,
+.node-page .row div.col-sm-12 .field-name-body tbody td {
   font-family: 'SohoGothicProRegular';
   font-size: 12px;
   word-break: break-word;
@@ -9195,75 +9195,75 @@ form#user-login {
   hyphens: auto;
 }
 @media screen and (min-width: 33.88235294117647em) {
-  .node-page div.col-sm-12 .field-name-body p,
-  .node-page div.col-sm-12 .field-name-body tbody td {
+  .node-page .row div.col-sm-12 .field-name-body p,
+  .node-page .row div.col-sm-12 .field-name-body tbody td {
     font-size: 2.21354167vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-body p,
-  .node-page div.col-sm-12 .field-name-body tbody td {
+  .node-page .row div.col-sm-12 .field-name-body p,
+  .node-page .row div.col-sm-12 .field-name-body tbody td {
     font-size: 17px;
   }
 }
-.node-page div.col-sm-12 .field-name-body a {
+.node-page .row div.col-sm-12 .field-name-body a {
   font-family: 'SohoGothicProRegular';
   font-size: 12px;
   color: #000000;
 }
 @media screen and (min-width: 33.88235294117647em) {
-  .node-page div.col-sm-12 .field-name-body a {
+  .node-page .row div.col-sm-12 .field-name-body a {
     font-size: 2.21354167vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-body a {
+  .node-page .row div.col-sm-12 .field-name-body a {
     font-size: 17px;
   }
 }
-.node-page div.col-sm-12 .field-name-body a:hover,
-.node-page div.col-sm-12 .field-name-body a:focus {
+.node-page .row div.col-sm-12 .field-name-body a:hover,
+.node-page .row div.col-sm-12 .field-name-body a:focus {
   color: #ff0000;
   text-decoration: none;
   background: none;
 }
-.node-page div.col-sm-12 .field-name-body pre,
-.node-page div.col-sm-12 .field-name-body address {
+.node-page .row div.col-sm-12 .field-name-body pre,
+.node-page .row div.col-sm-12 .field-name-body address {
   font-family: 'SohoGothicProRegular';
   font-size: 12px;
 }
 @media screen and (min-width: 33.88235294117647em) {
-  .node-page div.col-sm-12 .field-name-body pre,
-  .node-page div.col-sm-12 .field-name-body address {
+  .node-page .row div.col-sm-12 .field-name-body pre,
+  .node-page .row div.col-sm-12 .field-name-body address {
     font-size: 2.21354167vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-body pre,
-  .node-page div.col-sm-12 .field-name-body address {
+  .node-page .row div.col-sm-12 .field-name-body pre,
+  .node-page .row div.col-sm-12 .field-name-body address {
     font-size: 17px;
   }
 }
-.node-page div.col-sm-12 .field-name-body strong {
+.node-page .row div.col-sm-12 .field-name-body strong {
   font-family: 'SohoGothicProBold';
   font-size: 16px;
 }
 @media screen and (min-width: 40.421052631578945em) {
-  .node-page div.col-sm-12 .field-name-body strong {
+  .node-page .row div.col-sm-12 .field-name-body strong {
     font-size: 2.47395833vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-body strong {
+  .node-page .row div.col-sm-12 .field-name-body strong {
     font-size: 19px;
   }
 }
-.node-page div.col-sm-12 .field-name-body hr {
+.node-page .row div.col-sm-12 .field-name-body hr {
   border: 0;
   border-bottom: 2px solid #000000;
   background: none;
 }
-.node-page div.col-sm-12 .field-name-body img {
+.node-page .row div.col-sm-12 .field-name-body img {
   display: block;
   overflow: hidden;
   margin: 20px auto;
@@ -9272,10 +9272,10 @@ form#user-login {
   width: auto;
   height: auto;
 }
-.node-page div.col-sm-12 .field-name-body embed,
-.node-page div.col-sm-12 .field-name-body video,
-.node-page div.col-sm-12 .field-name-body audio,
-.node-page div.col-sm-12 .field-name-body iframe {
+.node-page .row div.col-sm-12 .field-name-body embed,
+.node-page .row div.col-sm-12 .field-name-body video,
+.node-page .row div.col-sm-12 .field-name-body audio,
+.node-page .row div.col-sm-12 .field-name-body iframe {
   display: block;
   overflow: hidden;
   margin: 20px auto;
@@ -9531,6 +9531,114 @@ form#user-login {
 .node.node-webform .row .col-sm-6 .field-name-body p {
   line-height: 22px;
   text-align: left;
+}
+/*
+ *  BS carousel paragraph component
+ * --------------------------------------------------*/
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-title .field-item {
+  font-family: 'SohoGothicProBold';
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #000000;
+  font-size: 24px;
+}
+@media screen and (min-width: 38.4em) {
+  .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-title .field-item {
+    font-size: 3.90625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-title .field-item {
+    font-size: 30px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > .carousel-inner {
+  margin-top: 0;
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > .carousel-inner .item div {
+  height: 0 !important;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > .carousel-indicators {
+  position: fixed;
+  bottom: 20px;
+  margin-left: -40%;
+  width: 80%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > .carousel-indicators li {
+  margin: 0 5px;
+  width: 14px;
+  height: 14px;
+  border-color: #aaa;
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > .carousel-indicators li.active {
+  width: 17px;
+  height: 17px;
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > a.carousel-control {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  width: 50%;
+  font-size: 50px;
+  text-shadow: 0 0 2px #222;
+  text-align: unset;
+  color: #fff;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  background: none;
+}
+@media screen and (min-width: 30em) {
+  .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > a.carousel-control {
+    font-size: 10.41666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > a.carousel-control {
+    font-size: 80px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > a.carousel-control.left {
+  left: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-left-width: 0;
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > a.carousel-control.left .fa {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 5%;
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > a.carousel-control.right {
+  right: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-right-width: 0;
+}
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > a.carousel-control.right .fa {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 5%;
 }
 /*
  *  Webform Addons component
