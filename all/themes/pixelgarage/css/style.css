@@ -9842,6 +9842,298 @@ form#user-login {
   right: 5%;
 }
 /*
+ *  Proximity view component
+ * --------------------------------------------------*/
+.view {
+  margin: 0 auto;
+  width: 100%;
+}
+.view .view-content {
+  padding: 20px 0 50px;
+}
+.view .view-content > .pe-container {
+  width: 100%;
+}
+.view .view-content > .pe-container .grid-sizer,
+.view .view-content > .pe-container .pe-item {
+  width: 100%;
+}
+.view .view-content > .pe-container .gutter-sizer {
+  width: 0;
+}
+@media screen and (min-width: 30em) {
+  .view .view-content > .pe-container .grid-sizer,
+  .view .view-content > .pe-container .pe-item {
+    width: 48.5%;
+  }
+  .view .view-content > .pe-container .gutter-sizer {
+    width: 3%;
+  }
+}
+@media screen and (min-width: 64em) {
+  .view .view-content > .pe-container .grid-sizer,
+  .view .view-content > .pe-container .pe-item {
+    width: 31.333333%;
+  }
+}
+.view .view-content > .pe-container .pe-item {
+  display: block;
+  overflow: visible;
+  margin: 0 0 6% !important;
+  opacity: 1.0;
+  -webkit-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
+@media screen and (min-width: 30em) {
+  .view .view-content > .pe-container .pe-item {
+    margin: 0 0 3% !important;
+  }
+}
+.view .view-content > .pe-container .pe-item.shown {
+  opacity: 1.0;
+}
+.view .view-content > .pe-container .pe-item.pe-item-ajax,
+.view .view-content > .pe-container .pe-item.pe-item-no-ajax,
+.view .view-content > .pe-container .pe-item.pe-item-linked {
+  cursor: pointer;
+}
+.view .view-content > .pe-container .modal.modal-fixed-height {
+  height: 100%;
+  overflow-y: hidden;
+}
+.view .view-content > .pe-container .modal.modal-fixed-height .modal-dialog {
+  height: 100%;
+}
+.view .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content {
+  height: 100%;
+}
+.view .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-header,
+.view .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-footer {
+  position: relative;
+}
+.view .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-header .body-fading,
+.view .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-footer .body-fading {
+  display: block;
+  position: absolute;
+  top: auto;
+  left: 0;
+  right: 0;
+  height: 1px;
+  z-index: 10;
+}
+.view .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-header .body-fading.body-fading-top,
+.view .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-footer .body-fading.body-fading-top {
+  bottom: -1px;
+  background-image: -webkit-linear-gradient(top, #aaa 0%, rgba(0, 0, 0, 0) 100%);
+  background-image: -o-linear-gradient(top, #aaa 0%, rgba(0, 0, 0, 0) 100%);
+  background-image: linear-gradient(to bottom, #aaa 0%, rgba(0, 0, 0, 0) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffaaaaaa', endColorstr='#00000000', GradientType=0);
+}
+.view .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-header .body-fading.body-fading-bottom,
+.view .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-footer .body-fading.body-fading-bottom {
+  top: -1px;
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #aaa 100%);
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #aaa 100%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #aaa 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#ffaaaaaa', GradientType=0);
+}
+.view .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-body {
+  overflow-y: auto;
+}
+.view .view-content > .pe-container .modal .modal-backdrop {
+  bottom: 0;
+  background-color: #aaa;
+}
+.view .view-content > .pe-container .modal .modal-backdrop.in {
+  opacity: 0.7;
+}
+.view .view-content > .pe-container .modal .modal-dialog {
+  margin: 0 auto;
+  width: 100%;
+}
+.admin-menu .view .view-content > .pe-container .modal .modal-dialog {
+  margin: 29px auto 0;
+}
+@media screen and (min-width: 30em) {
+  .view .view-content > .pe-container .modal .modal-dialog {
+    min-width: 480px;
+    width: 90%;
+    max-width: 690px;
+  }
+}
+@media screen and (min-width: 48em) {
+  .view .view-content > .pe-container .modal .modal-dialog {
+    width: 90%;
+    max-width: 800px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .view .view-content > .pe-container .modal .modal-dialog {
+    width: 800px;
+  }
+}
+.view .view-content > .pe-container .modal .modal-dialog .modal-content {
+  position: relative;
+  padding: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header {
+  padding: 0;
+  min-height: 60px;
+  border: none;
+}
+.view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header button.close {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  opacity: 1.0;
+  z-index: 1;
+}
+.view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header button.close span {
+  padding: 0;
+  font-family: 'SohoGothicProRegular';
+  font-size: 60px;
+  font-weight: normal;
+  color: #000000;
+}
+.view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header .body-fading {
+  display: none;
+}
+.view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-body {
+  padding: 20px 10px;
+}
+@media screen and (min-width: 30em) {
+  .view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-body {
+    padding: 20px 30px;
+  }
+}
+.view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-footer {
+  display: none;
+  padding: 10px 0;
+  border: none;
+  text-align: center;
+}
+.view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-footer .btn {
+  display: inline-block;
+  font-family: 'SohoGothicProBold';
+  color: #000000;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 2px solid #000000;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 4px rgba(100, 100, 100, 0.4);
+  box-shadow: 0 0 4px rgba(100, 100, 100, 0.4);
+}
+.view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-footer .btn:hover {
+  color: #fff;
+  background-color: #000000;
+}
+.view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-footer .body-fading {
+  display: none;
+}
+.view ul.pagination {
+  display: inline-block;
+  margin: 20px 0;
+  text-align: center;
+}
+.view ul.pagination li a,
+.view ul.pagination li span {
+  font-family: 'SohoGothicProRegular';
+  font-size: 18px;
+  text-decoration: none;
+  color: #000000;
+  border: none;
+  background: none;
+}
+.view ul.pagination li:hover a,
+.view ul.pagination li:focus a,
+.view ul.pagination li.active a,
+.view ul.pagination li:hover span,
+.view ul.pagination li:focus span,
+.view ul.pagination li.active span {
+  color: #000000;
+  text-decoration: none;
+}
+.view ul.pagination li:hover a,
+.view ul.pagination li:focus a,
+.view ul.pagination li.active a,
+.view ul.pagination li:hover span,
+.view ul.pagination li:focus span,
+.view ul.pagination li.active span {
+  font-family: 'SohoGothicProBold';
+  text-decoration: none;
+  font-size: 20px;
+  background: none;
+}
+.view ul.pagination li.pager-first:hover a,
+.view ul.pagination li.pager-last:hover a,
+.view ul.pagination li.prev:hover a,
+.view ul.pagination li.pager-previous:hover a,
+.view ul.pagination li.next:hover a,
+.view ul.pagination li.pager-next:hover a,
+.view ul.pagination li.pager-first:focus a,
+.view ul.pagination li.pager-last:focus a,
+.view ul.pagination li.prev:focus a,
+.view ul.pagination li.pager-previous:focus a,
+.view ul.pagination li.next:focus a,
+.view ul.pagination li.pager-next:focus a,
+.view ul.pagination li.pager-first.active a,
+.view ul.pagination li.pager-last.active a,
+.view ul.pagination li.prev.active a,
+.view ul.pagination li.pager-previous.active a,
+.view ul.pagination li.next.active a,
+.view ul.pagination li.pager-next.active a,
+.view ul.pagination li.pager-first:hover span,
+.view ul.pagination li.pager-last:hover span,
+.view ul.pagination li.prev:hover span,
+.view ul.pagination li.pager-previous:hover span,
+.view ul.pagination li.next:hover span,
+.view ul.pagination li.pager-next:hover span,
+.view ul.pagination li.pager-first:focus span,
+.view ul.pagination li.pager-last:focus span,
+.view ul.pagination li.prev:focus span,
+.view ul.pagination li.pager-previous:focus span,
+.view ul.pagination li.next:focus span,
+.view ul.pagination li.pager-next:focus span,
+.view ul.pagination li.pager-first.active span,
+.view ul.pagination li.pager-last.active span,
+.view ul.pagination li.prev.active span,
+.view ul.pagination li.pager-previous.active span,
+.view ul.pagination li.next.active span,
+.view ul.pagination li.pager-next.active span {
+  font-family: 'SohoGothicProRegular';
+  font-size: 18px;
+}
+.view .pager.pager--infinite-scroll .pager__item a {
+  display: inline-block;
+  padding: 8px 20px 10px;
+  font-family: 'SohoGothicProRegular';
+  font-size: 16px;
+  line-height: 1;
+  color: #000000;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #000000;
+  background-color: #fff;
+}
+.view .pager.pager--infinite-scroll .pager__item a:hover,
+.view .pager.pager--infinite-scroll .pager__item a.active {
+  color: #fff;
+  background-color: #000000;
+}
+/*
  *  Webform Addons component
  * --------------------------------------------------*/
 form.webform-client-form {
@@ -10678,19 +10970,23 @@ header#navbar {
   border-bottom: none;
   background: transparent none;
 }
-header#navbar .container {
+header#navbar .container,
+header#navbar .container-fluid {
   padding: 30px 15px 10px;
 }
-header#navbar .container .navbar-header a.logo {
+header#navbar .container .navbar-header a.logo,
+header#navbar .container-fluid .navbar-header a.logo {
   float: none;
 }
-header#navbar .container .navbar-header a.logo img {
+header#navbar .container .navbar-header a.logo img,
+header#navbar .container-fluid .navbar-header a.logo img {
   display: inline-block;
   vertical-align: middle;
   max-height: 80px;
   width: auto;
 }
-header#navbar .container .navbar-header a.navbar-brand {
+header#navbar .container .navbar-header a.navbar-brand,
+header#navbar .container-fluid .navbar-header a.navbar-brand {
   display: inline-block;
   vertical-align: middle;
   float: none;
@@ -10701,16 +10997,20 @@ header#navbar .container .navbar-header a.navbar-brand {
   color: #222222;
   line-height: 1;
 }
-header#navbar .container .navbar-header .navbar-toggle {
+header#navbar .container .navbar-header .navbar-toggle,
+header#navbar .container-fluid .navbar-header .navbar-toggle {
   padding: 5px 10px;
 }
-header#navbar .container .navbar-collapse nav ul.navbar-nav {
+header#navbar .container .navbar-collapse nav ul.navbar-nav,
+header#navbar .container-fluid .navbar-collapse nav ul.navbar-nav {
   margin: 0;
 }
-header#navbar .container .navbar-collapse nav ul.navbar-nav li {
+header#navbar .container .navbar-collapse nav ul.navbar-nav li,
+header#navbar .container-fluid .navbar-collapse nav ul.navbar-nav li {
   height: 40px;
 }
-header#navbar .container .navbar-collapse nav ul.navbar-nav li a {
+header#navbar .container .navbar-collapse nav ul.navbar-nav li a,
+header#navbar .container-fluid .navbar-collapse nav ul.navbar-nav li a {
   padding: 7px 15px;
   font-family: 'SohoGothicProRegular';
   font-size: 16px;
@@ -10719,25 +11019,32 @@ header#navbar .container .navbar-collapse nav ul.navbar-nav li a {
 /*
  *  Content section (main content)
  * --------------------------------------------------*/
-.container {
+.container,
+.container-fluid {
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 200dpi), only screen and (min-resolution: 1.25dppx) {
-  .container {
+  .container,
+  .container-fluid {
     -webkit-font-smoothing: subpixel-antialiased;
   }
 }
-.container img[src*=".svg"] {
+.container img[src*=".svg"],
+.container-fluid img[src*=".svg"] {
   width: 100%;
 }
-.container a {
+.container a,
+.container-fluid a {
   outline: none;
 }
 .container a.active,
+.container-fluid a.active,
 .container a:hover,
-.container a:focus {
+.container-fluid a:hover,
+.container a:focus,
+.container-fluid a:focus {
   outline: none;
 }
 html {
@@ -10748,42 +11055,52 @@ body {
   height: 100%;
   min-height: 320px;
 }
-body .main-container .container #page-header .region-header h2.block-title {
+body .main-container .container #page-header .region-header h2.block-title,
+body .main-container .container-fluid #page-header .region-header h2.block-title {
   margin: 20px 0 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 24px;
 }
-body .main-container .container .row section h1.page-header {
+body .main-container .container .row section h1.page-header,
+body .main-container .container-fluid .row section h1.page-header {
   margin: 20px 0 10px;
   font-family: 'SohoGothicProBold';
   font-size: 41px;
 }
-body .main-container .container .row section .messages {
+body .main-container .container .row section .messages,
+body .main-container .container-fluid .row section .messages {
   margin-top: 20px;
 }
-body .main-container .container .row section ul.nav-tabs {
+body .main-container .container .row section ul.nav-tabs,
+body .main-container .container-fluid .row section ul.nav-tabs {
   margin: 20px 0 5px;
 }
-body .main-container .container .row section ul.nav-tabs li {
+body .main-container .container .row section ul.nav-tabs li,
+body .main-container .container-fluid .row section ul.nav-tabs li {
   float: right;
 }
-body .main-container .container .row section ul.nav-tabs li a {
+body .main-container .container .row section ul.nav-tabs li a,
+body .main-container .container-fluid .row section ul.nav-tabs li a {
   padding: 5px 10px;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 14px;
   border-radius: 0;
 }
-body .main-container .container .row section ul.action-links {
+body .main-container .container .row section ul.action-links,
+body .main-container .container-fluid .row section ul.action-links {
   margin: 0;
 }
-body .main-container .container .row section ul.action-links li {
+body .main-container .container .row section ul.action-links li,
+body .main-container .container-fluid .row section ul.action-links li {
   float: right;
 }
-body .main-container .container .row section ul.action-links li a {
+body .main-container .container .row section ul.action-links li a,
+body .main-container .container-fluid .row section ul.action-links li a {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 14px;
 }
-body .main-container .container .row .region-content #block-system-main {
+body .main-container .container .row .region-content #block-system-main,
+body .main-container .container-fluid .row .region-content #block-system-main {
   padding: 0 10px;
 }
 body .main-container .fading {
