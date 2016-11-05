@@ -10,14 +10,16 @@
 @pxl-color-red: #ff0000;
 @pxl-color-yellow: #ffff00;
 @pxl-color-black: #000000;
+@pxl-color-gray: #808080;
+
 
 @pxl-color-main: @pxl-color-red;
+@pxl-color-body-bg: #fff;
 @pxl-color-active: @pxl-color-black;
 
 @pxl-color-border: #5f5e5e;
 @pxl-color-border-active: @pxl-color-main;
 
-@pxl-color-body-bg: @pxl-color-yellow;
 @pxl-color-box-bg: @pxl-color-red;
 
 
@@ -38,7 +40,7 @@
 //
 @link-color:            @pxl-color-black;
 //** Link hover color set via `darken()` function.
-@link-hover-color:      @pxl-color-red;
+@link-hover-color:      @pxl-color-active;
 //** Link hover decoration.
 @link-hover-decoration: underline;
 
@@ -176,3 +178,9 @@
 @pagination-hover-color:               @pxl-color-main;
 @pagination-active-color:              @pxl-color-main;
 @pagination-disabled-color:            @gray-light;
+
+
+//== Form
+//
+//##
+@pxl-form-control-height: 36px;

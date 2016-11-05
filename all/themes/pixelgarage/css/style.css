@@ -1081,7 +1081,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #ff0000;
+  color: #000000;
   text-decoration: underline;
 }
 a:focus {
@@ -3294,7 +3294,7 @@ fieldset[disabled] .btn-link {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #ff0000;
+  color: #000000;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -8704,197 +8704,6 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
  * Pixelgarage Components
  * --------------------------------------------------*/
 /*
- *  Login form component
- *  (see inc/login.inc for login form alteration)
- * --------------------------------------------------*/
-#user_register_form,
-#user_login_form,
-#user-create-account,
-#user_pass_form {
-  clear: both;
-  float: none;
-  width: auto;
-}
-/* User login page */
-form#user-login {
-  position: relative;
-  padding: 2em;
-  border: none;
-}
-/* account register form */
-#user-create-account {
-  display: inline-block;
-  vertical-align: top;
-  padding: 0 0 2em;
-  width: 100%;
-}
-@media screen and (min-width: 64em) {
-  #user-create-account {
-    padding: 2em;
-    width: 50%;
-  }
-}
-#user-create-account .form-actions-wrapper {
-  position: relative;
-  padding: 1em 0 0;
-}
-#user-create-account .login-register {
-  border: none;
-  color: #fff;
-  -moz-border-radius: 0.25em;
-  -webkit-border-radius: 0.25em;
-  border-radius: 0.25em;
-  background-image: -webkit-linear-gradient(top, #a70014 0%, #410008 100%);
-  background-image: -o-linear-gradient(top, #a70014 0%, #410008 100%);
-  background-image: linear-gradient(to bottom, #a70014 0%, #410008 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa70014', endColorstr='#ff410008', GradientType=0);
-  display: inline-block;
-  position: absolute;
-  right: 0;
-  vertical-align: middle;
-  margin: 0;
-}
-#user-create-account .login-register:hover {
-  color: #fff;
-  background-image: -webkit-linear-gradient(top, #410008 0%, #a70014 100%);
-  background-image: -o-linear-gradient(top, #410008 0%, #a70014 100%);
-  background-image: linear-gradient(to bottom, #410008 0%, #a70014 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff410008', endColorstr='#ffa70014', GradientType=0);
-  text-decoration: none;
-}
-/* user login form */
-#user_login_form {
-  display: inline-block;
-  vertical-align: top;
-  padding: 0 0 2em;
-  width: 100%;
-  border: 0;
-  border-bottom: 1px solid #eeeeee;
-}
-@media screen and (min-width: 64em) {
-  #user_login_form {
-    padding: 2em;
-    width: 50%;
-    border: 0;
-    border-right: 1px solid #eeeeee;
-  }
-}
-#user_login_form .form-actions-wrapper {
-  position: relative;
-  padding: 1em 0 0;
-}
-#user_login_form .form-actions-wrapper .form-actions {
-  display: inline-block;
-  position: absolute;
-  right: 0;
-  vertical-align: middle;
-  margin: 0;
-}
-#user_login_form .form-actions-wrapper .form-actions .btn {
-  border: none;
-  color: #fff;
-  -moz-border-radius: 0.25em;
-  -webkit-border-radius: 0.25em;
-  border-radius: 0.25em;
-  background-image: -webkit-linear-gradient(top, #a70014 0%, #410008 100%);
-  background-image: -o-linear-gradient(top, #a70014 0%, #410008 100%);
-  background-image: linear-gradient(to bottom, #a70014 0%, #410008 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa70014', endColorstr='#ff410008', GradientType=0);
-  background-image: -webkit-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
-  background-image: -o-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
-  background-image: linear-gradient(to bottom, #2698f2 0%, #0a62a8 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2698f2', endColorstr='#ff0a62a8', GradientType=0);
-}
-#user_login_form .form-actions-wrapper .form-actions .btn:hover {
-  color: #fff;
-  background-image: -webkit-linear-gradient(top, #410008 0%, #a70014 100%);
-  background-image: -o-linear-gradient(top, #410008 0%, #a70014 100%);
-  background-image: linear-gradient(to bottom, #410008 0%, #a70014 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff410008', endColorstr='#ffa70014', GradientType=0);
-  text-decoration: none;
-}
-#user_login_form .form-actions-wrapper .form-actions .btn:hover {
-  background-image: -webkit-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
-  background-image: -o-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
-  background-image: linear-gradient(to bottom, #0a62a8 0%, #2698f2 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0a62a8', endColorstr='#ff2698f2', GradientType=0);
-}
-#user_login_form .form-actions-wrapper .login-password {
-  display: inline-block;
-  margin: 0.5em 0;
-  color: #2698f2;
-}
-#user_login_form .form-actions-wrapper .login-password:hover {
-  color: #2698f2;
-  text-decoration: underline;
-}
-/* User register / password forms */
-#user-register-form,
-#user-pass {
-  display: inline-block;
-  max-width: 40em;
-  vertical-align: top;
-  margin: 1em 0;
-}
-#user-register-form .form-actions,
-#user-pass .form-actions {
-  margin-top: 2em;
-}
-#user-register-form .form-actions .back-to-login,
-#user-pass .form-actions .back-to-login {
-  float: left;
-  margin: 0;
-}
-#user-register-form .form-actions .back-to-login .login-account,
-#user-pass .form-actions .back-to-login .login-account {
-  display: inline-block;
-  margin-top: 0.5em;
-  color: #2698f2;
-}
-#user-register-form .form-actions .back-to-login .login-account:hover,
-#user-pass .form-actions .back-to-login .login-account:hover {
-  color: #2698f2;
-  text-decoration: underline;
-}
-#user-register-form .form-actions .back-to-login:before,
-#user-pass .form-actions .back-to-login:before {
-  display: inline;
-  font-family: "fontawesome";
-  content: '\f112';
-  color: #2698f2;
-  text-align: center;
-  padding: 0.3em;
-}
-#user-register-form .form-actions .btn,
-#user-pass .form-actions .btn {
-  border: none;
-  color: #fff;
-  -moz-border-radius: 0.25em;
-  -webkit-border-radius: 0.25em;
-  border-radius: 0.25em;
-  background-image: -webkit-linear-gradient(top, #a70014 0%, #410008 100%);
-  background-image: -o-linear-gradient(top, #a70014 0%, #410008 100%);
-  background-image: linear-gradient(to bottom, #a70014 0%, #410008 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa70014', endColorstr='#ff410008', GradientType=0);
-  float: right;
-}
-#user-register-form .form-actions .btn:hover,
-#user-pass .form-actions .btn:hover {
-  color: #fff;
-  background-image: -webkit-linear-gradient(top, #410008 0%, #a70014 100%);
-  background-image: -o-linear-gradient(top, #410008 0%, #a70014 100%);
-  background-image: linear-gradient(to bottom, #410008 0%, #a70014 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff410008', endColorstr='#ffa70014', GradientType=0);
-  text-decoration: none;
-}
-/*
  *  ShareThis component
  * --------------------------------------------------*/
 @font-face {
@@ -9113,70 +8922,141 @@ form#user-login {
   color: #eeeeee;
 }
 /*
+ *  Chosen select component
+ * --------------------------------------------------*/
+.form-select.chosen-container-single {
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
+  border: none;
+  border-bottom: 2px solid #000000;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.form-select.chosen-container-single a.chosen-single {
+  white-space: normal;
+  max-width: 100%;
+  padding: 0 0 0 8px;
+  height: 36px;
+  color: #444;
+  border: none;
+  background: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.form-select.chosen-container-single a.chosen-single span {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  height: 36px;
+  line-height: 36px;
+}
+.form-select.chosen-container-single a.chosen-single div {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 100%;
+}
+.form-select.chosen-container-single a.chosen-single div b {
+  background-position: 0 7px;
+}
+.form-select.chosen-container-single.chosen-with-drop a.chosen-single div b {
+  background-position: -18px 7px;
+}
+.form-select.chosen-container-single .chosen-drop {
+  border: 2px solid #000000;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background: #fff;
+}
+.form-select.chosen-container-single .chosen-drop ul.chosen-results li.active-result.highlighted {
+  color: #000000;
+  background: #f4f4f4;
+}
+/*
  *  Node page component
  * --------------------------------------------------*/
-.node-page .row div.col-sm-12 {
+.node.node-page.view-mode-full {
+  margin: 30px 0;
+}
+.node.node-page.view-mode-full > .row > div.col-sm-12 {
   width: 100%;
 }
-.node-page .row div.col-sm-12 .field-name-title h2 {
-  font-family: 'SohoGothicProBold';
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-title h2 {
+  font-family: 'SohoGothicProRegular';
+  font-size: 51.25px;
+  letter-spacing: 0.02em;
+  line-height: 2.5;
   color: #000000;
-  font-size: 12px;
 }
-@media screen and (min-width: 33.88235294117647em) {
-  .node-page .row div.col-sm-12 .field-name-title h2 {
-    font-size: 2.21354167vw;
+@media screen and (min-width: 30em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-title h2 {
+    font-size: 10.67708333vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page .row div.col-sm-12 .field-name-title h2 {
-    font-size: 17px;
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-title h2 {
+    font-size: 82px;
   }
 }
-.node-page .row div.col-sm-12 .field-name-body h1,
-.node-page .row div.col-sm-12 .field-name-body h2,
-.node-page .row div.col-sm-12 .field-name-body h3 {
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body {
+  margin: 0 0 20px;
+}
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h1,
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h2,
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h3 {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
 }
 @media screen and (min-width: 35.2em) {
-  .node-page .row div.col-sm-12 .field-name-body h1,
-  .node-page .row div.col-sm-12 .field-name-body h2,
-  .node-page .row div.col-sm-12 .field-name-body h3 {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h1,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h2,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h3 {
     font-size: 3.90625vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page .row div.col-sm-12 .field-name-body h1,
-  .node-page .row div.col-sm-12 .field-name-body h2,
-  .node-page .row div.col-sm-12 .field-name-body h3 {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h1,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h2,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h3 {
     font-size: 30px;
   }
 }
-.node-page .row div.col-sm-12 .field-name-body h4,
-.node-page .row div.col-sm-12 .field-name-body h5,
-.node-page .row div.col-sm-12 .field-name-body h6 {
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h4,
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h5,
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h6 {
   font-family: 'SohoGothicProRegular';
   font-size: 18px;
 }
 @media screen and (min-width: 36em) {
-  .node-page .row div.col-sm-12 .field-name-body h4,
-  .node-page .row div.col-sm-12 .field-name-body h5,
-  .node-page .row div.col-sm-12 .field-name-body h6 {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h4,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h5,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h6 {
     font-size: 3.125vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page .row div.col-sm-12 .field-name-body h4,
-  .node-page .row div.col-sm-12 .field-name-body h5,
-  .node-page .row div.col-sm-12 .field-name-body h6 {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h4,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h5,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h6 {
     font-size: 24px;
   }
 }
-.node-page .row div.col-sm-12 .field-name-body p,
-.node-page .row div.col-sm-12 .field-name-body tbody td {
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body p,
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body tbody td {
   font-family: 'SohoGothicProRegular';
   font-size: 12px;
   word-break: break-word;
@@ -9186,76 +9066,76 @@ form#user-login {
   -o-hyphens: auto;
   hyphens: auto;
 }
-@media screen and (min-width: 33.88235294117647em) {
-  .node-page .row div.col-sm-12 .field-name-body p,
-  .node-page .row div.col-sm-12 .field-name-body tbody td {
-    font-size: 2.21354167vw;
+@media screen and (min-width: 36em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body p,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body tbody td {
+    font-size: 2.08333333vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page .row div.col-sm-12 .field-name-body p,
-  .node-page .row div.col-sm-12 .field-name-body tbody td {
-    font-size: 17px;
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body p,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body tbody td {
+    font-size: 16px;
   }
 }
-.node-page .row div.col-sm-12 .field-name-body a {
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body a {
   font-family: 'SohoGothicProRegular';
   font-size: 12px;
   color: #000000;
 }
-@media screen and (min-width: 33.88235294117647em) {
-  .node-page .row div.col-sm-12 .field-name-body a {
-    font-size: 2.21354167vw;
+@media screen and (min-width: 36em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body a {
+    font-size: 2.08333333vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page .row div.col-sm-12 .field-name-body a {
-    font-size: 17px;
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body a {
+    font-size: 16px;
   }
 }
-.node-page .row div.col-sm-12 .field-name-body a:hover,
-.node-page .row div.col-sm-12 .field-name-body a:focus {
-  color: #ff0000;
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body a:hover,
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body a:focus {
+  color: #000000;
   text-decoration: none;
   background: none;
 }
-.node-page .row div.col-sm-12 .field-name-body pre,
-.node-page .row div.col-sm-12 .field-name-body address {
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body pre,
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body address {
   font-family: 'SohoGothicProRegular';
   font-size: 12px;
 }
-@media screen and (min-width: 33.88235294117647em) {
-  .node-page .row div.col-sm-12 .field-name-body pre,
-  .node-page .row div.col-sm-12 .field-name-body address {
-    font-size: 2.21354167vw;
+@media screen and (min-width: 36em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body pre,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body address {
+    font-size: 2.08333333vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page .row div.col-sm-12 .field-name-body pre,
-  .node-page .row div.col-sm-12 .field-name-body address {
-    font-size: 17px;
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body pre,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body address {
+    font-size: 16px;
   }
 }
-.node-page .row div.col-sm-12 .field-name-body strong {
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body strong {
   font-family: 'SohoGothicProBold';
   font-size: 16px;
 }
-@media screen and (min-width: 40.421052631578945em) {
-  .node-page .row div.col-sm-12 .field-name-body strong {
-    font-size: 2.47395833vw;
+@media screen and (min-width: 42.666666666666664em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body strong {
+    font-size: 2.34375vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page .row div.col-sm-12 .field-name-body strong {
-    font-size: 19px;
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body strong {
+    font-size: 18px;
   }
 }
-.node-page .row div.col-sm-12 .field-name-body hr {
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body hr {
   border: 0;
   border-bottom: 2px solid #000000;
   background: none;
 }
-.node-page .row div.col-sm-12 .field-name-body img {
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body img {
   display: block;
   overflow: hidden;
   margin: 20px auto;
@@ -9264,10 +9144,10 @@ form#user-login {
   width: auto;
   height: auto;
 }
-.node-page .row div.col-sm-12 .field-name-body embed,
-.node-page .row div.col-sm-12 .field-name-body video,
-.node-page .row div.col-sm-12 .field-name-body audio,
-.node-page .row div.col-sm-12 .field-name-body iframe {
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body embed,
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body video,
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body audio,
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body iframe {
   display: block;
   overflow: hidden;
   margin: 20px auto;
@@ -9425,7 +9305,7 @@ form#user-login {
 .node.node-webform .row .col-sm-6 .field-name-body a:hover,
 .node.node-webform .row .col-sm-12 .field-name-body a:focus,
 .node.node-webform .row .col-sm-6 .field-name-body a:focus {
-  color: #ff0000;
+  color: #000000;
   text-decoration: none;
   background: none;
 }
@@ -9506,6 +9386,786 @@ form#user-login {
 .node.node-webform .row .col-sm-6 .field-name-body p {
   line-height: 22px;
   text-align: left;
+}
+/*
+ *  Login form component
+ *  (see inc/login.inc for login form alteration)
+ * --------------------------------------------------*/
+#user_register_form,
+#user_login_form,
+#user-create-account,
+#user_pass_form {
+  clear: both;
+  float: none;
+  width: auto;
+}
+/* User login page */
+form#user-login {
+  position: relative;
+  padding: 2em;
+  border: none;
+}
+/* account register form */
+#user-create-account {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 0 2em;
+  width: 100%;
+}
+@media screen and (min-width: 64em) {
+  #user-create-account {
+    padding: 2em;
+    width: 50%;
+  }
+}
+#user-create-account .form-actions-wrapper {
+  position: relative;
+  padding: 1em 0 0;
+}
+#user-create-account .login-register {
+  border: none;
+  color: #fff;
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+  background-image: -webkit-linear-gradient(top, #a70014 0%, #410008 100%);
+  background-image: -o-linear-gradient(top, #a70014 0%, #410008 100%);
+  background-image: linear-gradient(to bottom, #a70014 0%, #410008 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa70014', endColorstr='#ff410008', GradientType=0);
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  vertical-align: middle;
+  margin: 0;
+}
+#user-create-account .login-register:hover {
+  color: #fff;
+  background-image: -webkit-linear-gradient(top, #410008 0%, #a70014 100%);
+  background-image: -o-linear-gradient(top, #410008 0%, #a70014 100%);
+  background-image: linear-gradient(to bottom, #410008 0%, #a70014 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff410008', endColorstr='#ffa70014', GradientType=0);
+  text-decoration: none;
+}
+/* user login form */
+#user_login_form {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 0 2em;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #eeeeee;
+}
+@media screen and (min-width: 64em) {
+  #user_login_form {
+    padding: 2em;
+    width: 50%;
+    border: 0;
+    border-right: 1px solid #eeeeee;
+  }
+}
+#user_login_form .form-actions-wrapper {
+  position: relative;
+  padding: 1em 0 0;
+}
+#user_login_form .form-actions-wrapper .form-actions {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  vertical-align: middle;
+  margin: 0;
+}
+#user_login_form .form-actions-wrapper .form-actions .btn {
+  border: none;
+  color: #fff;
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+  background-image: -webkit-linear-gradient(top, #a70014 0%, #410008 100%);
+  background-image: -o-linear-gradient(top, #a70014 0%, #410008 100%);
+  background-image: linear-gradient(to bottom, #a70014 0%, #410008 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa70014', endColorstr='#ff410008', GradientType=0);
+  background-image: -webkit-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
+  background-image: -o-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
+  background-image: linear-gradient(to bottom, #2698f2 0%, #0a62a8 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2698f2', endColorstr='#ff0a62a8', GradientType=0);
+}
+#user_login_form .form-actions-wrapper .form-actions .btn:hover {
+  color: #fff;
+  background-image: -webkit-linear-gradient(top, #410008 0%, #a70014 100%);
+  background-image: -o-linear-gradient(top, #410008 0%, #a70014 100%);
+  background-image: linear-gradient(to bottom, #410008 0%, #a70014 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff410008', endColorstr='#ffa70014', GradientType=0);
+  text-decoration: none;
+}
+#user_login_form .form-actions-wrapper .form-actions .btn:hover {
+  background-image: -webkit-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
+  background-image: -o-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
+  background-image: linear-gradient(to bottom, #0a62a8 0%, #2698f2 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0a62a8', endColorstr='#ff2698f2', GradientType=0);
+}
+#user_login_form .form-actions-wrapper .login-password {
+  display: inline-block;
+  margin: 0.5em 0;
+  color: #2698f2;
+}
+#user_login_form .form-actions-wrapper .login-password:hover {
+  color: #2698f2;
+  text-decoration: underline;
+}
+/* User register / password forms */
+#user-register-form,
+#user-pass {
+  display: inline-block;
+  max-width: 40em;
+  vertical-align: top;
+  margin: 1em 0;
+}
+#user-register-form .form-actions,
+#user-pass .form-actions {
+  margin-top: 2em;
+}
+#user-register-form .form-actions .back-to-login,
+#user-pass .form-actions .back-to-login {
+  float: left;
+  margin: 0;
+}
+#user-register-form .form-actions .back-to-login .login-account,
+#user-pass .form-actions .back-to-login .login-account {
+  display: inline-block;
+  margin-top: 0.5em;
+  color: #2698f2;
+}
+#user-register-form .form-actions .back-to-login .login-account:hover,
+#user-pass .form-actions .back-to-login .login-account:hover {
+  color: #2698f2;
+  text-decoration: underline;
+}
+#user-register-form .form-actions .back-to-login:before,
+#user-pass .form-actions .back-to-login:before {
+  display: inline;
+  font-family: "fontawesome";
+  content: '\f112';
+  color: #2698f2;
+  text-align: center;
+  padding: 0.3em;
+}
+#user-register-form .form-actions .btn,
+#user-pass .form-actions .btn {
+  border: none;
+  color: #fff;
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+  background-image: -webkit-linear-gradient(top, #a70014 0%, #410008 100%);
+  background-image: -o-linear-gradient(top, #a70014 0%, #410008 100%);
+  background-image: linear-gradient(to bottom, #a70014 0%, #410008 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa70014', endColorstr='#ff410008', GradientType=0);
+  float: right;
+}
+#user-register-form .form-actions .btn:hover,
+#user-pass .form-actions .btn:hover {
+  color: #fff;
+  background-image: -webkit-linear-gradient(top, #410008 0%, #a70014 100%);
+  background-image: -o-linear-gradient(top, #410008 0%, #a70014 100%);
+  background-image: linear-gradient(to bottom, #410008 0%, #a70014 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff410008', endColorstr='#ffa70014', GradientType=0);
+  text-decoration: none;
+}
+/*
+ *  User profile component
+ * --------------------------------------------------*/
+.user-profile .row .col-sm-4,
+.user-profile .row .col-sm-8,
+.user-profile .row .col-sm-12 {
+  font-family: 'SohoGothicProRegular';
+  color: #fff;
+}
+.user-profile .row .col-sm-4 .field-name-field-area-of-expertise,
+.user-profile .row .col-sm-8 .field-name-field-area-of-expertise,
+.user-profile .row .col-sm-12 .field-name-field-area-of-expertise {
+  margin-bottom: 60px;
+}
+.user-profile .row .col-sm-4 .field-name-field-area-of-expertise .field-item,
+.user-profile .row .col-sm-8 .field-name-field-area-of-expertise .field-item,
+.user-profile .row .col-sm-12 .field-name-field-area-of-expertise .field-item {
+  display: block;
+}
+.user-profile .row .col-sm-4 .field-name-field-plz,
+.user-profile .row .col-sm-8 .field-name-field-plz,
+.user-profile .row .col-sm-12 .field-name-field-plz {
+  display: inline-block;
+}
+.user-profile .row .col-sm-4 .field-name-field-location,
+.user-profile .row .col-sm-8 .field-name-field-location,
+.user-profile .row .col-sm-12 .field-name-field-location {
+  display: inline-block;
+}
+.user-profile .row .col-sm-4 .field-name-field-website .field-item a,
+.user-profile .row .col-sm-8 .field-name-field-website .field-item a,
+.user-profile .row .col-sm-12 .field-name-field-website .field-item a {
+  color: #fff;
+  text-decoration: none;
+}
+.user-profile .row .col-sm-4 .field-name-field-website .field-item a:hover,
+.user-profile .row .col-sm-8 .field-name-field-website .field-item a:hover,
+.user-profile .row .col-sm-12 .field-name-field-website .field-item a:hover {
+  color: #ff0000;
+  text-decoration: none;
+}
+.user-profile .row .col-sm-4 .field-name-field-image,
+.user-profile .row .col-sm-8 .field-name-field-image,
+.user-profile .row .col-sm-12 .field-name-field-image {
+  margin-bottom: 30px;
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item h1,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item h1,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item h1,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item h2,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item h2,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item h2,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item h3,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item h3,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item h3 {
+  font-family: 'SohoGothicProBold';
+  font-size: 22px;
+}
+@media screen and (min-width: 35.2em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h1,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h1,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h1,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h2,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h2,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h2,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h3,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h3,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h3 {
+    font-size: 3.90625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h1,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h1,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h1,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h2,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h2,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h2,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h3,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h3,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h3 {
+    font-size: 30px;
+  }
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item h4,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item h4,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item h4,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item h5,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item h5,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item h5,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item h6,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item h6,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item h6 {
+  font-family: 'SohoGothicProRegular';
+  font-size: 18px;
+}
+@media screen and (min-width: 36em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h4,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h4,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h4,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h5,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h5,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h5,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h6,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h6,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h6 {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h4,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h4,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h4,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h5,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h5,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h5,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h6,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h6,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h6 {
+    font-size: 24px;
+  }
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item p,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item p,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item p,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item tbody td,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item tbody td,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item tbody td {
+  font-family: 'SohoGothicProRegular';
+  font-size: 12px;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+@media screen and (min-width: 36em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item p,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item p,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item p,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item tbody td,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item tbody td,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item tbody td {
+    font-size: 2.08333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item p,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item p,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item p,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item tbody td,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item tbody td,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item tbody td {
+    font-size: 16px;
+  }
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item a,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item a,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item a {
+  font-family: 'SohoGothicProRegular';
+  font-size: 12px;
+  color: #000000;
+}
+@media screen and (min-width: 36em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item a,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item a,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item a {
+    font-size: 2.08333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item a,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item a,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item a {
+    font-size: 16px;
+  }
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item a:hover,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item a:hover,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item a:hover,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item a:focus,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item a:focus,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item a:focus {
+  color: #000000;
+  text-decoration: none;
+  background: none;
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item pre,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item pre,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item pre,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item address,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item address,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item address {
+  font-family: 'SohoGothicProRegular';
+  font-size: 12px;
+}
+@media screen and (min-width: 36em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item pre,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item pre,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item pre,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item address,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item address,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item address {
+    font-size: 2.08333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item pre,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item pre,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item pre,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item address,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item address,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item address {
+    font-size: 16px;
+  }
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item strong,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item strong,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item strong {
+  font-family: 'SohoGothicProBold';
+  font-size: 16px;
+}
+@media screen and (min-width: 42.666666666666664em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item strong,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item strong,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item strong {
+    font-size: 2.34375vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item strong,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item strong,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item strong {
+    font-size: 18px;
+  }
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item hr,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item hr,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item hr {
+  border: 0;
+  border-bottom: 2px solid #000000;
+  background: none;
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item img,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item img,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item img {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 0;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item embed,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item embed,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item embed,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item video,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item video,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item video,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item audio,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item audio,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item audio,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item iframe,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item iframe,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item iframe {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 350px;
+}
+/*
+ *  User profile form component
+ * --------------------------------------------------*/
+form#user-profile-form {
+  margin: 0 auto 30px;
+  max-width: 960px;
+}
+@media screen and (min-width: 64em) {
+  form#user-profile-form {
+    width: 50%;
+  }
+}
+form#user-profile-form div fieldset.panel,
+form#user-profile-form div #edit-account {
+  margin: 20px 0 30px;
+  padding: 0;
+  border: none;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  background-color: #fff;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+form#user-profile-form div fieldset.panel .panel-heading,
+form#user-profile-form div #edit-account .panel-heading {
+  margin: 20px 0;
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: left;
+}
+form#user-profile-form div fieldset.panel .panel-heading .panel-title,
+form#user-profile-form div #edit-account .panel-heading .panel-title {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-family: 'SohoGothicProBold';
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: #000000;
+  line-height: 1.2;
+  font-size: 23px;
+}
+@media screen and (min-width: 39.42857142857143em) {
+  form#user-profile-form div fieldset.panel .panel-heading .panel-title,
+  form#user-profile-form div #edit-account .panel-heading .panel-title {
+    font-size: 3.64583333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form#user-profile-form div fieldset.panel .panel-heading .panel-title,
+  form#user-profile-form div #edit-account .panel-heading .panel-title {
+    font-size: 28px;
+  }
+}
+form#user-profile-form div fieldset.panel .panel-body,
+form#user-profile-form div #edit-account .panel-body {
+  margin: 0;
+  padding: 0;
+}
+form#user-profile-form div .form-wrapper {
+  margin-bottom: 30px;
+}
+form#user-profile-form div .form-wrapper .form-item label.control-label {
+  display: block;
+  font-weight: normal;
+}
+form#user-profile-form div .form-wrapper .form-item input.form-control {
+  margin: 0;
+  height: 36px;
+  font-family: 'SohoGothicProRegular';
+  font-size: 16px;
+  color: #000000;
+  border: none;
+  border-bottom: 2px solid #000000;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: #fff;
+}
+form#user-profile-form div .form-wrapper .form-item input.form-control::-moz-placeholder {
+  color: #ff0000;
+  opacity: 1;
+}
+form#user-profile-form div .form-wrapper .form-item input.form-control:-ms-input-placeholder {
+  color: #ff0000;
+}
+form#user-profile-form div .form-wrapper .form-item input.form-control::-webkit-input-placeholder {
+  color: #ff0000;
+}
+form#user-profile-form div .form-wrapper .form-item input.form-control:focus {
+  -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  border: 2px solid #000000;
+}
+form#user-profile-form div .form-wrapper .form-item .help-block {
+  font-family: 'SohoGothicProRegular';
+  font-size: 11px;
+  color: #808080;
+}
+form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper textarea {
+  border: none;
+  border-bottom: 2px solid #000000;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: #fff;
+}
+form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper textarea::-moz-placeholder {
+  color: #ff0000;
+  opacity: 1;
+}
+form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper textarea:-ms-input-placeholder {
+  color: #ff0000;
+}
+form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper textarea::-webkit-input-placeholder {
+  color: #ff0000;
+}
+form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper textarea:focus {
+  -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  border: 2px solid #000000;
+}
+form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper .grippie {
+  display: none;
+}
+form#user-profile-form div .form-wrapper .form-item .form-radios,
+form#user-profile-form div .form-wrapper .form-item .form-checkboxes {
+  vertical-align: top;
+}
+form#user-profile-form div .form-wrapper .form-item .form-radios .radio > .control-label,
+form#user-profile-form div .form-wrapper .form-item .form-checkboxes .radio > .control-label,
+form#user-profile-form div .form-wrapper .form-item .form-radios .checkbox > .control-label,
+form#user-profile-form div .form-wrapper .form-item .form-checkboxes .checkbox > .control-label {
+  padding-left: 20px;
+  font-family: 'SohoGothicProLight';
+  font-size: 17px;
+  text-align: left;
+  vertical-align: middle;
+}
+form#user-profile-form div .form-wrapper .form-item .form-radios .radio > .control-label > input,
+form#user-profile-form div .form-wrapper .form-item .form-checkboxes .radio > .control-label > input,
+form#user-profile-form div .form-wrapper .form-item .form-radios .checkbox > .control-label > input,
+form#user-profile-form div .form-wrapper .form-item .form-checkboxes .checkbox > .control-label > input {
+  margin: 5px 7px 0 -20px;
+  vertical-align: top;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file {
+  display: block;
+  position: relative;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-color: #fff;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group {
+  display: block;
+  position: relative;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group input {
+  display: inline-block;
+  float: none;
+  margin: 0 -2px;
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid #000000;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: #fff;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group input::-moz-placeholder {
+  color: #ff0000;
+  opacity: 1;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group input:-ms-input-placeholder {
+  color: #ff0000;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group input::-webkit-input-placeholder {
+  color: #ff0000;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 -2px;
+  width: auto;
+  z-index: 10;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  font-family: 'SohoGothicProBold';
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #fff;
+  outline: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  background-color: #000;
+  opacity: 1.0;
+  font-size: 15px;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:hover,
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:focus {
+  opacity: 0.7;
+}
+@media screen and (min-width: 45em) {
+  form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
+    font-size: 2.08333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
+    font-size: 16px;
+  }
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .form-group {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .form-group span.file {
+  display: inline-block;
+  vertical-align: middle;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .form-group span.file > img {
+  display: none;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .form-group span.file a {
+  vertical-align: middle;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  font-family: 'SohoGothicProBold';
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #fff;
+  outline: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  background-color: #000;
+  opacity: 1.0;
+  font-size: 15px;
+  display: block;
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit:hover,
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit:focus {
+  opacity: 0.7;
+}
+@media screen and (min-width: 45em) {
+  form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit {
+    font-size: 2.08333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit {
+    font-size: 16px;
+  }
+}
+form#user-profile-form div .form-actions {
+  text-align: right;
+  margin-left: 0;
+  padding-left: 15px;
+}
+form#user-profile-form div .form-actions .form-submit {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  font-family: 'SohoGothicProBold';
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #fff;
+  outline: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  background-color: #000;
+  opacity: 1.0;
+}
+form#user-profile-form div .form-actions .form-submit:hover,
+form#user-profile-form div .form-actions .form-submit:focus {
+  opacity: 0.7;
+}
+form#user-profile-form div .form-actions .form-submit .icon {
+  display: none;
 }
 /*
  *  Text paragraph component
@@ -9607,7 +10267,7 @@ form#user-login {
 }
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item a:hover,
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item a:focus {
-  color: #ff0000;
+  color: #000000;
   text-decoration: none;
   background: none;
 }
@@ -10286,7 +10946,7 @@ form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.dra
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
-  color: #ffff00;
+  color: #fff;
   outline: none;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -10337,7 +10997,7 @@ form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .fo
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
-  color: #ffff00;
+  color: #fff;
   outline: none;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -10610,7 +11270,7 @@ form.webform-client-form .webform-component .form-managed-file button.btn {
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
-  color: #ffff00;
+  color: #fff;
   outline: none;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -10721,7 +11381,7 @@ form.webform-client-form div.form-actions button.webform-submit {
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
-  color: #ffff00;
+  color: #fff;
   outline: none;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;

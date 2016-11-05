@@ -51,7 +51,11 @@ function pixelgarage_form_user_login_alter(&$form, &$form_state, $form_id) {
     $form['actions']['#suffix'] .= '</div></div>';
   }
 }
-
+function pixelgarage_form_user_login_block_alter(&$form, &$form_state, $form_id) {
+  unset($form['links']);
+  $form_id = 'user_login';
+  pixelgarage_form_user_login_alter($form, $form_state, $form_id);
+}
 
 /**
  * Alter the user registration form.
