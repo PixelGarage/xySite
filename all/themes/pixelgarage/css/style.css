@@ -10604,8 +10604,12 @@ form#user-profile-form div .form-actions .form-submit .icon {
   overflow-y: auto;
 }
 .view .view-content > .pe-container .modal .modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
-  background-color: #aaa;
+  background-color: #000;
 }
 .view .view-content > .pe-container .modal .modal-backdrop.in {
   opacity: 0.7;
