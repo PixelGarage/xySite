@@ -70,7 +70,7 @@
  * @see template_process()
  * @see html.tpl.php
  *
- * @ingroup themeable
+ * @ingroup templates
  */
 ?>
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
@@ -88,7 +88,7 @@
 
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
         </button>
@@ -96,7 +96,7 @@
     </div>
 
     <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
-      <div class="navbar-collapse collapse">
+      <div class="navbar-collapse collapse" id="navbar-collapse">
         <nav role="navigation">
           <?php if (!empty($primary_nav)): ?>
             <?php print render($primary_nav); ?>
