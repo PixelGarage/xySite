@@ -66,7 +66,7 @@ function stripe_button_token_callback() {
         'id' => $button_id,
         'amount' => -1,
         'currency' => $currency,
-        'message' => t("NO charge!\nStripe API missing"),
+        'message' => t("NO charge!\nStripe API is missing"),
       )
     );
     drupal_add_http_header('Content-Type', 'text/html; charset=utf-8');
@@ -115,15 +115,17 @@ function stripe_button_token_callback() {
     }
   }
 
-  // create button (amount > 0 means normal button, amount == 0 means success button, amount < 0 means failure button)
+  // create success button (amount == 0 means success button, amount < 0 means failure button)
   $success = !$msg ? 0 : -1;
+  $title = !$msg ? t('Thank you,') : t('Whoops,');
+  $text = !$msg ? t('for your contribution') : t('something went wrong');
   $button = theme('stripe_button_fix_value', array(
       'id' => $button_id,
       'amount' => $success,
       'currency' => $currency,
       'message' => $msg,
-      'label_title' => t('Thank you!'),
-      'label_text' => t('For your contribution'),
+      'label_title' => $title,
+      'label_text' => $text,
     )
   );
 
@@ -148,7 +150,7 @@ function stripe_button_custom_form_callback () {
       'amount' => $new_amount,
       'currency' => $currency,
       'label_title' => t('Custom amount'),
-      'label_text' => t('into basic income pot'),
+      'label_text' => t('Press button to complete donation'),
     )
   );
 
@@ -273,7 +275,7 @@ function theme_stripe_button_fix_value($variables) {
   else if ($variables['amount'] == 0) {
     //
     // successful payment, create success button (disabled)
-    $label = t("Yes");
+    $label = t("Done");
     $output = '<div class="stripe-button-container">' .
       '<div class="stripe-button-title">' . t($variables['label_title']) . '</div>' .
       '<div class="stripe-button-text">' . t($variables['label_text']) . '</div>' .
@@ -285,7 +287,7 @@ function theme_stripe_button_fix_value($variables) {
   else {
     //
     // failed payment, create fail button (disabled)
-    $label = t("No");
+    $label = t("Nope");
     $output = '<div class="stripe-button-container">' .
       '<div class="stripe-button-title">' . t($variables['label_title']) . '</div>' .
       '<div class="stripe-button-text">' . t($variables['label_text']) . '</div>' .
@@ -307,7 +309,7 @@ function theme_stripe_button_fix_value($variables) {
  * The custom button is an AJAX form collecting a user defined amount. The process:
  * 1) The form submission sends the collected amount to the server
  * 2) a predefined Stripe button with the given value is created and sent back to the client browser
- * 3) The button is clicked programmatically in the AJAX response.
+ * 3) The button is clicked programmaticaly in the AJAX response.
  * 4) The predefined button process starts.
  */
 function theme_stripe_button_custom_value($variables) {
@@ -342,7 +344,7 @@ function stripe_button_custom_form($form, &$form_state) {
   unset($session_data['currency']);
 
   // add wrapper to entire form
-  $form['#prefix'] = '<div id="form-' . $form_id . '">';
+  $form['#prefix'] = '<div id="form-' . $form_id . '" class="stripe-button-custom-form">';
   $form['#suffix'] = '</div>';
   $form['stripe_button_custom_amount'] = array(
     '#type' => 'textfield',
