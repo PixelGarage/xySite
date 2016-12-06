@@ -52,7 +52,7 @@
   }
 
   // responsive font size with minimum and maximum size
-  .font-size-responsive(@max-size: @resp-font-size-max; @min-size: @resp-font-size-min) {
+  .font-size-responsive(@max-size: @resp-font-size-max; @med-size: @resp-font-size-med; @min-size: @resp-font-size-min) {
     @min-font-size: max(@min-size, @max-size*5/8); // min = 480 / 768 * max
     @min-max-breakpoint: unit((48 * @min-font-size / @max-size), em);
     @font-break:  ~"screen and (min-width: @{min-max-breakpoint})";
@@ -65,8 +65,12 @@
       font-size: unit(@max-size/7.68, vw);
     }
 
-    // max.font size
+    // maed.font size
     @media @tablet {
+      font-size: @med-size;
+    }
+    // max.font size
+    @media @normal {
       font-size: @max-size;
     }
   }
@@ -75,23 +79,23 @@
   .wysiwyg-body(@text-size: @resp-font-size-max; @title-size: @resp-title-size-max; @subtitle-size: @resp-subtitle-size-max) {
     h1, h2, h3 {
       font-family: @pxl-title-font;
-      .font-size-responsive(@title-size, @resp-title-size-min);
+      .font-size-responsive(@title-size, @resp-title-size-med, @resp-title-size-min);
     }
 
     h4, h5, h6 {
       font-family: @pxl-text-font;
-      .font-size-responsive(@subtitle-size, @resp-subtitle-size-min);
+      .font-size-responsive(@subtitle-size, @resp-subtitle-size-med, @resp-subtitle-size-min);
     }
 
     p, tbody td {
       font-family: @pxl-text-font;
-      .font-size-responsive(@text-size, @resp-font-size-min);
+      .font-size-responsive(@text-size);
       .hyphenate;
     }
 
     a {
       font-family: @pxl-text-font;
-      .font-size-responsive(@text-size, @resp-font-size-min);
+      .font-size-responsive(@text-size);
       color: @link-color;
 
       &:hover, &:focus {
@@ -108,7 +112,7 @@
 
     strong {
       font-family: @pxl-text-font-bold;
-      .font-size-responsive(@text-size + 2, 16px);
+      .font-size-responsive(@text-size);
     }
 
     hr {

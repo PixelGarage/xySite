@@ -7,20 +7,20 @@
 
 //== Colors
 //
-@pxl-color-red: #ff0000;
-@pxl-color-yellow: #ffff00;
-@pxl-color-black: #000000;
+@pxl-color-rentals: #ff0000;
+@pxl-color-artculture: #ffff00;
+@pxl-color-about: #000000;
 @pxl-color-gray: #808080;
+@pxl-color-black: #000;
 
-
-@pxl-color-main: @pxl-color-red;
+@pxl-color-main: #fff;
 @pxl-color-body-bg: #fff;
 @pxl-color-active: @pxl-color-black;
 
 @pxl-color-border: #5f5e5e;
 @pxl-color-border-active: @pxl-color-main;
 
-@pxl-color-box-bg: @pxl-color-red;
+@pxl-color-box-bg: @pxl-color-main;
 
 
 @gray-base:              #000;
@@ -36,25 +36,14 @@
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
 
-//== Scaffolding
-//
-@link-color:            @pxl-color-black;
-//** Link hover color set via `darken()` function.
-@link-hover-color:      @pxl-color-active;
-//** Link hover decoration.
-@link-hover-decoration: underline;
-
-@pxl-box-shadow: 0 0 4px rgba(100,100,100, 0.4);
-
-
 
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-@text-color:            @pxl-color-black;
+@text-color:            #222;
 @text-color-disabled:   @gray-lighter;
-@text-color-field:      @pxl-color-black;
-@text-color-placeholder: @pxl-color-red;
+@text-color-field:      @text-color;
+@text-color-placeholder: @gray-light;
 
 @font-size-base:          16px;
 @font-size-large:         ceil((@font-size-base * 1.25));
@@ -66,15 +55,18 @@
 //
 // responsive font sizes
 @resp-font-size:          2vw;
-@resp-font-size-min:      12px;
+@resp-font-size-min:      15px;
+@resp-font-size-med:      17px;
 @resp-font-size-max:      17px;
 
 @resp-subtitle-size:      2.6vw;
 @resp-subtitle-size-min:  18px;
+@resp-subtitle-size-med:  24px;
 @resp-subtitle-size-max:  24px;
 
 @resp-title-size:         3.125vw;
 @resp-title-size-min:     22px;
+@resp-title-size-med:     30px;
 @resp-title-size-max:     30px;
 
 //
@@ -83,6 +75,17 @@
 @font-size-button:        24px;
 @font-size-pane-title:    32px;
 @font-size-pane-subtitle: 20px;
+
+
+//== Scaffolding
+//
+@link-color:            @text-color;
+//** Link hover color set via `darken()` function.
+@link-hover-color:      @pxl-color-active;
+//** Link hover decoration.
+@link-hover-decoration: underline;
+
+@pxl-box-shadow: 0 0 4px rgba(100,100,100, 0.4);
 
 
 
