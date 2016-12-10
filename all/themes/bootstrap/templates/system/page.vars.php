@@ -55,12 +55,14 @@ function bootstrap_preprocess_page(&$variables) {
   if (bootstrap_setting('navbar_position') !== '') {
     $variables['navbar_classes_array'][] = 'navbar-' . bootstrap_setting('navbar_position');
   }
+  /*
   elseif (bootstrap_setting('fluid_container') == 1) {
     $variables['navbar_classes_array'][] = 'container-fluid';
   }
   else {
     $variables['navbar_classes_array'][] = 'container';
   }
+  */
   if (bootstrap_setting('navbar_inverse')) {
     $variables['navbar_classes_array'][] = 'navbar-inverse';
   }

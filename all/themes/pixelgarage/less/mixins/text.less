@@ -26,6 +26,7 @@
     hyphens: @mode;
   }
 
+  //
   // Sharper font smoothing for modern browsers
   .sharp-fonts() {
     -webkit-font-smoothing: antialiased;
@@ -39,7 +40,8 @@
     }
   }
 
-
+  //
+  // Placeholder
   .placeholder(@color: @input-color-placeholder; @text-align: left) {
     // Firefox
     &::-moz-placeholder {
@@ -51,6 +53,7 @@
     &::-webkit-input-placeholder  { text-align: @text-align; color: @color; } // Safari and Chrome
   }
 
+  //
   // responsive font size with minimum and maximum size
   .font-size-responsive(@max-size: @resp-font-size-max; @med-size: @resp-font-size-med; @min-size: @resp-font-size-min) {
     @min-max-breakpoint: unit((48 * @min-size / @max-size), em);
@@ -74,7 +77,8 @@
     }
   }
 
-
+  //
+  // WYSIWYG body
   .wysiwyg-body(@text-size: @resp-font-size-max; @title-size: @resp-title-size-max; @subtitle-size: @resp-subtitle-size-max) {
     h1, h2, h3 {
       margin: 10px auto 20px;
@@ -97,6 +101,13 @@
       text-align: left;
       color: @text-color;
       .hyphenate;
+
+      &.pxl-title {
+        .pxl-title();
+      }
+      &.pxl-subtitle {
+        .pxl-subtitle();
+      }
     }
 
     a {
@@ -150,5 +161,37 @@
       min-height: 350px;
     }
   }
+
+  //
+  // CKEditor styles
+  .pxl-normal() {
+    font-family: @pxl-text-font;
+    .font-size-responsive(23px, 23px, 18px);
+    letter-spacing: normal;
+    line-height: 1.15em;
+    text-align: left;
+    color: @text-color;
+  }
+
+  .pxl-title() {
+    margin: 20px auto 20px;
+    font-family: @pxl-title-font;
+    .font-size-responsive(40px, 40px, 28px);
+    letter-spacing: 0.02em;
+    line-height: 1.4em;
+    text-align: left;
+    color: @text-color;
+  }
+
+  .pxl-subtitle() {
+    font-family: @pxl-subtitle-font;
+    font-weight: 500;
+    .font-size-responsive(30px, 30px, 24px);
+    letter-spacing: 0.02em;
+    text-align: left;
+    line-height: 1.3em;
+    color: @text-color;
+  }
+
 
 }
