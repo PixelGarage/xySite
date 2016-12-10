@@ -53,12 +53,11 @@
 
   // responsive font size with minimum and maximum size
   .font-size-responsive(@max-size: @resp-font-size-max; @med-size: @resp-font-size-med; @min-size: @resp-font-size-min) {
-    @min-font-size: max(@min-size, @max-size*5/8); // min = 480 / 768 * max
-    @min-max-breakpoint: unit((48 * @min-font-size / @max-size), em);
+    @min-max-breakpoint: unit((48 * @min-size / @max-size), em);
     @font-break:  ~"screen and (min-width: @{min-max-breakpoint})";
 
     // min font size
-    font-size: @min-font-size;
+    font-size: @min-size;
 
     // dynamic font size
     @media @font-break {
@@ -78,24 +77,33 @@
 
   .wysiwyg-body(@text-size: @resp-font-size-max; @title-size: @resp-title-size-max; @subtitle-size: @resp-subtitle-size-max) {
     h1, h2, h3 {
+      margin: 10px auto 20px;
       font-family: @pxl-title-font;
       .font-size-responsive(@title-size, @resp-title-size-med, @resp-title-size-min);
     }
 
     h4, h5, h6 {
+      margin: 10px auto 10px;
       font-family: @pxl-text-font;
       .font-size-responsive(@subtitle-size, @resp-subtitle-size-med, @resp-subtitle-size-min);
     }
 
     p, tbody td {
+      margin: 0 0 10px;
       font-family: @pxl-text-font;
       .font-size-responsive(@text-size);
+      letter-spacing: normal;
+      line-height: 1.15em;
+      text-align: left;
+      color: @text-color;
       .hyphenate;
     }
 
     a {
       font-family: @pxl-text-font;
       .font-size-responsive(@text-size);
+      letter-spacing: normal;
+      line-height: 1.15em;
       color: @link-color;
 
       &:hover, &:focus {
@@ -117,7 +125,7 @@
 
     hr {
       border: 0;
-      border-bottom: 2px solid @text-color;
+      border-bottom: 2px solid @pxl-color-border-active;
       background: none;
     }
 

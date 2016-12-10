@@ -107,18 +107,21 @@
 
           button.close {
             display: block;
-            position: absolute;
-            top: 0;
+            float: none;
+            margin: 0;
+            #pxl-mixins.center-vertically(absolute);
             right: 10px;
             opacity: 1.0;
             z-index: 1; // has to be above body
 
             span {
+              display: block;
+              overflow: hidden;
               padding: 0;
-              font-family: @pxl-text-font;
-              font-size: 60px;
-              font-weight: normal;
-              color: @text-color;
+              width: 23px;
+              height: 23px;
+              background: url(../images/popup_close.svg) no-repeat top left / contain;
+              text-indent: 100%;
             }
           }
 
@@ -129,7 +132,7 @@
 
         .modal-body {
           // content styled separately
-          padding: 20px 10px;
+          padding: 20px 15px;
 
           @media @narrow {
             padding: 20px 30px;

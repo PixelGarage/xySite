@@ -9372,12 +9372,12 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 }
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-title h2 {
   font-family: 'SohoGothicProRegular';
-  font-size: 51.25px;
+  font-size: 15px;
   letter-spacing: 0.02em;
   line-height: 2.5;
   color: #222;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 8.78048780487805em) {
   .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-title h2 {
     font-size: 10.67708333vw;
   }
@@ -9398,6 +9398,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h1,
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h2,
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h3 {
+  margin: 10px auto 20px;
   font-family: 'SohoGothicProBold';
   font-size: 22px;
 }
@@ -9425,6 +9426,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h4,
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h5,
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body h6 {
+  margin: 10px auto 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 18px;
 }
@@ -9451,8 +9453,13 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 }
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body p,
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body tbody td {
+  margin: 0 0 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
   word-break: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -9481,6 +9488,8 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body a {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
   color: #222;
 }
 @media screen and (min-width: 45em) {
@@ -9548,7 +9557,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 }
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body hr {
   border: 0;
-  border-bottom: 2px solid #222;
+  border-bottom: 2px solid #fff;
   background: none;
 }
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body img {
@@ -9585,12 +9594,12 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-webform .row .col-sm-12 .field-name-title h2,
 .node.node-webform .row .col-sm-6 .field-name-title h2 {
   font-family: 'SohoGothicProBold';
-  font-size: 18.75px;
+  font-size: 15px;
   letter-spacing: normal;
   text-transform: none;
   color: #222;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 24em) {
   .node.node-webform .row .col-sm-12 .field-name-title h2,
   .node.node-webform .row .col-sm-6 .field-name-title h2 {
     font-size: 3.90625vw;
@@ -9624,6 +9633,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-webform .row .col-sm-6 .field-name-body h2,
 .node.node-webform .row .col-sm-12 .field-name-body h3,
 .node.node-webform .row .col-sm-6 .field-name-body h3 {
+  margin: 10px auto 20px;
   font-family: 'SohoGothicProBold';
   font-size: 22px;
 }
@@ -9663,6 +9673,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-webform .row .col-sm-6 .field-name-body h5,
 .node.node-webform .row .col-sm-12 .field-name-body h6,
 .node.node-webform .row .col-sm-6 .field-name-body h6 {
+  margin: 10px auto 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 18px;
 }
@@ -9700,8 +9711,13 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-webform .row .col-sm-6 .field-name-body p,
 .node.node-webform .row .col-sm-12 .field-name-body tbody td,
 .node.node-webform .row .col-sm-6 .field-name-body tbody td {
+  margin: 0 0 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
   word-break: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -9737,6 +9753,8 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-webform .row .col-sm-6 .field-name-body a {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
   color: #222;
 }
 @media screen and (min-width: 42.35294117647059em) {
@@ -9822,7 +9840,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-webform .row .col-sm-12 .field-name-body hr,
 .node.node-webform .row .col-sm-6 .field-name-body hr {
   border: 0;
-  border-bottom: 2px solid #222;
+  border-bottom: 2px solid #fff;
   background: none;
 }
 .node.node-webform .row .col-sm-12 .field-name-body img,
@@ -10103,6 +10121,7 @@ form#user-login {
 .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h3,
 .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h3,
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h3 {
+  margin: 10px auto 20px;
   font-family: 'SohoGothicProBold';
   font-size: 22px;
 }
@@ -10154,6 +10173,7 @@ form#user-login {
 .user-profile .row .col-sm-4 .field-name-field-short-description .field-item h6,
 .user-profile .row .col-sm-8 .field-name-field-short-description .field-item h6,
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item h6 {
+  margin: 10px auto 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 18px;
 }
@@ -10202,8 +10222,13 @@ form#user-login {
 .user-profile .row .col-sm-4 .field-name-field-short-description .field-item tbody td,
 .user-profile .row .col-sm-8 .field-name-field-short-description .field-item tbody td,
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item tbody td {
+  margin: 0 0 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
   word-break: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -10246,6 +10271,8 @@ form#user-login {
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item a {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
   color: #222;
 }
 @media screen and (min-width: 45em) {
@@ -10349,7 +10376,7 @@ form#user-login {
 .user-profile .row .col-sm-8 .field-name-field-short-description .field-item hr,
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item hr {
   border: 0;
-  border-bottom: 2px solid #222;
+  border-bottom: 2px solid #fff;
   background: none;
 }
 .user-profile .row .col-sm-4 .field-name-field-short-description .field-item img,
@@ -10426,9 +10453,9 @@ form#user-profile-form div #edit-account .panel-heading .panel-title {
   text-transform: none;
   color: #222;
   line-height: 1.2;
-  font-size: 17.5px;
+  font-size: 15px;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 25.714285714285715em) {
   form#user-profile-form div fieldset.panel .panel-heading .panel-title,
   form#user-profile-form div #edit-account .panel-heading .panel-title {
     font-size: 3.64583333vw;
@@ -10721,9 +10748,9 @@ form#user-profile-form div .form-actions .form-submit .icon {
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #222;
-  font-size: 18.75px;
+  font-size: 15px;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 24em) {
   .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-title .field-item {
     font-size: 3.90625vw;
   }
@@ -10741,6 +10768,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h1,
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h2,
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h3 {
+  margin: 10px auto 20px;
   font-family: 'SohoGothicProBold';
   font-size: 22px;
 }
@@ -10768,6 +10796,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h4,
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h5,
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item h6 {
+  margin: 10px auto 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 18px;
 }
@@ -10794,8 +10823,13 @@ form#user-profile-form div .form-actions .form-submit .icon {
 }
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item p,
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item tbody td {
+  margin: 0 0 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
   word-break: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -10824,6 +10858,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item a {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
   color: #222;
 }
 @media screen and (min-width: 36em) {
@@ -10891,7 +10927,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
 }
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item hr {
   border: 0;
-  border-bottom: 2px solid #222;
+  border-bottom: 2px solid #fff;
   background: none;
 }
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item img {
@@ -10924,9 +10960,9 @@ form#user-profile-form div .form-actions .form-submit .icon {
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #222;
-  font-size: 18.75px;
+  font-size: 15px;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 24em) {
   .entity-paragraphs-item.paragraphs-item-block-paragraph .content .field-name-field-title .field-item {
     font-size: 3.90625vw;
   }
@@ -10949,9 +10985,9 @@ form#user-profile-form div .form-actions .form-submit .icon {
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #222;
-  font-size: 18.75px;
+  font-size: 15px;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 24em) {
   .entity-paragraphs-item.paragraphs-item-image-paragraph .content .field-name-field-title .field-item {
     font-size: 3.90625vw;
   }
@@ -10979,9 +11015,9 @@ form#user-profile-form div .form-actions .form-submit .icon {
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #222;
-  font-size: 18.75px;
+  font-size: 15px;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 24em) {
   .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-title .field-item {
     font-size: 3.90625vw;
   }
@@ -11053,7 +11089,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
   bottom: 0;
   padding: 0;
   width: 50%;
-  font-size: 50px;
+  font-size: 15px;
   text-shadow: 0 0 2px #222;
   text-align: unset;
   color: #fff;
@@ -11063,7 +11099,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
   border: none;
   background: none;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 9em) {
   .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .content .field-name-field-images .field-items .carousel > a.carousel-control {
     font-size: 10.41666667vw;
   }
@@ -11264,24 +11300,31 @@ form#user-profile-form div .form-actions .form-submit .icon {
 }
 .view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header button.close {
   display: block;
+  float: none;
+  margin: 0;
   position: absolute;
-  top: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   right: 10px;
   opacity: 1.0;
   z-index: 1;
 }
 .view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header button.close span {
+  display: block;
+  overflow: hidden;
   padding: 0;
-  font-family: 'SohoGothicProRegular';
-  font-size: 60px;
-  font-weight: normal;
-  color: #222;
+  width: 23px;
+  height: 23px;
+  background: url(../images/popup_close.svg) no-repeat top left / contain;
+  text-indent: 100%;
 }
 .view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header .body-fading {
   display: none;
 }
 .view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-body {
-  padding: 20px 10px;
+  padding: 20px 15px;
 }
 @media screen and (min-width: 30em) {
   .view .view-content > .pe-container .modal .modal-dialog .modal-content .modal-body {
@@ -11424,11 +11467,11 @@ form.webform-client-form fieldset.panel .panel-heading {
 form.webform-client-form fieldset.panel .panel-heading .panel-title {
   display: block;
   font-family: 'SohoGothicProBold';
-  font-size: 18.75px;
+  font-size: 15px;
   color: #222;
   text-align: left;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 24em) {
   form.webform-client-form fieldset.panel .panel-heading .panel-title {
     font-size: 3.90625vw;
   }
@@ -11563,7 +11606,7 @@ form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.dra
   margin: 0;
   padding: 7px 27px;
   font-family: 'SohoGothicProBold';
-  font-size: 16.875px;
+  font-size: 15px;
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
@@ -11576,7 +11619,7 @@ form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.dra
   background-color: #fff;
   font-size: 14px;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 26.666666666666668em) {
   form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button {
     font-size: 3.515625vw;
   }
@@ -11619,7 +11662,7 @@ form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .fo
   margin: 0;
   padding: 7px 27px;
   font-family: 'SohoGothicProBold';
-  font-size: 16.875px;
+  font-size: 15px;
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
@@ -11633,7 +11676,7 @@ form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .fo
   font-size: 16px;
   z-index: 10;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 26.666666666666668em) {
   form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
     font-size: 3.515625vw;
   }
@@ -11918,7 +11961,6 @@ form.webform-client-form .webform-component .form-managed-file button.btn {
   margin: 0;
   padding: 7px 27px;
   font-family: 'SohoGothicProBold';
-  font-size: 16.875px;
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
@@ -11933,7 +11975,7 @@ form.webform-client-form .webform-component .form-managed-file button.btn {
   font-size: 15px;
   line-height: 1.2;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 26.666666666666668em) {
   form.webform-client-form .webform-component .form-managed-file button.btn {
     font-size: 3.515625vw;
   }
@@ -12039,7 +12081,7 @@ form.webform-client-form div.form-actions button.webform-submit {
   margin: 0;
   padding: 7px 27px;
   font-family: 'SohoGothicProBold';
-  font-size: 16.875px;
+  font-size: 15px;
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
@@ -12051,7 +12093,7 @@ form.webform-client-form div.form-actions button.webform-submit {
   border: 1px solid #fff;
   background-color: #fff;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 26.666666666666668em) {
   form.webform-client-form div.form-actions button.webform-submit {
     font-size: 3.515625vw;
   }
@@ -12077,7 +12119,6 @@ form.webform-client-form div.form-actions a.back-link {
   margin: 0;
   padding: 7px 27px;
   font-family: 'SohoGothicProBold';
-  font-size: 16.875px;
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
@@ -12094,7 +12135,7 @@ form.webform-client-form div.form-actions a.back-link {
   background: none;
   text-decoration: none;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 26.666666666666668em) {
   form.webform-client-form div.form-actions a.back-link {
     font-size: 3.515625vw;
   }
@@ -12135,7 +12176,6 @@ form.webform-client-form div.form-actions a.done-link {
   margin: 0;
   padding: 7px 27px;
   font-family: 'SohoGothicProBold';
-  font-size: 16.875px;
   line-height: 27px;
   letter-spacing: 1.5px;
   text-transform: capitalize;
@@ -12153,7 +12193,7 @@ form.webform-client-form div.form-actions a.done-link {
   background: none;
   text-decoration: none;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 26.666666666666668em) {
   form.webform-client-form div.form-actions a.done-link {
     font-size: 3.515625vw;
   }
@@ -12207,11 +12247,11 @@ form.webform-client-form div.form-actions a.done-link:hover {
 }
 .webform-confirmation .confirmation-title {
   font-family: 'SohoGothicProBold';
-  font-size: 15.625px;
+  font-size: 15px;
   line-height: 30px;
   text-align: center;
 }
-@media screen and (min-width: 30em) {
+@media screen and (min-width: 28.8em) {
   .webform-confirmation .confirmation-title {
     font-size: 3.25520833vw;
   }
