@@ -9,26 +9,35 @@
    */
   Drupal.behaviors.stripeButtonFees = {
     attach: function () {
-      var $fee_block = $('#stripe-button-fee-block'),
-          $fee_radios = $fee_block.find('.fee-radio'),
-          $selectedItem = $fee_block.find('.fee-radios-wrapper .selected');
+      var $fee_containers = $('.stripe-button-fee-percentages');
 
-      $fee_radios.once('click', function() {
-        $(this).on('click', function() {
-          var $feeAnswerWrapper = $fee_block.find('.fee-answer-wrapper'),
-              feeValue = parseFloat($(this).attr('data-fee-value')),
+      $fee_containers.once('fee-container', function() {
+        var $container = $(this),
+          button_id = $container.attr('id'),
+          $fee_radios = $container.find('.fee-radio'),
+          $selectedItem = $container.find('.fee-radios-wrapper .selected');
+
+        $fee_radios.each(function(index) {
+          var $this = $(this);
+
+          $this.on('click', function() {
+            var $feeAnswerWrapper = $container.find('.fee-answer-wrapper'),
+              feeValue = parseFloat($this.attr('data-fee-value')),
               params = {
-                selectedFee: feeValue
+                feeButtonID: button_id,
+                selectedFeePercentage: feeValue
               };
 
-          // toggle selection
-          $selectedItem.removeClass('selected');
-          $(this).addClass('selected');
-          $selectedItem = $(this);
+            // toggle selection
+            $selectedItem.removeClass('selected');
+            $this.addClass('selected');
+            $selectedItem = $this;
 
-          // update selected fee on server
-          $feeAnswerWrapper.load('stripe/ajax/fee', params);
+            // update selected fee on server
+            $feeAnswerWrapper.load('/stripe/ajax/fee', params);
+          });
         });
+
       });
 
     }

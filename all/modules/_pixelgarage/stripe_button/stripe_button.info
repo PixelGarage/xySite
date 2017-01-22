@@ -6,4 +6,4 @@ configure = admin/config/system/stripe_button
 
 dependencies[] = stripe_api
 
-version = "7.x-1.0"
+version = "7.x-2.2"

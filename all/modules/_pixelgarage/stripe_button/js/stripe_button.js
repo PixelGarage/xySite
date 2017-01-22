@@ -14,11 +14,12 @@
    */
   Drupal.behaviors.stripeCheckoutPredefinedButton = {
     attach: function () {
-      var currentSettings,
+      var clickedButtonSettings,
           $clickedButton,
+          stripeSettings = Drupal.settings.stripe_button,
           checkoutHandler = StripeCheckout.configure({
-            key: Drupal.settings.stripe_button.stripe_public_key,
-            image: Drupal.settings.stripe_button.icon,
+            key: stripeSettings.stripe_public_key,
+            image: stripeSettings.icon,
             locale: 'auto',
             token: function (token) {
               // get button container for responses
@@ -33,56 +34,59 @@
                       stripeToken: token.id,
                       btnID: id,  // used to recreate button in ajax response
                       email: token.email,
-                      amount: currentSettings.amount,
-                      currency: currentSettings.currency
+                      amount: clickedButtonSettings.amount,
+                      currency: clickedButtonSettings.currency,
+                      recurringBilling: clickedButtonSettings.recurringBilling
                     };
+
+                // append payment processing activity image to button
+                var stripeProcessing = '<span class="stripe-payment-processing"><img src="' + stripeSettings.processing_img + '" alt="processing payment..."/></span>';
+                $clickedButton.parent().append(stripeProcessing);
 
                 //
                 // charge the customer with the token and display response
                 $fieldItemDiv.load('/stripe/ajax/token', params, function (response, status, xhr) {
                   if (status == "error") {
                     var msg = "Server error " + xhr.status + ": " + xhr.statusText;
-                    $fieldItemDiv.html('<div class="label label-warning stripe-message">' + msg + '</div>');
+                    $fieldItemDiv.html('<div class="stripe-button-error">' + msg + '</div>');
                   }
                   else {
                     // do NOT attach behaviours to button, it is disabled
                     //Drupal.attachBehaviors($fieldItemDiv);
-
-                    // initialize error popovers for returned error buttons
-                    $fieldItemDiv.find('[data-toggle="popover"]').popover();
                   }
                 });
               }
               else {
                 // no valid token returned => should never happen
-                var msg = "Stripe Checkout unavailable.";
-                $fieldItemDiv.html('<div class="label label-warning stripe-message">' + msg + '</div>');
+                var msg = "Stripe payment server error. Try it later again.";
+                $clickedButton.parent().append('<div class="stripe-button-error">' + msg + '</div>');
               }
 
             }
           });
 
       // Iterate through all defined stripe button instances
-      $.each(Drupal.settings.stripe_button.stripe_buttons, function (button, settings) {
+      $.each(stripeSettings.stripe_buttons, function (button, settings) {
         var $button = $('#' + button);
 
         $button.off('click');
         $button.on('click', function (e) {
           // set current settings
-          currentSettings = settings;
+          clickedButtonSettings = settings;
           $clickedButton  = $(this);
 
           // Open Checkout with further options
           checkoutHandler.open({
-            name: Drupal.settings.stripe_button.name,
+            name: settings.name,
             description: settings.description,
             currency: settings.currency,
             amount: settings.amount,
-            panelLabel: settings.buttonLabel,
+            panelLabel: settings.buttonPrefix,
             zipCode: settings.zipCode == 1,
             billingAddress: settings.billingAddress == 1,
             shippingAddress: settings.shippingAddress == 1,
-            allowRememberMe: settings.allowRememberMe == 1
+            allowRememberMe: settings.allowRememberMe == 1,
+            email: Drupal.settings.stripe_button.email
           });
           e.preventDefault();
         });
@@ -107,7 +111,7 @@
   Drupal.behaviors.stripeCheckoutCustomButton = {
     attach: function () {
       // Iterate through all defined stripe button instances
-      $.each(Drupal.settings.stripe_button.custom_buttons, function (button, currency) {
+      $.each(Drupal.settings.stripe_button.custom_buttons, function (button, settings) {
         var $form_button = $('#form-' + button + ' .form-submit'),
             $form_text = $('#form-' + button + ' .form-text'),
             $fieldItemDiv = $form_button.parents('.field-item');
@@ -118,7 +122,8 @@
               params = {
                 btnID: button,  // used to recreate button in ajax response
                 newAmount: new_amount,
-                currency: currency
+                currency: settings.currency,
+                recurringBilling: settings.recurringBilling
               };
 
           //
@@ -130,7 +135,7 @@
           $fieldItemDiv.load('/stripe/ajax/button', params, function (response, status, xhr) {
             if (status == "error") {
               var msg = "Server error " + xhr.status + ": " + xhr.statusText;
-              $fieldItemDiv.html('<div class="label label-warning stripe-message">' + msg + '</div>');
+              $fieldItemDiv.html('<div class="stripe-button-error">' + msg + '</div>');
             }
             else {
               // attach behaviours to new stripe button
