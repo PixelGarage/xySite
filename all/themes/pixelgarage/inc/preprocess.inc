@@ -12,7 +12,7 @@
 function pixelgarage_preprocess_html(&$vars) {
   // make sure jQuery UI and effects is loaded for anonymous users
   drupal_add_library('system', 'ui');
-  drupal_add_library('system', 'effects');
+  //drupal_add_library('system', 'effects');
 
 }
 
@@ -23,7 +23,7 @@ function pixelgarage_preprocess_page(&$vars) {
   // hide titles on login forms
   pg_login_preprocess_page($vars);
 
-  $vars['logo'] = str_replace(array('.jpg', '.png'), '.svg', $vars['logo']);
+  //$vars['logo'] = str_replace(array('.jpg', '.png'), '.svg', $vars['logo']);
 }
 
 
