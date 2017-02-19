@@ -83,9 +83,9 @@
     font-family: @pxl-title-font;
     font-weight: 700;
     #pxl-mixins.font-size-responsive(@resp-title-size-max, @resp-title-size-med, @resp-title-size-min);
-    letter-spacing: 0.02em;
-    line-height: 1.4em;
-    text-align: left;
+    letter-spacing: @title-letter-spacing;
+    line-height: @title-line-height;
+    text-align: @title-text-align;
     color: @text-color;
   }
 
@@ -93,18 +93,18 @@
     font-family: @pxl-subtitle-font;
     font-weight: 500;
     #pxl-mixins.font-size-responsive(@resp-subtitle-size-max, @resp-subtitle-size-med, @resp-subtitle-size-min);
-    letter-spacing: 0.02em;
-    line-height: 1.2em;
-    text-align: left;
+    letter-spacing: @subtitle-letter-spacing;
+    line-height: @subtitle-line-height;
+    text-align: @subtitle-text-align;
     color: @text-color;
   }
 
   .text() {
     font-family: @pxl-text-font;
     #pxl-mixins.font-size-responsive();
-    letter-spacing: normal;
-    line-height: 1.15em;
-    text-align: left;
+    letter-spacing: @font-letter-spacing;
+    line-height: @font-line-height;
+    text-align: @font-text-align;
     color: @text-color;
   }
 
