@@ -1,75 +1,31 @@
 /*
  *  CKEditor styles
  * --------------------------------------------------*/
+@import "variable-overrides.less";
+@import "fonts";
+@import "mixins/text";
 
 // Variables
 // -------------------------
-@pxl-title-font: 'CallunaBold', sans-serif;
-@pxl-subtitle-font: 'CallunaBold', sans-serif;
-@pxl-text-font: 'CallunaRegular', sans-serif;
-@pxl-text-font-italic: 'CallunaIt', sans-serif;
-@pxl-text-font-bold: 'CallunaBold', sans-serif;
-@pxl-text-font-bold-italic: 'CallunaBold', sans-serif;
 
-@text-color: #000;
-
-@tablet:  ~"screen and (min-width: 48em)";
-@normal:  ~"screen and (min-width: 64em)";
 
 // Mixins
 // -------------------------
 //
-// responsive font size with minimum and maximum size
-.font-size-responsive(@max-size: @resp-font-size-max; @med-size: @resp-font-size-med; @min-size: @resp-font-size-min) {
-  @min-max-breakpoint: unit((48 * @min-size / @max-size), em);
-  @font-break:  ~"screen and (min-width: @{min-max-breakpoint})";
-
-  // min font size
-  font-size: @min-size;
-
-  // dynamic font size
-  @media @font-break {
-    font-size: unit(@max-size/7.68, vw);
-  }
-
-  // maed.font size
-  @media @tablet {
-    font-size: @med-size;
-  }
-  // max.font size
-  @media @normal {
-    font-size: @max-size;
-  }
-}
 
 
 // Main settings
 // -------------------------
-.pxl-normal {
-  font-family: @pxl-text-font;
-  .font-size-responsive(23px, 23px, 18px);
-  letter-spacing: normal;
-  line-height: 1.15em;
-  text-align: left;
-  color: @text-color;
-}
-
 .pxl-title {
   margin: 20px auto 20px;
-  font-family: @pxl-title-font;
-  .font-size-responsive(40px, 40px, 28px);
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
-  text-align: left;
-  color: @text-color;
+  #pxl-mixins.title();
 }
 
 .pxl-subtitle {
-  font-family: @pxl-subtitle-font;
-  font-weight: 500;
-  .font-size-responsive(30px, 30px, 24px);
-  letter-spacing: 0.02em;
-  text-align: left;
-  line-height: 1.3em;
-  color: @text-color;
+  #pxl-mixins.subtitle();
 }
+
+.pxl-normal {
+  #pxl-mixins.text();
+}
+
