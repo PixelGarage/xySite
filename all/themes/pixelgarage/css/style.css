@@ -10116,7 +10116,8 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 #block-locale-language ul.language-switcher-locale-url > li a.language-link.active,
 #block-locale-language ul.language-switcher-locale-url > li a.language-link:hover {
   font-family: 'SohoGothicProBold';
-  text-decoration: none;
+  color: #000;
+  text-decoration: underline;
 }
 #block-locale-language ul.language-switcher-locale-url > li span.locale-untranslated {
   color: #eeeeee;
@@ -10604,7 +10605,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body a:focus,
 .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body a:focus {
   color: #000;
-  text-decoration: none;
+  text-decoration: underline;
   background: none;
 }
 .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body pre,
@@ -10933,7 +10934,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-webform .row .col-sm-12 .field-name-body a:focus,
 .node.node-webform .row .col-sm-6 .field-name-body a:focus {
   color: #000;
-  text-decoration: none;
+  text-decoration: underline;
   background: none;
 }
 .node.node-webform .row .col-sm-12 .field-name-body pre,
@@ -11499,7 +11500,7 @@ form#user-login {
 .user-profile .row .col-sm-8 .field-name-field-short-description .field-item a:focus,
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item a:focus {
   color: #000;
-  text-decoration: none;
+  text-decoration: underline;
   background: none;
 }
 .user-profile .row .col-sm-4 .field-name-field-short-description .field-item pre,
@@ -12104,7 +12105,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item a:hover,
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item a:focus {
   color: #000;
-  text-decoration: none;
+  text-decoration: underline;
   background: none;
 }
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item pre,
@@ -13689,7 +13690,16 @@ header#navbar .container-fluid .navbar-collapse nav ul.navbar-nav li a {
   padding: 7px 15px;
   font-family: 'SohoGothicProRegular';
   font-size: 16px;
+  color: #222;
   line-height: 1;
+}
+header#navbar .container .navbar-collapse nav ul.navbar-nav li a:hover,
+header#navbar .container-fluid .navbar-collapse nav ul.navbar-nav li a:hover,
+header#navbar .container .navbar-collapse nav ul.navbar-nav li a.active,
+header#navbar .container-fluid .navbar-collapse nav ul.navbar-nav li a.active {
+  color: #000;
+  text-decoration: underline;
+  background: none;
 }
 /*
  *  Content section (main content)
