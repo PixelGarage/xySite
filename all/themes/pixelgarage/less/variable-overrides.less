@@ -6,7 +6,7 @@
  */
 
 //== Colors
-//
+// site specific
 @pxl-color-rentals: #ff0000;
 @pxl-color-artculture: #ffff00;
 @pxl-color-about: #000000;
@@ -14,15 +14,17 @@
 @pxl-color-black: #000;
 
 @pxl-color-main: #fff;
-@pxl-color-body-bg: #fff;
 @pxl-color-active: @pxl-color-black;
 
+// borders
 @pxl-color-border: #5f5e5e;
 @pxl-color-border-active: @pxl-color-main;
 
+// backgrounds
+@pxl-color-body-bg: #fff;
 @pxl-color-box-bg: @pxl-color-main;
 
-
+// gray tones
 @gray-base:              #000;
 @gray-darker:            lighten(@gray-base, 13.5%); // #222
 @gray-dark:              lighten(@gray-base, 20%);   // #333
@@ -30,6 +32,7 @@
 @gray-light:             lighten(@gray-base, 46.7%); // #777
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
+// brands
 @brand-primary:         #337ab7;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
@@ -87,13 +90,14 @@
 
 
 //== Scaffolding
-//
+// links
 @link-color:            @text-color;
 //** Link hover color set via `darken()` function.
-@link-hover-color:      @pxl-color-active;
+@link-color-hover:      @pxl-color-active;
 //** Link hover decoration.
 @link-hover-decoration: underline;
 
+// shadows
 @pxl-box-shadow: 0 0 4px rgba(100,100,100, 0.4);
 
 

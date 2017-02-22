@@ -1092,7 +1092,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #000;
+  color: #000000;
   text-decoration: underline;
 }
 a:focus {
@@ -3407,7 +3407,7 @@ fieldset[disabled] .btn-link {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #000;
+  color: #000000;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -9889,6 +9889,9 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
  *  Three part element mixins
  * --------------------------------------------------*/
 /*
+ *  Forms mixins
+ * --------------------------------------------------*/
+/*
  *  Bootstrap accordion mixin
  * --------------------------------------------------*/
 /*
@@ -12427,14 +12430,10 @@ form#user-profile-form div .form-actions .form-submit .icon {
  *  Proximity view component
  * --------------------------------------------------*/
 .view.view-proximity {
-  margin: 0 auto;
   width: 100%;
 }
 .view.view-proximity .view-content {
-  padding: 20px 0 50px;
-}
-.view.view-proximity .view-content > .pe-container {
-  width: 100%;
+  padding: 0;
 }
 .view.view-proximity .view-content > .pe-container .grid-sizer,
 .view.view-proximity .view-content > .pe-container .pe-item {
@@ -12479,6 +12478,9 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .view.view-proximity .view-content > .pe-container .pe-item.pe-item-no-ajax,
 .view.view-proximity .view-content > .pe-container .pe-item.pe-item-linked {
   cursor: pointer;
+}
+.view.view-proximity .view-content > .pe-container .modal {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .view.view-proximity .view-content > .pe-container .modal.modal-fixed-height {
   height: 100%;
@@ -12658,73 +12660,23 @@ form#user-profile-form div .form-actions .form-submit .icon {
   color: #222;
   text-decoration: none;
 }
-.view.view-proximity ul.pagination li:hover a,
-.view.view-proximity ul.pagination li:focus a,
-.view.view-proximity ul.pagination li.active a,
-.view.view-proximity ul.pagination li:hover span,
-.view.view-proximity ul.pagination li:focus span,
-.view.view-proximity ul.pagination li.active span {
-  font-family: 'SohoGothicProBold';
-  text-decoration: none;
-  font-size: 20px;
-  background: none;
-}
-.view.view-proximity ul.pagination li.pager-first:hover a,
-.view.view-proximity ul.pagination li.pager-last:hover a,
-.view.view-proximity ul.pagination li.prev:hover a,
-.view.view-proximity ul.pagination li.pager-previous:hover a,
-.view.view-proximity ul.pagination li.next:hover a,
-.view.view-proximity ul.pagination li.pager-next:hover a,
-.view.view-proximity ul.pagination li.pager-first:focus a,
-.view.view-proximity ul.pagination li.pager-last:focus a,
-.view.view-proximity ul.pagination li.prev:focus a,
-.view.view-proximity ul.pagination li.pager-previous:focus a,
-.view.view-proximity ul.pagination li.next:focus a,
-.view.view-proximity ul.pagination li.pager-next:focus a,
-.view.view-proximity ul.pagination li.pager-first.active a,
-.view.view-proximity ul.pagination li.pager-last.active a,
-.view.view-proximity ul.pagination li.prev.active a,
-.view.view-proximity ul.pagination li.pager-previous.active a,
-.view.view-proximity ul.pagination li.next.active a,
-.view.view-proximity ul.pagination li.pager-next.active a,
-.view.view-proximity ul.pagination li.pager-first:hover span,
-.view.view-proximity ul.pagination li.pager-last:hover span,
-.view.view-proximity ul.pagination li.prev:hover span,
-.view.view-proximity ul.pagination li.pager-previous:hover span,
-.view.view-proximity ul.pagination li.next:hover span,
-.view.view-proximity ul.pagination li.pager-next:hover span,
-.view.view-proximity ul.pagination li.pager-first:focus span,
-.view.view-proximity ul.pagination li.pager-last:focus span,
-.view.view-proximity ul.pagination li.prev:focus span,
-.view.view-proximity ul.pagination li.pager-previous:focus span,
-.view.view-proximity ul.pagination li.next:focus span,
-.view.view-proximity ul.pagination li.pager-next:focus span,
-.view.view-proximity ul.pagination li.pager-first.active span,
-.view.view-proximity ul.pagination li.pager-last.active span,
-.view.view-proximity ul.pagination li.prev.active span,
-.view.view-proximity ul.pagination li.pager-previous.active span,
-.view.view-proximity ul.pagination li.next.active span,
-.view.view-proximity ul.pagination li.pager-next.active span {
-  font-family: 'SohoGothicProRegular';
-  font-size: 18px;
-}
 .view.view-proximity .pager.pager--infinite-scroll .pager__item a {
   display: inline-block;
   padding: 8px 20px 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 16px;
   line-height: 1;
-  color: #222;
+  color: #fff;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  border: 1px solid #222;
+  border: 1px solid #fff;
   background-color: #fff;
 }
 .view.view-proximity .pager.pager--infinite-scroll .pager__item a:hover,
 .view.view-proximity .pager.pager--infinite-scroll .pager__item a.active {
   color: #fff;
-  background-color: #222;
+  background-color: #fff;
 }
 /*
  *  Webform Addons component
