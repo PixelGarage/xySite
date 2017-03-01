@@ -17,7 +17,5 @@
     <?php print $stripe_button; ?>
   </div>
   <div class="label label-danger"></div>
-
 </div>
-
 

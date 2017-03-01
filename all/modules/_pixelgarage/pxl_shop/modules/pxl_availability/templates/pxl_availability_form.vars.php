@@ -28,14 +28,9 @@ function template_preprocess_pxl_availability_form(&$vars) {
   $context['view_name'] = $view_array[0];
   $context['view_display_id'] = $view_array[1];
   $context['intl_url'] = $_GET['q'];
-  $sku_filters = array(false);
+  $sku_filters = array();
   drupal_alter('pxl_availability_filter_by_sku', $sku_filters, $context);
-  $vars['calendar'] = views_embed_view($context['view_name'], $context['view_display_id'], $sku_filters[0]);
-  //$results = views_get_view_result($view_name, $view_display_id, $view_args[0]);
-  if (!$sku_filters[0]) {
-    // TODO: get all product SKUs and add them to the $sku_filters array (replace null)
-    $sku_filters = array();
-  }
+  $vars['calendar'] = views_embed_view($context['view_name'], $context['view_display_id'], !empty($sku_filters) ? $sku_filters[0] : null);
 
   //
   // define hidden calendar days 0=Sunday,...until 6=Saturday
@@ -49,12 +44,14 @@ function template_preprocess_pxl_availability_form(&$vars) {
     $block_id => array(
       'check_in_time' => $vars['check_in_time'],
       'check_out_time' => $vars['check_out_time'],
+      'min_days' => $vars['min_days'],
       'hidden_days' => $hidden_days,
       'SKUs' => $sku_filters,
     ),
   );
-  $js_settings['pxl_availability']['error_no_availability'] = t('No availability for the selected time range.');
-  $js_settings['pxl_availability']['error_in_past'] = t('The selected time range is in the past.');
+  $js_settings['pxl_availability']['errorNoAvailability'] = t('No availability for the selected time range.');
+  $js_settings['pxl_availability']['errorInPast'] = t('The selected time range is in the past.');
+  $js_settings['pxl_availability']['errorMinDays'] = t('The minimal selectable time range includes @days days.', array('@days'=>$vars['min_days']));
   drupal_add_js($js_settings, 'setting');
 
   // render shopping cart form to add all needed js settings and files
@@ -74,7 +71,7 @@ function pxl_availability_check_form($form, &$form_state) {
     '#title' => t('Start date'),
     '#description' => t('Enter the start date.'),
     '#element_validation' => array('pxl_availability_validate_date'),
-    '#attributes' => array('placeholder' => t('Check-in')),
+    '#attributes' => array('placeholder' => t('Check-in ...')),
     '#required' => true,
     '#weight' => 0,
   );
@@ -83,13 +80,13 @@ function pxl_availability_check_form($form, &$form_state) {
     '#title' => t('End date'),
     '#description' => t('Enter the end date.'),
     '#element_validation' => array('pxl_availability_validate_date'),
-    '#attributes' => array('placeholder' => t('Check-out')),
+    '#attributes' => array('placeholder' => t('Check-out ...')),
     '#required' => true,
     '#weight' => 1,
   );
   $form['pxl_availability_submit'] = array(
     '#type' => 'button',
-    '#value' => t('Book'),
+    '#value' => t('Checkout'),
     '#weight' => 10,
   );
 
