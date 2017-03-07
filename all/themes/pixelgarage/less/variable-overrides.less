@@ -20,7 +20,12 @@
 @pxl-color-border: #5f5e5e;
 @pxl-color-border-active: @pxl-color-main;
 
-// backgrounds
+// buttons
+@pxl-color-bg-button: @pxl-color-main;
+@pxl-color-bg-button-hover: #fff;
+
+
+  // backgrounds
 @pxl-color-body-bg: #fff;
 @pxl-color-box-bg: @pxl-color-main;
 
@@ -48,9 +53,9 @@
 @text-color-field:      @text-color;
 @text-color-placeholder: @gray-light;
 
-@font-letter-spacing: normal;
-@font-line-height: 1.15em;
-@font-text-align: left;
+@text-letter-spacing: normal;
+@text-line-height: 1.15em;
+@text-text-align: left;
 
 @subtitle-letter-spacing: 0.02em;
 @subtitle-line-height: 1.2em;
@@ -60,12 +65,9 @@
 @title-line-height: 1.4em;
 @title-text-align: left;
 
-@font-size-base:          16px;
-@font-size-large:         ceil((@font-size-base * 1.25));
-@font-size-larger:        ceil((@font-size-base * 1.5));
-@font-size-small:         ceil((@font-size-base * 0.85));
-@font-size-smaller:       ceil((@font-size-base * 0.7));
-@font-size-min:          14px;
+@form-letter-spacing: normal;
+@form-line-height: 1.15em;
+@form-text-align: left;
 
 //
 // responsive font sizes
@@ -83,8 +85,15 @@
 
 //
 // selected element font size
-@font-size-button-small:  20px;
-@font-size-button:        24px;
+@font-size-base:          16px;
+@font-size-large:         ceil((@font-size-base * 1.25));
+@font-size-larger:        ceil((@font-size-base * 1.5));
+@font-size-small:         ceil((@font-size-base * 0.85));
+@font-size-smaller:       ceil((@font-size-base * 0.7));
+@font-size-min:          14px;
+
+@font-size-button:        20px;
+@font-size-button-large:  24px;
 @font-size-pane-title:    32px;
 @font-size-pane-subtitle: 20px;
 
@@ -92,6 +101,8 @@
 //== Scaffolding
 // links
 @link-color:            @text-color;
+//** Link hover decoration.
+@link-decoration:       none;
 //** Link hover color set via `darken()` function.
 @link-color-hover:      @pxl-color-active;
 //** Link hover decoration.
@@ -193,9 +204,9 @@
 // nodes
 @node-padding: 0;
 // ds-column
-@node-ds-column-margin: 0 0 50px;
+@node-ds-column-margin-bottom: 50px;
 // fields
-@node-field-margin: 0 0 20px;
+@node-field-margin-bottom: 20px;
 
 
 
@@ -208,7 +219,3 @@
 @pagination-disabled-color:            @gray-light;
 
 
-//== Form
-//
-//##
-@pxl-form-control-height: 36px;

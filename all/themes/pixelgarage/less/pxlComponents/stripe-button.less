@@ -9,7 +9,7 @@
 @stripe-button-bg-color: @pxl-color-box-bg;
 @stripe-button-radius: 4px;
 
-@form-control-height: 36px;
+@stripe-button-height: @form-control-height;
 
 
 // Mixins
@@ -17,7 +17,7 @@
 .stripe-button(@size: @stripe-button-font-size) {
   display: inline-block;
   padding: 6px 15px;
-  height: @form-control-height;
+  height: @stripe-button-height;
   font-family: @pxl-text-font-bold;
   font-size: @size;
   line-height: 1;
@@ -48,7 +48,7 @@
       margin: 0 -2px;
       padding: 0;
       width: auto;
-      height: @form-control-height;
+      height: @stripe-button-height;
       letter-spacing: 0;
 
       .input-group-addon {
@@ -102,6 +102,76 @@
   }
 }
 
+//
+// stripe button with container
+.stripe-container-button() {
+  position: relative;
+  padding: 0;
+
+  .stripe-button-title {
+    display: none;
+    font-family: @pxl-text-font-bold;
+    font-size: 22px;
+    color: @pxl-color-main;
+  }
+
+  .stripe-button-text {
+    display: none;
+    margin-bottom: @font-size-base;
+    font-family: @pxl-text-font;
+    font-size: @font-size-base;
+    color: @text-color;
+  }
+
+  //
+  // fixed stripe button
+  .stripe-button {
+    // the stripe button with the fixed amount
+    .stripe-button(@font-size-button);
+
+    span.fa {
+      padding-right: 10px;
+    }
+
+    &.btn-error {
+      background-color: @brand-danger;
+    }
+
+    &[disabled] {
+      opacity: 0.7;
+    }
+  }
+
+  //
+  // stripe button custom form
+  .stripe-button-custom-form {
+    .stripe-button-form ();
+  }
+
+  //
+  // processing icon
+  .stripe-payment-processing {
+    position: absolute;
+    bottom: (@form-control-height - 60px) / 2;
+    left: 0;
+
+    img {
+      width: 60px;
+      height: 60px;
+
+    }
+  }
+
+  //
+  // visible only when an error occurred
+  .stripe-button-error {
+    font-family: @pxl-text-font;
+    font-size: 12px;
+    color: @brand-danger;
+  }
+}
+
+
 
 // General settings
 // -------------------------
@@ -132,51 +202,7 @@
       //
       // STRIPE BUTTON CONTAINER
       .stripe-button-container {
-        padding: 0;
-
-        .stripe-button-title {
-          display: none;
-          font-family: @pxl-text-font-bold;
-          font-size: 22px;
-          color: @pxl-color-main;
-        }
-
-        .stripe-button-text {
-          display: none;
-          margin-bottom: @font-size-base;
-          font-family: @pxl-text-font;
-          font-size: @font-size-base;
-          color: @text-color;
-        }
-
-        //
-        // fixed stripe button
-        .stripe-button {
-          // the stripe button with the given amount
-          .stripe-button(@font-size-button);
-
-          &.btn-warning {
-            background-color: @brand-warning;
-          }
-
-          &[disabled] {
-            opacity: 0.7;
-          }
-        }
-
-        //
-        // stripe button custom form
-        .stripe-button-custom-form {
-          .stripe-button-form ();
-        }
-
-        //
-        // visible only when input is incorrect
-        .stripe-button-input-error {
-          font-family: @pxl-text-font;
-          font-size: 12px;
-          color: @brand-danger;
-        }
+        .stripe-container-button();
       }
 
       //
@@ -188,35 +214,6 @@
         max-width: 150px;
 
         &.label-warning {
-          background-color: @brand-warning;
-        }
-      }
-
-      //
-      // ERROR BUTTON POPOVER
-      .popover {
-        // stripe popover
-        font-family: @pxl-text-font;
-        letter-spacing: 1.2px;
-        text-align: left;
-        color: #fff;
-        border: none;
-        background: none;
-
-        .arrow {
-        }
-
-        .popover-title {
-          padding: 4px 14px;
-          font-family: @pxl-title-font;
-          font-size: 80%;
-          background-color: @brand-warning;
-        }
-
-        .popover-content {
-          padding: 4px 14px;
-          font-size: 80%;
-          #pxl-mixins.border-radius(0 0 5px 5px);
           background-color: @brand-warning;
         }
       }

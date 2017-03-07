@@ -4,7 +4,7 @@
 
 // Variables
 // -------------------------
-
+@pxl-button-letter-spacing: 1;
 
 // Mixins
 // -------------------------
@@ -34,19 +34,20 @@
     padding: 8px 0 10px;
     width: 60%;
     min-width: 110px;
-    height: 34px;
+    height: (@font-size-button + 18px);
     font-family: @pxl-text-font;
-    font-size: @font-size-base;
+    font-size: @font-size-button;
     text-align: center;
     text-decoration: none;
     line-height: 1;
     letter-spacing: @pxl-button-letter-spacing;
-    color: #fff;
-    border: none;
+    color: @pxl-color-bg-button-hover;
     #pxl-mixins.border-radius(3px);
+    border: 1px solid @pxl-color-bg-button;
     background: @pxl-color-bg-button;
 
     &:hover {
+      color: @pxl-color-bg-button;
       background: @pxl-color-bg-button-hover;
     }
   }
@@ -57,19 +58,20 @@
     padding: 13px 0 15px;
     width: 60%;
     min-width: 160px;
-    height: 44px;
+    height: (@font-size-button-large + 28px);
     font-family: @pxl-text-font;
-    font-size: @font-size-base;
+    font-size: @font-size-button-large;
     text-align: center;
     text-decoration: none;
     line-height: 1;
     letter-spacing: @pxl-button-letter-spacing;
-    color: #fff;
+    color: @pxl-color-bg-button-hover;
     border: none;
     #pxl-mixins.border-radius(3px);
     background: @pxl-color-bg-button;
 
     &:hover {
+      color: @pxl-color-bg-button;
       background: @pxl-color-bg-button-hover;
     }
   }

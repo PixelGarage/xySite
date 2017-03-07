@@ -10,6 +10,7 @@
 @pxl-login-btn-hover-color: #fff;
 @pxl-login-link-color: #2698f2;
 @pxl-login-link-hover-color: @pxl-login-link-color;
+
 //gradients
 @pxl-login-gradient-top: #2698f2;
 @pxl-login-gradient-bottom: darken(@pxl-login-gradient-top, 20%);
@@ -19,16 +20,27 @@
 
 // Mixins
 // -------------------------
-.submit-btn() {
+.link-button (@link-color: @pxl-login-link-color; @link-color-hover: @pxl-login-link-hover-color) {
+  display: inline-block;
+  margin:  0.5em 0;
+  color: @link-color;
+
+  &:hover {
+    color: @link-color-hover;
+    text-decoration: underline;
+  }
+}
+
+.submit-btn(@gradient-top: @pxl-login-gradient-top; @gradient-bottom: @pxl-login-gradient-bottom) {
   &:extend(.btn-lg);
   border: none;
   color: @pxl-login-btn-color;
   #pxl-mixins.border-radius(0.25em);
-  #gradient.vertical(@pxl-login-gradient-2-top, @pxl-login-gradient-2-bottom);
+  #gradient.vertical(@gradient-top, @gradient-bottom);
 
   &:hover {
     color: @pxl-login-btn-hover-color;
-    #gradient.vertical(@pxl-login-gradient-2-bottom, @pxl-login-gradient-2-top);
+    #gradient.vertical(@gradient-bottom, @gradient-top);
     text-decoration: none;
   }
 }
@@ -111,23 +123,11 @@ form#user-login {
 
       .btn {
         .submit-btn;
-        #gradient.vertical(@pxl-login-gradient-top, @pxl-login-gradient-bottom);
-
-        &:hover {
-          #gradient.vertical(@pxl-login-gradient-bottom, @pxl-login-gradient-top);
-        }
       }
     }
 
     .login-password {
-      display: inline-block;
-      margin:  0.5em 0;
-      color: @pxl-login-link-color;
-
-      &:hover {
-        color: @pxl-login-link-hover-color;
-        text-decoration: underline;
-      }
+      .link-button();
     }
   }
 
@@ -149,14 +149,7 @@ form#user-login {
       margin: 0;
 
       .login-account {
-        display: inline-block;
-        margin-top:  0.5em;
-        color: @pxl-login-link-color;
-
-        &:hover {
-          color: @pxl-login-link-hover-color;
-          text-decoration: underline;
-        }
+        .link-button();
       }
 
       &:before {

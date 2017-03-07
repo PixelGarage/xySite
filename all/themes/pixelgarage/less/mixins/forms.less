@@ -13,7 +13,59 @@
 
 // Mixins
 // -------------------------
+
 #pxl-mixins {
+  //
+  // form text
+  .form-text() {
+    font-family: @pxl-form-font;
+    #pxl-mixins.font-size-responsive();
+    letter-spacing: @form-letter-spacing;
+    line-height: @form-line-height;
+    text-align: @form-text-align;
+    color: @text-color-field;
+  }
+
+
+  //
+  // managed file buttons
+  .form-button(@size: @font-size-large; @color: #fff; @bg-color: @pxl-color-main; @radius: @border-radius-large) {
+    display: inline-block;
+    margin: 0;
+    padding: 10px 20px;
+    font-family: @pxl-text-font-bold;
+    #pxl-mixins.font-size-responsive(@size, @size, (@size - 2px));
+    line-height: 1;
+    letter-spacing: 0;
+    color: @color;
+    outline: none;
+    #pxl-mixins.border-radius(@radius);
+    border: none;
+    background-color: @bg-color;
+    opacity: 1.0;
+
+    &:hover, &:focus {
+      opacity: 0.7;
+    }
+  }
+
+  //
+  // form actions
+  .form-action() {
+    text-align: right;
+    margin-left: 0;
+    padding-left: 15px;
+
+    .form-submit {
+      .form-button(28px, #fff, #000, 0);
+
+      .icon {
+        display: none;
+      }
+    }
+  }
+
+
   //
   // form items
   .form-items(@border-color: @text-color; @radius: 0) {
@@ -25,10 +77,7 @@
     input.form-control {
       margin: 0;
       height: @form-control-height;
-      //max-width: @pxl-form-control-width;
-      font-family: @pxl-text-font;
-      font-size: @font-size-base;
-      color: @text-color;
+      .form-text();
       border: @border-color;
       #pxl-mixins.border-radius(@radius);
       #pxl-mixins.box-shadow(none);
@@ -76,10 +125,8 @@
       .radio, .checkbox {
         > .control-label {
           padding-left: 20px;
+          .form-text();
           font-family: @pxl-text-font-light;
-          font-size: 17px;
-          //#pxl-mixins.font-size-responsive(19px, 14px);
-          text-align: left;
           vertical-align: middle;
 
           > input {
@@ -130,8 +177,7 @@
             z-index: 10;
 
             button.form-submit {
-              .form-button(20px, #fff, #000, 0);
-              #pxl-mixins.font-size-responsive(16px, 16px, 15px);
+              .form-button(16px, #fff, #000, 0);
             }
           }
         }
@@ -161,8 +207,7 @@
           }
         }
         button.form-submit {
-          .form-button(20px, #fff, #000, 0);
-          #pxl-mixins.font-size-responsive(16px, 16px, 15px);
+          .form-button(16px, #fff, #000, 0);
           display: block;
         }
 
@@ -170,41 +215,4 @@
     }
   }
 
-  //
-  // managed file buttons
-  .form-button(@size: @font-size-large; @color: #fff; @bg-color: @pxl-color-main; @radius: @border-radius-large) {
-    display: inline-block;
-    margin: 0;
-    padding: 10px 20px;
-    font-family: @pxl-text-font-bold;
-    font-size: @size;
-    line-height: 1;
-    letter-spacing: 0;
-    color: @color;
-    outline: none;
-    #pxl-mixins.border-radius(@radius);
-    border: none;
-    background-color: @bg-color;
-    opacity: 1.0;
-
-    &:hover, &:focus {
-      opacity: 0.7;
-    }
-  }
-
-  //
-  // form actions
-  .form-action() {
-    text-align: right;
-    margin-left: 0;
-    padding-left: 15px;
-
-    .form-submit {
-      .form-button(28px, #fff, #000, 0);
-
-      .icon {
-        display: none;
-      }
-    }
-  }
 }

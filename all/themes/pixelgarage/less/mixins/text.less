@@ -82,7 +82,7 @@
   .title() {
     font-family: @pxl-title-font;
     font-weight: 700;
-    #pxl-mixins.font-size-responsive(@resp-title-size-max, @resp-title-size-med, @resp-title-size-min);
+    .font-size-responsive(@resp-title-size-max, @resp-title-size-med, @resp-title-size-min);
     letter-spacing: @title-letter-spacing;
     line-height: @title-line-height;
     text-align: @title-text-align;
@@ -92,7 +92,7 @@
   .subtitle() {
     font-family: @pxl-subtitle-font;
     font-weight: 500;
-    #pxl-mixins.font-size-responsive(@resp-subtitle-size-max, @resp-subtitle-size-med, @resp-subtitle-size-min);
+    .font-size-responsive(@resp-subtitle-size-max, @resp-subtitle-size-med, @resp-subtitle-size-min);
     letter-spacing: @subtitle-letter-spacing;
     line-height: @subtitle-line-height;
     text-align: @subtitle-text-align;
@@ -101,10 +101,10 @@
 
   .text() {
     font-family: @pxl-text-font;
-    #pxl-mixins.font-size-responsive();
-    letter-spacing: @font-letter-spacing;
-    line-height: @font-line-height;
-    text-align: @font-text-align;
+    .font-size-responsive();
+    letter-spacing: @text-letter-spacing;
+    line-height: @text-line-height;
+    text-align: @text-text-align;
     color: @text-color;
   }
 
@@ -138,14 +138,28 @@
       }
     }
 
-    pre, address {
+    pre, address, i, em {
       .text();
       font-family: @pxl-text-font-italic;
     }
 
-    strong {
+    strong, b {
       .text();
       font-family: @pxl-text-font-bold;
+    }
+
+    u {
+      .text();
+      color: @link-color;
+
+      &:hover, &:focus {
+        color: @link-hover-color;
+      }
+    }
+
+    mark {
+      .text();
+      background-color: #ff0;
     }
 
     hr {

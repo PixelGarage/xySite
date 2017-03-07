@@ -25,13 +25,11 @@
 
         .panel-title {
           a {
-            font-family: @pxl-text-font-bold;
-            font-size: @font-size-large;
-            color: @text-color;
-            text-decoration: none;
+            #pxl-mixins.subtitle();
+            text-decoration: @link-decoration;
 
             &:hover, &.active {
-              text-decoration: none;
+              text-decoration: @link-hover-decoration;
             }
 
             span.fa {

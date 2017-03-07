@@ -9895,9 +9895,6 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
  *  Bootstrap accordion mixin
  * --------------------------------------------------*/
 /*
- *  Bootstrap slider mixin
- * --------------------------------------------------*/
-/*
  *  BS-carousel component
  * --------------------------------------------------*/
 /*
@@ -10085,8 +10082,6 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
  * --------------------------------------------------*/
 #block-locale-language {
   display: inline-block;
-  font-family: 'SohoGothicProRegular';
-  font-size: 16px;
 }
 #block-locale-language ul.language-switcher-locale-url {
   list-style: none;
@@ -10100,6 +10095,9 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   display: inline-block;
   margin: 0 -0.25em 0 0;
   padding: 0 10px;
+  font-family: 'SohoGothicProRegular';
+  font-size: 16px;
+  color: #222;
   line-height: 1;
   border-right: 1px solid #222;
 }
@@ -10112,13 +10110,12 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 }
 #block-locale-language ul.language-switcher-locale-url > li a.language-link {
   text-transform: uppercase;
-  text-decoration: none;
   color: #222;
   outline: none;
+  text-decoration: none;
 }
 #block-locale-language ul.language-switcher-locale-url > li a.language-link.active,
 #block-locale-language ul.language-switcher-locale-url > li a.language-link:hover {
-  font-family: 'SohoGothicProBold';
   color: #000;
   text-decoration: underline;
 }
@@ -10154,6 +10151,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   }
 }
 .field-type-number-decimal .field-items .field-item .stripe-button-container {
+  position: relative;
   padding: 0;
 }
 .field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-button-title {
@@ -10174,7 +10172,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   padding: 6px 15px;
   height: 36px;
   font-family: 'SohoGothicProBold';
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1;
   letter-spacing: 0;
   text-transform: capitalize;
@@ -10191,8 +10189,11 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-button:focus {
   opacity: 0.7;
 }
-.field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-button.btn-warning {
-  background-color: #f0ad4e;
+.field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-button span.fa {
+  padding-right: 10px;
+}
+.field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-button.btn-error {
+  background-color: #d9534f;
 }
 .field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-button[disabled] {
   opacity: 0.7;
@@ -10273,7 +10274,16 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-button-custom-form form button.form-submit:focus {
   opacity: 0.7;
 }
-.field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-button-input-error {
+.field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-payment-processing {
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+}
+.field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-payment-processing img {
+  width: 60px;
+  height: 60px;
+}
+.field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-button-error {
   font-family: 'SohoGothicProRegular';
   font-size: 12px;
   color: #d9534f;
@@ -10284,28 +10294,6 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   max-width: 150px;
 }
 .field-type-number-decimal .field-items .field-item .label.stripe-message.label-warning {
-  background-color: #f0ad4e;
-}
-.field-type-number-decimal .field-items .field-item .popover {
-  font-family: 'SohoGothicProRegular';
-  letter-spacing: 1.2px;
-  text-align: left;
-  color: #fff;
-  border: none;
-  background: none;
-}
-.field-type-number-decimal .field-items .field-item .popover .popover-title {
-  padding: 4px 14px;
-  font-family: 'SohoGothicProBold';
-  font-size: 80%;
-  background-color: #f0ad4e;
-}
-.field-type-number-decimal .field-items .field-item .popover .popover-content {
-  padding: 4px 14px;
-  font-size: 80%;
-  -moz-border-radius: 0 0 5px 5px;
-  -webkit-border-radius: 0 0 5px 5px;
-  border-radius: 0 0 5px 5px;
   background-color: #f0ad4e;
 }
 /*
@@ -10614,7 +10602,11 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body pre,
 .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body pre,
 .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body address,
-.node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body address {
+.node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body address,
+.node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body i,
+.node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body i,
+.node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body em,
+.node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body em {
   font-size: 15px;
   letter-spacing: normal;
   line-height: 1.15em;
@@ -10626,7 +10618,11 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body pre,
   .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body pre,
   .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body address,
-  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body address {
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body address,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body i,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body i,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body em,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body em {
     font-size: 2.21354167vw;
   }
 }
@@ -10634,7 +10630,11 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body pre,
   .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body pre,
   .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body address,
-  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body address {
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body address,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body i,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body i,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body em,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body em {
     font-size: 17px;
   }
 }
@@ -10642,12 +10642,18 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body pre,
   .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body pre,
   .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body address,
-  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body address {
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body address,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body i,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body i,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body em,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body em {
     font-size: 17px;
   }
 }
 .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body strong,
-.node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body strong {
+.node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body strong,
+.node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body b,
+.node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body b {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
   letter-spacing: normal;
@@ -10658,19 +10664,86 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 }
 @media screen and (min-width: 42.35294117647059em) {
   .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body strong,
-  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body strong {
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body strong,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body b,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body b {
     font-size: 2.21354167vw;
   }
 }
 @media screen and (min-width: 48em) {
   .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body strong,
-  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body strong {
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body strong,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body b,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body b {
     font-size: 17px;
   }
 }
 @media screen and (min-width: 64em) {
   .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body strong,
-  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body strong {
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body strong,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body b,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body b {
+    font-size: 17px;
+  }
+}
+.node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body u,
+.node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body u {
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body u,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body u {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body u,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body u {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body u,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body u {
+    font-size: 17px;
+  }
+}
+.node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body u:hover,
+.node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body u:hover,
+.node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body u:focus,
+.node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body u:focus {
+  color: #000000;
+}
+.node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body mark,
+.node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body mark {
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  background-color: #ff0;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body mark,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body mark {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body mark,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body mark {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 .field-name-body mark,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 .field-name-body mark {
     font-size: 17px;
   }
 }
@@ -10756,6 +10829,10 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   margin: 0 auto;
   width: 90%;
   height: auto;
+}
+.node.node-webform .row .col-sm-12 .field-name-body,
+.node.node-webform .row .col-sm-6 .field-name-body {
+  margin: 0 0 20px;
 }
 .node.node-webform .row .col-sm-12 .field-name-body h1,
 .node.node-webform .row .col-sm-6 .field-name-body h1,
@@ -10943,7 +11020,11 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .node.node-webform .row .col-sm-12 .field-name-body pre,
 .node.node-webform .row .col-sm-6 .field-name-body pre,
 .node.node-webform .row .col-sm-12 .field-name-body address,
-.node.node-webform .row .col-sm-6 .field-name-body address {
+.node.node-webform .row .col-sm-6 .field-name-body address,
+.node.node-webform .row .col-sm-12 .field-name-body i,
+.node.node-webform .row .col-sm-6 .field-name-body i,
+.node.node-webform .row .col-sm-12 .field-name-body em,
+.node.node-webform .row .col-sm-6 .field-name-body em {
   font-size: 15px;
   letter-spacing: normal;
   line-height: 1.15em;
@@ -10955,7 +11036,11 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   .node.node-webform .row .col-sm-12 .field-name-body pre,
   .node.node-webform .row .col-sm-6 .field-name-body pre,
   .node.node-webform .row .col-sm-12 .field-name-body address,
-  .node.node-webform .row .col-sm-6 .field-name-body address {
+  .node.node-webform .row .col-sm-6 .field-name-body address,
+  .node.node-webform .row .col-sm-12 .field-name-body i,
+  .node.node-webform .row .col-sm-6 .field-name-body i,
+  .node.node-webform .row .col-sm-12 .field-name-body em,
+  .node.node-webform .row .col-sm-6 .field-name-body em {
     font-size: 2.21354167vw;
   }
 }
@@ -10963,7 +11048,11 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   .node.node-webform .row .col-sm-12 .field-name-body pre,
   .node.node-webform .row .col-sm-6 .field-name-body pre,
   .node.node-webform .row .col-sm-12 .field-name-body address,
-  .node.node-webform .row .col-sm-6 .field-name-body address {
+  .node.node-webform .row .col-sm-6 .field-name-body address,
+  .node.node-webform .row .col-sm-12 .field-name-body i,
+  .node.node-webform .row .col-sm-6 .field-name-body i,
+  .node.node-webform .row .col-sm-12 .field-name-body em,
+  .node.node-webform .row .col-sm-6 .field-name-body em {
     font-size: 17px;
   }
 }
@@ -10971,12 +11060,18 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   .node.node-webform .row .col-sm-12 .field-name-body pre,
   .node.node-webform .row .col-sm-6 .field-name-body pre,
   .node.node-webform .row .col-sm-12 .field-name-body address,
-  .node.node-webform .row .col-sm-6 .field-name-body address {
+  .node.node-webform .row .col-sm-6 .field-name-body address,
+  .node.node-webform .row .col-sm-12 .field-name-body i,
+  .node.node-webform .row .col-sm-6 .field-name-body i,
+  .node.node-webform .row .col-sm-12 .field-name-body em,
+  .node.node-webform .row .col-sm-6 .field-name-body em {
     font-size: 17px;
   }
 }
 .node.node-webform .row .col-sm-12 .field-name-body strong,
-.node.node-webform .row .col-sm-6 .field-name-body strong {
+.node.node-webform .row .col-sm-6 .field-name-body strong,
+.node.node-webform .row .col-sm-12 .field-name-body b,
+.node.node-webform .row .col-sm-6 .field-name-body b {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
   letter-spacing: normal;
@@ -10987,19 +11082,86 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 }
 @media screen and (min-width: 42.35294117647059em) {
   .node.node-webform .row .col-sm-12 .field-name-body strong,
-  .node.node-webform .row .col-sm-6 .field-name-body strong {
+  .node.node-webform .row .col-sm-6 .field-name-body strong,
+  .node.node-webform .row .col-sm-12 .field-name-body b,
+  .node.node-webform .row .col-sm-6 .field-name-body b {
     font-size: 2.21354167vw;
   }
 }
 @media screen and (min-width: 48em) {
   .node.node-webform .row .col-sm-12 .field-name-body strong,
-  .node.node-webform .row .col-sm-6 .field-name-body strong {
+  .node.node-webform .row .col-sm-6 .field-name-body strong,
+  .node.node-webform .row .col-sm-12 .field-name-body b,
+  .node.node-webform .row .col-sm-6 .field-name-body b {
     font-size: 17px;
   }
 }
 @media screen and (min-width: 64em) {
   .node.node-webform .row .col-sm-12 .field-name-body strong,
-  .node.node-webform .row .col-sm-6 .field-name-body strong {
+  .node.node-webform .row .col-sm-6 .field-name-body strong,
+  .node.node-webform .row .col-sm-12 .field-name-body b,
+  .node.node-webform .row .col-sm-6 .field-name-body b {
+    font-size: 17px;
+  }
+}
+.node.node-webform .row .col-sm-12 .field-name-body u,
+.node.node-webform .row .col-sm-6 .field-name-body u {
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  .node.node-webform .row .col-sm-12 .field-name-body u,
+  .node.node-webform .row .col-sm-6 .field-name-body u {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-webform .row .col-sm-12 .field-name-body u,
+  .node.node-webform .row .col-sm-6 .field-name-body u {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .node.node-webform .row .col-sm-12 .field-name-body u,
+  .node.node-webform .row .col-sm-6 .field-name-body u {
+    font-size: 17px;
+  }
+}
+.node.node-webform .row .col-sm-12 .field-name-body u:hover,
+.node.node-webform .row .col-sm-6 .field-name-body u:hover,
+.node.node-webform .row .col-sm-12 .field-name-body u:focus,
+.node.node-webform .row .col-sm-6 .field-name-body u:focus {
+  color: #000000;
+}
+.node.node-webform .row .col-sm-12 .field-name-body mark,
+.node.node-webform .row .col-sm-6 .field-name-body mark {
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  background-color: #ff0;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  .node.node-webform .row .col-sm-12 .field-name-body mark,
+  .node.node-webform .row .col-sm-6 .field-name-body mark {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-webform .row .col-sm-12 .field-name-body mark,
+  .node.node-webform .row .col-sm-6 .field-name-body mark {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .node.node-webform .row .col-sm-12 .field-name-body mark,
+  .node.node-webform .row .col-sm-6 .field-name-body mark {
     font-size: 17px;
   }
 }
@@ -11034,11 +11196,6 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   max-width: 100%;
   height: auto;
   min-height: 350px;
-}
-.node.node-webform .row .col-sm-12 .field-name-body p,
-.node.node-webform .row .col-sm-6 .field-name-body p {
-  line-height: 22px;
-  text-align: left;
 }
 /*
  *  Login form component
@@ -11081,11 +11238,11 @@ form#user-login {
   -moz-border-radius: 0.25em;
   -webkit-border-radius: 0.25em;
   border-radius: 0.25em;
-  background-image: -webkit-linear-gradient(top, #a70014 0%, #410008 100%);
-  background-image: -o-linear-gradient(top, #a70014 0%, #410008 100%);
-  background-image: linear-gradient(to bottom, #a70014 0%, #410008 100%);
+  background-image: -webkit-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
+  background-image: -o-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
+  background-image: linear-gradient(to bottom, #2698f2 0%, #0a62a8 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa70014', endColorstr='#ff410008', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2698f2', endColorstr='#ff0a62a8', GradientType=0);
   display: inline-block;
   position: absolute;
   right: 0;
@@ -11094,11 +11251,11 @@ form#user-login {
 }
 #user-create-account .login-register:hover {
   color: #fff;
-  background-image: -webkit-linear-gradient(top, #410008 0%, #a70014 100%);
-  background-image: -o-linear-gradient(top, #410008 0%, #a70014 100%);
-  background-image: linear-gradient(to bottom, #410008 0%, #a70014 100%);
+  background-image: -webkit-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
+  background-image: -o-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
+  background-image: linear-gradient(to bottom, #0a62a8 0%, #2698f2 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff410008', endColorstr='#ffa70014', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0a62a8', endColorstr='#ff2698f2', GradientType=0);
   text-decoration: none;
 }
 /* user login form */
@@ -11135,10 +11292,6 @@ form#user-login {
   -moz-border-radius: 0.25em;
   -webkit-border-radius: 0.25em;
   border-radius: 0.25em;
-  background-image: -webkit-linear-gradient(top, #a70014 0%, #410008 100%);
-  background-image: -o-linear-gradient(top, #a70014 0%, #410008 100%);
-  background-image: linear-gradient(to bottom, #a70014 0%, #410008 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa70014', endColorstr='#ff410008', GradientType=0);
   background-image: -webkit-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
   background-image: -o-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
   background-image: linear-gradient(to bottom, #2698f2 0%, #0a62a8 100%);
@@ -11147,19 +11300,12 @@ form#user-login {
 }
 #user_login_form .form-actions-wrapper .form-actions .btn:hover {
   color: #fff;
-  background-image: -webkit-linear-gradient(top, #410008 0%, #a70014 100%);
-  background-image: -o-linear-gradient(top, #410008 0%, #a70014 100%);
-  background-image: linear-gradient(to bottom, #410008 0%, #a70014 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff410008', endColorstr='#ffa70014', GradientType=0);
-  text-decoration: none;
-}
-#user_login_form .form-actions-wrapper .form-actions .btn:hover {
   background-image: -webkit-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
   background-image: -o-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
   background-image: linear-gradient(to bottom, #0a62a8 0%, #2698f2 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0a62a8', endColorstr='#ff2698f2', GradientType=0);
+  text-decoration: none;
 }
 #user_login_form .form-actions-wrapper .login-password {
   display: inline-block;
@@ -11190,7 +11336,7 @@ form#user-login {
 #user-register-form .form-actions .back-to-login .login-account,
 #user-pass .form-actions .back-to-login .login-account {
   display: inline-block;
-  margin-top: 0.5em;
+  margin: 0.5em 0;
   color: #2698f2;
 }
 #user-register-form .form-actions .back-to-login .login-account:hover,
@@ -11214,21 +11360,21 @@ form#user-login {
   -moz-border-radius: 0.25em;
   -webkit-border-radius: 0.25em;
   border-radius: 0.25em;
-  background-image: -webkit-linear-gradient(top, #a70014 0%, #410008 100%);
-  background-image: -o-linear-gradient(top, #a70014 0%, #410008 100%);
-  background-image: linear-gradient(to bottom, #a70014 0%, #410008 100%);
+  background-image: -webkit-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
+  background-image: -o-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
+  background-image: linear-gradient(to bottom, #2698f2 0%, #0a62a8 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa70014', endColorstr='#ff410008', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2698f2', endColorstr='#ff0a62a8', GradientType=0);
   float: right;
 }
 #user-register-form .form-actions .btn:hover,
 #user-pass .form-actions .btn:hover {
   color: #fff;
-  background-image: -webkit-linear-gradient(top, #410008 0%, #a70014 100%);
-  background-image: -o-linear-gradient(top, #410008 0%, #a70014 100%);
-  background-image: linear-gradient(to bottom, #410008 0%, #a70014 100%);
+  background-image: -webkit-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
+  background-image: -o-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
+  background-image: linear-gradient(to bottom, #0a62a8 0%, #2698f2 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff410008', endColorstr='#ffa70014', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0a62a8', endColorstr='#ff2698f2', GradientType=0);
   text-decoration: none;
 }
 /*
@@ -11511,7 +11657,13 @@ form#user-login {
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item pre,
 .user-profile .row .col-sm-4 .field-name-field-short-description .field-item address,
 .user-profile .row .col-sm-8 .field-name-field-short-description .field-item address,
-.user-profile .row .col-sm-12 .field-name-field-short-description .field-item address {
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item address,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item i,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item i,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item i,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item em,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item em,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item em {
   font-size: 15px;
   letter-spacing: normal;
   line-height: 1.15em;
@@ -11525,7 +11677,13 @@ form#user-login {
   .user-profile .row .col-sm-12 .field-name-field-short-description .field-item pre,
   .user-profile .row .col-sm-4 .field-name-field-short-description .field-item address,
   .user-profile .row .col-sm-8 .field-name-field-short-description .field-item address,
-  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item address {
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item address,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item i,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item i,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item i,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item em,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item em,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item em {
     font-size: 2.21354167vw;
   }
 }
@@ -11535,7 +11693,13 @@ form#user-login {
   .user-profile .row .col-sm-12 .field-name-field-short-description .field-item pre,
   .user-profile .row .col-sm-4 .field-name-field-short-description .field-item address,
   .user-profile .row .col-sm-8 .field-name-field-short-description .field-item address,
-  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item address {
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item address,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item i,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item i,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item i,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item em,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item em,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item em {
     font-size: 17px;
   }
 }
@@ -11545,13 +11709,22 @@ form#user-login {
   .user-profile .row .col-sm-12 .field-name-field-short-description .field-item pre,
   .user-profile .row .col-sm-4 .field-name-field-short-description .field-item address,
   .user-profile .row .col-sm-8 .field-name-field-short-description .field-item address,
-  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item address {
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item address,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item i,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item i,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item i,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item em,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item em,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item em {
     font-size: 17px;
   }
 }
 .user-profile .row .col-sm-4 .field-name-field-short-description .field-item strong,
 .user-profile .row .col-sm-8 .field-name-field-short-description .field-item strong,
-.user-profile .row .col-sm-12 .field-name-field-short-description .field-item strong {
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item strong,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item b,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item b,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item b {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
   letter-spacing: normal;
@@ -11563,21 +11736,101 @@ form#user-login {
 @media screen and (min-width: 42.35294117647059em) {
   .user-profile .row .col-sm-4 .field-name-field-short-description .field-item strong,
   .user-profile .row .col-sm-8 .field-name-field-short-description .field-item strong,
-  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item strong {
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item strong,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item b,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item b,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item b {
     font-size: 2.21354167vw;
   }
 }
 @media screen and (min-width: 48em) {
   .user-profile .row .col-sm-4 .field-name-field-short-description .field-item strong,
   .user-profile .row .col-sm-8 .field-name-field-short-description .field-item strong,
-  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item strong {
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item strong,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item b,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item b,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item b {
     font-size: 17px;
   }
 }
 @media screen and (min-width: 64em) {
   .user-profile .row .col-sm-4 .field-name-field-short-description .field-item strong,
   .user-profile .row .col-sm-8 .field-name-field-short-description .field-item strong,
-  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item strong {
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item strong,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item b,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item b,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item b {
+    font-size: 17px;
+  }
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item u,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item u,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item u {
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item u,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item u,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item u {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item u,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item u,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item u {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item u,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item u,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item u {
+    font-size: 17px;
+  }
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item u:hover,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item u:hover,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item u:hover,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item u:focus,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item u:focus,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item u:focus {
+  color: #000000;
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item mark,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item mark,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item mark {
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  background-color: #ff0;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item mark,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item mark,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item mark {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item mark,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item mark,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item mark {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item mark,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item mark,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item mark {
     font-size: 17px;
   }
 }
@@ -11696,10 +11949,12 @@ form#user-profile-form div .form-wrapper .form-item input.form-control {
   margin: 0;
   height: 36px;
   font-family: 'SohoGothicProRegular';
-  font-size: 16px;
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
   color: #222;
-  border: none;
-  border-bottom: 2px solid #222;
+  border: #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11707,6 +11962,21 @@ form#user-profile-form div .form-wrapper .form-item input.form-control {
   -moz-box-shadow: none;
   box-shadow: none;
   background-color: #fff;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  form#user-profile-form div .form-wrapper .form-item input.form-control {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form#user-profile-form div .form-wrapper .form-item input.form-control {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  form#user-profile-form div .form-wrapper .form-item input.form-control {
+    font-size: 17px;
+  }
 }
 form#user-profile-form div .form-wrapper .form-item input.form-control::-moz-placeholder {
   color: #777777;
@@ -11730,8 +12000,7 @@ form#user-profile-form div .form-wrapper .form-item .help-block {
   color: #808080;
 }
 form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper textarea {
-  border: none;
-  border-bottom: 2px solid #222;
+  border: #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11768,10 +12037,38 @@ form#user-profile-form div .form-wrapper .form-item .form-checkboxes .radio > .c
 form#user-profile-form div .form-wrapper .form-item .form-radios .checkbox > .control-label,
 form#user-profile-form div .form-wrapper .form-item .form-checkboxes .checkbox > .control-label {
   padding-left: 20px;
-  font-family: 'SohoGothicProLight';
-  font-size: 17px;
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
   text-align: left;
+  color: #222;
+  font-family: 'SohoGothicProLight';
   vertical-align: middle;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  form#user-profile-form div .form-wrapper .form-item .form-radios .radio > .control-label,
+  form#user-profile-form div .form-wrapper .form-item .form-checkboxes .radio > .control-label,
+  form#user-profile-form div .form-wrapper .form-item .form-radios .checkbox > .control-label,
+  form#user-profile-form div .form-wrapper .form-item .form-checkboxes .checkbox > .control-label {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form#user-profile-form div .form-wrapper .form-item .form-radios .radio > .control-label,
+  form#user-profile-form div .form-wrapper .form-item .form-checkboxes .radio > .control-label,
+  form#user-profile-form div .form-wrapper .form-item .form-radios .checkbox > .control-label,
+  form#user-profile-form div .form-wrapper .form-item .form-checkboxes .checkbox > .control-label {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  form#user-profile-form div .form-wrapper .form-item .form-radios .radio > .control-label,
+  form#user-profile-form div .form-wrapper .form-item .form-checkboxes .radio > .control-label,
+  form#user-profile-form div .form-wrapper .form-item .form-radios .checkbox > .control-label,
+  form#user-profile-form div .form-wrapper .form-item .form-checkboxes .checkbox > .control-label {
+    font-size: 17px;
+  }
 }
 form#user-profile-form div .form-wrapper .form-item .form-radios .radio > .control-label > input,
 form#user-profile-form div .form-wrapper .form-item .form-checkboxes .radio > .control-label > input,
@@ -11798,7 +12095,7 @@ form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-wi
   margin: 0 -2px;
   padding: 0;
   width: 100%;
-  border-bottom: 1px solid #222;
+  border: 1px solid #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11832,7 +12129,7 @@ form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-wi
   margin: 0;
   padding: 10px 20px;
   font-family: 'SohoGothicProBold';
-  font-size: 20px;
+  font-size: 14px;
   line-height: 1;
   letter-spacing: 0;
   color: #fff;
@@ -11843,13 +12140,8 @@ form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-wi
   border: none;
   background-color: #000;
   opacity: 1.0;
-  font-size: 15px;
 }
-form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:hover,
-form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:focus {
-  opacity: 0.7;
-}
-@media screen and (min-width: 45em) {
+@media screen and (min-width: 42em) {
   form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
     font-size: 2.08333333vw;
   }
@@ -11863,6 +12155,10 @@ form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-wi
   form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
     font-size: 16px;
   }
+}
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:hover,
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:focus {
+  opacity: 0.7;
 }
 form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .form-group {
   display: inline-block;
@@ -11885,7 +12181,7 @@ form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-wi
   margin: 0;
   padding: 10px 20px;
   font-family: 'SohoGothicProBold';
-  font-size: 20px;
+  font-size: 14px;
   line-height: 1;
   letter-spacing: 0;
   color: #fff;
@@ -11896,14 +12192,9 @@ form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-wi
   border: none;
   background-color: #000;
   opacity: 1.0;
-  font-size: 15px;
   display: block;
 }
-form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit:hover,
-form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit:focus {
-  opacity: 0.7;
-}
-@media screen and (min-width: 45em) {
+@media screen and (min-width: 42em) {
   form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit {
     font-size: 2.08333333vw;
   }
@@ -11918,6 +12209,10 @@ form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-wi
     font-size: 16px;
   }
 }
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit:hover,
+form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit:focus {
+  opacity: 0.7;
+}
 form#user-profile-form div .form-actions {
   text-align: right;
   margin-left: 0;
@@ -11928,7 +12223,7 @@ form#user-profile-form div .form-actions .form-submit {
   margin: 0;
   padding: 10px 20px;
   font-family: 'SohoGothicProBold';
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1;
   letter-spacing: 0;
   color: #fff;
@@ -11939,6 +12234,21 @@ form#user-profile-form div .form-actions .form-submit {
   border: none;
   background-color: #000;
   opacity: 1.0;
+}
+@media screen and (min-width: 44.57142857142857em) {
+  form#user-profile-form div .form-actions .form-submit {
+    font-size: 3.64583333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form#user-profile-form div .form-actions .form-submit {
+    font-size: 28px;
+  }
+}
+@media screen and (min-width: 64em) {
+  form#user-profile-form div .form-actions .form-submit {
+    font-size: 28px;
+  }
 }
 form#user-profile-form div .form-actions .form-submit:hover,
 form#user-profile-form div .form-actions .form-submit:focus {
@@ -12112,7 +12422,9 @@ form#user-profile-form div .form-actions .form-submit .icon {
   background: none;
 }
 .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item pre,
-.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item address {
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item address,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item i,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item em {
   font-size: 15px;
   letter-spacing: normal;
   line-height: 1.15em;
@@ -12122,23 +12434,30 @@ form#user-profile-form div .form-actions .form-submit .icon {
 }
 @media screen and (min-width: 42.35294117647059em) {
   .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item pre,
-  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item address {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item address,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item i,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item em {
     font-size: 2.21354167vw;
   }
 }
 @media screen and (min-width: 48em) {
   .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item pre,
-  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item address {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item address,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item i,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item em {
     font-size: 17px;
   }
 }
 @media screen and (min-width: 64em) {
   .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item pre,
-  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item address {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item address,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item i,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item em {
     font-size: 17px;
   }
 }
-.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item strong {
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item strong,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item b {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
   letter-spacing: normal;
@@ -12148,17 +12467,71 @@ form#user-profile-form div .form-actions .form-submit .icon {
   font-family: 'SohoGothicProBold';
 }
 @media screen and (min-width: 42.35294117647059em) {
-  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item strong {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item strong,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item b {
     font-size: 2.21354167vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item strong {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item strong,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item b {
     font-size: 17px;
   }
 }
 @media screen and (min-width: 64em) {
-  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item strong {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item strong,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item b {
+    font-size: 17px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item u {
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item u {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item u {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item u {
+    font-size: 17px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item u:hover,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item u:focus {
+  color: #000000;
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item mark {
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  background-color: #ff0;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item mark {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item mark {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .content .field-name-field-text .field-item mark {
     font-size: 17px;
   }
 }
@@ -12526,17 +12899,6 @@ form#user-profile-form div .form-actions .form-submit .icon {
 }
 .view.view-proximity .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-body {
   overflow-y: auto;
-}
-.view.view-proximity .view-content > .pe-container .modal .modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000;
-}
-.view.view-proximity .view-content > .pe-container .modal .modal-backdrop.in {
-  opacity: 0.7;
 }
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog {
   margin: 0 auto;
@@ -13596,11 +13958,11 @@ body.navbar-is-fixed-top.admin-menu {
 }
 header#navbar {
   border-bottom: none;
-  background: transparent none;
+  background: rgba(0, 0, 0, 0) none;
 }
 header#navbar .container,
 header#navbar .container-fluid {
-  padding: 30px 15px 10px;
+  padding: 20px 15px;
 }
 header#navbar .container .navbar-header a.logo,
 header#navbar .container-fluid .navbar-header a.logo {
@@ -13698,14 +14060,60 @@ body .main-container {
 body .main-container .container #page-header .region-header h2.block-title,
 body .main-container .container-fluid #page-header .region-header h2.block-title {
   margin: 20px 0 10px;
-  font-family: 'SohoGothicProRegular';
-  font-size: 24px;
+  font-family: 'SohoGothicProBold';
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  line-height: 1.4em;
+  text-align: left;
+  color: #222;
+}
+@media screen and (min-width: 35.2em) {
+  body .main-container .container #page-header .region-header h2.block-title,
+  body .main-container .container-fluid #page-header .region-header h2.block-title {
+    font-size: 3.90625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  body .main-container .container #page-header .region-header h2.block-title,
+  body .main-container .container-fluid #page-header .region-header h2.block-title {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 64em) {
+  body .main-container .container #page-header .region-header h2.block-title,
+  body .main-container .container-fluid #page-header .region-header h2.block-title {
+    font-size: 30px;
+  }
 }
 body .main-container .container .row section h1.page-header,
 body .main-container .container-fluid .row section h1.page-header {
   margin: 20px 0 10px;
   font-family: 'SohoGothicProBold';
-  font-size: 41px;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  line-height: 1.4em;
+  text-align: left;
+  color: #222;
+}
+@media screen and (min-width: 35.2em) {
+  body .main-container .container .row section h1.page-header,
+  body .main-container .container-fluid .row section h1.page-header {
+    font-size: 3.90625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  body .main-container .container .row section h1.page-header,
+  body .main-container .container-fluid .row section h1.page-header {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 64em) {
+  body .main-container .container .row section h1.page-header,
+  body .main-container .container-fluid .row section h1.page-header {
+    font-size: 30px;
+  }
 }
 body .main-container .container .row section .messages,
 body .main-container .container-fluid .row section .messages {
@@ -13728,7 +14136,7 @@ body .main-container .container-fluid .row section ul.nav-tabs li a {
 }
 body .main-container .container .row section ul.action-links,
 body .main-container .container-fluid .row section ul.action-links {
-  margin: 0;
+  margin: 20px 0;
   text-align: right;
 }
 body .main-container .container .row section ul.action-links li,
@@ -13778,6 +14186,6 @@ body footer.footer {
   height: 100px;
   border-top: 1px solid #000;
 }
-/* --------------------------------------------------
- * Pixelgarage Footer
+/*
+ *  Footer section
  * --------------------------------------------------*/
