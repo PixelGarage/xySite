@@ -4,6 +4,7 @@
 
 // Variables
 // -------------------------
+@pxl-color-glow: #40856D;
 
 
 // Mixins
@@ -81,7 +82,6 @@
   // title, subtitle, text styles
   .title() {
     font-family: @pxl-title-font;
-    font-weight: 700;
     .font-size-responsive(@resp-title-size-max, @resp-title-size-med, @resp-title-size-min);
     letter-spacing: @title-letter-spacing;
     line-height: @title-line-height;
@@ -91,7 +91,6 @@
 
   .subtitle() {
     font-family: @pxl-subtitle-font;
-    font-weight: 500;
     .font-size-responsive(@resp-subtitle-size-max, @resp-subtitle-size-med, @resp-subtitle-size-min);
     letter-spacing: @subtitle-letter-spacing;
     line-height: @subtitle-line-height;
@@ -108,6 +107,20 @@
     color: @text-color;
   }
 
+  .glow() {
+    font-family: @pxl-text-font-light;
+    .font-size-responsive(100px, 100px, 50px);
+    letter-spacing: 0.2em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    color: @text-color;
+    //.animation(text-glow 3s ease-in-out infinite alternate);
+    //.keyframes-text-glow();
+    text-shadow: 0 0 10px @pxl-color-glow, 0 0 10px @pxl-color-glow, 0 0 10px @pxl-color-glow, 0 0 20px @pxl-color-glow, 0 0 20px @pxl-color-glow, 0 0 20px @pxl-color-glow, 0 0 20px @pxl-color-glow, 0 0 30px @pxl-color-glow;
+}
+
+
   //
   // WYSIWYG body
   .wysiwyg-body() {
@@ -121,10 +134,28 @@
       .subtitle();
     }
 
-    p, tbody td {
+    p {
       margin: 0 0 10px;
       .text();
-      .hyphenate;
+      //.hyphenate;
+
+      &:first-child:not(.pxl-glow):not(.pxl-quote) {
+        &::first-letter {
+          .title();
+          float: left;
+          vertical-align: top;
+        }
+      }
+    }
+
+    .pxl-glow {
+      .glow();
+      .hyphenate(none);
+    }
+
+    .pxl-quote {
+      .title();
+      text-align: center;
     }
 
     a {
@@ -133,7 +164,7 @@
 
       &:hover, &:focus {
         color: @link-color-hover;
-        text-decoration: @link-hover-decoration;
+        text-decoration: @link-decoration-hover;
         background: none;
       }
     }
@@ -188,4 +219,29 @@
       min-height: 350px;
     }
   }
+
+  //
+  // CSS3 Glow Animation
+  //
+  .animation(@animation) {
+    -webkit-animation: @animation;
+    -o-animation: @animation;
+    animation: @animation;
+  }
+
+  .keyframes-text-glow(@color: @pxl-color-glow) {
+    @-webkit-keyframes text-glow {
+      from { text-shadow: 0 0 8px @color, 0 0 8px @color, 0 0 8px @color, 0 0 12px @color, 0 0 12px @color, 0 0 12px @color, 0 0 18px @color, 0 0 22px @color;  }
+      to   { text-shadow: 0 0 12px @color, 0 0 12px @color, 0 0 12px @color, 0 0 24px @color, 0 0 24px @color, 0 0 24px @color, 0 0 24px @color, 0 0 32px @color;  }
+    }
+    @-moz-keyframes text-glow {
+      from { text-shadow: 0 0 8px @color, 0 0 8px @color, 0 0 8px @color, 0 0 12px @color, 0 0 12px @color, 0 0 12px @color, 0 0 18px @color, 0 0 22px @color;  }
+      to   { text-shadow: 0 0 12px @color, 0 0 12px @color, 0 0 12px @color, 0 0 24px @color, 0 0 24px @color, 0 0 24px @color, 0 0 24px @color, 0 0 32px @color;  }
+    }
+    @keyframes text-glow {
+      from { text-shadow: 0 0 8px @color, 0 0 8px @color, 0 0 8px @color, 0 0 12px @color, 0 0 12px @color, 0 0 12px @color, 0 0 18px @color, 0 0 22px @color;  }
+      to   { text-shadow: 0 0 12px @color, 0 0 12px @color, 0 0 12px @color, 0 0 24px @color, 0 0 24px @color, 0 0 24px @color, 0 0 24px @color, 0 0 32px @color;  }
+    }
+  }
+
 }

@@ -4,7 +4,6 @@
 
 // Variables
 // -------------------------
-@paragraph-margin-bottom: 20px;
 
 
 // Mixins
@@ -21,22 +20,20 @@
   >.row {
     >div.col-sm-12 {
 
-      .field-name-title {
+      >.field-name-title {
         h2 {
           #pxl-mixins.title();
         }
       }
 
-      .field-name-body {
-        margin: 0 0 @node-field-margin-bottom;
+      >.field-name-body {
+        margin: 0 0 80px;
         #pxl-mixins.wysiwyg-body();
       }
 
-      .paragraphs-items {
+      >.paragraphs-items {
         .field-name-field-paragraphs {
           .field-item {
-            margin-bottom: @paragraph-margin-bottom;
-
             // see paragraph-item-... less files
           }
         }

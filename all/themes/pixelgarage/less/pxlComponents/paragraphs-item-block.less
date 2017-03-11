@@ -13,16 +13,24 @@
 // Component
 // -------------------------
 .entity-paragraphs-item.paragraphs-item-block-paragraph {
-  .content {
-    .field-name-field-title {
-      .field-item {
-        #pxl-mixins.title();
-      }
-    }
+  margin-bottom: @paragraph-margin-bottom-small;
 
-    .field-name-field-block {
-      .field-item {
-        // see specific referenced block
+  @media @tablet {
+    margin-bottom: @paragraph-margin-bottom;
+  }
+
+  .row {
+    .col-sm-12 {
+      .field-name-field-title {
+        .field-item {
+          #pxl-mixins.title();
+        }
+      }
+
+      .field-name-field-block {
+        .field-item {
+          // see specific referenced block
+        }
       }
     }
   }

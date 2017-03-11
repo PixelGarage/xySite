@@ -13,16 +13,34 @@
 // Component
 // -------------------------
 .entity-paragraphs-item.paragraphs-item-text-paragraph {
-  .content {
-    .field-name-field-title {
-      .field-item {
-        #pxl-mixins.title();
+  margin: 0 auto @paragraph-margin-bottom-small;
+
+  .row {
+    .col-sm-12 {
+      .field-name-field-title {
+        .field-item {
+          #pxl-mixins.title();
+        }
+      }
+
+      .field-name-field-text {
+        .field-item {
+          #pxl-mixins.wysiwyg-body();
+          #pxl-mixins.hyphenate;
+        }
       }
     }
+  }
 
-    .field-name-field-text {
-      .field-item {
-        #pxl-mixins.wysiwyg-body();
+  @media @tablet {
+    margin: 0 auto @paragraph-margin-bottom;
+    .row {
+      .col-sm-12 {
+        .field-name-field-text {
+          .field-item {
+            .content-columns(2, 24px);
+          }
+        }
       }
     }
   }

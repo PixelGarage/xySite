@@ -13,18 +13,26 @@
 // Component
 // -------------------------
 .entity-paragraphs-item.paragraphs-item-image-paragraph {
-  .content {
-    .field-name-field-title {
-      .field-item {
-        #pxl-mixins.title();
-      }
-    }
+  margin-bottom: @paragraph-margin-bottom-small;
 
-    .field-name-field-images {
-      .field-item {
-        img {
-          max-width: 100%;
-          height: auto;
+  @media @tablet {
+    margin-bottom: @paragraph-margin-bottom;
+  }
+
+  .row {
+    .col-sm-12 {
+      .field-name-field-title {
+        .field-item {
+          #pxl-mixins.title();
+        }
+      }
+
+      .field-name-field-images {
+        .field-item {
+          img {
+            max-width: 100%;
+            height: auto;
+          }
         }
       }
     }

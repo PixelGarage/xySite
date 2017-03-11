@@ -13,17 +13,25 @@
 // Component
 // -------------------------
 .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph {
-  .content {
-    .field-name-field-title {
-      .field-item {
-        #pxl-mixins.title();
-      }
-    }
+  margin-bottom: @paragraph-margin-bottom-small;
 
-    .field-name-field-images {
-      .field-items {
-        .carousel {
-          #pxl-mixins.carousel();
+  @media @tablet {
+    margin-bottom: @paragraph-margin-bottom;
+  }
+
+  .row {
+    .col-sm-12 {
+      .field-name-field-title {
+        .field-item {
+          #pxl-mixins.title();
+        }
+      }
+
+      .field-name-field-images {
+        .field-items {
+          .carousel {
+            #pxl-mixins.carousel();
+          }
         }
       }
     }
