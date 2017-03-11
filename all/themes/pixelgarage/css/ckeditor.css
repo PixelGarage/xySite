@@ -2366,14 +2366,14 @@
  *  Text mixins
  * --------------------------------------------------*/
 .pxl-title {
-  margin: 20px auto 20px;
+  margin: 20px auto;
   font-family: 'SohoGothicProBold';
-  font-weight: 700;
   font-size: 22px;
   letter-spacing: 0.02em;
   line-height: 1.4em;
   text-align: left;
   color: #222;
+  color: #000;
 }
 @media screen and (min-width: 35.2em) {
   .pxl-title {
@@ -2392,12 +2392,12 @@
 }
 .pxl-subtitle {
   font-family: 'SohoGothicProBold';
-  font-weight: 500;
   font-size: 18px;
   letter-spacing: 0.02em;
   line-height: 1.2em;
   text-align: left;
   color: #222;
+  color: #000;
 }
 @media screen and (min-width: 36em) {
   .pxl-subtitle {
@@ -2421,6 +2421,7 @@
   line-height: 1.15em;
   text-align: left;
   color: #222;
+  color: #000;
 }
 @media screen and (min-width: 42.35294117647059em) {
   .pxl-normal {
@@ -2435,5 +2436,55 @@
 @media screen and (min-width: 64em) {
   .pxl-normal {
     font-size: 17px;
+  }
+}
+.pxl-glow {
+  font-family: 'SohoGothicProLight';
+  font-size: 50px;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  color: #222;
+  text-shadow: 0 0 10px #40856D, 0 0 10px #40856D, 0 0 10px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 30px #40856D;
+}
+@media screen and (min-width: 24em) {
+  .pxl-glow {
+    font-size: 13.02083333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .pxl-glow {
+    font-size: 100px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .pxl-glow {
+    font-size: 100px;
+  }
+}
+.pxl-quote {
+  font-family: 'SohoGothicProBold';
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  line-height: 1.4em;
+  text-align: left;
+  color: #222;
+  text-align: center;
+  color: #000;
+}
+@media screen and (min-width: 35.2em) {
+  .pxl-quote {
+    font-size: 3.90625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .pxl-quote {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .pxl-quote {
+    font-size: 30px;
   }
 }
