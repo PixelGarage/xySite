@@ -15,8 +15,6 @@
 // -------------------------
 .node.node-page.view-mode-full,
 .node.node-page.view-mode-default {
-  margin: 30px 0;
-
   >.row {
     >div.col-sm-12 {
 
@@ -32,9 +30,18 @@
       }
 
       >.paragraphs-items {
-        .field-name-field-paragraphs {
-          .field-item {
-            // see paragraph-item-... less files
+        >.field-name-field-paragraphs {
+          >.field-items {
+            >.field-item:not(:last-child) {
+              margin-bottom: @paragraph-margin-bottom;
+
+              @media @tablet {
+                margin-bottom: @paragraph-margin-bottom-large;
+              }
+
+
+              // see paragraph-item-... less files
+            }
           }
         }
       }

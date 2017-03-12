@@ -10,7 +10,7 @@
 // Mixins
 // -------------------------
 
-.proximity-list() {
+.masonry() {
   > .pe-container {
 
     .grid-sizer, .pe-item {
@@ -38,7 +38,7 @@
     }
 
     .pe-item {
-      display: block;
+      display: inline-block;
       overflow: visible;
       margin: 0 0 (2 * @grid-gutter-dist) !important;
       opacity: 1.0;
@@ -65,7 +65,7 @@
   }
 }
 
-.infinite-scroll-button(@color: @pxl-color-main) {
+.infinite-scroll-button(@color: @text-color; @bg-color: @pxl-color-bg-button) {
   .pager__item {
     a {
       display: inline-block;
@@ -76,10 +76,10 @@
       color: @color;
       #pxl-mixins.border-radius(3px);
       border: 1px solid @color;
-      background-color: #fff;
+      background-color: @bg-color;
 
       &:hover, &.active {
-        color: #fff;
+        color: @bg-color;
         background-color: @color;
       }
     }
@@ -93,7 +93,7 @@
 
   .view-content {
     padding: 0;
-    .proximity-list();
+    .masonry();
   }
 
   //

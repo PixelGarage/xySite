@@ -10380,10 +10380,6 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 /*
  *  Node page component
  * --------------------------------------------------*/
-.node.node-page.view-mode-full,
-.node.node-page.view-mode-default {
-  margin: 30px 0;
-}
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-title h2,
 .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-title h2 {
   font-family: 'SohoGothicProBold';
@@ -10528,6 +10524,12 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   line-height: 1.15em;
   text-align: left;
   color: #222;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
 }
 @media screen and (min-width: 42.35294117647059em) {
   .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body p,
@@ -10547,35 +10549,6 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
     font-size: 17px;
   }
 }
-.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-.node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-  font-family: 'SohoGothicProBold';
-  font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
-  text-align: left;
-  color: #222;
-  float: left;
-  vertical-align: top;
-}
-@media screen and (min-width: 35.2em) {
-  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-  .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-    font-size: 3.90625vw;
-  }
-}
-@media screen and (min-width: 48em) {
-  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-  .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-    font-size: 30px;
-  }
-}
-@media screen and (min-width: 64em) {
-  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-  .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-    font-size: 30px;
-  }
-}
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body .pxl-glow,
 .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body .pxl-glow {
   font-family: 'SohoGothicProLight';
@@ -10586,12 +10559,6 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   text-transform: uppercase;
   color: #222;
   text-shadow: 0 0 10px #40856D, 0 0 10px #40856D, 0 0 10px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 30px #40856D;
-  word-break: break-word;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  -o-hyphens: none;
-  hyphens: none;
 }
 @media screen and (min-width: 24em) {
   .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body .pxl-glow,
@@ -10854,6 +10821,16 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   height: auto;
   min-height: 350px;
 }
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .paragraphs-items > .field-name-field-paragraphs > .field-items > .field-item:not(:last-child),
+.node.node-page.view-mode-default > .row > div.col-sm-12 > .paragraphs-items > .field-name-field-paragraphs > .field-items > .field-item:not(:last-child) {
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 48em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .paragraphs-items > .field-name-field-paragraphs > .field-items > .field-item:not(:last-child),
+  .node.node-page.view-mode-default > .row > div.col-sm-12 > .paragraphs-items > .field-name-field-paragraphs > .field-items > .field-item:not(:last-child) {
+    margin-bottom: 50px;
+  }
+}
 /*
  *  Node / block webform component
  * --------------------------------------------------*/
@@ -11017,6 +10994,12 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   line-height: 1.15em;
   text-align: left;
   color: #222;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
 }
 @media screen and (min-width: 42.35294117647059em) {
   .node.node-webform .row .col-sm-12 .field-name-body p,
@@ -11036,35 +11019,6 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
     font-size: 17px;
   }
 }
-.node.node-webform .row .col-sm-12 .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-.node.node-webform .row .col-sm-6 .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-  font-family: 'SohoGothicProBold';
-  font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
-  text-align: left;
-  color: #222;
-  float: left;
-  vertical-align: top;
-}
-@media screen and (min-width: 35.2em) {
-  .node.node-webform .row .col-sm-12 .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-  .node.node-webform .row .col-sm-6 .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-    font-size: 3.90625vw;
-  }
-}
-@media screen and (min-width: 48em) {
-  .node.node-webform .row .col-sm-12 .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-  .node.node-webform .row .col-sm-6 .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-    font-size: 30px;
-  }
-}
-@media screen and (min-width: 64em) {
-  .node.node-webform .row .col-sm-12 .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-  .node.node-webform .row .col-sm-6 .field-name-body p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-    font-size: 30px;
-  }
-}
 .node.node-webform .row .col-sm-12 .field-name-body .pxl-glow,
 .node.node-webform .row .col-sm-6 .field-name-body .pxl-glow {
   font-family: 'SohoGothicProLight';
@@ -11075,12 +11029,6 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   text-transform: uppercase;
   color: #222;
   text-shadow: 0 0 10px #40856D, 0 0 10px #40856D, 0 0 10px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 30px #40856D;
-  word-break: break-word;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  -o-hyphens: none;
-  hyphens: none;
 }
 @media screen and (min-width: 24em) {
   .node.node-webform .row .col-sm-12 .field-name-body .pxl-glow,
@@ -11715,6 +11663,12 @@ form#user-login {
   line-height: 1.15em;
   text-align: left;
   color: #222;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
 }
 @media screen and (min-width: 42.35294117647059em) {
   .user-profile .row .col-sm-4 .field-name-field-short-description .field-item p,
@@ -11737,39 +11691,6 @@ form#user-login {
     font-size: 17px;
   }
 }
-.user-profile .row .col-sm-4 .field-name-field-short-description .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-.user-profile .row .col-sm-8 .field-name-field-short-description .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-.user-profile .row .col-sm-12 .field-name-field-short-description .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-  font-family: 'SohoGothicProBold';
-  font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
-  text-align: left;
-  color: #222;
-  float: left;
-  vertical-align: top;
-}
-@media screen and (min-width: 35.2em) {
-  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-    font-size: 3.90625vw;
-  }
-}
-@media screen and (min-width: 48em) {
-  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-    font-size: 30px;
-  }
-}
-@media screen and (min-width: 64em) {
-  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter,
-  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-    font-size: 30px;
-  }
-}
 .user-profile .row .col-sm-4 .field-name-field-short-description .field-item .pxl-glow,
 .user-profile .row .col-sm-8 .field-name-field-short-description .field-item .pxl-glow,
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item .pxl-glow {
@@ -11781,12 +11702,6 @@ form#user-login {
   text-transform: uppercase;
   color: #222;
   text-shadow: 0 0 10px #40856D, 0 0 10px #40856D, 0 0 10px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 30px #40856D;
-  word-break: break-word;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  -o-hyphens: none;
-  hyphens: none;
 }
 @media screen and (min-width: 24em) {
   .user-profile .row .col-sm-4 .field-name-field-short-description .field-item .pxl-glow,
@@ -12489,9 +12404,6 @@ form#user-profile-form div .form-actions .form-submit .icon {
 /*
  *  Text paragraph component
  * --------------------------------------------------*/
-.entity-paragraphs-item.paragraphs-item-text-paragraph {
-  margin: 0 auto 30px;
-}
 .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-title .field-item {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
@@ -12603,6 +12515,12 @@ form#user-profile-form div .form-actions .form-submit .icon {
   line-height: 1.15em;
   text-align: left;
   color: #222;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
 }
 @media screen and (min-width: 42.35294117647059em) {
   .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item p {
@@ -12619,31 +12537,6 @@ form#user-profile-form div .form-actions .form-submit .icon {
     font-size: 17px;
   }
 }
-.entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-  font-family: 'SohoGothicProBold';
-  font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
-  text-align: left;
-  color: #222;
-  float: left;
-  vertical-align: top;
-}
-@media screen and (min-width: 35.2em) {
-  .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-    font-size: 3.90625vw;
-  }
-}
-@media screen and (min-width: 48em) {
-  .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-    font-size: 30px;
-  }
-}
-@media screen and (min-width: 64em) {
-  .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item p:first-child:not(.pxl-glow):not(.pxl-quote)::first-letter {
-    font-size: 30px;
-  }
-}
 .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item .pxl-glow {
   font-family: 'SohoGothicProLight';
   font-size: 50px;
@@ -12653,12 +12546,6 @@ form#user-profile-form div .form-actions .form-submit .icon {
   text-transform: uppercase;
   color: #222;
   text-shadow: 0 0 10px #40856D, 0 0 10px #40856D, 0 0 10px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 30px #40856D;
-  word-break: break-word;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  -o-hyphens: none;
-  hyphens: none;
 }
 @media screen and (min-width: 24em) {
   .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item .pxl-glow {
@@ -12869,9 +12756,6 @@ form#user-profile-form div .form-actions .form-submit .icon {
   min-height: 350px;
 }
 @media screen and (min-width: 48em) {
-  .entity-paragraphs-item.paragraphs-item-text-paragraph {
-    margin: 0 auto 50px;
-  }
   .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -12884,14 +12768,6 @@ form#user-profile-form div .form-actions .form-submit .icon {
 /*
  *  Block paragraph component
  * --------------------------------------------------*/
-.entity-paragraphs-item.paragraphs-item-block-paragraph {
-  margin-bottom: 30px;
-}
-@media screen and (min-width: 48em) {
-  .entity-paragraphs-item.paragraphs-item-block-paragraph {
-    margin-bottom: 50px;
-  }
-}
 .entity-paragraphs-item.paragraphs-item-block-paragraph .row .col-sm-12 .field-name-field-title .field-item {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
@@ -12918,14 +12794,6 @@ form#user-profile-form div .form-actions .form-submit .icon {
 /*
  *  Image paragraph component
  * --------------------------------------------------*/
-.entity-paragraphs-item.paragraphs-item-image-paragraph {
-  margin-bottom: 30px;
-}
-@media screen and (min-width: 48em) {
-  .entity-paragraphs-item.paragraphs-item-image-paragraph {
-    margin-bottom: 50px;
-  }
-}
 .entity-paragraphs-item.paragraphs-item-image-paragraph .row .col-sm-12 .field-name-field-title .field-item {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
@@ -12956,14 +12824,6 @@ form#user-profile-form div .form-actions .form-submit .icon {
 /*
  *  BS carousel paragraph component
  * --------------------------------------------------*/
-.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph {
-  margin-bottom: 30px;
-}
-@media screen and (min-width: 48em) {
-  .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph {
-    margin-bottom: 50px;
-  }
-}
 .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-title .field-item {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
@@ -12990,7 +12850,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel {
   display: block;
   position: relative;
-  margin: 0 auto 11%;
+  margin: 0 auto;
   padding: 0;
   width: 100%;
   height: auto;
@@ -13074,10 +12934,6 @@ form#user-profile-form div .form-actions .form-submit .icon {
   bottom: 0;
   padding: 0;
   width: 50%;
-  font-size: 20px;
-  text-shadow: 0 0 4px #000;
-  text-align: unset;
-  color: #fff;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -13089,56 +12945,42 @@ form#user-profile-form div .form-actions .form-submit .icon {
   opacity: 0;
   z-index: 2;
 }
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control .fa {
+  display: inline-block;
+  margin: 0 5%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 20px;
+  text-shadow: 0 0 4px #000;
+  text-align: unset;
+  color: #fff;
+}
 @media screen and (min-width: 32em) {
-  .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control {
+  .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control .fa {
     font-size: 3.90625vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control {
+  .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control .fa {
     font-size: 30px;
   }
 }
 @media screen and (min-width: 64em) {
-  .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control {
+  .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control .fa {
     font-size: 40px;
   }
 }
+.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control:hover {
+  opacity: 1.0;
+}
 .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control.left {
   left: 0;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  border-left-width: 0;
-}
-.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control.left .fa {
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 5%;
-}
-.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control.left:hover {
-  opacity: 1.0;
 }
 .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control.right {
   right: 0;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-  border-right-width: 0;
-}
-.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control.right .fa {
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 5%;
-}
-.entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-images .field-items .carousel > a.carousel-control.right:hover {
-  opacity: 1.0;
 }
 /*
  *  Proximity view component
@@ -13172,7 +13014,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
   }
 }
 .view.view-proximity .view-content > .pe-container .pe-item {
-  display: block;
+  display: inline-block;
   overflow: visible;
   margin: 0 0 6% !important;
   opacity: 1.0;
@@ -13194,11 +13036,11 @@ form#user-profile-form div .form-actions .form-submit .icon {
   cursor: pointer;
 }
 .view.view-proximity .view-content > .pe-container .modal {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #000000;
 }
 .view.view-proximity .view-content > .pe-container .modal.modal-fixed-height {
   height: 100%;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 .view.view-proximity .view-content > .pe-container .modal.modal-fixed-height .modal-dialog {
   height: 100%;
@@ -13251,13 +13093,12 @@ form#user-profile-form div .form-actions .form-submit .icon {
 @media screen and (min-width: 30em) {
   .view.view-proximity .view-content > .pe-container .modal .modal-dialog {
     min-width: 480px;
-    width: 90%;
     max-width: 690px;
+    width: 90%;
   }
 }
 @media screen and (min-width: 48em) {
   .view.view-proximity .view-content > .pe-container .modal .modal-dialog {
-    width: 90%;
     max-width: 800px;
   }
 }
@@ -13269,6 +13110,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content {
   position: relative;
   padding: 0;
+  background: none;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -13282,37 +13124,53 @@ form#user-profile-form div .form-actions .form-submit .icon {
   min-height: 60px;
   border: none;
 }
+.view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header h2.modal-title {
+  font-family: 'SohoGothicProBold';
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  line-height: 1.4em;
+  text-align: left;
+  color: #222;
+}
+@media screen and (min-width: 35.2em) {
+  .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header h2.modal-title {
+    font-size: 3.90625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header h2.modal-title {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header h2.modal-title {
+    font-size: 30px;
+  }
+}
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header button.close {
   display: block;
-  float: none;
-  margin: 0;
   position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  top: 0;
   right: 10px;
   opacity: 1.0;
   z-index: 1;
 }
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header button.close span {
-  display: block;
-  overflow: hidden;
   padding: 0;
-  width: 23px;
-  height: 23px;
-  background: url(../images/popup_close.svg) no-repeat top left / contain;
-  text-indent: 100%;
+  font-family: 'SohoGothicProLight';
+  font-size: 60px;
+  font-weight: normal;
+  color: #222;
 }
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header .body-fading {
   display: none;
 }
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-body {
-  padding: 20px 15px;
+  padding: 20px 15px 30px;
 }
 @media screen and (min-width: 30em) {
   .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-body {
-    padding: 20px 30px;
+    padding-bottom: 50px;
   }
 }
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-footer {
@@ -13324,7 +13182,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-footer .btn {
   display: inline-block;
   font-family: 'SohoGothicProBold';
-  color: #222;
+  color: #fff;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   border-radius: 6px;
@@ -13335,7 +13193,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
 }
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-footer .btn:hover {
   color: #fff;
-  background-color: #222;
+  background-color: #fff;
 }
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-footer .body-fading {
   display: none;
@@ -13369,17 +13227,17 @@ form#user-profile-form div .form-actions .form-submit .icon {
   font-family: 'SohoGothicProRegular';
   font-size: 16px;
   line-height: 1;
-  color: #fff;
+  color: #222;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  border: 1px solid #fff;
+  border: 1px solid #222;
   background-color: #fff;
 }
 .view.view-proximity .pager.pager--infinite-scroll .pager__item a:hover,
 .view.view-proximity .pager.pager--infinite-scroll .pager__item a.active {
   color: #fff;
-  background-color: #fff;
+  background-color: #222;
 }
 /*
  *  Webform Addons component

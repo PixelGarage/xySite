@@ -118,8 +118,15 @@
     //.animation(text-glow 3s ease-in-out infinite alternate);
     //.keyframes-text-glow();
     text-shadow: 0 0 10px @pxl-color-glow, 0 0 10px @pxl-color-glow, 0 0 10px @pxl-color-glow, 0 0 20px @pxl-color-glow, 0 0 20px @pxl-color-glow, 0 0 20px @pxl-color-glow, 0 0 20px @pxl-color-glow, 0 0 30px @pxl-color-glow;
-}
+  }
 
+  .paragraph-first-letter() {
+    p::first-letter {
+      .title();
+      float: left;
+      vertical-align: top;
+    }
+  }
 
   //
   // WYSIWYG body
@@ -137,20 +144,11 @@
     p {
       margin: 0 0 10px;
       .text();
-      //.hyphenate;
-
-      &:first-child:not(.pxl-glow):not(.pxl-quote) {
-        &::first-letter {
-          .title();
-          float: left;
-          vertical-align: top;
-        }
-      }
+      .hyphenate;
     }
 
     .pxl-glow {
       .glow();
-      .hyphenate(none);
     }
 
     .pxl-quote {

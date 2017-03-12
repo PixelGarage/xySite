@@ -4,20 +4,44 @@
 
 // Variables
 // -------------------------
+@pxl-modal-background-color: rgba(0,0,0,1.0);
+@pxl-modal-max-width: 800px;
 @pxl-fading-height: 1px;
 
 // Mixins
 // -------------------------
 #pxl-mixins {
   //
+  // body top fading
+  .body-fading() {
+    display: block;
+    position: absolute;
+    top: auto;
+    left: 0;
+    right: 0;
+    height: @pxl-fading-height;
+    z-index: 10;
+
+    &.body-fading-top {
+      bottom: -@pxl-fading-height;
+      #gradient.vertical(#aaa, rgba(0,0,0,0.0));
+    }
+
+    &.body-fading-bottom {
+      top: -@pxl-fading-height;
+      #gradient.vertical(rgba(0,0,0,0.0), #aaa);
+    }
+  }
+
+  //
   // Bootstrap modal
   .modal() {
-    background-color: rgba(0,0,0,0.8);
+    background-color: @pxl-modal-background-color;
 
     &.modal-fixed-height {
       // full size modal on small screen, body is scrolling
       height: 100%;
-      overflow-y: hidden;
+      overflow: hidden;
 
       .modal-dialog {
         height: 100%;
@@ -29,23 +53,7 @@
             position: relative;
 
             .body-fading {
-              display: block;
-              position: absolute;
-              top: auto;
-              left: 0;
-              right: 0;
-              height: @pxl-fading-height;
-              z-index: 10;
-
-              &.body-fading-top {
-                bottom: -@pxl-fading-height;
-                #gradient.vertical(#aaa, rgba(0,0,0,0.0));
-              }
-
-              &.body-fading-bottom {
-                top: -@pxl-fading-height;
-                #gradient.vertical(rgba(0,0,0,0.0), #aaa);
-              }
+              .body-fading();
             }
           }
 
@@ -66,20 +74,20 @@
 
       @media @narrow {
         min-width: 480px;
-        width: 90%;
         max-width: 690px;
+        width: 90%;
       }
       @media @tablet {
-        width: 90%;
-        max-width: 800px;
+        max-width: @pxl-modal-max-width;
       }
       @media @normal {
-        width: 800px;
+        width: @pxl-modal-max-width;
       }
 
       .modal-content {
         position: relative;
         padding: 0;
+        background: none;
 
         #pxl-mixins.border-radius(0);
         border: none;
@@ -91,26 +99,23 @@
           border: none;
 
           h2.modal-title {
-
+            #pxl-mixins.title();
           }
 
           button.close {
             display: block;
-            float: none;
-            margin: 0;
-            #pxl-mixins.center-vertically(absolute);
+            position: absolute;
+            top: 0;
             right: 10px;
             opacity: 1.0;
             z-index: 1; // has to be above body
 
             span {
-              display: block;
-              overflow: hidden;
               padding: 0;
-              width: 23px;
-              height: 23px;
-              background: url(../images/popup_close.svg) no-repeat top left / contain;
-              text-indent: 100%;
+              font-family: @pxl-text-font-light;
+              font-size: 60px;
+              font-weight: normal;
+              color: @text-color;
             }
           }
 
@@ -121,10 +126,10 @@
 
         .modal-body {
           // content styled separately
-          padding: 20px 15px;
+          padding: 20px (@grid-gutter-width / 2) 30px;
 
           @media @narrow {
-            padding: 20px 30px;
+            padding-bottom: 50px;
           }
         }
 
@@ -138,15 +143,15 @@
             // close button
             display: inline-block;
             font-family: @pxl-text-font-bold;
-            color: @text-color;
+            color: @pxl-color-bg-button-hover;
             #pxl-mixins.border-radius(@border-radius-large);
             border: 2px solid @text-color;
-            background-color: #fff;
+            background-color: @pxl-color-bg-button;
             .box-shadow(@pxl-box-shadow);
 
             &:hover {
-              color: #fff;
-              background-color: @text-color;
+              color: @pxl-color-bg-button;
+              background-color: @pxl-color-bg-button-hover;
             }
 
           }

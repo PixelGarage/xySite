@@ -13,8 +13,6 @@
 // Component
 // -------------------------
 .entity-paragraphs-item.paragraphs-item-text-paragraph {
-  margin: 0 auto @paragraph-margin-bottom-small;
-
   .row {
     .col-sm-12 {
       .field-name-field-title {
@@ -27,21 +25,13 @@
         .field-item {
           #pxl-mixins.wysiwyg-body();
           #pxl-mixins.hyphenate;
-        }
-      }
-    }
-  }
 
-  @media @tablet {
-    margin: 0 auto @paragraph-margin-bottom;
-    .row {
-      .col-sm-12 {
-        .field-name-field-text {
-          .field-item {
+          @media @tablet {
             .content-columns(2, 24px);
           }
         }
       }
     }
   }
+
 }
