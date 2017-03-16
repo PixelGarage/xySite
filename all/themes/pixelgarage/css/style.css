@@ -13198,6 +13198,17 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-footer .body-fading {
   display: none;
 }
+.view.view-proximity .view-content > .pe-container #proximity-ajax-loader {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.view.view-proximity .view-content > .pe-container #proximity-ajax-loader img {
+  display: inline-block;
+  max-height: 15px;
+}
 .view.view-proximity ul.pagination {
   display: inline-block;
   margin: 20px 0;
