@@ -209,19 +209,27 @@ function &proximity_session_data() {
  * @param $vars array   Variables used in the view theming.
  */
 function template_preprocess_views_view_proximity(&$vars) {
-
-  static $pe_container_index = 0;
-
+  //
   // store current url
   $session_data = &proximity_session_data();
   $session_data['current_destination'] = $_GET['q'];
 
+  //
   // Run preprocess function for unformatted style
   template_preprocess_views_view_unformatted($vars);
 
+  //
   // get saved view options
   $view = $vars['view'];
   $options = $vars['options'];
+
+  //
+  // The container index has to be unique AND idempotent, meaning the exact same index
+  // has to be created for a specific proximity view, each time this method is called
+  // (e.g. Ajax Pager or Exposed form calls etc.).
+  // Therefore the index is taken from the dom_id of the view, which never changes.
+  // The first sixteen numbers of the dom_id are unique enough for our purpose.
+  $pe_container_index = substr($view->dom_id, 0, 16);
 
   // parameters for modal dialog
   $load_new_page = $options['proximity_action_container'] == 'page_new';
@@ -239,6 +247,7 @@ function template_preprocess_views_view_proximity(&$vars) {
     $ajax_load_params[$id] = $id;
   }
 
+  //
   // allow others to alter the load-params
   drupal_alter('proximity_load_params', $pe_container_index, $view, $ajax_load_params);
   $vars['ajax_load_params'] = $ajax_load_params;
@@ -280,6 +289,7 @@ function template_preprocess_views_view_proximity(&$vars) {
   $img_path = $base_url . '/' . drupal_get_path('module', 'proximity') . '/ajax-loader.gif';
   $ajax_loading_html = '<div id="proximity-ajax-loader"><img src="' . $img_path . '" alt="loading..."/></div>';
 
+  //
   // Setup proximity settings for specific container
   $pe_container_id = 'pe-container-' . $pe_container_index;
   $js_settings = array(
@@ -320,8 +330,9 @@ function template_preprocess_views_view_proximity(&$vars) {
   );
   $vars['item_base_url'] = $load_new_page ? '/node/' : $item_base_url; //TODO: only nodes supported, enhance for other entities
   $vars['pe_container_id'] = $pe_container_id;
-  $vars['container_index'] = $pe_container_index++;
+  $vars['container_index'] = $pe_container_index;
 
+  //
   // Apply the needed js files and js settings
   $path = drupal_get_path('module', 'proximity');
   drupal_add_js($js_settings, 'setting');
@@ -342,6 +353,7 @@ function template_preprocess_views_view_proximity(&$vars) {
   }
   //drupal_add_css($path . '/css/proximity.css');
 
+  //
   // apply specific isotope layout scripts
   $layout_mode = $options['proximity_layout_mode'];
   if ($layout_mode != 'none' && $layout_mode != 'random' && proximity_isotope_loaded()) {
