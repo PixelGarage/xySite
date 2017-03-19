@@ -26,17 +26,22 @@
     color: @text-color-field;
   }
 
+  .form-button-text() {
+    font-family: @pxl-text-font-bold;
+    #pxl-mixins.font-size-responsive(@resp-button-size-max, @resp-button-size-med, @resp-button-size-min);
+    letter-spacing: @form-button-letter-spacing;
+    line-height: @form-button-line-height;
+    text-align: @form-button-text-align;
+  }
+
 
   //
   // managed file buttons
-  .form-button(@size: @font-size-large; @color: #fff; @bg-color: @pxl-color-main; @radius: @border-radius-large) {
+  .form-button(@color: #fff; @bg-color: @pxl-color-main; @radius: @border-radius-large) {
     display: inline-block;
     margin: 0;
     padding: 10px 20px;
-    font-family: @pxl-text-font-bold;
-    #pxl-mixins.font-size-responsive(@size, @size, (@size - 2px));
-    line-height: 1;
-    letter-spacing: 0;
+    .form-button-text();
     color: @color;
     outline: none;
     #pxl-mixins.border-radius(@radius);
@@ -57,7 +62,7 @@
     padding-left: 15px;
 
     .form-submit {
-      .form-button(28px, #fff, #000, 0);
+      .form-button(#fff, #000, 0);
 
       .icon {
         display: none;
@@ -68,9 +73,11 @@
 
   //
   // form items
-  .form-items(@border-color: @text-color; @radius: 0) {
+  .form-items(@border-color: @text-color; @border-thickness: 1px; @border-radius: 0) {
     label.control-label {
       display: block;
+      .form-text();
+      font-size: 11px;
       font-weight: normal;
     }
 
@@ -79,19 +86,19 @@
       height: @form-control-height;
       .form-text();
       border: @border-color;
-      #pxl-mixins.border-radius(@radius);
+      #pxl-mixins.border-radius(@border-radius);
       #pxl-mixins.box-shadow(none);
       background-color: @form-fieldset-bg-color;
       .placeholder(@text-color-placeholder);
 
       &:focus {
         #pxl-mixins.box-shadow(0 0 2px rgba(100, 100, 100, 0.75) inset);
-        border: 2px solid @text-color;
+        border: @border-thickness solid @text-color;
       }
     }
 
     .help-block {
-      font-family: @pxl-text-font;
+      .form-text();
       font-size: 11px;
       color: @pxl-color-gray;
     }
@@ -99,14 +106,14 @@
     .form-textarea-wrapper {
       textarea {
         border: @border-color;
-        #pxl-mixins.border-radius(@radius);
+        #pxl-mixins.border-radius(@border-radius);
         #pxl-mixins.box-shadow(none);
         background-color: @form-fieldset-bg-color;
         .placeholder(@text-color-placeholder);
 
         &:focus {
           #pxl-mixins.box-shadow(0 0 2px rgba(100, 100, 100, 0.75) inset);
-          border: 2px solid @text-color;
+          border: @border-thickness solid @text-color;
         }
       }
 
@@ -141,7 +148,7 @@
     .form-managed-file {
       display:block;
       position: relative;
-      #pxl-mixins.border-radius(@radius);
+      #pxl-mixins.border-radius(@border-radius);
       background-color: @form-fieldset-bg-color;
 
       // button and label to select file
@@ -158,9 +165,9 @@
             margin: 0 -2px;
             padding: 0;
             width: 100%;
-            border: 1px solid @border-color;
-            #pxl-mixins.border-radius(@radius);
+            #pxl-mixins.border-radius(@border-radius);
             #pxl-mixins.box-shadow(none);
+            border: @border-thickness solid @border-color;
             background-color: @form-fieldset-bg-color;
             .placeholder(@text-color-placeholder);
           }
@@ -177,7 +184,7 @@
             z-index: 10;
 
             button.form-submit {
-              .form-button(16px, #fff, #000, 0);
+              .form-button(#fff, #000, 0);
             }
           }
         }
@@ -207,7 +214,7 @@
           }
         }
         button.form-submit {
-          .form-button(16px, #fff, #000, 0);
+          .form-button(#fff, #000, 0);
           display: block;
         }
 

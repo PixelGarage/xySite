@@ -3420,8 +3420,8 @@ fieldset[disabled] .btn-link:focus {
 }
 .btn-lg,
 .btn-group-lg > .btn,
-#user-create-account .login-register,
 #user_login_form .form-actions-wrapper .form-actions .btn,
+#user-create-account .login-register,
 #user-register-form .form-actions .btn,
 #user-pass .form-actions .btn {
   padding: 10px 16px;
@@ -11303,56 +11303,17 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   float: none;
   width: auto;
 }
-/* User login page */
+/*
+  User login page
+  */
 form#user-login {
   position: relative;
   padding: 2em;
   border: none;
 }
-/* account register form */
-#user-create-account {
-  display: inline-block;
-  vertical-align: top;
-  padding: 0 0 2em;
-  width: 100%;
-}
-@media screen and (min-width: 64em) {
-  #user-create-account {
-    padding: 2em;
-    width: 50%;
-  }
-}
-#user-create-account .form-actions-wrapper {
-  position: relative;
-  padding: 1em 0 0;
-}
-#user-create-account .login-register {
-  border: none;
-  color: #fff;
-  -moz-border-radius: 0.25em;
-  -webkit-border-radius: 0.25em;
-  border-radius: 0.25em;
-  background-image: -webkit-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
-  background-image: -o-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
-  background-image: linear-gradient(to bottom, #2698f2 0%, #0a62a8 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2698f2', endColorstr='#ff0a62a8', GradientType=0);
-  display: inline-block;
-  position: absolute;
-  right: 0;
-  vertical-align: middle;
-  margin: 0;
-}
-#user-create-account .login-register:hover {
-  color: #fff;
-  background-image: -webkit-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
-  background-image: -o-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
-  background-image: linear-gradient(to bottom, #0a62a8 0%, #2698f2 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0a62a8', endColorstr='#ff2698f2', GradientType=0);
-  text-decoration: none;
-}
-/* user login form */
+/*
+  User login form
+  */
 #user_login_form {
   display: inline-block;
   vertical-align: top;
@@ -11369,6 +11330,322 @@ form#user-login {
     border-right: 1px solid #eeeeee;
   }
 }
+#user_login_form .form-item label.control-label {
+  display: block;
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  font-size: 11px;
+  font-weight: normal;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  #user_login_form .form-item label.control-label {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  #user_login_form .form-item label.control-label {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  #user_login_form .form-item label.control-label {
+    font-size: 17px;
+  }
+}
+#user_login_form .form-item input.form-control {
+  margin: 0;
+  height: 36px;
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  border: #222;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: #fff;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  #user_login_form .form-item input.form-control {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  #user_login_form .form-item input.form-control {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  #user_login_form .form-item input.form-control {
+    font-size: 17px;
+  }
+}
+#user_login_form .form-item input.form-control::-moz-placeholder {
+  color: #777777;
+  opacity: 1;
+}
+#user_login_form .form-item input.form-control:-ms-input-placeholder {
+  color: #777777;
+}
+#user_login_form .form-item input.form-control::-webkit-input-placeholder {
+  color: #777777;
+}
+#user_login_form .form-item input.form-control:focus {
+  -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  border: 1px solid #222;
+}
+#user_login_form .form-item .help-block {
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  font-size: 11px;
+  color: #808080;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  #user_login_form .form-item .help-block {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  #user_login_form .form-item .help-block {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  #user_login_form .form-item .help-block {
+    font-size: 17px;
+  }
+}
+#user_login_form .form-item .form-textarea-wrapper textarea {
+  border: #222;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: #fff;
+}
+#user_login_form .form-item .form-textarea-wrapper textarea::-moz-placeholder {
+  color: #777777;
+  opacity: 1;
+}
+#user_login_form .form-item .form-textarea-wrapper textarea:-ms-input-placeholder {
+  color: #777777;
+}
+#user_login_form .form-item .form-textarea-wrapper textarea::-webkit-input-placeholder {
+  color: #777777;
+}
+#user_login_form .form-item .form-textarea-wrapper textarea:focus {
+  -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  border: 1px solid #222;
+}
+#user_login_form .form-item .form-textarea-wrapper .grippie {
+  display: none;
+}
+#user_login_form .form-item .form-radios,
+#user_login_form .form-item .form-checkboxes {
+  vertical-align: top;
+}
+#user_login_form .form-item .form-radios .radio > .control-label,
+#user_login_form .form-item .form-checkboxes .radio > .control-label,
+#user_login_form .form-item .form-radios .checkbox > .control-label,
+#user_login_form .form-item .form-checkboxes .checkbox > .control-label {
+  padding-left: 20px;
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  font-family: 'SohoGothicProLight';
+  vertical-align: middle;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  #user_login_form .form-item .form-radios .radio > .control-label,
+  #user_login_form .form-item .form-checkboxes .radio > .control-label,
+  #user_login_form .form-item .form-radios .checkbox > .control-label,
+  #user_login_form .form-item .form-checkboxes .checkbox > .control-label {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  #user_login_form .form-item .form-radios .radio > .control-label,
+  #user_login_form .form-item .form-checkboxes .radio > .control-label,
+  #user_login_form .form-item .form-radios .checkbox > .control-label,
+  #user_login_form .form-item .form-checkboxes .checkbox > .control-label {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  #user_login_form .form-item .form-radios .radio > .control-label,
+  #user_login_form .form-item .form-checkboxes .radio > .control-label,
+  #user_login_form .form-item .form-radios .checkbox > .control-label,
+  #user_login_form .form-item .form-checkboxes .checkbox > .control-label {
+    font-size: 17px;
+  }
+}
+#user_login_form .form-item .form-radios .radio > .control-label > input,
+#user_login_form .form-item .form-checkboxes .radio > .control-label > input,
+#user_login_form .form-item .form-radios .checkbox > .control-label > input,
+#user_login_form .form-item .form-checkboxes .checkbox > .control-label > input {
+  margin: 5px 7px 0 -20px;
+  vertical-align: top;
+}
+#user_login_form .form-item .form-managed-file {
+  display: block;
+  position: relative;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-color: #fff;
+}
+#user_login_form .form-item .form-managed-file .image-widget-data .input-group {
+  display: block;
+  position: relative;
+}
+#user_login_form .form-item .form-managed-file .image-widget-data .input-group input {
+  display: inline-block;
+  float: none;
+  margin: 0 -2px;
+  padding: 0;
+  width: 100%;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid #222;
+  background-color: #fff;
+}
+#user_login_form .form-item .form-managed-file .image-widget-data .input-group input::-moz-placeholder {
+  color: #777777;
+  opacity: 1;
+}
+#user_login_form .form-item .form-managed-file .image-widget-data .input-group input:-ms-input-placeholder {
+  color: #777777;
+}
+#user_login_form .form-item .form-managed-file .image-widget-data .input-group input::-webkit-input-placeholder {
+  color: #777777;
+}
+#user_login_form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 -2px;
+  width: auto;
+  z-index: 10;
+}
+#user_login_form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  font-family: 'SohoGothicProBold';
+  font-size: 24px;
+  letter-spacing: normal;
+  line-height: 1;
+  text-align: center;
+  color: #fff;
+  outline: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  background-color: #000;
+  opacity: 1.0;
+}
+@media screen and (min-width: 41.142857142857146em) {
+  #user_login_form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
+    font-size: 3.64583333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  #user_login_form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
+    font-size: 28px;
+  }
+}
+@media screen and (min-width: 64em) {
+  #user_login_form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
+    font-size: 28px;
+  }
+}
+#user_login_form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:hover,
+#user_login_form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:focus {
+  opacity: 0.7;
+}
+#user_login_form .form-item .form-managed-file .image-widget-data .form-group {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+#user_login_form .form-item .form-managed-file .image-widget-data .form-group span.file {
+  display: inline-block;
+  vertical-align: middle;
+}
+#user_login_form .form-item .form-managed-file .image-widget-data .form-group span.file > img {
+  display: none;
+}
+#user_login_form .form-item .form-managed-file .image-widget-data .form-group span.file a {
+  vertical-align: middle;
+}
+#user_login_form .form-item .form-managed-file .image-widget-data button.form-submit {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  font-family: 'SohoGothicProBold';
+  font-size: 24px;
+  letter-spacing: normal;
+  line-height: 1;
+  text-align: center;
+  color: #fff;
+  outline: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  background-color: #000;
+  opacity: 1.0;
+  display: block;
+}
+@media screen and (min-width: 41.142857142857146em) {
+  #user_login_form .form-item .form-managed-file .image-widget-data button.form-submit {
+    font-size: 3.64583333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  #user_login_form .form-item .form-managed-file .image-widget-data button.form-submit {
+    font-size: 28px;
+  }
+}
+@media screen and (min-width: 64em) {
+  #user_login_form .form-item .form-managed-file .image-widget-data button.form-submit {
+    font-size: 28px;
+  }
+}
+#user_login_form .form-item .form-managed-file .image-widget-data button.form-submit:hover,
+#user_login_form .form-item .form-managed-file .image-widget-data button.form-submit:focus {
+  opacity: 0.7;
+}
 #user_login_form .form-actions-wrapper {
   position: relative;
   padding: 1em 0 0;
@@ -11381,11 +11658,11 @@ form#user-login {
   margin: 0;
 }
 #user_login_form .form-actions-wrapper .form-actions .btn {
-  border: none;
   color: #fff;
-  -moz-border-radius: 0.25em;
-  -webkit-border-radius: 0.25em;
-  border-radius: 0.25em;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  border: none;
   background-image: -webkit-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
   background-image: -o-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
   background-image: linear-gradient(to bottom, #2698f2 0%, #0a62a8 100%);
@@ -11410,13 +11687,443 @@ form#user-login {
   color: #2698f2;
   text-decoration: underline;
 }
-/* User register / password forms */
+/*
+  Account register form
+  */
+#user-create-account {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 0 2em;
+  width: 100%;
+}
+@media screen and (min-width: 64em) {
+  #user-create-account {
+    padding: 2em;
+    width: 50%;
+  }
+}
+#user-create-account .form-actions-wrapper {
+  position: relative;
+  padding: 1em 0 0;
+}
+#user-create-account .login-register {
+  color: #fff;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  border: none;
+  background-image: -webkit-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
+  background-image: -o-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
+  background-image: linear-gradient(to bottom, #2698f2 0%, #0a62a8 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2698f2', endColorstr='#ff0a62a8', GradientType=0);
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  vertical-align: middle;
+  margin: 0;
+}
+#user-create-account .login-register:hover {
+  color: #fff;
+  background-image: -webkit-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
+  background-image: -o-linear-gradient(top, #0a62a8 0%, #2698f2 100%);
+  background-image: linear-gradient(to bottom, #0a62a8 0%, #2698f2 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0a62a8', endColorstr='#ff2698f2', GradientType=0);
+  text-decoration: none;
+}
+/*
+  User register / password forms
+  */
 #user-register-form,
 #user-pass {
   display: inline-block;
   max-width: 40em;
   vertical-align: top;
   margin: 1em 0;
+}
+#user-register-form .form-item label.control-label,
+#user-pass .form-item label.control-label {
+  display: block;
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  font-size: 11px;
+  font-weight: normal;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  #user-register-form .form-item label.control-label,
+  #user-pass .form-item label.control-label {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  #user-register-form .form-item label.control-label,
+  #user-pass .form-item label.control-label {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  #user-register-form .form-item label.control-label,
+  #user-pass .form-item label.control-label {
+    font-size: 17px;
+  }
+}
+#user-register-form .form-item input.form-control,
+#user-pass .form-item input.form-control {
+  margin: 0;
+  height: 36px;
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  border: #222;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: #fff;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  #user-register-form .form-item input.form-control,
+  #user-pass .form-item input.form-control {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  #user-register-form .form-item input.form-control,
+  #user-pass .form-item input.form-control {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  #user-register-form .form-item input.form-control,
+  #user-pass .form-item input.form-control {
+    font-size: 17px;
+  }
+}
+#user-register-form .form-item input.form-control::-moz-placeholder,
+#user-pass .form-item input.form-control::-moz-placeholder {
+  color: #777777;
+  opacity: 1;
+}
+#user-register-form .form-item input.form-control:-ms-input-placeholder,
+#user-pass .form-item input.form-control:-ms-input-placeholder {
+  color: #777777;
+}
+#user-register-form .form-item input.form-control::-webkit-input-placeholder,
+#user-pass .form-item input.form-control::-webkit-input-placeholder {
+  color: #777777;
+}
+#user-register-form .form-item input.form-control:focus,
+#user-pass .form-item input.form-control:focus {
+  -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  border: 1px solid #222;
+}
+#user-register-form .form-item .help-block,
+#user-pass .form-item .help-block {
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  font-size: 11px;
+  color: #808080;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  #user-register-form .form-item .help-block,
+  #user-pass .form-item .help-block {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  #user-register-form .form-item .help-block,
+  #user-pass .form-item .help-block {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  #user-register-form .form-item .help-block,
+  #user-pass .form-item .help-block {
+    font-size: 17px;
+  }
+}
+#user-register-form .form-item .form-textarea-wrapper textarea,
+#user-pass .form-item .form-textarea-wrapper textarea {
+  border: #222;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: #fff;
+}
+#user-register-form .form-item .form-textarea-wrapper textarea::-moz-placeholder,
+#user-pass .form-item .form-textarea-wrapper textarea::-moz-placeholder {
+  color: #777777;
+  opacity: 1;
+}
+#user-register-form .form-item .form-textarea-wrapper textarea:-ms-input-placeholder,
+#user-pass .form-item .form-textarea-wrapper textarea:-ms-input-placeholder {
+  color: #777777;
+}
+#user-register-form .form-item .form-textarea-wrapper textarea::-webkit-input-placeholder,
+#user-pass .form-item .form-textarea-wrapper textarea::-webkit-input-placeholder {
+  color: #777777;
+}
+#user-register-form .form-item .form-textarea-wrapper textarea:focus,
+#user-pass .form-item .form-textarea-wrapper textarea:focus {
+  -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
+  border: 1px solid #222;
+}
+#user-register-form .form-item .form-textarea-wrapper .grippie,
+#user-pass .form-item .form-textarea-wrapper .grippie {
+  display: none;
+}
+#user-register-form .form-item .form-radios,
+#user-pass .form-item .form-radios,
+#user-register-form .form-item .form-checkboxes,
+#user-pass .form-item .form-checkboxes {
+  vertical-align: top;
+}
+#user-register-form .form-item .form-radios .radio > .control-label,
+#user-pass .form-item .form-radios .radio > .control-label,
+#user-register-form .form-item .form-checkboxes .radio > .control-label,
+#user-pass .form-item .form-checkboxes .radio > .control-label,
+#user-register-form .form-item .form-radios .checkbox > .control-label,
+#user-pass .form-item .form-radios .checkbox > .control-label,
+#user-register-form .form-item .form-checkboxes .checkbox > .control-label,
+#user-pass .form-item .form-checkboxes .checkbox > .control-label {
+  padding-left: 20px;
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  font-family: 'SohoGothicProLight';
+  vertical-align: middle;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  #user-register-form .form-item .form-radios .radio > .control-label,
+  #user-pass .form-item .form-radios .radio > .control-label,
+  #user-register-form .form-item .form-checkboxes .radio > .control-label,
+  #user-pass .form-item .form-checkboxes .radio > .control-label,
+  #user-register-form .form-item .form-radios .checkbox > .control-label,
+  #user-pass .form-item .form-radios .checkbox > .control-label,
+  #user-register-form .form-item .form-checkboxes .checkbox > .control-label,
+  #user-pass .form-item .form-checkboxes .checkbox > .control-label {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  #user-register-form .form-item .form-radios .radio > .control-label,
+  #user-pass .form-item .form-radios .radio > .control-label,
+  #user-register-form .form-item .form-checkboxes .radio > .control-label,
+  #user-pass .form-item .form-checkboxes .radio > .control-label,
+  #user-register-form .form-item .form-radios .checkbox > .control-label,
+  #user-pass .form-item .form-radios .checkbox > .control-label,
+  #user-register-form .form-item .form-checkboxes .checkbox > .control-label,
+  #user-pass .form-item .form-checkboxes .checkbox > .control-label {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  #user-register-form .form-item .form-radios .radio > .control-label,
+  #user-pass .form-item .form-radios .radio > .control-label,
+  #user-register-form .form-item .form-checkboxes .radio > .control-label,
+  #user-pass .form-item .form-checkboxes .radio > .control-label,
+  #user-register-form .form-item .form-radios .checkbox > .control-label,
+  #user-pass .form-item .form-radios .checkbox > .control-label,
+  #user-register-form .form-item .form-checkboxes .checkbox > .control-label,
+  #user-pass .form-item .form-checkboxes .checkbox > .control-label {
+    font-size: 17px;
+  }
+}
+#user-register-form .form-item .form-radios .radio > .control-label > input,
+#user-pass .form-item .form-radios .radio > .control-label > input,
+#user-register-form .form-item .form-checkboxes .radio > .control-label > input,
+#user-pass .form-item .form-checkboxes .radio > .control-label > input,
+#user-register-form .form-item .form-radios .checkbox > .control-label > input,
+#user-pass .form-item .form-radios .checkbox > .control-label > input,
+#user-register-form .form-item .form-checkboxes .checkbox > .control-label > input,
+#user-pass .form-item .form-checkboxes .checkbox > .control-label > input {
+  margin: 5px 7px 0 -20px;
+  vertical-align: top;
+}
+#user-register-form .form-item .form-managed-file,
+#user-pass .form-item .form-managed-file {
+  display: block;
+  position: relative;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-color: #fff;
+}
+#user-register-form .form-item .form-managed-file .image-widget-data .input-group,
+#user-pass .form-item .form-managed-file .image-widget-data .input-group {
+  display: block;
+  position: relative;
+}
+#user-register-form .form-item .form-managed-file .image-widget-data .input-group input,
+#user-pass .form-item .form-managed-file .image-widget-data .input-group input {
+  display: inline-block;
+  float: none;
+  margin: 0 -2px;
+  padding: 0;
+  width: 100%;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid #222;
+  background-color: #fff;
+}
+#user-register-form .form-item .form-managed-file .image-widget-data .input-group input::-moz-placeholder,
+#user-pass .form-item .form-managed-file .image-widget-data .input-group input::-moz-placeholder {
+  color: #777777;
+  opacity: 1;
+}
+#user-register-form .form-item .form-managed-file .image-widget-data .input-group input:-ms-input-placeholder,
+#user-pass .form-item .form-managed-file .image-widget-data .input-group input:-ms-input-placeholder {
+  color: #777777;
+}
+#user-register-form .form-item .form-managed-file .image-widget-data .input-group input::-webkit-input-placeholder,
+#user-pass .form-item .form-managed-file .image-widget-data .input-group input::-webkit-input-placeholder {
+  color: #777777;
+}
+#user-register-form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn,
+#user-pass .form-item .form-managed-file .image-widget-data .input-group .input-group-btn {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 -2px;
+  width: auto;
+  z-index: 10;
+}
+#user-register-form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit,
+#user-pass .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  font-family: 'SohoGothicProBold';
+  font-size: 24px;
+  letter-spacing: normal;
+  line-height: 1;
+  text-align: center;
+  color: #fff;
+  outline: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  background-color: #000;
+  opacity: 1.0;
+}
+@media screen and (min-width: 41.142857142857146em) {
+  #user-register-form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit,
+  #user-pass .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
+    font-size: 3.64583333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  #user-register-form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit,
+  #user-pass .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
+    font-size: 28px;
+  }
+}
+@media screen and (min-width: 64em) {
+  #user-register-form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit,
+  #user-pass .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
+    font-size: 28px;
+  }
+}
+#user-register-form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:hover,
+#user-pass .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:hover,
+#user-register-form .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:focus,
+#user-pass .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:focus {
+  opacity: 0.7;
+}
+#user-register-form .form-item .form-managed-file .image-widget-data .form-group,
+#user-pass .form-item .form-managed-file .image-widget-data .form-group {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+#user-register-form .form-item .form-managed-file .image-widget-data .form-group span.file,
+#user-pass .form-item .form-managed-file .image-widget-data .form-group span.file {
+  display: inline-block;
+  vertical-align: middle;
+}
+#user-register-form .form-item .form-managed-file .image-widget-data .form-group span.file > img,
+#user-pass .form-item .form-managed-file .image-widget-data .form-group span.file > img {
+  display: none;
+}
+#user-register-form .form-item .form-managed-file .image-widget-data .form-group span.file a,
+#user-pass .form-item .form-managed-file .image-widget-data .form-group span.file a {
+  vertical-align: middle;
+}
+#user-register-form .form-item .form-managed-file .image-widget-data button.form-submit,
+#user-pass .form-item .form-managed-file .image-widget-data button.form-submit {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  font-family: 'SohoGothicProBold';
+  font-size: 24px;
+  letter-spacing: normal;
+  line-height: 1;
+  text-align: center;
+  color: #fff;
+  outline: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  background-color: #000;
+  opacity: 1.0;
+  display: block;
+}
+@media screen and (min-width: 41.142857142857146em) {
+  #user-register-form .form-item .form-managed-file .image-widget-data button.form-submit,
+  #user-pass .form-item .form-managed-file .image-widget-data button.form-submit {
+    font-size: 3.64583333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  #user-register-form .form-item .form-managed-file .image-widget-data button.form-submit,
+  #user-pass .form-item .form-managed-file .image-widget-data button.form-submit {
+    font-size: 28px;
+  }
+}
+@media screen and (min-width: 64em) {
+  #user-register-form .form-item .form-managed-file .image-widget-data button.form-submit,
+  #user-pass .form-item .form-managed-file .image-widget-data button.form-submit {
+    font-size: 28px;
+  }
+}
+#user-register-form .form-item .form-managed-file .image-widget-data button.form-submit:hover,
+#user-pass .form-item .form-managed-file .image-widget-data button.form-submit:hover,
+#user-register-form .form-item .form-managed-file .image-widget-data button.form-submit:focus,
+#user-pass .form-item .form-managed-file .image-widget-data button.form-submit:focus {
+  opacity: 0.7;
 }
 #user-register-form .form-actions,
 #user-pass .form-actions {
@@ -11449,11 +12156,11 @@ form#user-login {
 }
 #user-register-form .form-actions .btn,
 #user-pass .form-actions .btn {
-  border: none;
   color: #fff;
-  -moz-border-radius: 0.25em;
-  -webkit-border-radius: 0.25em;
-  border-radius: 0.25em;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  border: none;
   background-image: -webkit-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
   background-image: -o-linear-gradient(top, #2698f2 0%, #0a62a8 100%);
   background-image: linear-gradient(to bottom, #2698f2 0%, #0a62a8 100%);
@@ -12087,7 +12794,29 @@ form#user-profile-form div .form-wrapper {
 }
 form#user-profile-form div .form-wrapper .form-item label.control-label {
   display: block;
+  font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
+  font-size: 11px;
   font-weight: normal;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  form#user-profile-form div .form-wrapper .form-item label.control-label {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form#user-profile-form div .form-wrapper .form-item label.control-label {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  form#user-profile-form div .form-wrapper .form-item label.control-label {
+    font-size: 17px;
+  }
 }
 form#user-profile-form div .form-wrapper .form-item input.form-control {
   margin: 0;
@@ -12136,12 +12865,32 @@ form#user-profile-form div .form-wrapper .form-item input.form-control:focus {
   -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
   -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
   box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
-  border: 2px solid #222;
+  border: 1px solid #222;
 }
 form#user-profile-form div .form-wrapper .form-item .help-block {
   font-family: 'SohoGothicProRegular';
+  font-size: 15px;
+  letter-spacing: normal;
+  line-height: 1.15em;
+  text-align: left;
+  color: #222;
   font-size: 11px;
   color: #808080;
+}
+@media screen and (min-width: 42.35294117647059em) {
+  form#user-profile-form div .form-wrapper .form-item .help-block {
+    font-size: 2.21354167vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form#user-profile-form div .form-wrapper .form-item .help-block {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 64em) {
+  form#user-profile-form div .form-wrapper .form-item .help-block {
+    font-size: 17px;
+  }
 }
 form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper textarea {
   border: #222;
@@ -12167,7 +12916,7 @@ form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper texta
   -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
   -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
   box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
-  border: 2px solid #222;
+  border: 1px solid #222;
 }
 form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper .grippie {
   display: none;
@@ -12239,13 +12988,13 @@ form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-wi
   margin: 0 -2px;
   padding: 0;
   width: 100%;
-  border: 1px solid #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  border: 1px solid #222;
   background-color: #fff;
 }
 form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group input::-moz-placeholder {
@@ -12273,9 +13022,10 @@ form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-wi
   margin: 0;
   padding: 10px 20px;
   font-family: 'SohoGothicProBold';
-  font-size: 14px;
+  font-size: 24px;
+  letter-spacing: normal;
   line-height: 1;
-  letter-spacing: 0;
+  text-align: center;
   color: #fff;
   outline: none;
   -moz-border-radius: 0;
@@ -12285,19 +13035,19 @@ form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-wi
   background-color: #000;
   opacity: 1.0;
 }
-@media screen and (min-width: 42em) {
+@media screen and (min-width: 41.142857142857146em) {
   form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
-    font-size: 2.08333333vw;
+    font-size: 3.64583333vw;
   }
 }
 @media screen and (min-width: 48em) {
   form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
-    font-size: 16px;
+    font-size: 28px;
   }
 }
 @media screen and (min-width: 64em) {
   form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit {
-    font-size: 16px;
+    font-size: 28px;
   }
 }
 form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data .input-group .input-group-btn button.form-submit:hover,
@@ -12325,9 +13075,10 @@ form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-wi
   margin: 0;
   padding: 10px 20px;
   font-family: 'SohoGothicProBold';
-  font-size: 14px;
+  font-size: 24px;
+  letter-spacing: normal;
   line-height: 1;
-  letter-spacing: 0;
+  text-align: center;
   color: #fff;
   outline: none;
   -moz-border-radius: 0;
@@ -12338,19 +13089,19 @@ form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-wi
   opacity: 1.0;
   display: block;
 }
-@media screen and (min-width: 42em) {
+@media screen and (min-width: 41.142857142857146em) {
   form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit {
-    font-size: 2.08333333vw;
+    font-size: 3.64583333vw;
   }
 }
 @media screen and (min-width: 48em) {
   form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit {
-    font-size: 16px;
+    font-size: 28px;
   }
 }
 @media screen and (min-width: 64em) {
   form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit {
-    font-size: 16px;
+    font-size: 28px;
   }
 }
 form#user-profile-form div .form-wrapper .form-item .form-managed-file .image-widget-data button.form-submit:hover,
@@ -12367,9 +13118,10 @@ form#user-profile-form div .form-actions .form-submit {
   margin: 0;
   padding: 10px 20px;
   font-family: 'SohoGothicProBold';
-  font-size: 26px;
+  font-size: 24px;
+  letter-spacing: normal;
   line-height: 1;
-  letter-spacing: 0;
+  text-align: center;
   color: #fff;
   outline: none;
   -moz-border-radius: 0;
@@ -12379,7 +13131,7 @@ form#user-profile-form div .form-actions .form-submit {
   background-color: #000;
   opacity: 1.0;
 }
-@media screen and (min-width: 44.57142857142857em) {
+@media screen and (min-width: 41.142857142857146em) {
   form#user-profile-form div .form-actions .form-submit {
     font-size: 3.64583333vw;
   }
