@@ -13811,12 +13811,12 @@ form#user-profile-form div .form-actions .form-submit .icon {
   top: auto;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 0px;
   z-index: 10;
 }
 .view.view-proximity .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-header .body-fading.body-fading-top,
 .view.view-proximity .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-footer .body-fading.body-fading-top {
-  bottom: -1px;
+  bottom: 0px;
   background-image: -webkit-linear-gradient(top, #aaa 0%, rgba(0, 0, 0, 0) 100%);
   background-image: -o-linear-gradient(top, #aaa 0%, rgba(0, 0, 0, 0) 100%);
   background-image: linear-gradient(to bottom, #aaa 0%, rgba(0, 0, 0, 0) 100%);
@@ -13825,7 +13825,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
 }
 .view.view-proximity .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-header .body-fading.body-fading-bottom,
 .view.view-proximity .view-content > .pe-container .modal.modal-fixed-height .modal-dialog .modal-content .modal-footer .body-fading.body-fading-bottom {
-  top: -1px;
+  top: 0px;
   background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #aaa 100%);
   background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #aaa 100%);
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #aaa 100%);
@@ -13905,6 +13905,7 @@ form#user-profile-form div .form-actions .form-submit .icon {
   top: 0;
   right: 10px;
   opacity: 1.0;
+  text-shadow: none;
   z-index: 1;
 }
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header button.close span {
@@ -14989,7 +14990,7 @@ header#navbar .container-fluid .navbar-collapse nav ul.navbar-nav li a.active {
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 200dpi), only screen and (min-resolution: 1.25dppx) {
   .container,
   .container-fluid {
-    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing: antialiased;
   }
 }
 .container img[src*=".svg"],
