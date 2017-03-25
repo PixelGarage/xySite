@@ -23,7 +23,7 @@
     letter-spacing: @form-letter-spacing;
     line-height: @form-line-height;
     text-align: @form-text-align;
-    color: @text-color-field;
+    color: @text-color-form;
   }
 
   .form-button-text() {
@@ -85,7 +85,7 @@
       margin: 0;
       height: @form-control-height;
       .form-text();
-      border: @border-color;
+      border: @border-thickness solid @text-color;
       #pxl-mixins.border-radius(@border-radius);
       #pxl-mixins.box-shadow(none);
       background-color: @form-fieldset-bg-color;
@@ -105,7 +105,7 @@
 
     .form-textarea-wrapper {
       textarea {
-        border: @border-color;
+        border: @border-thickness solid @text-color;
         #pxl-mixins.border-radius(@border-radius);
         #pxl-mixins.box-shadow(none);
         background-color: @form-fieldset-bg-color;

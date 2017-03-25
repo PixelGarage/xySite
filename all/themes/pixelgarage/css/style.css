@@ -11365,7 +11365,7 @@ form#user-login {
   line-height: 1.15em;
   text-align: left;
   color: #222;
-  border: #222;
+  border: 1px solid #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11431,7 +11431,7 @@ form#user-login {
   }
 }
 #user_login_form .form-item .form-textarea-wrapper textarea {
-  border: #222;
+  border: 1px solid #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11782,7 +11782,7 @@ form#user-login {
   line-height: 1.15em;
   text-align: left;
   color: #222;
-  border: #222;
+  border: 1px solid #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11860,7 +11860,7 @@ form#user-login {
 }
 #user-register-form .form-item .form-textarea-wrapper textarea,
 #user-pass .form-item .form-textarea-wrapper textarea {
-  border: #222;
+  border: 1px solid #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -12827,7 +12827,7 @@ form#user-profile-form div .form-wrapper .form-item input.form-control {
   line-height: 1.15em;
   text-align: left;
   color: #222;
-  border: #222;
+  border: 1px solid #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -12893,7 +12893,7 @@ form#user-profile-form div .form-wrapper .form-item .help-block {
   }
 }
 form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper textarea {
-  border: #222;
+  border: 1px solid #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
