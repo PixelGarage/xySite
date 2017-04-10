@@ -43,6 +43,7 @@ scripts[] = bootstrap/js/transition.js
 ; Pixelgarage Scripts
 ; ========================================
 ;scripts[] = js/pxlTest.js
+scripts[] = js/isMobile.min.js
 scripts[] = js/pxlBehaviors.js
 ;scripts[] = js/smartmenu/jquery.smartmenus.js
 ;scripts[] = js/smartmenu/jquery.smartmenus.bootstrap.js

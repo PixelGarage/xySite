@@ -7,6 +7,20 @@
 (function ($) {
 
   /**
+   * Set a class defining the device, e.g. mobile-device or desktop.
+   */
+  Drupal.behaviors.setMobileClass = {
+    attach: function (context) {
+      if (isMobile.any) {
+        $('body').addClass('mobile_device');
+      }
+      else {
+        $('body').addClass('desktop');
+      }
+    }
+  };
+
+  /**
    * This behavior adds shadow to header on scroll.
    *
    */
