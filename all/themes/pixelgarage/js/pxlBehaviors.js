@@ -12,7 +12,7 @@
   Drupal.behaviors.setMobileClass = {
     attach: function (context) {
       if (isMobile.any) {
-        $('body').addClass('mobile_device');
+        $('body').addClass('mobile-device');
       }
       else {
         $('body').addClass('desktop');
