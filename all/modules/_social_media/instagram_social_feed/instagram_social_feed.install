@@ -49,6 +49,7 @@ function instagram_social_feed_schema() {
       ),
       'user_id' => array(
         'type' => 'int',
+        'size' => 'big',
         'unsigned' => TRUE,
         'not null' => TRUE,
         'default' => 0,
@@ -266,3 +267,21 @@ function instagram_social_feed_update_7104() {
     db_add_field('instagram_social_feeds', 'user_id', array('type' => 'varchar', 'length' => 255, 'default' => '', 'description' => 'User ID'));
   }
 }
+
+/**
+ * Change Instagram user id field to int big to support big user id's.
+ *
+ * @see https://www.drupal.org/docs/7/api/schema-api/schema-reference
+ */
+function instagram_social_feed_update_7105() {
+  if (db_field_exists('instagram_social_feed_photos', 'user_id')) {
+    $spec = array(
+      'type' => 'int',
+      // big size to support user id's bigger than .
+      'size' => 'big',
+      'not null' => TRUE,
+    );
+    db_change_field('instagram_social_feed_photos', 'user_id', 'user_id', $spec);
+  }
+}
+
