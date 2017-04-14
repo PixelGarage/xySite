@@ -49,41 +49,48 @@ function pxl_hooks_field_formatter_view($entity_type, $entity, $field, $instance
 function theme_pxl_hooks_date_von_bis_formatter($element) {
   $from_date = strtotime($element['element']['value']);
   $date_start = explode(' ', $element['element']['value']);
-  $date_end = explode(' ', $element['element']['value2']);
-  $to_date = strtotime($element['element']['value2']);
-  $has_end_date = $from_date != $to_date && !empty($date_end[0]);
+  $has_start_time = !empty($date_start[1]) && $date_start[1] != '00:00';
 
+  $to_date = strtotime($element['element']['value2']);
+  $date_end = explode(' ', $element['element']['value2']);
+  $has_end_date = $from_date != $to_date && !empty($date_end[0]);
+  $string = '';
+  /*
   if ($has_end_date) {
     $string = '<strong>' . t('Von') . '</strong> ';
   } else {
     $string = '<strong>' . t('Am') . '</strong> ';
   }
-  if (date('H:i', $from_date) == '00:00') {
-    $string .= date('d.m.Y', $from_date);
+  */
+  if ($has_start_time) {
+    $string .= format_date($from_date, 'custom', 'd.m.Y, H:i');
   } else {
-    $string .= date('d.m.Y, H:i', $from_date);
+    $string .= format_date($from_date, 'custom','d.m.Y');
   }
   if ($has_end_date) {
-    $string .= ' <strong>' . t('bis') . '</strong> ' . date('d.m.Y', strtotime($element['element']['value2']));
+    $string .= ' <strong>' . t('-') . '</strong> ' . format_date($to_date, 'custom', 'd.m.Y');
   }
   return $string;
 }
 
 function theme_pxl_hooks_date_start_ende_formatter($element) {
   $from_date = strtotime($element['element']['value']);
+  $date_start = explode(' ', $element['element']['value']);
+  $has_start_time = !empty($date_start[1]) && $date_start[1] != '00:00';
+
+  $to_date = strtotime($element['element']['value2']);
+  $date_end = explode(' ', $element['element']['value2']);
+  $has_end_date = $from_date != $to_date && !empty($date_end[0]);
+
   $string = t('Start') . ': ';
-  if (date('H:i', $from_date) == '00:00') {
-    $string .= date('d.m.Y', $from_date);
+  if ($has_start_time) {
+    $string .= format_date($from_date, 'custom', 'd.m.Y, H:i');
   } else {
-    $string .= date('d.m.Y, H:i', $from_date);
+    $string .= format_date($from_date, 'custom','d.m.Y');
   }
-  if ($element['element']['value2']) {
-    $end_date = strtotime($element['element']['value2']);
-    if ($from_date != $end_date) {
-      $string .= '<br />' . t('Ende') . ': ' . date('d.m.Y', $end_date);
-    }
+  if ($has_end_date) {
+    $string .= '<br />' . t('Ende') . ': ' . format_date($to_date, 'custom', 'd.m.Y');
   }
   return $string;
 }
-
 
