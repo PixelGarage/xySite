@@ -1,0 +1,253 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ralph
+ * Date: 07.04.17
+ * Time: 21:01
+ */
+
+module_load_include('inc', 'transloadit_api', 'transloadit_api.methods');
+
+/**
+ * The notification path for the transloadit callbacks.
+ */
+define('TRANSLOADIT_NOTIFY_WEBHOOK', 'transloadit/webhook');
+
+/**
+ * The path to the directory, where the conversion (transcoding) results are
+ * stored.
+ */
+define('TRANSLOADIT_RESULT_PATH', 'public://transloadit');
+
+
+/* =============================================================================
+ *   Transloadit Library integration
+ * ========================================================================== */
+/**
+ * Implements hook_libraries_info().
+ */
+function transloadit_api_libraries_info() {
+  $libraries['transloadit'] = array(
+    'name' => 'Transloadit PHP SDK Library',
+    'vendor url' => 'https://github.com/transloadit/php-sdk',
+    'download url' => 'https://github.com/transloadit/php-sdk/archive/master.zip',
+    'version callback' => 'transloadit_api_version_callback',
+    'path' => 'lib/transloadit',
+    'files' => array(
+      'php' => array(
+        'CurlRequest.php',
+        'CurlResponse.php',
+        'Transloadit.php',
+        'TransloaditRequest.php',
+        'TransloaditResponse.php',
+      )
+    ),
+  );
+  return $libraries;
+}
+
+function transloadit_api_version_callback() {
+  return '2.1.0';
+}
+
+
+/* =============================================================================
+ *   Hook implementation
+ * ========================================================================== */
+/**
+ * Implements hook_menu().
+ */
+function transloadit_api_menu() {
+  $items['admin/config/services/transloadit_api'] = array(
+    'type' => MENU_NORMAL_ITEM,
+    'title' => 'Transloadit API Settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('transloadit_api_admin_settings_form'),
+    'file' => 'transloadit_api.admin.inc',
+    'access arguments' => array('edit transloadit api settings'),
+    'description' => 'Edit Stripe API credentials.',
+  );
+  $items['admin/config/services/transloadit_api/settings'] = array(
+    'title' => 'Transloadit',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => -10,
+  );
+  // Webhook
+  $items[TRANSLOADIT_NOTIFY_WEBHOOK] = array(
+    'type' => MENU_CALLBACK,
+    'access callback' => TRUE,
+    'page callback' => '_transloadit_api_process_webhook_callback',
+  );
+  // test
+  $items['transloadit/test/%'] = array(
+    'type' => MENU_CALLBACK,
+    'page callback' => '_transloadit_api_test_callback',
+    'page arguments' => array(2),
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
+/**
+ * TEST function
+ *
+ * Allows to test the API function transloadit_api_execute_assembly() and the webhook
+ * by calling localhost/transloadit/test/%template-id%
+ */
+function _transloadit_api_test_callback($id) {
+  //
+  // check template id
+  $template_id = $id == 'default' ? '' : $id;
+  $context = array('test' => 'test');
+
+  //
+  // process test movie with default template
+  $movie_path = drupal_get_path('module', 'transloadit_api') . '/test/test-movie.mp4';
+  $files = array($movie_path);
+  if (!transloadit_api_execute_assembly($files, $template_id, null, $context)) {
+    print 'The video transcoding could not be performed. Check Transloadit settings and log messages.';
+  }
+  else {
+    print 'The video transcoding successfully started. ';
+  }
+}
+
+
+/**
+ * Processes incoming Transloadit webhooks.
+ */
+function _transloadit_api_process_webhook_callback() {
+  //
+  // get the response object and check data
+  libraries_load('transloadit');
+  $response = \transloadit\Transloadit::response();
+  if (isset($response->data['error'])) {
+    watchdog('Transloadit API',
+      'Error @code: @msg',
+      array(
+        '@code' => $response->data['error'],
+        '@msg' => $response->data['message']
+      ),
+      WATCHDOG_ERROR);
+    //
+    // webhook is invalid
+    drupal_add_http_header('Status', '403 Forbidden');
+    print 'Forbidden';
+    exit;
+  }
+  else {
+    if (isset($response->data['ok'])) {
+      watchdog('Transloadit API', 'Status @code: @msg', array(
+        '@code' => $response->data['ok'],
+        '@msg' => $response->data['message']
+      ), WATCHDOG_DEBUG);
+    }
+  }
+
+  //
+  // create transloadit result folder and .htaccess file, if not available
+  $transloadit_dir = TRANSLOADIT_RESULT_PATH;
+  if (!file_exists($transloadit_dir)) {
+    file_prepare_directory($transloadit_dir, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+  }
+  _transloadit_api_create_htaccess($transloadit_dir, false);
+
+  //
+  // download the resulting files into result folder
+  $assembly_id = $response->data['assembly_id'];
+  $result_dir = TRANSLOADIT_RESULT_PATH . '/' . $assembly_id;
+  if (file_prepare_directory($result_dir, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS)) {
+    _transloadit_api_download_files($result_dir, $response->data['results']);
+  }
+
+  //
+  // Invoke notification webhook for others to use.
+  module_invoke_all('transloadit_api_notification', $response->data['results'], $response->data);
+
+  //
+  // return code=200 with a string
+  print 'okay';
+}
+
+/**
+ * Implements hook_transloadit_api_notification().
+ */
+function transloadit_api_transloadit_api_notification($results, $data) {
+  //
+  // get the alterable state added in the request
+  $assembly_id = $data['assembly_id'];
+  $context = variable_get('transloadit_api_context_' . $assembly_id, array());
+
+  //
+  // call transloadit context alter hook, if any
+  drupal_alter('transloadit_api_context', $context, $results, $data);
+  variable_del('transloadit_api_context_' . $assembly_id);
+}
+
+
+/**
+ * Creates a .htaccess file in the given directory to support video types.
+ *
+ * @param string $directory
+ *    The directory in which the .htaccess file is created.
+ * @param bool   $force_overwrite
+ *    Set to TRUE to attempt to overwrite the existing .htaccess file if one is
+ *    already present. Defaults to FALSE.
+ */
+function _transloadit_api_create_htaccess($directory, $force_overwrite = FALSE) {
+  $htaccess_path = $directory . '/.htaccess';
+  if (file_exists($htaccess_path) && !$force_overwrite) {
+    return;
+  }
+
+  // create .htaccess lines
+  $lines = <<<HTACCESS
+# Add video types to support
+AddType video/ogg .ogv
+AddType video/mp4 .mp4 .m4v
+AddType video/webm .webm
+SetEnvIfNoCase Request_URI \.(ogv|mp4|m4v|webm)$ no-gzip dont-vary
+HTACCESS;
+
+  // Write the .htaccess file.
+  if (file_put_contents($htaccess_path, $lines)) {
+    drupal_chmod($htaccess_path, 0444);
+  }
+  else {
+    $variables = array(
+      '%directory' => $directory,
+      '!htaccess' => '<br />' . nl2br(check_plain($lines))
+    );
+    watchdog('Transloadit API', "Video streaming warning: Couldn't write .htaccess file. Please create a .htaccess file in your %directory directory which contains the following lines: <code>!htaccess</code>", $variables, WATCHDOG_ERROR);
+  }
+}
+
+/**
+ * Downloads the resulting files of the conversion (transcoding) steps.
+ *
+ * @param string $directory
+ *   The directory to store the downloads.
+ * @param array  $results
+ *   A reference to the results array of the assembly response.
+ */
+function _transloadit_api_download_files($directory, &$results) {
+  //
+  // loop through all steps with conversion results
+  foreach ($results as $step => &$files) {
+    foreach ($files as  $index => &$file) {
+      $destination = $directory . '/' . $step . '_' . $file['name'];
+      $url = $file['url'];
+      $file_path = system_retrieve_file($url, $destination);
+      if ($file_path) {
+        $file['url'] = $file_path;
+        $file['ssl_url'] = $file_path;
+      }
+      else {
+        watchdog('Transloadit API', 'File @url could not be downloaded', array('@url' => $url), WATCHDOG_ERROR);
+      }
+    }
+  }
+
+}
+

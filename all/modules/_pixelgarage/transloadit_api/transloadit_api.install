@@ -1,0 +1,43 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ralph
+ * Date: 17.04.17
+ * Time: 17:23
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function transloadit_api_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+  switch ($phase) {
+    case 'runtime':
+      $transloadit = libraries_load('transloadit');
+
+      if (!$transloadit || !$transloadit['loaded']) {
+        $requirements['transloadit_api_library'] = array(
+          'title' => $t('Transloadit PHP SDK'),
+          'value' => $t('Missing!'),
+          'severity' => REQUIREMENT_ERROR,
+          'description' => $t('Transloadit SDK library missing. Download the Transloadit PHP SDK from <a href="!url">!url</a> and place it at %path.', array(
+            '!url' => $transloadit['download url'],
+            '%path' => 'sites/all/libraries/transloadit',
+          )),
+        );
+      }
+      else {
+        $requirements['transloadit_api_library'] = array(
+          'title' => $t('Transloadit PHP SDK'),
+          'value' => $t('Installed (%version)', array(
+            '%version' => $transloadit['version'],
+          )),
+          'severity' => REQUIREMENT_OK,
+        );
+      }
+
+      break;
+  }
+  return $requirements;
+}

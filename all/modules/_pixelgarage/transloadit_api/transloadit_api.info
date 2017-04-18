@@ -1,0 +1,9 @@
+name = Transloadit API
+description = Provides an integration to use the Transloadit PHP API library
+core = 7.x
+package = Transloadit
+
+dependencies[] = libraries
+
+configure = admin/config/services/transloadit_api
+version = "7.x-0.8"
