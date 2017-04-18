@@ -63,6 +63,7 @@ function transloadit_api_get_instance() {
  *  \transloadit\TransloaditResponse object.
  */
 function transloadit_api_execute_assembly($files, $template_id = '', $steps = array(), $context = array(), $async = TRUE) {
+  global $base_url;
   //
   // create real file paths
   $file_paths = array();
@@ -87,12 +88,14 @@ function transloadit_api_execute_assembly($files, $template_id = '', $steps = ar
     $params['steps'] = $steps;
   }
   if ($async) {
-    if ($lt_url = variable_get('transloadit_api_localtunnel_url', false)) {
+    if (strpos($base_url, 'localhost') && $lt_url = variable_get('transloadit_api_localtunnel_url', false)) {
+      // set webhook for debug environment on localhost only
       $ide_key = $_COOKIE['XDEBUG_SESSION'];
       $debug_param = $ide_key ? '?XDEBUG_SESSION_START=' . $ide_key : '';
       $params['notify_url'] = $lt_url . '/' . TRANSLOADIT_NOTIFY_WEBHOOK . $debug_param;
     }
     else {
+      // set the webhook url
       $params['notify_url'] = url(TRANSLOADIT_NOTIFY_WEBHOOK, array('absolute' => TRUE));
     }
   }

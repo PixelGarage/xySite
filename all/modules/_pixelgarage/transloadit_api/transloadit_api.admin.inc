@@ -10,6 +10,8 @@
  * Stripe API admin settings form.
  */
 function transloadit_api_admin_settings_form($form, $form_state) {
+  global $base_url;
+
   $form['transloadit_api_links'] = array(
     '#markup' => t('!templates | !api_credentials | !docs<br /><br />', array(
       '!templates' => l(t('Templates'), 'https://transloadit.com/templates', array('attributes' => array('target' => '_blank'))),
@@ -71,7 +73,7 @@ function transloadit_api_admin_settings_form($form, $form_state) {
       '!localtunnel' => l(t('Localtunnel'), 'https://localtunnel.github.io/www/', array('attributes' => array('target' => '_blank'))),
     )),
   );
-  if ($lt_url = variable_get('transloadit_api_localtunnel_url', false)) {
+  if (strpos($base_url, 'localhost') && $lt_url = variable_get('transloadit_api_localtunnel_url', false)) {
     $ide_key = $_COOKIE['XDEBUG_SESSION'];
     $debug_param = $ide_key ? '?XDEBUG_SESSION_START=' . $ide_key : '';
     $notification_url = $lt_url . '/' . TRANSLOADIT_NOTIFY_WEBHOOK . $debug_param;
