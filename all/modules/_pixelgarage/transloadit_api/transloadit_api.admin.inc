@@ -74,7 +74,7 @@ function transloadit_api_admin_settings_form($form, $form_state) {
     )),
   );
   if (strpos($base_url, 'localhost') && $lt_url = variable_get('transloadit_api_localtunnel_url', false)) {
-    $ide_key = $_COOKIE['XDEBUG_SESSION'];
+    $ide_key = isset($_COOKIE['XDEBUG_SESSION']) ? $_COOKIE['XDEBUG_SESSION'] : false;
     $debug_param = $ide_key ? '?XDEBUG_SESSION_START=' . $ide_key : '';
     $notification_url = $lt_url . '/' . TRANSLOADIT_NOTIFY_WEBHOOK . $debug_param;
   }
