@@ -1,0 +1,95 @@
+/*
+ *  Shariff social-buttons component
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+@shariff-icon-size: 30px;
+@shariff-icon-color: #fff;
+@shariff-icon-color-hover: #000;
+
+// Mixins
+// -------------------------
+
+.shariff() {
+  ul {
+    display: inline-block;
+    #pxl-mixins.no-list-style();
+    padding: 10px;
+
+    li {
+      display: inline-block;
+      #pxl-mixins.no-list-style();
+      min-width: @shariff-icon-size + 10px;
+
+      a {
+        display: block;
+        height: @shariff-icon-size + 10px;
+        width: auto;
+        text-decoration: none;
+        color: @shariff-icon-color;
+        border: none;
+        background: none;
+
+        &:hover, &:focus {
+          color: @shariff-icon-color-hover;
+        }
+
+        span.fa {
+          display: inline-block;
+          font-size: @shariff-icon-size;
+          line-height: @shariff-icon-size;
+          text-align: center;
+          vertical-align: middle;
+        }
+
+        span.share_text {
+          display: none;
+        }
+      }
+
+      &.twitter {
+
+      }
+      &.facebook {
+
+      }
+      &.mail {
+
+      }
+    }
+  }
+}
+
+
+
+// Main settings
+// -------------------------
+body.front .shariff {
+  .shariff();
+
+  ul {
+    z-index: @zindex-modal;
+
+    &.orientation-vertical {
+      #pxl-mixins.center-vertically(fixed);
+      right: -10px;
+
+      li.shariff-button {
+        display: block;
+        width: auto;
+        height: 60px;
+      }
+    }
+
+    &.orientation-horizontal {
+      #pxl-mixins.center-vertically(absolute);
+      right: 0;
+
+      li.shariff-button:not(:last-child) {
+        width: 60px;
+        height: auto;
+      }
+    }
+  }
+}

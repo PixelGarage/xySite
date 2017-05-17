@@ -9904,178 +9904,72 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
  * Pixelgarage Components
  * --------------------------------------------------*/
 /*
- *  ShareThis component
+ *  Shariff social-buttons component
  * --------------------------------------------------*/
-@font-face {
-  font-family: "SSSocial-Circle";
-  src: url('../fonts/ss-social/ss-social-circle.eot');
-  src: url('../fonts/ss-social/ss-social-circle.eot?#iefix') format('embedded-opentype'), url('../fonts/ss-social/ss-social-circle.woff') format('woff'), url('../fonts/ss-social/ss-social-circle.ttf') format('truetype'), url('../fonts/ss-social/ss-social-circle.svg#SSSocialCircle') format('svg');
-  font-weight: bold;
-  font-style: normal;
+body.front .shariff ul {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding: 10px;
 }
-@font-face {
-  font-family: "SSSocial-Regular";
-  src: url('../fonts/ss-social/ss-social-regular.eot');
-  src: url('../fonts/ss-social/ss-social-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/ss-social/ss-social-regular.woff') format('woff'), url('../fonts/ss-social/ss-social-regular.ttf') format('truetype'), url('../fonts/ss-social/ss-social-regular.svg#SSSocialRegular') format('svg');
-  font-weight: normal;
-  font-style: normal;
+body.front .shariff ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 40px;
 }
-.a2a_kit.a2a_floating_style {
+body.front .shariff ul li a {
+  display: block;
+  height: 40px;
+  width: auto;
+  text-decoration: none;
+  color: #fff;
+  border: none;
+  background: none;
+}
+body.front .shariff ul li a:hover,
+body.front .shariff ul li a:focus {
+  color: #000;
+}
+body.front .shariff ul li a span.fa {
+  display: inline-block;
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+body.front .shariff ul li a span.share_text {
   display: none;
+}
+body.front .shariff ul {
+  z-index: 1050;
+}
+body.front .shariff ul.orientation-vertical {
   position: fixed;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  right: -10px;
+}
+body.front .shariff ul.orientation-vertical li.shariff-button {
+  display: block;
+  width: auto;
+  height: 60px;
+}
+body.front .shariff ul.orientation-horizontal {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   right: 0;
-  -moz-border-radius: 5;
-  -webkit-border-radius: 5;
-  border-radius: 5;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-  background: white;
 }
-@media screen and (min-width: 48em) {
-  .a2a_kit.a2a_floating_style {
-    display: block;
-  }
-}
-.a2a_kit a {
-  margin: 0 0 10px;
-  padding: 0;
-}
-.a2a_kit a .a2a_label {
-  display: none;
-}
-.a2a_kit a .a2a_svg {
-  font-family: "SSSocial-Circle";
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  white-space: nowrap;
-  -webkit-font-feature-settings: "liga";
-  -moz-font-feature-settings: "liga=1";
-  -moz-font-feature-settings: "liga";
-  -ms-font-feature-settings: "liga" 1;
-  -o-font-feature-settings: "liga";
-  font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
-  width: 40px;
-  height: 40px;
-  font-size: 36px;
-  color: #fff;
-  text-align: center;
-  line-height: 40px;
-  background: none !important;
-}
-.a2a_kit a .a2a_svg:hover {
-  font-family: "SSSocial-Regular";
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  white-space: nowrap;
-  -webkit-font-feature-settings: "liga";
-  -moz-font-feature-settings: "liga=1";
-  -moz-font-feature-settings: "liga";
-  -ms-font-feature-settings: "liga" 1;
-  -o-font-feature-settings: "liga";
-  font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
-  opacity: 1.0;
-}
-.a2a_kit a .a2a_svg:before {
-  display: inline-block;
-  vertical-align: text-bottom;
-}
-.a2a_kit a.a2a_button_facebook .a2a_svg:before {
-  content: "\f610";
-}
-.a2a_kit a.a2a_button_twitter .a2a_svg:before {
-  content: "\f611";
-}
-.a2a_kit a.a2a_button_google_plus .a2a_svg:before {
-  content: "\f613";
-}
-.a2a_kit a.a2a_button_email .a2a_svg:before {
-  content: '✉';
-}
-.a2a_kit a.a2a_button_pinterest .a2a_svg:before {
-  content: "\f650";
-}
-#block-follow-site {
-  display: inline-block;
-}
-#block-follow-site .block-title {
-  display: none;
-  margin: 0;
-  vertical-align: middle;
-  font-family: 'SohoGothicProBold';
-  font-size: 18px;
-  line-height: 18px;
-  color: white;
-}
-@media screen and (min-width: 30em) {
-  #block-follow-site .block-title {
-    display: inline-block;
-  }
-}
-@media screen and (min-width: 64em) {
-  #block-follow-site .block-title {
-    font-size: 23px;
-    line-height: 23px;
-  }
-}
-#block-follow-site .follow-links {
-  display: inline-block;
-  vertical-align: top;
-}
-#block-follow-site .follow-links .follow-link-wrapper {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0;
-}
-#block-follow-site .follow-links .follow-link-wrapper a.follow-link {
-  padding: 0 5px;
-  font-family: "SSSocial-Circle";
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  white-space: nowrap;
-  -webkit-font-feature-settings: "liga";
-  -moz-font-feature-settings: "liga=1";
-  -moz-font-feature-settings: "liga";
-  -ms-font-feature-settings: "liga" 1;
-  -o-font-feature-settings: "liga";
-  font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
-  font-size: 30px;
-  line-height: 30px;
-  color: white;
-  background: none !important;
-}
-#block-follow-site .follow-links .follow-link-wrapper a.follow-link:hover {
-  font-family: "SSSocial-Regular";
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  white-space: nowrap;
-  -webkit-font-feature-settings: "liga";
-  -moz-font-feature-settings: "liga=1";
-  -moz-font-feature-settings: "liga";
-  -ms-font-feature-settings: "liga" 1;
-  -o-font-feature-settings: "liga";
-  font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
-}
-#block-follow-site .follow-links .follow-link-wrapper a.follow-link.follow-link-facebook:before {
-  content: "\f610";
-}
-#block-follow-site .follow-links .follow-link-wrapper a.follow-link.follow-link-twitter:before {
-  content: "\f611";
+body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child) {
+  width: 60px;
+  height: auto;
 }
 /*
  *  Language block component
