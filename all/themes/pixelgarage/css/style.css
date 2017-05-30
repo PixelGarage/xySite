@@ -10207,71 +10207,6 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
   background-color: #efefef;
 }
 /*
- *  Chosen select component
- * --------------------------------------------------*/
-.form-select.chosen-container-single {
-  margin: 0;
-  padding: 0;
-  width: 100% !important;
-  border: none;
-  border-bottom: 2px solid #222;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-  background: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.form-select.chosen-container-single a.chosen-single {
-  white-space: normal;
-  max-width: 100%;
-  padding: 0 0 0 8px;
-  height: 36px;
-  color: #444;
-  border: none;
-  background: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.form-select.chosen-container-single a.chosen-single span {
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-  height: 36px;
-  line-height: 36px;
-}
-.form-select.chosen-container-single a.chosen-single div {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 18px;
-  height: 100%;
-}
-.form-select.chosen-container-single a.chosen-single div b {
-  background-position: 0 7px;
-}
-.form-select.chosen-container-single.chosen-with-drop a.chosen-single div b {
-  background-position: -18px 7px;
-}
-.form-select.chosen-container-single .chosen-drop {
-  border: 2px solid #222;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  background: #fff;
-}
-.form-select.chosen-container-single .chosen-drop ul.chosen-results li.active-result.highlighted {
-  color: #222;
-  background: #f4f4f4;
-}
-/*
  *  Node page component
  * --------------------------------------------------*/
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-title h2,
@@ -11250,7 +11185,7 @@ form#user-login {
     font-size: 17px;
   }
 }
-#user_login_form .form-item input.form-control {
+#user_login_form .form-item .form-control {
   margin: 0;
   height: 36px;
   font-family: 'SohoGothicProRegular';
@@ -11259,7 +11194,7 @@ form#user-login {
   line-height: 1.15em;
   text-align: left;
   color: #222;
-  border: 1px solid #222;
+  border: 1px solid 1px;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11269,31 +11204,31 @@ form#user-login {
   background-color: #fff;
 }
 @media screen and (min-width: 42.35294117647059em) {
-  #user_login_form .form-item input.form-control {
+  #user_login_form .form-item .form-control {
     font-size: 2.21354167vw;
   }
 }
 @media screen and (min-width: 48em) {
-  #user_login_form .form-item input.form-control {
+  #user_login_form .form-item .form-control {
     font-size: 17px;
   }
 }
 @media screen and (min-width: 64em) {
-  #user_login_form .form-item input.form-control {
+  #user_login_form .form-item .form-control {
     font-size: 17px;
   }
 }
-#user_login_form .form-item input.form-control::-moz-placeholder {
+#user_login_form .form-item .form-control::-moz-placeholder {
   color: #777777;
   opacity: 1;
 }
-#user_login_form .form-item input.form-control:-ms-input-placeholder {
+#user_login_form .form-item .form-control:-ms-input-placeholder {
   color: #777777;
 }
-#user_login_form .form-item input.form-control::-webkit-input-placeholder {
+#user_login_form .form-item .form-control::-webkit-input-placeholder {
   color: #777777;
 }
-#user_login_form .form-item input.form-control:focus {
+#user_login_form .form-item .form-control:focus {
   -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
   -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
   box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
@@ -11325,7 +11260,7 @@ form#user-login {
   }
 }
 #user_login_form .form-item .form-textarea-wrapper textarea {
-  border: 1px solid #222;
+  border: 1px solid 1px;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11352,6 +11287,26 @@ form#user-login {
 }
 #user_login_form .form-item .form-textarea-wrapper .grippie {
   display: none;
+}
+#user_login_form .form-item .form-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 4px 20px 5px 10px;
+}
+#user_login_form .form-item.form-type-select {
+  position: relative;
+}
+#user_login_form .form-item.form-type-select:after {
+  content: '\f0d7';
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  bottom: 2px;
+  font-family: 'fontawesome';
+  font-size: 16px;
+  color: 1px;
+  pointer-events: none;
 }
 #user_login_form .form-item .form-radios,
 #user_login_form .form-item .form-checkboxes {
@@ -11426,7 +11381,7 @@ form#user-login {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  border: 1px solid #222;
+  border: 1px solid 1px;
   background-color: #fff;
 }
 #user_login_form .form-item .form-managed-file .image-widget-data .input-group input::-moz-placeholder {
@@ -11666,8 +11621,8 @@ form#user-login {
     font-size: 17px;
   }
 }
-#user-register-form .form-item input.form-control,
-#user-pass .form-item input.form-control {
+#user-register-form .form-item .form-control,
+#user-pass .form-item .form-control {
   margin: 0;
   height: 36px;
   font-family: 'SohoGothicProRegular';
@@ -11676,7 +11631,7 @@ form#user-login {
   line-height: 1.15em;
   text-align: left;
   color: #222;
-  border: 1px solid #222;
+  border: 1px solid 1px;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11686,38 +11641,38 @@ form#user-login {
   background-color: #fff;
 }
 @media screen and (min-width: 42.35294117647059em) {
-  #user-register-form .form-item input.form-control,
-  #user-pass .form-item input.form-control {
+  #user-register-form .form-item .form-control,
+  #user-pass .form-item .form-control {
     font-size: 2.21354167vw;
   }
 }
 @media screen and (min-width: 48em) {
-  #user-register-form .form-item input.form-control,
-  #user-pass .form-item input.form-control {
+  #user-register-form .form-item .form-control,
+  #user-pass .form-item .form-control {
     font-size: 17px;
   }
 }
 @media screen and (min-width: 64em) {
-  #user-register-form .form-item input.form-control,
-  #user-pass .form-item input.form-control {
+  #user-register-form .form-item .form-control,
+  #user-pass .form-item .form-control {
     font-size: 17px;
   }
 }
-#user-register-form .form-item input.form-control::-moz-placeholder,
-#user-pass .form-item input.form-control::-moz-placeholder {
+#user-register-form .form-item .form-control::-moz-placeholder,
+#user-pass .form-item .form-control::-moz-placeholder {
   color: #777777;
   opacity: 1;
 }
-#user-register-form .form-item input.form-control:-ms-input-placeholder,
-#user-pass .form-item input.form-control:-ms-input-placeholder {
+#user-register-form .form-item .form-control:-ms-input-placeholder,
+#user-pass .form-item .form-control:-ms-input-placeholder {
   color: #777777;
 }
-#user-register-form .form-item input.form-control::-webkit-input-placeholder,
-#user-pass .form-item input.form-control::-webkit-input-placeholder {
+#user-register-form .form-item .form-control::-webkit-input-placeholder,
+#user-pass .form-item .form-control::-webkit-input-placeholder {
   color: #777777;
 }
-#user-register-form .form-item input.form-control:focus,
-#user-pass .form-item input.form-control:focus {
+#user-register-form .form-item .form-control:focus,
+#user-pass .form-item .form-control:focus {
   -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
   -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
   box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
@@ -11754,7 +11709,7 @@ form#user-login {
 }
 #user-register-form .form-item .form-textarea-wrapper textarea,
 #user-pass .form-item .form-textarea-wrapper textarea {
-  border: 1px solid #222;
+  border: 1px solid 1px;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11786,6 +11741,29 @@ form#user-login {
 #user-register-form .form-item .form-textarea-wrapper .grippie,
 #user-pass .form-item .form-textarea-wrapper .grippie {
   display: none;
+}
+#user-register-form .form-item .form-select,
+#user-pass .form-item .form-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 4px 20px 5px 10px;
+}
+#user-register-form .form-item.form-type-select,
+#user-pass .form-item.form-type-select {
+  position: relative;
+}
+#user-register-form .form-item.form-type-select:after,
+#user-pass .form-item.form-type-select:after {
+  content: '\f0d7';
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  bottom: 2px;
+  font-family: 'fontawesome';
+  font-size: 16px;
+  color: 1px;
+  pointer-events: none;
 }
 #user-register-form .form-item .form-radios,
 #user-pass .form-item .form-radios,
@@ -11885,7 +11863,7 @@ form#user-login {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  border: 1px solid #222;
+  border: 1px solid 1px;
   background-color: #fff;
 }
 #user-register-form .form-item .form-managed-file .image-widget-data .input-group input::-moz-placeholder,
@@ -12712,7 +12690,7 @@ form#user-profile-form div .form-wrapper .form-item label.control-label {
     font-size: 17px;
   }
 }
-form#user-profile-form div .form-wrapper .form-item input.form-control {
+form#user-profile-form div .form-wrapper .form-item .form-control {
   margin: 0;
   height: 36px;
   font-family: 'SohoGothicProRegular';
@@ -12731,31 +12709,31 @@ form#user-profile-form div .form-wrapper .form-item input.form-control {
   background-color: #fff;
 }
 @media screen and (min-width: 42.35294117647059em) {
-  form#user-profile-form div .form-wrapper .form-item input.form-control {
+  form#user-profile-form div .form-wrapper .form-item .form-control {
     font-size: 2.21354167vw;
   }
 }
 @media screen and (min-width: 48em) {
-  form#user-profile-form div .form-wrapper .form-item input.form-control {
+  form#user-profile-form div .form-wrapper .form-item .form-control {
     font-size: 17px;
   }
 }
 @media screen and (min-width: 64em) {
-  form#user-profile-form div .form-wrapper .form-item input.form-control {
+  form#user-profile-form div .form-wrapper .form-item .form-control {
     font-size: 17px;
   }
 }
-form#user-profile-form div .form-wrapper .form-item input.form-control::-moz-placeholder {
+form#user-profile-form div .form-wrapper .form-item .form-control::-moz-placeholder {
   color: #777777;
   opacity: 1;
 }
-form#user-profile-form div .form-wrapper .form-item input.form-control:-ms-input-placeholder {
+form#user-profile-form div .form-wrapper .form-item .form-control:-ms-input-placeholder {
   color: #777777;
 }
-form#user-profile-form div .form-wrapper .form-item input.form-control::-webkit-input-placeholder {
+form#user-profile-form div .form-wrapper .form-item .form-control::-webkit-input-placeholder {
   color: #777777;
 }
-form#user-profile-form div .form-wrapper .form-item input.form-control:focus {
+form#user-profile-form div .form-wrapper .form-item .form-control:focus {
   -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
   -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
   box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
@@ -12814,6 +12792,26 @@ form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper texta
 }
 form#user-profile-form div .form-wrapper .form-item .form-textarea-wrapper .grippie {
   display: none;
+}
+form#user-profile-form div .form-wrapper .form-item .form-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 4px 20px 5px 10px;
+}
+form#user-profile-form div .form-wrapper .form-item.form-type-select {
+  position: relative;
+}
+form#user-profile-form div .form-wrapper .form-item.form-type-select:after {
+  content: '\f0d7';
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  bottom: 2px;
+  font-family: 'fontawesome';
+  font-size: 16px;
+  color: #222;
+  pointer-events: none;
 }
 form#user-profile-form div .form-wrapper .form-item .form-radios,
 form#user-profile-form div .form-wrapper .form-item .form-checkboxes {

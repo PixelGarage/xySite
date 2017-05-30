@@ -73,7 +73,7 @@
 
   //
   // form items
-  .form-items(@border-color: @text-color; @border-thickness: 1px; @border-radius: 0) {
+  .form-items(@control-height: @form-control-height; @border-color: @text-color; @border-thickness: 1px; @border-radius: 0) {
     label.control-label {
       display: block;
       .form-text();
@@ -81,11 +81,11 @@
       font-weight: normal;
     }
 
-    input.form-control {
+    .form-control {
       margin: 0;
       height: @form-control-height;
       .form-text();
-      border: @border-thickness solid @text-color;
+      border: @border-thickness solid @border-color;
       #pxl-mixins.border-radius(@border-radius);
       #pxl-mixins.box-shadow(none);
       background-color: @form-fieldset-bg-color;
@@ -105,7 +105,7 @@
 
     .form-textarea-wrapper {
       textarea {
-        border: @border-thickness solid @text-color;
+        border: @border-thickness solid @border-color;
         #pxl-mixins.border-radius(@border-radius);
         #pxl-mixins.box-shadow(none);
         background-color: @form-fieldset-bg-color;
@@ -123,8 +123,26 @@
     }
 
     .form-select {
-      // see chosen.less
+      // see also chosen.less
+      #pxl-mixins.no-appearance;
+      padding: 4px 20px 5px 10px;
     }
+    &.form-type-select {
+      position: relative;
+
+      &:after {
+        content: '\f0d7';
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+        bottom: 2px;
+        font-family: @pxl-icon-font;
+        font-size: @font-size-base;
+        color: @border-color;
+        pointer-events: none;
+      }
+    }
+
 
     .form-radios, .form-checkboxes {
       vertical-align: top;
