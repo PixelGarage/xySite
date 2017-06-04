@@ -2369,8 +2369,8 @@
   margin: 20px auto;
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
   color: #000;
@@ -2393,8 +2393,8 @@
 .pxl-subtitle {
   font-family: 'SohoGothicProBold';
   font-size: 18px;
-  letter-spacing: 0.02em;
-  line-height: 1.2em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   color: #000;
@@ -2417,8 +2417,8 @@
 .pxl-normal {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   color: #000;
@@ -2466,8 +2466,8 @@
 .pxl-quote {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
   text-align: center;

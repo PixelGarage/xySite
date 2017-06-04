@@ -5,58 +5,80 @@
 // Variables
 // -------------------------
 @shariff-icon-size: 30px;
-@shariff-icon-color: #fff;
-@shariff-icon-color-hover: #000;
 
 // Mixins
 // -------------------------
 
-.shariff() {
+.social-shariff(@icon-size: @shariff-icon-size;
+                @color: @text-color;
+                @color-hover: @pxl-color-active;
+                @text-display: none) {
+
   ul {
     display: inline-block;
     #pxl-mixins.no-list-style();
-    padding: 10px;
+    padding: 10px 0;
+
+    &.orientation-horizontal {}
+
+    &.orientation-vertical {}
 
     li {
       display: inline-block;
       #pxl-mixins.no-list-style();
-      min-width: @shariff-icon-size + 10px;
+      padding: 0 10px 0 0;
+
+      body.desktop &.whatsapp {
+        display: none;
+      }
 
       a {
         display: block;
-        height: @shariff-icon-size + 10px;
         width: auto;
         text-decoration: none;
-        color: @shariff-icon-color;
+        color: @color;
         border: none;
         background: none;
 
         &:hover, &:focus {
-          color: @shariff-icon-color-hover;
+          color: @color-hover;
         }
 
         span.fa {
           display: inline-block;
-          font-size: @shariff-icon-size;
-          line-height: @shariff-icon-size;
+          font-size: @icon-size;
+          line-height: @icon-size;
           text-align: center;
           vertical-align: middle;
+
+          &.fa-facebook:before {
+            content: '\f082';
+          }
+          &.fa-twitter:before {
+            content: '\f081';
+          }
+          &.fa-whatsapp {
+            padding: 1px 2px;
+            font-size: @icon-size - 4px;
+            color: @pxl-color-body-bg;
+            line-height: 1;
+            #pxl-mixins.border-radius(3px);
+            background-color: #fff;
+
+            &:hover {
+              background-color: @pxl-color-active;
+            }
+          }
+          &.fa-envelope:before {
+            content: '\f199';
+          }
         }
 
         span.share_text {
-          display: none;
+          display: @text-display;
         }
       }
 
-      &.twitter {
-
-      }
-      &.facebook {
-
-      }
-      &.mail {
-
-      }
     }
   }
 }
@@ -65,31 +87,3 @@
 
 // Main settings
 // -------------------------
-body.front .shariff {
-  .shariff();
-
-  ul {
-    z-index: @zindex-modal;
-
-    &.orientation-vertical {
-      #pxl-mixins.center-vertically(fixed);
-      right: -10px;
-
-      li.shariff-button {
-        display: block;
-        width: auto;
-        height: 60px;
-      }
-    }
-
-    &.orientation-horizontal {
-      #pxl-mixins.center-vertically(absolute);
-      right: 0;
-
-      li.shariff-button:not(:last-child) {
-        width: 60px;
-        height: auto;
-      }
-    }
-  }
-}

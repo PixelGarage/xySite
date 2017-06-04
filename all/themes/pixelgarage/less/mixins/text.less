@@ -107,6 +107,18 @@
     color: @text-color;
   }
 
+  .subtext() {
+    font-family: @pxl-text-font;
+    .font-size-responsive(@resp-subtext-size-max,@resp-subtext-size-med,@resp-subtext-size-min);
+    letter-spacing: @subtext-letter-spacing;
+    line-height: @subtext-line-height;
+    text-align: @subtext-text-align-small;
+
+    @media @tablet {
+      text-align: @subtext-text-align;
+    }
+  }
+
   .glow() {
     font-family: @pxl-text-font-light;
     .font-size-responsive(100px, 100px, 50px);
@@ -145,6 +157,10 @@
       margin: 0 0 10px;
       .text();
       .hyphenate;
+    }
+
+    small, .pxl-subtext {
+      .subtext();
     }
 
     .pxl-glow {

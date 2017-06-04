@@ -9906,71 +9906,6 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 /*
  *  Shariff social-buttons component
  * --------------------------------------------------*/
-body.front .shariff ul {
-  display: inline-block;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  padding: 10px;
-}
-body.front .shariff ul li {
-  display: inline-block;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  min-width: 40px;
-}
-body.front .shariff ul li a {
-  display: block;
-  height: 40px;
-  width: auto;
-  text-decoration: none;
-  color: #fff;
-  border: none;
-  background: none;
-}
-body.front .shariff ul li a:hover,
-body.front .shariff ul li a:focus {
-  color: #000;
-}
-body.front .shariff ul li a span.fa {
-  display: inline-block;
-  font-size: 30px;
-  line-height: 30px;
-  text-align: center;
-  vertical-align: middle;
-}
-body.front .shariff ul li a span.share_text {
-  display: none;
-}
-body.front .shariff ul {
-  z-index: 1050;
-}
-body.front .shariff ul.orientation-vertical {
-  position: fixed;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: -10px;
-}
-body.front .shariff ul.orientation-vertical li.shariff-button {
-  display: block;
-  width: auto;
-  height: 60px;
-}
-body.front .shariff ul.orientation-horizontal {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 0;
-}
-body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child) {
-  width: 60px;
-  height: auto;
-}
 /*
  *  Language block component
  * --------------------------------------------------*/
@@ -10213,8 +10148,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-title h2 {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -10251,8 +10186,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
   margin: 10px auto 20px;
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -10303,8 +10238,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
   margin: 10px auto;
   font-family: 'SohoGothicProBold';
   font-size: 18px;
-  letter-spacing: 0.02em;
-  line-height: 1.2em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
 }
@@ -10349,8 +10284,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
   margin: 0 0 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   word-break: break-word;
@@ -10376,6 +10311,48 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
   .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body p,
   .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body p {
     font-size: 17px;
+  }
+}
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body small,
+.node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body small,
+.node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body .pxl-subtext,
+.node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body .pxl-subtext {
+  font-family: 'SohoGothicProRegular';
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1.1667em;
+  text-align: left;
+}
+@media screen and (min-width: 41.142857142857146em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body small,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body small,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body .pxl-subtext,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body .pxl-subtext {
+    font-size: 1.82291667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body small,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body small,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body .pxl-subtext,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body .pxl-subtext {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body small,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body small,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body .pxl-subtext,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body .pxl-subtext {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body small,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body small,
+  .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body .pxl-subtext,
+  .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body .pxl-subtext {
+    text-align: left;
   }
 }
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body .pxl-glow,
@@ -10411,8 +10388,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body .pxl-quote {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
   text-align: center;
@@ -10439,8 +10416,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body a {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
 }
@@ -10479,8 +10456,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-page.view-mode-full > .row > div.col-sm-12 > .field-name-body em,
 .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body em {
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   font-family: 'SohoGothicProRegular';
@@ -10527,8 +10504,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body b {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   font-family: 'SohoGothicProBold';
@@ -10561,8 +10538,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body u {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
 }
@@ -10594,8 +10571,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-page.view-mode-default > .row > div.col-sm-12 > .field-name-body mark {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   background-color: #ff0;
@@ -10673,8 +10650,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-webform .row .col-sm-6 .field-name-title h2 {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -10721,8 +10698,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
   margin: 10px auto 20px;
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -10773,8 +10750,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
   margin: 10px auto;
   font-family: 'SohoGothicProBold';
   font-size: 18px;
-  letter-spacing: 0.02em;
-  line-height: 1.2em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
 }
@@ -10819,8 +10796,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
   margin: 0 0 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   word-break: break-word;
@@ -10846,6 +10823,48 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
   .node.node-webform .row .col-sm-12 .field-name-body p,
   .node.node-webform .row .col-sm-6 .field-name-body p {
     font-size: 17px;
+  }
+}
+.node.node-webform .row .col-sm-12 .field-name-body small,
+.node.node-webform .row .col-sm-6 .field-name-body small,
+.node.node-webform .row .col-sm-12 .field-name-body .pxl-subtext,
+.node.node-webform .row .col-sm-6 .field-name-body .pxl-subtext {
+  font-family: 'SohoGothicProRegular';
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1.1667em;
+  text-align: left;
+}
+@media screen and (min-width: 41.142857142857146em) {
+  .node.node-webform .row .col-sm-12 .field-name-body small,
+  .node.node-webform .row .col-sm-6 .field-name-body small,
+  .node.node-webform .row .col-sm-12 .field-name-body .pxl-subtext,
+  .node.node-webform .row .col-sm-6 .field-name-body .pxl-subtext {
+    font-size: 1.82291667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-webform .row .col-sm-12 .field-name-body small,
+  .node.node-webform .row .col-sm-6 .field-name-body small,
+  .node.node-webform .row .col-sm-12 .field-name-body .pxl-subtext,
+  .node.node-webform .row .col-sm-6 .field-name-body .pxl-subtext {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .node.node-webform .row .col-sm-12 .field-name-body small,
+  .node.node-webform .row .col-sm-6 .field-name-body small,
+  .node.node-webform .row .col-sm-12 .field-name-body .pxl-subtext,
+  .node.node-webform .row .col-sm-6 .field-name-body .pxl-subtext {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-webform .row .col-sm-12 .field-name-body small,
+  .node.node-webform .row .col-sm-6 .field-name-body small,
+  .node.node-webform .row .col-sm-12 .field-name-body .pxl-subtext,
+  .node.node-webform .row .col-sm-6 .field-name-body .pxl-subtext {
+    text-align: left;
   }
 }
 .node.node-webform .row .col-sm-12 .field-name-body .pxl-glow,
@@ -10881,8 +10900,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-webform .row .col-sm-6 .field-name-body .pxl-quote {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
   text-align: center;
@@ -10909,8 +10928,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-webform .row .col-sm-6 .field-name-body a {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
 }
@@ -10949,8 +10968,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-webform .row .col-sm-12 .field-name-body em,
 .node.node-webform .row .col-sm-6 .field-name-body em {
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   font-family: 'SohoGothicProRegular';
@@ -10997,8 +11016,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-webform .row .col-sm-6 .field-name-body b {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   font-family: 'SohoGothicProBold';
@@ -11031,8 +11050,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-webform .row .col-sm-6 .field-name-body u {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
 }
@@ -11064,8 +11083,8 @@ body.front .shariff ul.orientation-horizontal li.shariff-button:not(:last-child)
 .node.node-webform .row .col-sm-6 .field-name-body mark {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   background-color: #ff0;
@@ -12111,8 +12130,8 @@ form#user-login {
   margin: 10px auto 20px;
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -12179,8 +12198,8 @@ form#user-login {
   margin: 10px auto;
   font-family: 'SohoGothicProBold';
   font-size: 18px;
-  letter-spacing: 0.02em;
-  line-height: 1.2em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
 }
@@ -12238,8 +12257,8 @@ form#user-login {
   margin: 0 0 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   word-break: break-word;
@@ -12268,6 +12287,58 @@ form#user-login {
   .user-profile .row .col-sm-8 .field-name-field-short-description .field-item p,
   .user-profile .row .col-sm-12 .field-name-field-short-description .field-item p {
     font-size: 17px;
+  }
+}
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item small,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item small,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item small,
+.user-profile .row .col-sm-4 .field-name-field-short-description .field-item .pxl-subtext,
+.user-profile .row .col-sm-8 .field-name-field-short-description .field-item .pxl-subtext,
+.user-profile .row .col-sm-12 .field-name-field-short-description .field-item .pxl-subtext {
+  font-family: 'SohoGothicProRegular';
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1.1667em;
+  text-align: left;
+}
+@media screen and (min-width: 41.142857142857146em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item small,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item small,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item small,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item .pxl-subtext,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item .pxl-subtext,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item .pxl-subtext {
+    font-size: 1.82291667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item small,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item small,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item small,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item .pxl-subtext,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item .pxl-subtext,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item .pxl-subtext {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item small,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item small,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item small,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item .pxl-subtext,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item .pxl-subtext,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item .pxl-subtext {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 48em) {
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item small,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item small,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item small,
+  .user-profile .row .col-sm-4 .field-name-field-short-description .field-item .pxl-subtext,
+  .user-profile .row .col-sm-8 .field-name-field-short-description .field-item .pxl-subtext,
+  .user-profile .row .col-sm-12 .field-name-field-short-description .field-item .pxl-subtext {
+    text-align: left;
   }
 }
 .user-profile .row .col-sm-4 .field-name-field-short-description .field-item .pxl-glow,
@@ -12308,8 +12379,8 @@ form#user-login {
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item .pxl-quote {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
   text-align: center;
@@ -12340,8 +12411,8 @@ form#user-login {
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item a {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
 }
@@ -12389,8 +12460,8 @@ form#user-login {
 .user-profile .row .col-sm-8 .field-name-field-short-description .field-item em,
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item em {
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   font-family: 'SohoGothicProRegular';
@@ -12451,8 +12522,8 @@ form#user-login {
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item b {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   font-family: 'SohoGothicProBold';
@@ -12492,8 +12563,8 @@ form#user-login {
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item u {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
 }
@@ -12531,8 +12602,8 @@ form#user-login {
 .user-profile .row .col-sm-12 .field-name-field-short-description .field-item mark {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   background-color: #ff0;
@@ -12633,8 +12704,8 @@ form#user-profile-form div fieldset.panel .panel-heading .panel-title,
 form#user-profile-form div #edit-account .panel-heading .panel-title {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -13051,8 +13122,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-title .field-item {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -13086,8 +13157,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
   margin: 10px auto 20px;
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -13122,8 +13193,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
   margin: 10px auto;
   font-family: 'SohoGothicProBold';
   font-size: 18px;
-  letter-spacing: 0.02em;
-  line-height: 1.2em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
 }
@@ -13155,8 +13226,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
   margin: 0 0 10px;
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   word-break: break-word;
@@ -13179,6 +13250,38 @@ form#user-profile-form div .form-actions .form-submit .icon {
 @media screen and (min-width: 64em) {
   .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item p {
     font-size: 17px;
+  }
+}
+.entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item small,
+.entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item .pxl-subtext {
+  font-family: 'SohoGothicProRegular';
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1.1667em;
+  text-align: left;
+}
+@media screen and (min-width: 41.142857142857146em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item small,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item .pxl-subtext {
+    font-size: 1.82291667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item small,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item .pxl-subtext {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item small,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item .pxl-subtext {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 48em) {
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item small,
+  .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item .pxl-subtext {
+    text-align: left;
   }
 }
 .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item .pxl-glow {
@@ -13209,8 +13312,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item .pxl-quote {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
   text-align: center;
@@ -13233,8 +13336,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item a {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
 }
@@ -13264,8 +13367,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item i,
 .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item em {
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   font-family: 'SohoGothicProRegular';
@@ -13298,8 +13401,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item b {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   font-family: 'SohoGothicProBold';
@@ -13325,8 +13428,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item u {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
 }
@@ -13352,8 +13455,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-text-paragraph .row .col-sm-12 .field-name-field-text .field-item mark {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
-  letter-spacing: normal;
-  line-height: 1.15em;
+  letter-spacing: 0;
+  line-height: 1.14em;
   text-align: left;
   color: #222;
   background-color: #ff0;
@@ -13415,8 +13518,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-block-paragraph .row .col-sm-12 .field-name-field-title .field-item {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -13441,8 +13544,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-image-paragraph .row .col-sm-12 .field-name-field-title .field-item {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -13471,8 +13574,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .entity-paragraphs-item.paragraphs-item-bs-carousel-paragraph .row .col-sm-12 .field-name-field-title .field-item {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -13771,8 +13874,8 @@ form#user-profile-form div .form-actions .form-submit .icon {
 .view.view-proximity .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header h2.modal-title {
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -14917,8 +15020,8 @@ body .main-container .container-fluid #page-header .region-header h2.block-title
   margin: 20px 0 10px;
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
@@ -14945,8 +15048,8 @@ body .main-container .container-fluid .row section h1.page-header {
   margin: 20px 0 10px;
   font-family: 'SohoGothicProBold';
   font-size: 22px;
-  letter-spacing: 0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0;
+  line-height: 1;
   text-align: left;
   color: #222;
 }
