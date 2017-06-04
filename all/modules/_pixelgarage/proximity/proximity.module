@@ -17,14 +17,14 @@ define('PROXIMITY_ITEM_NOT_FOUND', 1);
  * either with a full page request or an ajax callback.
  * Use a 'unique' string to prevent conflicts with automatically generated url's.
  */
-define('PROXIMITY_ITEM_URL_BASE_PATH', 'proximity-container-item/');
+define('PROXIMITY_ITEM_URL_BASE_PATH', 'video-stream/');
 
 /**
  * Holds the base path for an item ajax callback.
  *
  * Use a 'unique' string to prevent conflicts with automatically generated url's.
  */
-define('PROXIMITY_ITEM_AJAX_PATH', 'ajax/pe-container-item/');
+define('PROXIMITY_ITEM_AJAX_PATH', 'ajax/video-stream/');
 
 
 
@@ -59,7 +59,7 @@ function proximity_menu() {
 function proximity_page_callback($container_index, $param) {
   // get destination
   $session_data = &proximity_session_data();
-  $session_data['page_callback_cont_id'] = $container_index;
+  $session_data['page_callback_cont_idx'] = $container_index;
   $session_data['page_callback_load_param'] = $param;
 
   // redirect to current destination (item is rendered in proximity view)
@@ -202,6 +202,8 @@ function &proximity_session_data() {
   return $_SESSION['proximity'];
 }
 
+$container_counter = 0;
+
 /**
  * Pre-process function for theme hook views_view_proximity (implemented as views_view_proximity.tpl.php).
  * This function prepares all necessary variables to create the markup for the proximity layout.
@@ -227,9 +229,11 @@ function template_preprocess_views_view_proximity(&$vars) {
   // The container index has to be unique AND idempotent, meaning the exact same index
   // has to be created for a specific proximity view, each time this method is called
   // (e.g. Ajax Pager or Exposed form calls etc.).
-  // Therefore the index is taken from the dom_id of the view, which never changes.
-  // The first sixteen numbers of the dom_id are unique enough for our purpose.
-  $pe_container_index = substr($view->dom_id, 0, 16);
+  // Therefore the index is created with a global counter, that is hashed.
+  // The first sixteen numbers of the md5 hash are unique enough for our purpose.
+  global $container_counter;
+  $pe_container_index = md5('pe-container-index-' . $container_counter++);
+  $pe_container_index = substr($pe_container_index, 0, 16);
 
   // parameters for modal dialog
   $load_new_page = $options['proximity_action_container'] == 'page_new';
@@ -257,7 +261,7 @@ function template_preprocess_views_view_proximity(&$vars) {
   // Otherwise render the first item in the current container to guarantee that all js files
   // for the rendered item are loaded. This assumes, that all items are of the same kind in terms of rendering.
   // Subsequent ajax calls have then all js files already loaded (js settings are loaded inline in ajax call)
-  $page_callback_container = isset($session_data['page_callback_cont_id']) ? $session_data['page_callback_cont_id'] : false;
+  $page_callback_container = isset($session_data['page_callback_cont_idx']) ? $session_data['page_callback_cont_idx'] : false;
   $page_callback_param = isset($session_data['page_callback_load_param']) ? $session_data['page_callback_load_param'] : false;
 
   $load_param = $page_callback_param ? $page_callback_param : array_values($ajax_load_params)[0];
@@ -268,7 +272,7 @@ function template_preprocess_views_view_proximity(&$vars) {
     $vars['rendered_item'] = $rendered_item;
 
     // reset session data
-    $session_data['page_callback_cont_id'] = false;
+    $session_data['page_callback_cont_idx'] = false;
     $session_data['page_callback_load_param'] = false;
   }
 
