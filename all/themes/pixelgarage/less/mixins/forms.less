@@ -4,11 +4,11 @@
 
 // Variables
 // -------------------------
-@form-control-height: 36px;
+@form-control-height: 30px;
 
 
 // form fieldsets
-@form-fieldset-bg-color: #fff;
+@form-fieldset-bg-color: @pxl-color-body-bg;
 
 
 // Mixins
@@ -83,7 +83,7 @@
 
     .form-control {
       margin: 0;
-      height: @form-control-height;
+      height: @control-height;
       .form-text();
       border: @border-thickness solid @border-color;
       #pxl-mixins.border-radius(@border-radius);
@@ -92,8 +92,8 @@
       .placeholder(@text-color-placeholder);
 
       &:focus {
-        #pxl-mixins.box-shadow(0 0 2px rgba(100, 100, 100, 0.75) inset);
-        border: @border-thickness solid @text-color;
+        //#pxl-mixins.box-shadow(0 0 2px rgba(100, 100, 100, 0.75) inset);
+        //border: @border-thickness solid @text-color;
       }
     }
 
@@ -127,22 +127,6 @@
       #pxl-mixins.no-appearance;
       padding: 4px 20px 5px 10px;
     }
-    &.form-type-select {
-      position: relative;
-
-      &:after {
-        content: '\f0d7';
-        display: inline-block;
-        position: absolute;
-        right: 10px;
-        bottom: 2px;
-        font-family: @pxl-icon-font;
-        font-size: @font-size-base;
-        color: @border-color;
-        pointer-events: none;
-      }
-    }
-
 
     .form-radios, .form-checkboxes {
       vertical-align: top;

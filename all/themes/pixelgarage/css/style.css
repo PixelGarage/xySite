@@ -9999,7 +9999,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 .field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-button {
   display: inline-block;
   padding: 6px 15px;
-  height: 36px;
+  height: 30px;
   font-family: 'SohoGothicProBold';
   font-size: 20px;
   line-height: 1;
@@ -10037,7 +10037,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   margin: 0 -2px;
   padding: 0;
   width: auto;
-  height: 36px;
+  height: 30px;
   letter-spacing: 0;
 }
 .field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-button-custom-form form .input-group .input-group-addon {
@@ -10081,7 +10081,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
   vertical-align: top;
   display: inline-block;
   padding: 6px 15px;
-  height: 36px;
+  height: 30px;
   font-family: 'SohoGothicProBold';
   font-size: 22px;
   line-height: 1;
@@ -10105,7 +10105,7 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 }
 .field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-payment-processing {
   position: absolute;
-  bottom: -12px;
+  bottom: -15px;
   left: 0;
 }
 .field-type-number-decimal .field-items .field-item .stripe-button-container .stripe-payment-processing img {
@@ -11206,14 +11206,14 @@ form#user-login {
 }
 #user_login_form .form-item .form-control {
   margin: 0;
-  height: 36px;
+  height: 30px;
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
   letter-spacing: normal;
   line-height: 1.15em;
   text-align: left;
   color: #222;
-  border: 1px solid 1px;
+  border: 1px solid #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11247,12 +11247,6 @@ form#user-login {
 #user_login_form .form-item .form-control::-webkit-input-placeholder {
   color: #777777;
 }
-#user_login_form .form-item .form-control:focus {
-  -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
-  -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
-  box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
-  border: 1px solid #222;
-}
 #user_login_form .form-item .help-block {
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
@@ -11279,7 +11273,7 @@ form#user-login {
   }
 }
 #user_login_form .form-item .form-textarea-wrapper textarea {
-  border: 1px solid 1px;
+  border: 1px solid #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11312,20 +11306,6 @@ form#user-login {
   -moz-appearance: none;
   appearance: none;
   padding: 4px 20px 5px 10px;
-}
-#user_login_form .form-item.form-type-select {
-  position: relative;
-}
-#user_login_form .form-item.form-type-select:after {
-  content: '\f0d7';
-  display: inline-block;
-  position: absolute;
-  right: 10px;
-  bottom: 2px;
-  font-family: 'fontawesome';
-  font-size: 16px;
-  color: 1px;
-  pointer-events: none;
 }
 #user_login_form .form-item .form-radios,
 #user_login_form .form-item .form-checkboxes {
@@ -11400,7 +11380,7 @@ form#user-login {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  border: 1px solid 1px;
+  border: 1px solid #222;
   background-color: #fff;
 }
 #user_login_form .form-item .form-managed-file .image-widget-data .input-group input::-moz-placeholder {
@@ -11643,14 +11623,14 @@ form#user-login {
 #user-register-form .form-item .form-control,
 #user-pass .form-item .form-control {
   margin: 0;
-  height: 36px;
+  height: 30px;
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
   letter-spacing: normal;
   line-height: 1.15em;
   text-align: left;
   color: #222;
-  border: 1px solid 1px;
+  border: 1px solid #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11690,13 +11670,6 @@ form#user-login {
 #user-pass .form-item .form-control::-webkit-input-placeholder {
   color: #777777;
 }
-#user-register-form .form-item .form-control:focus,
-#user-pass .form-item .form-control:focus {
-  -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
-  -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
-  box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
-  border: 1px solid #222;
-}
 #user-register-form .form-item .help-block,
 #user-pass .form-item .help-block {
   font-family: 'SohoGothicProRegular';
@@ -11728,7 +11701,7 @@ form#user-login {
 }
 #user-register-form .form-item .form-textarea-wrapper textarea,
 #user-pass .form-item .form-textarea-wrapper textarea {
-  border: 1px solid 1px;
+  border: 1px solid #222;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -11767,22 +11740,6 @@ form#user-login {
   -moz-appearance: none;
   appearance: none;
   padding: 4px 20px 5px 10px;
-}
-#user-register-form .form-item.form-type-select,
-#user-pass .form-item.form-type-select {
-  position: relative;
-}
-#user-register-form .form-item.form-type-select:after,
-#user-pass .form-item.form-type-select:after {
-  content: '\f0d7';
-  display: inline-block;
-  position: absolute;
-  right: 10px;
-  bottom: 2px;
-  font-family: 'fontawesome';
-  font-size: 16px;
-  color: 1px;
-  pointer-events: none;
 }
 #user-register-form .form-item .form-radios,
 #user-pass .form-item .form-radios,
@@ -11882,7 +11839,7 @@ form#user-login {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  border: 1px solid 1px;
+  border: 1px solid #222;
   background-color: #fff;
 }
 #user-register-form .form-item .form-managed-file .image-widget-data .input-group input::-moz-placeholder,
@@ -12763,7 +12720,7 @@ form#user-profile-form div .form-wrapper .form-item label.control-label {
 }
 form#user-profile-form div .form-wrapper .form-item .form-control {
   margin: 0;
-  height: 36px;
+  height: 30px;
   font-family: 'SohoGothicProRegular';
   font-size: 15px;
   letter-spacing: normal;
@@ -12803,12 +12760,6 @@ form#user-profile-form div .form-wrapper .form-item .form-control:-ms-input-plac
 }
 form#user-profile-form div .form-wrapper .form-item .form-control::-webkit-input-placeholder {
   color: #777777;
-}
-form#user-profile-form div .form-wrapper .form-item .form-control:focus {
-  -webkit-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
-  -moz-box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
-  box-shadow: 0 0 2px rgba(100, 100, 100, 0.75) inset;
-  border: 1px solid #222;
 }
 form#user-profile-form div .form-wrapper .form-item .help-block {
   font-family: 'SohoGothicProRegular';
@@ -12869,20 +12820,6 @@ form#user-profile-form div .form-wrapper .form-item .form-select {
   -moz-appearance: none;
   appearance: none;
   padding: 4px 20px 5px 10px;
-}
-form#user-profile-form div .form-wrapper .form-item.form-type-select {
-  position: relative;
-}
-form#user-profile-form div .form-wrapper .form-item.form-type-select:after {
-  content: '\f0d7';
-  display: inline-block;
-  position: absolute;
-  right: 10px;
-  bottom: 2px;
-  font-family: 'fontawesome';
-  font-size: 16px;
-  color: #222;
-  pointer-events: none;
 }
 form#user-profile-form div .form-wrapper .form-item .form-radios,
 form#user-profile-form div .form-wrapper .form-item .form-checkboxes {
