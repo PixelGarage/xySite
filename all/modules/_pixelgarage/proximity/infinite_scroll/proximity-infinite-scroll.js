@@ -24,7 +24,9 @@
 
     // replace old pager with new one (only new pager has actual page link)
     $old_pager.replaceWith($new_pager);
-    $(document).trigger('infiniteScrollComplete', [$new_view, $new_content]);
+
+    // call attachBehaviors, because we do not replace the old content with the new one
+    Drupal.attachBehaviors($container, Drupal.settings);
   };
 
   /**
