@@ -14,10 +14,17 @@
    */
   $.fn.infiniteScrollInsertView = function ($new_view) {
     var $existing_view = this;
-    var $existing_content = $existing_view.find('.pe-container .pe-item');
-    $new_view.find('.pe-container').prepend($existing_content);
-    $existing_view.replaceWith($new_view);
-    $(document).trigger('infiniteScrollComplete', [$new_view, $existing_content]);
+    var $new_content = $new_view.find('.pe-container .pe-item'),
+        $new_pager = $new_view.find('.pager--infinite-scroll'),
+        $container = $existing_view.find('.pe-container'),
+        $old_pager = $existing_view.find('.pager--infinite-scroll');
+
+    // append new items to isotope container and layout them
+    $container.append($new_content).isotope('appended', $new_content);
+
+    // replace old pager with new one (only new pager has actual page link)
+    $old_pager.replaceWith($new_pager);
+    $(document).trigger('infiniteScrollComplete', [$new_view, $new_content]);
   };
 
   /**
