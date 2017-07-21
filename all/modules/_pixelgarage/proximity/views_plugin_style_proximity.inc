@@ -18,6 +18,7 @@ class views_plugin_style_proximity extends views_plugin_style {
       'proximity_layout_mode' => 'none',
       'proximity_random_grid_cell_size' => 40,
       // ajax options
+      'proximity_item_click_enabled' => 1,
       'proximity_ajax_enabled' => 1,
       'proximity_action_container' => 'modal_fix',
       'proximity_mobile_behavior' => 'touch_two',
@@ -135,6 +136,14 @@ class views_plugin_style_proximity extends views_plugin_style {
     );
 
     // define item action
+    $form['proximity_item_click_enabled'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Enable item action'),
+      '#description' => t('Enables the item action.'),
+      '#default_value' => $default_values['proximity_item_click_enabled'],
+      '#weight' => 1,
+      '#fieldset' => 'action',
+    );
     $form['proximity_ajax_enabled'] = array(
       '#type' => 'checkbox',
       '#title' => t('Enable Ajax'),

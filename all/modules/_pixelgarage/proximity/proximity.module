@@ -17,14 +17,14 @@ define('PROXIMITY_ITEM_NOT_FOUND', 1);
  * either with a full page request or an ajax callback.
  * Use a 'unique' string to prevent conflicts with automatically generated url's.
  */
-define('PROXIMITY_ITEM_URL_BASE_PATH', 'video-stream/');
+define('PROXIMITY_ITEM_URL_BASE_PATH', 'proximity-container-item/');
 
 /**
  * Holds the base path for an item ajax callback.
  *
  * Use a 'unique' string to prevent conflicts with automatically generated url's.
  */
-define('PROXIMITY_ITEM_AJAX_PATH', 'ajax/video-stream/');
+define('PROXIMITY_ITEM_AJAX_PATH', 'ajax/pe-container-item/');
 
 
 
@@ -224,6 +224,7 @@ function template_preprocess_views_view_proximity(&$vars) {
   // get saved view options
   $view = $vars['view'];
   $options = $vars['options'];
+  $path = drupal_get_path('module', 'proximity');
 
   //
   // The container index has to be unique AND idempotent, meaning the exact same index
@@ -234,128 +235,35 @@ function template_preprocess_views_view_proximity(&$vars) {
   global $container_counter;
   $pe_container_index = md5('pe-container-index-' . $container_counter++);
   $pe_container_index = substr($pe_container_index, 0, 16);
-
-  // parameters for modal dialog
-  $load_new_page = $options['proximity_action_container'] == 'page_new';
-  $ajax_enabled = $options['proximity_ajax_enabled'] && !$load_new_page;
-  $use_modal_dlg = ($options['proximity_action_container'] == 'modal_fix') || ($options['proximity_action_container'] == 'modal_rel');
-  $vars['use_page_cont'] = ($options['proximity_action_container'] == 'page_cont');
-  $vars['use_modal_dlg'] = $use_modal_dlg;
-  $vars['close_text'] = t('Schliessen');
-
-  //
-  // initialize default ajax load-parameter array (indexes of items)
-  // REMARK: the item load-parameter is appended to the ajax url to identify the content to be loaded
-  $ajax_load_params = array();
-  foreach ($view->result as $id => $item) {
-    $ajax_load_params[$id] = $id;
-  }
-
-  //
-  // allow others to alter the load-params
-  drupal_alter('proximity_load_params', $pe_container_index, $view, $ajax_load_params);
-  $vars['ajax_load_params'] = $ajax_load_params;
-
-  //
-  // Render the requested proximity item (full page request).
-  // Otherwise render the first item in the current container to guarantee that all js files
-  // for the rendered item are loaded. This assumes, that all items are of the same kind in terms of rendering.
-  // Subsequent ajax calls have then all js files already loaded (js settings are loaded inline in ajax call)
-  $page_callback_container = isset($session_data['page_callback_cont_idx']) ? $session_data['page_callback_cont_idx'] : false;
-  $page_callback_param = isset($session_data['page_callback_load_param']) ? $session_data['page_callback_load_param'] : false;
-
-  $load_param = $page_callback_param ? $page_callback_param : array_values($ajax_load_params)[0];
-  $rendered_item = _proximity_item_render($pe_container_index, $load_param);
-  $vars['rendered_item'] = false;
-
-  if ($page_callback_param && $pe_container_index == $page_callback_container) {
-    $vars['rendered_item'] = $rendered_item;
-
-    // reset session data
-    $session_data['page_callback_cont_idx'] = false;
-    $session_data['page_callback_load_param'] = false;
-  }
-
-  //
-  // add toggle item attributes depending on modal and ajax settings
-  $vars['toggle_attributes'] = array();
-  if ($ajax_enabled && $use_modal_dlg) {
-    $vars['toggle_attributes']['data-toggle'] = 'modal';
-    $vars['toggle_attributes']['data-target'] = '#pe-modal-dialog-' . $pe_container_index;
-  }
-
-  //
-  // add additional proximity options for ajax use in javascript
-  global $base_url;
-  $ajax_base_url = $base_url . '/' . PROXIMITY_ITEM_AJAX_PATH . $pe_container_index . '/';
-  $item_base_url = '/' . PROXIMITY_ITEM_URL_BASE_PATH . $pe_container_index . '/';
-
-  $img_path = $base_url . '/' . drupal_get_path('module', 'proximity') . '/ajax-loader.gif';
-  $ajax_loading_html = '<div id="proximity-ajax-loader"><img src="' . $img_path . '" alt="loading..."/></div>';
-
-  //
-  // Setup proximity settings for specific container
   $pe_container_id = 'pe-container-' . $pe_container_index;
+  $vars['pe_container_id'] = $pe_container_id;
+  $vars['container_index'] = $pe_container_index;
+
+  //
+  // Setup js settings for specific container
   $js_settings = array(
     'proximity_url_base_path' => PROXIMITY_ITEM_URL_BASE_PATH,
     'proximity' => array(
       $pe_container_id => array(
         // item positioning parameters
         'layout_mode' => $options['proximity_layout_mode'],
+        'item_selector' => '.pe-item ' . $options['proximity_item_selector'],
         'grid_sizer' => '.grid-sizer',
         'gutter_sizer' => '.gutter-sizer',
         'stamp_elements' => '.stamp',
+        'trans_duration' => $options['proximity_trans_duration'],
         'position_randomly' => $options['proximity_layout_mode'] == 'random',
         'random_grid_cell_size' => $options['proximity_random_grid_cell_size'],
-
-        // proximity parameters
-        'item_selector' => '.pe-item ' . $options['proximity_item_selector'],
-        'desc_selector' => !empty($options['proximity_desc_selector']) ? $options['proximity_desc_selector'] : '',
-        'start_scale' => $options['proximity_start_scale'],
-        'end_scale' => $options['proximity_end_scale'],
-        'start_opacity' => $options['proximity_start_opacity'],
-        'end_opacity' => $options['proximity_end_opacity'],
-        'extent' => $options['proximity_extent'],
-        'trans_duration' => $options['proximity_trans_duration'],
-
-        // container parameters
-        'ajax_container' => $options['proximity_action_container'],
-        'show_modal' => (!empty($vars['rendered_item']) && $use_modal_dlg),
-
-        // ajax parameters
-        'ajax_base_url' => $ajax_base_url,
-        'item_base_url' => $base_url . $item_base_url,
-        'ajax_loading_html' => $ajax_loading_html,
 
         // mobile behavior
         'mobile_behavior' => $options['proximity_mobile_behavior']
       ),
     ),
   );
-  $vars['item_base_url'] = $load_new_page ? '/node/' : $item_base_url; //TODO: only nodes supported, enhance for other entities
-  $vars['pe_container_id'] = $pe_container_id;
-  $vars['container_index'] = $pe_container_index;
 
   //
-  // Apply the needed js files and js settings
-  $path = drupal_get_path('module', 'proximity');
-  drupal_add_js($js_settings, 'setting');
+  // apply mobile class
   drupal_add_js($path . '/js/isMobile.min.js');
-
-  if ($options['proximity_effect_enabled']) {
-    drupal_add_js($path . '/js/proximity.jquery-event.js');
-    drupal_add_js($path . '/js/proximity.js');
-  }
-  if ($ajax_enabled) {
-    drupal_add_js($path . '/js/modernizr-history.min.js');
-    drupal_add_js($path . '/js/proximity.ajax.js');
-  } else {
-    drupal_add_js($path . '/js/proximity.non-ajax.js');
-  }
-  if ($use_modal_dlg) {
-    drupal_add_js($path . '/js/proximity.container.js');
-  }
-  //drupal_add_css($path . '/css/proximity.css');
 
   //
   // apply specific isotope layout scripts
@@ -404,6 +312,111 @@ function template_preprocess_views_view_proximity(&$vars) {
       drupal_add_js($layout_file);
     }
   }
+
+  //
+  // parameters for modal dialog
+  $item_action_enabled = $options['proximity_item_click_enabled'];
+  $use_modal_dlg = $item_action_enabled &&
+    (($options['proximity_action_container'] == 'modal_fix') || ($options['proximity_action_container'] == 'modal_rel'));
+  $vars['use_page_cont'] = ($options['proximity_action_container'] == 'page_cont');
+  $vars['item_action_enabled'] = $item_action_enabled;
+  $vars['use_modal_dlg'] = $use_modal_dlg;
+  $vars['close_text'] = t('Schliessen');
+
+  //
+  // Add action js files and settings
+  if ($item_action_enabled) {
+    //
+    // initialize default ajax load-parameter array (indexes of items)
+    // REMARK: the item load-parameter is appended to the ajax url to identify the content to be loaded
+    $load_params = array();
+    foreach ($view->result as $id => $item) {
+      $load_params[$id] = $id;
+    }
+
+    //
+    // allow others to alter the load-params
+    drupal_alter('proximity_load_params', $pe_container_index, $view, $load_params);
+    $vars['load_params'] = $load_params;
+
+    //
+    // Render the requested proximity item only for full page request, to be displayed in selected container.
+    $page_callback_container = isset($session_data['page_callback_cont_idx']) ? $session_data['page_callback_cont_idx'] : false;
+    $page_callback_param = isset($session_data['page_callback_load_param']) ? $session_data['page_callback_load_param'] : false;
+    $vars['rendered_item'] = false;
+
+    if ($page_callback_param && $pe_container_index == $page_callback_container) {
+      // reset session data of page callback
+      $session_data['page_callback_cont_idx'] = false;
+      $session_data['page_callback_load_param'] = false;
+
+      // render item
+      $rendered_item = _proximity_item_render($pe_container_index, $page_callback_param);
+      $vars['rendered_item'] = $rendered_item;
+
+    }
+
+    //
+    // add toggle item attributes depending on modal and ajax settings
+    $load_new_page = $options['proximity_action_container'] == 'page_new';
+    $ajax_enabled = $options['proximity_ajax_enabled'] && !$load_new_page;
+    $vars['toggle_attributes'] = array();
+    if ($ajax_enabled && $use_modal_dlg) {
+      $vars['toggle_attributes']['data-toggle'] = 'modal';
+      $vars['toggle_attributes']['data-target'] = '#pe-modal-dialog-' . $pe_container_index;
+    }
+
+    //
+    // add additional proximity options for ajax use in javascript
+    global $base_url;
+    $ajax_base_url = $base_url . '/' . PROXIMITY_ITEM_AJAX_PATH . $pe_container_index . '/';
+    $item_base_url = '/' . PROXIMITY_ITEM_URL_BASE_PATH . $pe_container_index . '/';
+    $img_path = $base_url . '/' . drupal_get_path('module', 'proximity') . '/ajax-loader.gif';
+    $ajax_loading_html = '<div id="proximity-ajax-loader"><img src="' . $img_path . '" alt="loading..."/></div>';
+
+    $vars['item_base_url'] = $load_new_page ? '/node/' : $item_base_url; //TODO: only nodes supported, enhance for other entities
+
+    //
+    // Setup action settings for specific container
+    // container parameters
+    $js_settings['proximity'][$pe_container_id]['ajax_container'] = $options['proximity_action_container'];
+    $js_settings['proximity'][$pe_container_id]['show_modal'] = (!empty($vars['rendered_item']) && $use_modal_dlg);
+    // ajax parameters
+    $js_settings['proximity'][$pe_container_id]['ajax_base_url'] = $ajax_base_url;
+    $js_settings['proximity'][$pe_container_id]['item_base_url'] = $base_url . $item_base_url;
+    $js_settings['proximity'][$pe_container_id]['ajax_loading_html'] = $ajax_loading_html;
+
+    if ($ajax_enabled) {
+      drupal_add_js($path . '/js/modernizr-history.min.js');
+      drupal_add_js($path . '/js/proximity.ajax.js');
+    } else {
+      drupal_add_js($path . '/js/proximity.non-ajax.js');
+    }
+    if ($use_modal_dlg) {
+      drupal_add_js($path . '/js/proximity.container.js');
+    }
+    //drupal_add_css($path . '/css/proximity.css');
+  }
+
+  //
+  // set proximity js settings and files
+  if ($options['proximity_effect_enabled']) {
+    // proximity parameters
+    $js_settings['proximity'][$pe_container_id]['desc_selector'] = !empty($options['proximity_desc_selector']) ? $options['proximity_desc_selector'] : '';
+    $js_settings['proximity'][$pe_container_id]['start_scale'] = $options['proximity_start_scale'];
+    $js_settings['proximity'][$pe_container_id]['end_scale'] = $options['proximity_end_scale'];
+    $js_settings['proximity'][$pe_container_id]['start_opacity'] = $options['proximity_start_opacity'];
+    $js_settings['proximity'][$pe_container_id]['end_opacity'] = $options['proximity_end_opacity'];
+    $js_settings['proximity'][$pe_container_id]['extent'] = $options['proximity_extent'];
+
+    // js files for proximity effect
+    drupal_add_js($path . '/js/proximity.jquery-event.js');
+    drupal_add_js($path . '/js/proximity.js');
+  }
+
+  //
+  // Apply the js settings
+  drupal_add_js($js_settings, 'setting');
 
 }
 

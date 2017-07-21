@@ -189,8 +189,10 @@
             // to build request history
             if (!Modernizr.history) {
               // don't open modal dialog before performing full page request (dialog is opened during page load)
-              $(this).find('a.button').removeAttr('data-toggle');
-              return true;
+              var $anchor = $(this).find('a.button');
+              $anchor.removeAttr('data-toggle');
+              $anchor.click();
+              return false;
             }
 
             //
