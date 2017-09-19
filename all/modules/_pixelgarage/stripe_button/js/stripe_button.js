@@ -140,7 +140,7 @@
             }
             else {
               // attach behaviours to new stripe button
-              Drupal.attachBehaviors($fieldItemDiv);
+              Drupal.attachBehaviors($buttonContainer);
 
               // immediately open Stripe Checkout dialog
               $('#' + button).click();
