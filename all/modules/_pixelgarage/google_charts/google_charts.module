@@ -1,0 +1,241 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ralph
+ * Date: 29.09.17
+ * Time: 17:06
+ */
+
+/**
+ * Define the google chart library path.
+ */
+define('GOOGLE_CHARTS_LIBRARY_PATH', 'https://www.gstatic.com/charts/loader.js');
+
+
+/**
+ * Implements hook_theme().
+ */
+function google_charts_theme($existing, $type, $theme, $path) {
+  return array(
+    'google_chart' => array(
+      'variables' => array(
+        'link_id' => NULL,
+        'chart_data_source' => NULL,
+        'chart_settings' => NULL,
+      ),
+      'file' => 'templates/google_chart.vars.php',
+      'template' => 'templates/google_chart',
+    ),
+  );
+}
+
+
+
+
+/* =============================================================================
+ *   LINK FIELD formatter displaying GOOGLE CHARTS
+ * ========================================================================== */
+/**
+ * Implements hook_field_formatter_info().
+ *
+ * Google chart formatter for the link field is added.
+ * This formatter displays the linked google sheet range as google chart.
+ **/
+function google_charts_field_formatter_info() {
+  return array(
+    'google_charts' => array(
+      'label' => t('Google charts'),
+      'field types' => array('link_field'),
+      'settings'  => array(
+        // Array of the settings to be defined
+        'google_chart_type' => 'PieChart',
+        'google_chart_width' => 400,
+        'google_chart_height' => 350,
+        'google_chart_data_range' => '',
+        'google_chart_font_name' => 'Arial',
+        'google_chart_font_size' => 10,
+        'google_chart_show_legend' => 1,
+        'google_chart_is_3d' => 0,
+        'google_chart_do_animate' => 0,
+        'google_chart_style_axis' => 0,
+        'google_chart_show_trendline' => 0,
+        'google_chart_show_crosshair' => 0,
+        'google_chart_show_diff' => 0,
+      ),
+    ),
+  );
+}
+
+function google_charts_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $element = array();
+
+  if ($display['type'] == 'google_charts') {
+    // define available chart types
+    $chart_types = array(
+      'AreaChart'  => t('Area Chart'),
+      'BarChart' => t('Bar Chart'),
+      'BubbleChart' => t('Bubble Chart'),
+      'Calendar' => t('Calendar Chart'),
+      'CandlestickChart' => t('Candlestick Chart'),
+      'ColumnChart' => t('Column Chart'),
+      'Gantt' => t('Gantt Chart'),
+      'Gauge' => t('Gauge Chart'),
+      'GeoChart'  => t('Geo Chart'),
+      'Histogram' => t('Histograms'),
+      'LineChart' => t('Line Chart'),
+      'Map' => t('Map Chart'),
+      'OrgChart' => t('Org Chart'),
+      'PieChart' => t('Pie Chart'),
+      'Sankey' => t('Sankey Diagram'),
+      'Scatter' => t('Scatter Chart'),
+      'SteppedAreaChart' => t('Stepped Area Chart'),
+      'Table' => t('Table Chart'),
+      'Timeline' => t('Timeline Chart'),
+      'TreeMap' => t('Tree Map Chart'),
+      'WordTree' => t('Word Tree'),
+    );
+
+    $element['google_chart_type'] = array(
+      '#type'          => 'select',
+      '#title'         => t('Select chart type'),
+      '#options'       => $chart_types,
+      '#default_value' => $settings['google_chart_type'],
+      '#description'   => t('Select the chart type to be displayed. Default: Pie chart'),
+    );
+    $element['google_chart_width'] = array(
+      '#type'          => 'textfield',
+      '#title'         => t('Chart width'),
+      '#default_value' => $settings['google_chart_width'],
+      '#description'   => t('Define the width of the chart. Default: 400'),
+    );
+    $element['google_chart_height'] = array(
+      '#type'          => 'textfield',
+      '#title'         => t('Chart height'),
+      '#default_value' => $settings['google_chart_height'],
+      '#description'   => t('Define the height of the chart. Default: 350'),
+    );
+    $element['google_chart_data_range'] = array(
+      '#type'          => 'textfield',
+      '#title'         => t('Chart data source range'),
+      '#default_value' => $settings['google_chart_data_range'],
+      '#description'   => t('Define the range of the data source (table). Examples: A1:B6, 5:7, D:F, A:A70, B5:5, etc. Default: empty, meaning the whole table'),
+    );
+    $element['google_chart_font_name'] = array(
+      '#type'          => 'textfield',
+      '#title'         => t('Font name'),
+      '#default_value' => $settings['google_chart_font_name'],
+      '#description'   => t('Define the font family. Default: Arial'),
+    );
+    $element['google_chart_font_size'] = array(
+      '#type'          => 'textfield',
+      '#title'         => t('Font size'),
+      '#default_value' => $settings['google_chart_font_size'],
+      '#description'   => t('Define the font size. Default: 10px'),
+    );
+    $element['google_chart_show_legend'] = array(
+      '#type' => 'checkbox',
+      '#title' => t("Show legend"),
+      '#default_value' => $settings['google_chart_show_legend'],
+      '#description'   => t("Show the legend of a chart. Default: true"),
+    );
+    $element['google_chart_is_3d'] = array(
+      '#type' => 'checkbox',
+      '#title' => t("Display 3D chart"),
+      '#default_value' => $settings['google_chart_is_3d'],
+      '#description'   => t("Display the chart in 3D. Default: false"),
+    );
+    $element['google_chart_do_animate'] = array(
+      '#type' => 'checkbox',
+      '#title' => t("Animate chart"),
+      '#default_value' => $settings['google_chart_do_animate'],
+      '#description'   => t("Animates the chart when showing or changing. Default: false"),
+    );
+    $element['google_chart_style_axis'] = array(
+      '#type' => 'checkbox',
+      '#title' => t("Style chart axis"),
+      '#default_value' => $settings['google_chart_style_axis'],
+      '#description'   => t("Adds the axis styles options to the chart options. Default: false"),
+    );
+    $element['google_chart_show_trendline'] = array(
+      '#type' => 'checkbox',
+      '#title' => t("Show trendline"),
+      '#default_value' => $settings['google_chart_show_trendline'],
+      '#description'   => t("Show the trendline for the chart. Default: false"),
+    );
+    $element['google_chart_show_crosshair'] = array(
+      '#type' => 'checkbox',
+      '#title' => t("Show crosshair"),
+      '#default_value' => $settings['google_chart_show_crosshair'],
+      '#description'   => t("Show the crosshair for the chart. Default: false"),
+    );
+    $element['google_chart_show_diff'] = array(
+      '#type' => 'checkbox',
+      '#title' => t("Display difference chart"),
+      '#default_value' => $settings['google_chart_show_diff'],
+      '#description'   => t("Highlights the differences between two charts with comparable data. This setting is available for bar, column, pie and scatter charts. Default: false"),
+    );
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function google_charts_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $summary = array();
+  if ($display['type'] == 'google_charts') {
+    $summary[] = t('Chart type:           @text', array('@text' => $settings['google_chart_type']));
+    $summary[] = t('Chart width:          @text', array('@text' => $settings['google_chart_width']));
+    $summary[] = t('Chart height:         @text', array('@text' => $settings['google_chart_height']));
+    $summary[] = t('Chart font name:      @text', array('@text' => $settings['google_chart_font_name']));
+    $summary[] = t('Chart font size:      @text', array('@text' => $settings['google_chart_font_size']));
+    $summary[] = t('Data source range:    @text', array('@text' => $settings['google_chart_data_range']));
+    $summary[] = t('Show legend:          @text', array('@text' => ($settings['google_chart_show_legend'] == 1) ? 'yes' : 'no'));
+    $summary[] = t('3D Chart:             @text', array('@text' => ($settings['google_chart_is_3d'] == 1) ? 'yes' : 'no'));
+    $summary[] = t('Animate:              @text', array('@text' => ($settings['google_chart_do_animate'] == 1) ? 'yes' : 'no'));
+    $summary[] = t('Style axis:           @text', array('@text' => ($settings['google_chart_style_axis'] == 1) ? 'yes' : 'no'));
+    $summary[] = t('Show trendline:       @text', array('@text' => ($settings['google_chart_show_trendline'] == 1) ? 'yes' : 'no'));
+    $summary[] = t('Show crosshair:       @text', array('@text' => ($settings['google_chart_show_crosshair'] == 1) ? 'yes' : 'no'));
+    $summary[] = t('Show difference chart:@text', array('@text' => ($settings['google_chart_show_diff'] == 1) ? 'yes' : 'no'));
+  }
+
+  return implode('<br />', $summary);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function google_charts_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $elements = array();
+  $settings = $display['settings'];
+  $field_name = $instance['field_name'];
+  $google_charts_settings = array();
+  foreach ($settings as $key => $value) {
+    $new_key = str_replace('google_', '', $key);
+    $google_charts_settings[$new_key] = $value;
+  }
+
+  // create stripe button render array
+  $data_range = !empty($google_charts_settings['chart_data_range']) ? '&range=' . $google_charts_settings['chart_data_range'] : '';
+  switch ($display['type']) {
+    // This formatter outputs a button with the number as label.
+    case 'google_charts':
+      foreach ($items as $delta => $item) {
+        $link_id = drupal_clean_css_identifier($field_name . '--' . $delta);
+        $elements[$delta] = array(
+          '#theme' => 'google_chart',
+          '#link_id' => $link_id,
+          '#chart_data_source' => $item['url'] . $data_range,
+          '#chart_settings' => $google_charts_settings,
+        );
+      }
+      break;
+  }
+
+  return $elements;
+}

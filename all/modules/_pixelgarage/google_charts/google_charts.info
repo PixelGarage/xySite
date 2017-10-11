@@ -1,0 +1,7 @@
+name = Pixelgarage google charts implementation
+description = "Provides a wy to integrate google charts with different data sources to drupal."
+core = 7.x
+package = Pixelgarage
+
+dependencies[] = link
+version = "7.x-1.0"
