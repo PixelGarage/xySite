@@ -54,10 +54,12 @@ function google_charts_field_formatter_info() {
         'google_chart_data_range' => '',
         'google_chart_font_name' => 'Arial',
         'google_chart_font_size' => 10,
-        'google_chart_show_legend' => 1,
+        'google_chart_switch_column_row' => 0,
+        'google_chart_has_header_row' => 0,
         'google_chart_is_3d' => 0,
         'google_chart_do_animate' => 0,
         'google_chart_style_axis' => 0,
+        'google_chart_show_legend' => 1,
         'google_chart_show_trendline' => 0,
         'google_chart_show_crosshair' => 0,
         'google_chart_show_diff' => 0,
@@ -116,12 +118,6 @@ function google_charts_field_formatter_settings_form($field, $instance, $view_mo
       '#default_value' => $settings['google_chart_height'],
       '#description'   => t('Define the height of the chart. Default: 350'),
     );
-    $element['google_chart_data_range'] = array(
-      '#type'          => 'textfield',
-      '#title'         => t('Chart data source range'),
-      '#default_value' => $settings['google_chart_data_range'],
-      '#description'   => t('Define the range of the data source (table). Examples: A1:B6, 5:7, D:F, A:A70, B5:5, etc. Default: empty, meaning the whole table'),
-    );
     $element['google_chart_font_name'] = array(
       '#type'          => 'textfield',
       '#title'         => t('Font name'),
@@ -133,6 +129,24 @@ function google_charts_field_formatter_settings_form($field, $instance, $view_mo
       '#title'         => t('Font size'),
       '#default_value' => $settings['google_chart_font_size'],
       '#description'   => t('Define the font size. Default: 10px'),
+    );
+    $element['google_chart_data_range'] = array(
+      '#type'          => 'textfield',
+      '#title'         => t('Chart data source range'),
+      '#default_value' => $settings['google_chart_data_range'],
+      '#description'   => t('Define the range of the data source (table) in the given sheet. Examples: A1:B6, 5:7, D:F, A:A70, B5:5, etc. Default: empty, meaning the whole table'),
+    );
+    $element['google_chart_switch_column_row'] = array(
+      '#type' => 'checkbox',
+      '#title' => t("Switch column/row"),
+      '#default_value' => $settings['google_chart_switch_column_row'],
+      '#description'   => t("Switch the columns with the rows of the selected data range. Default: false"),
+    );
+    $element['google_chart_has_header_row'] = array(
+      '#type' => 'checkbox',
+      '#title' => t("Data contains header row"),
+      '#default_value' => $settings['google_chart_has_header_row'],
+      '#description'   => t("Check flag, if the first row is a header row. Default: false"),
     );
     $element['google_chart_show_legend'] = array(
       '#type' => 'checkbox',
@@ -195,10 +209,12 @@ function google_charts_field_formatter_settings_summary($field, $instance, $view
     $summary[] = t('Chart font name:      @text', array('@text' => $settings['google_chart_font_name']));
     $summary[] = t('Chart font size:      @text', array('@text' => $settings['google_chart_font_size']));
     $summary[] = t('Data source range:    @text', array('@text' => $settings['google_chart_data_range']));
-    $summary[] = t('Show legend:          @text', array('@text' => ($settings['google_chart_show_legend'] == 1) ? 'yes' : 'no'));
+    $summary[] = t('Switch column/row:    @text', array('@text' => ($settings['google_chart_switch_column_row'] == 1) ? 'yes' : 'no'));
+    $summary[] = t('Data has header row:  @text', array('@text' => ($settings['google_chart_has_header_row'] == 1) ? 'yes' : 'no'));
     $summary[] = t('3D Chart:             @text', array('@text' => ($settings['google_chart_is_3d'] == 1) ? 'yes' : 'no'));
     $summary[] = t('Animate:              @text', array('@text' => ($settings['google_chart_do_animate'] == 1) ? 'yes' : 'no'));
     $summary[] = t('Style axis:           @text', array('@text' => ($settings['google_chart_style_axis'] == 1) ? 'yes' : 'no'));
+    $summary[] = t('Show legend:          @text', array('@text' => ($settings['google_chart_show_legend'] == 1) ? 'yes' : 'no'));
     $summary[] = t('Show trendline:       @text', array('@text' => ($settings['google_chart_show_trendline'] == 1) ? 'yes' : 'no'));
     $summary[] = t('Show crosshair:       @text', array('@text' => ($settings['google_chart_show_crosshair'] == 1) ? 'yes' : 'no'));
     $summary[] = t('Show difference chart:@text', array('@text' => ($settings['google_chart_show_diff'] == 1) ? 'yes' : 'no'));

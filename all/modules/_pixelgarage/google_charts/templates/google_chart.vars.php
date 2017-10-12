@@ -9,6 +9,10 @@ function template_preprocess_google_chart(&$vars) {
   // define chart options
   $chart_settings = $vars['chart_settings'];
   $chart_type = $chart_settings['chart_type'];
+  $switch_column_row = $chart_settings['chart_switch_column_row'];
+  $has_header_row = $chart_settings['chart_has_header_row'];
+  $show_diff_chart = $chart_settings['chart_show_diff'] ?
+    ($chart_type == 'PieChart' || $chart_type == 'BarChart' || $chart_type == 'ColumnChart' || $chart_type == 'Scatter') : false;
   $chart_options = _google_chart_prepare_chart_options($vars['link_id'], $chart_settings);
 
   // define link classes and attributes
@@ -25,6 +29,9 @@ function template_preprocess_google_chart(&$vars) {
     $vars['link_id'] => array(
       'chart_type' => $chart_type,
       'chart_data_source' => $vars['chart_data_source'],
+      'chart_switch_column_row' => $switch_column_row,
+      'chart_has_header_row' => $has_header_row,
+      'chart_show_diff' => $show_diff_chart,
       'chart_options' => $chart_options,
     ),
   );
@@ -59,10 +66,15 @@ function _google_chart_add_js_settings($link_settings) {
 function _google_chart_prepare_chart_options($link_id, $settings) {
   $chart_type = $settings['chart_type'];
   $style_axis = $settings['chart_style_axis'];
+  $show_legend = $settings['chart_show_legend'];
   $show_trendline = $settings['chart_show_trendline'];
   $show_crosshair = $settings['chart_show_crosshair'];
+  $chart_width = $settings['chart_width'];
+  $chart_height = $settings['chart_height'];
+  $font_name = $settings['chart_font_name'];
   $font_size = intval($settings['chart_font_size']);
   $is_3D = $settings['chart_is_3d'];
+  $do_animate = $settings['chart_do_animate'];
 
   $chart_options = array(
     'title' => '',
@@ -73,9 +85,9 @@ function _google_chart_prepare_chart_options($link_id, $settings) {
       'bold' => false,
       'italic' => false
     ),
-    'width' => $settings['chart_width'],
-    'height' => $settings['chart_height'],
-    'fontName' => $settings['chart_font_name'],
+    'width' => $chart_width,
+    'height' => $chart_height,
+    'fontName' => $font_name,
     'fontSize' => $font_size,
     'is3D' => $is_3D,
     'dataOpacity' => 1.0,
@@ -94,7 +106,7 @@ function _google_chart_prepare_chart_options($link_id, $settings) {
       'backgroundColor' => 'white'
     ),
     'legend' => array(
-      'position' => $settings['chart_show_legend'] ? 'right' : 'none',
+      'position' => $show_legend ? 'right' : 'none',
       'alignment' => 'center',
       'textStyle' => array(
         'color' => 'black',
@@ -115,7 +127,7 @@ function _google_chart_prepare_chart_options($link_id, $settings) {
   );
 
   // add animation options
-  if ($settings['chart_do_animate']) {
+  if ($do_animate) {
     $chart_options['animation'] = array(
       'duration' => 1000,
       'easing' => 'linear',
