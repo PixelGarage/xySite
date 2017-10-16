@@ -91,7 +91,7 @@ function google_charts_field_formatter_settings_form($field, $instance, $view_mo
       'OrgChart' => t('Org Chart'),
       'PieChart' => t('Pie Chart'),
       'Sankey' => t('Sankey Diagram'),
-      'Scatter' => t('Scatter Chart'),
+      'ScatterChart' => t('Scatter Chart'),
       'SteppedAreaChart' => t('Stepped Area Chart'),
       'Table' => t('Table Chart'),
       'Timeline' => t('Timeline Chart'),

@@ -35,13 +35,13 @@ function template_preprocess_google_chart(&$vars) {
       'chart_options' => $chart_options,
     ),
   );
-  _google_chart_add_js_settings($js_settings);
+  _google_chart_add_js_settings($js_settings, $show_diff_chart);
 }
 
 /**
  * Add js files and settings for the specific chart.
  */
-function _google_chart_add_js_settings($link_settings) {
+function _google_chart_add_js_settings($link_settings, $show_diff_chart) {
   $path = &drupal_static(__FUNCTION__);
   if (!isset($path)) {
     // add the Stripe and the stripe_button javascript
@@ -56,6 +56,11 @@ function _google_chart_add_js_settings($link_settings) {
   }
   $js_settings['google_charts'] = $link_settings;
   drupal_add_js($js_settings, 'setting');
+
+  // add jquery slider library, if diff chart is requested
+  if ($show_diff_chart) {
+    drupal_add_library('system','ui.slider');
+  }
 }
 
 /**
@@ -184,7 +189,7 @@ function _google_chart_prepare_chart_options($link_id, $settings) {
     case 'Sankey':
       //$chart_options = mergeSankeyOptions($chart_options);
       break;
-    case 'Scatter':
+    case 'ScatterChart':
       //$chart_options = mergeScatterOptions($chart_options);
       break;
     case 'SteppedAreaChart':
