@@ -2438,29 +2438,31 @@
     font-size: 17px;
   }
 }
-.pxl-glow {
-  font-family: 'SohoGothicProLight';
-  font-size: 50px;
-  letter-spacing: 0.2em;
-  line-height: 1;
-  text-align: center;
-  text-transform: uppercase;
-  color: #222;
-  text-shadow: 0 0 10px #40856D, 0 0 10px #40856D, 0 0 10px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 20px #40856D, 0 0 30px #40856D;
+.pxl-subtext {
+  font-family: 'SohoGothicProRegular';
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1.1667em;
+  text-align: left;
 }
-@media screen and (min-width: 24em) {
-  .pxl-glow {
-    font-size: 13.02083333vw;
+@media screen and (min-width: 41.142857142857146em) {
+  .pxl-subtext {
+    font-size: 1.82291667vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .pxl-glow {
-    font-size: 100px;
+  .pxl-subtext {
+    font-size: 14px;
   }
 }
 @media screen and (min-width: 64em) {
-  .pxl-glow {
-    font-size: 100px;
+  .pxl-subtext {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 48em) {
+  .pxl-subtext {
+    text-align: left;
   }
 }
 .pxl-quote {

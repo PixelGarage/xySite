@@ -19,6 +19,13 @@ if (typeof(CKEDITOR) !== 'undefined') {
         }
       },
       {
+        name: 'Normal (div)',
+        element: 'div',
+        attributes: {
+          'class': 'pxl-normal'
+        }
+      },
+      {
         name: 'Title',
         element: 'p',
         attributes: {
@@ -33,10 +40,10 @@ if (typeof(CKEDITOR) !== 'undefined') {
         }
       },
       {
-        name: 'Glow',
+        name: 'Subtext',
         element: 'p',
         attributes: {
-          'class': 'pxl-glow'
+          'class': 'pxl-subtext'
         }
       },
 
@@ -45,7 +52,6 @@ if (typeof(CKEDITOR) !== 'undefined') {
       // These styles are already available in the "Format" drop-down list, so they are
       // not needed here by default. You may enable them to avoid placing the
       // "Format" drop-down list in the toolbar, maintaining the same features.
-      {name: 'Normal', element: 'p'},
       {name: 'Heading 1', element: 'h1'},
       {name: 'Heading 2', element: 'h2'},
       {name: 'Heading 3', element: 'h3'},

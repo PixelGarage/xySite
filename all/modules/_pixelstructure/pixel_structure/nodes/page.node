@@ -1,0 +1,252 @@
+<?php
+$export_time = 1510762415;
+$data = array(
+  'bundles' => array(
+    'page' => (object) array(
+      'type' => 'page',
+      'name' => 'Page',
+      'base' => 'node_content',
+      'module' => 'node',
+      'description' => 'Use <em>Page</em> for your static content, such as an \'About us\' page or for easy extendable pages via paragraphs.',
+      'help' => '',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'custom' => '1',
+      'modified' => '1',
+      'locked' => '0',
+      'disabled' => '0',
+      'orig_type' => 'page',
+      'disabled_changed' => FALSE,
+      'bc_entity_type' => 'node',
+    ),
+  ),
+  'fields' => array(
+    'body' => array(
+      'entity_types' => array(
+        0 => 'node',
+      ),
+      'translatable' => '0',
+      'settings' => array(),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_body' => array(
+                'value' => 'body_value',
+                'summary' => 'body_summary',
+                'format' => 'body_format',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_body' => array(
+                'value' => 'body_value',
+                'summary' => 'body_summary',
+                'format' => 'body_format',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'table' => 'filter_format',
+          'columns' => array(
+            'format' => 'format',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'field_name' => 'body',
+      'type' => 'text_with_summary',
+      'module' => 'text',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'text',
+          'size' => 'big',
+          'not null' => FALSE,
+        ),
+        'summary' => array(
+          'type' => 'text',
+          'size' => 'big',
+          'not null' => FALSE,
+        ),
+        'format' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'page',
+          1 => 'article',
+          2 => 'charts',
+        ),
+      ),
+    ),
+    'field_paragraphs' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_paragraphs' => array(
+                'value' => 'field_paragraphs_value',
+                'revision_id' => 'field_paragraphs_revision_id',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_paragraphs' => array(
+                'value' => 'field_paragraphs_value',
+                'revision_id' => 'field_paragraphs_revision_id',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'field_name' => 'field_paragraphs',
+      'type' => 'paragraphs',
+      'module' => 'paragraphs',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'int',
+          'not null' => FALSE,
+          'description' => 'The paragraph item id.',
+        ),
+        'revision_id' => array(
+          'type' => 'int',
+          'not null' => FALSE,
+          'description' => 'The paragraph item revision id.',
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'page',
+        ),
+      ),
+    ),
+  ),
+  'instances' => array(
+    'body' => array(
+      0 => array(
+        'label' => 'Body',
+        'widget' => array(
+          'type' => 'text_textarea_with_summary',
+          'settings' => array(
+            'rows' => 20,
+            'summary_rows' => 5,
+          ),
+          'weight' => '1',
+          'module' => 'text',
+        ),
+        'settings' => array(
+          'display_summary' => TRUE,
+          'text_processing' => 1,
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'weight' => '1',
+            'settings' => array(),
+            'module' => 'text',
+          ),
+          'teaser' => array(
+            'label' => 'hidden',
+            'type' => 'text_default',
+            'weight' => '1',
+            'settings' => array(),
+            'module' => 'text',
+          ),
+        ),
+        'required' => FALSE,
+        'description' => '',
+        'field_name' => 'body',
+        'entity_type' => 'node',
+        'bundle' => 'page',
+        'deleted' => '0',
+        'default_value' => NULL,
+      ),
+    ),
+    'field_paragraphs' => array(
+      0 => array(
+        'label' => 'Paragraphs',
+        'widget' => array(
+          'weight' => '2',
+          'type' => 'paragraphs_embed',
+          'module' => 'paragraphs',
+          'active' => 0,
+          'settings' => array(),
+        ),
+        'settings' => array(
+          'title' => 'Paragraph',
+          'title_multiple' => 'Paragraphs',
+          'default_edit_mode' => 'preview',
+          'add_mode' => 'select',
+          'allowed_bundles' => array(
+            'text_paragraph' => -1,
+            'block_paragraph' => -1,
+            'image_paragraph' => -1,
+            'bs_carousel_paragraph' => -1,
+          ),
+          'bundle_weights' => array(
+            'text_paragraph' => '-8',
+            'block_paragraph' => '-7',
+            'image_paragraph' => '-6',
+            'bs_carousel_paragraph' => '-5',
+          ),
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'hidden',
+            'type' => 'paragraphs_view',
+            'weight' => '2',
+            'settings' => array(
+              'view_mode' => 'full',
+            ),
+            'module' => 'paragraphs',
+          ),
+          'teaser' => array(
+            'label' => 'hidden',
+            'type' => 'hidden',
+            'weight' => '2',
+            'settings' => array(),
+          ),
+        ),
+        'required' => 0,
+        'description' => 'Add any number of pragraphs to this page.',
+        'default_value' => NULL,
+        'field_name' => 'field_paragraphs',
+        'entity_type' => 'node',
+        'bundle' => 'page',
+        'deleted' => '0',
+      ),
+    ),
+  ),
+);
