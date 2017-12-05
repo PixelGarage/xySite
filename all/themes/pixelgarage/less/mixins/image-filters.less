@@ -1,0 +1,64 @@
+/*
+ *  Image filters mixins
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+
+
+// Mixins
+// -------------------------
+#pxl-mixins {
+  //
+  // Box modifications
+  //
+  .blur (@radius:4px) {
+    -webkit-filter: blur(@radius);
+    filter: blur(@radius);
+  }
+
+  .brightness (@value:0.30) {
+    -webkit-filter: brightness(@value);
+    filter: brightness(@value);
+  }
+
+  .contrast (@value:180%) {
+    -webkit-filter: contrast(@value);
+    filter: contrast(@value);
+  }
+
+  .grayscale (@value:100%) {
+    -webkit-filter: grayscale(@value);
+    filter: grayscale(@value);
+  }
+
+  .huerotate (@value:180deg) {
+    -webkit-filter: hue-rotate(@value);
+    filter: hue-rotate(@value);
+  }
+
+  .invert (@value:100%) {
+    -webkit-filter: invert(@value);
+    filter: invert(@value);
+  }
+
+  .opacity (@value:50%) {
+    -webkit-filter: opacity(@value);
+    filter: opacity(@value);
+  }
+
+  .saturate (@value:7) {
+    -webkit-filter: saturate(@value);
+    filter: saturate(@value);
+  }
+
+  .sepia (@value:100%) {
+    -webkit-filter: sepia(@value);
+    filter: sepia(@value);
+  }
+
+  .shadow (@value: 8px 8px 10px green) {
+    -webkit-filter: drop-shadow(@value);
+    filter: drop-shadow(@value);
+  }
+}
