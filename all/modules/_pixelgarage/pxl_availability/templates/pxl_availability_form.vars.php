@@ -22,20 +22,28 @@ function template_preprocess_pxl_availability_form(&$vars) {
   $vars['availability_form'] = $form;
 
   //
-  // render calendar view with customizable contextual filter
+  // delete all pending calendar events older than an hour
+  pxl_availability_cleanup_pending_calendar_events();
+
+  //
+  // render calendar view with customizable contextual product filter
+  $session_data = &pxl_availability_session_data();
   $view_array = explode(':', $vars['calendar_view']);
   $context['block_id'] = $block_id;
   $context['view_name'] = $view_array[0];
   $context['view_display_id'] = $view_array[1];
   $context['intl_url'] = $_GET['q'];
-  $sku_filters = array();
-  drupal_alter('pxl_availability_filter_by_sku', $sku_filters, $context);
-  $vars['calendar'] = views_embed_view($context['view_name'], $context['view_display_id'], !empty($sku_filters) ? $sku_filters[0] : null);
+  $product_filters = array();
+  drupal_alter('pxl_availability_filter_by_product', $product_filters, $context);
+  $vars['calendar'] = views_embed_view($context['view_name'], $context['view_display_id'], !empty($product_filters) ? $product_filters[0] : null);
+  $session_data['filtered_products'] = $product_filters;
 
   //
   // define hidden calendar days 0=Sunday,...until 6=Saturday
   $vars['selectable_days'] = !empty($vars['selectable_days']) ? $vars['selectable_days'] : array(0,1,2,3,4,5,6);
   $hidden_days = array_diff(array(0,1,2,3,4,5,6), $vars['selectable_days']);
+
+  //
   // add js files and settings
   $path = drupal_get_path('module', 'pxl_availability');
   drupal_add_js($path . '/js/pxl_availability.js');
@@ -46,15 +54,14 @@ function template_preprocess_pxl_availability_form(&$vars) {
       'check_out_time' => $vars['check_out_time'],
       'min_days' => $vars['min_days'],
       'hidden_days' => $hidden_days,
-      'SKUs' => $sku_filters,
     ),
   );
   $js_settings['pxl_availability']['errorNoAvailability'] = t('The selected time range is not available.');
   $js_settings['pxl_availability']['errorInPast'] = t('The selected time range cannot be in the past.');
-  $js_settings['pxl_availability']['errorMinDays'] = t('The minimal selectable time range must include at least @days days.', array('@days'=>$vars['min_days']));
+  $js_settings['pxl_availability']['errorMinDays'] = t('The selected time range must include at least @days days.', array('@days'=>$vars['min_days']));
   drupal_add_js($js_settings, 'setting');
 
-  // render shopping cart form to add all needed js settings and files
+  // prerender shopping cart form to add all needed js settings and files
   $block = pxl_shop_block_view('pxl_shop_cart_form');
   drupal_render($block);
 

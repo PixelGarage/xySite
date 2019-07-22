@@ -75,8 +75,7 @@
               endVal = Drupal.settings.pxl_availability.endFormField.attr('data-time') / 1000,
               params = {
                 startDateVal: startVal,
-                endDateVal: endVal,
-                availableSKUs: settings.SKUs
+                endDateVal: endVal
               };
 
             //

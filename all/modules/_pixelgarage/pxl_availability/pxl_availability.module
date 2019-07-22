@@ -54,15 +54,15 @@ function pxl_availability_menu() {
  */
 function pxl_availability_submit_callback() {
   //
-  // get the time range and the available product SKUs for this time range
+  // get the time range and the available product(s) for this time range
   $start_date = $_POST['startDateVal'];
   $end_date = $_POST['endDateVal'];
-  $avail_skus = $_POST['availableSKUs'];
+  $avail_products = &pxl_availability_session_data()['filtered_products'];
 
   //
   // create a cart item for each available product SKU and add them to the shopping cart
-  foreach ($avail_skus as $avail_sku) {
-    $item = pxl_shop_create_cart_item($avail_sku, $start_date, $end_date);
+  foreach ($avail_products as $product_id) {
+    $item = pxl_shop_create_cart_item($product_id, $start_date, $end_date);
     pxl_shop_cart_add_item($item);
   }
 
@@ -256,28 +256,39 @@ function pxl_availability_fullcalendar_options_info() {
  *   Calendar events
  * ========================================================================== */
 /**
- * Create a calendar event from a given shopping cart item.
+ * Create a calendar event from a given shopping cart item. It's state is pending
+ * and the status is unpublished.
  *
- * @param $item   object
- *    Shopping cart item to be booked.
+ * @param     $item   object Shopping cart item to be booked.
+ *                           The mandatory item properties at creation time are: {
+ *                              product_id: The produkt id, for which this event is created
+ *                              start: The start date and time of the event
+ *                              end: The end date and time of the event
+ *                           }
+ *
+ * @param int $status int The node publish status (0 = unpublished, 1 = published)
+ *
+ * @return int  Node id, if successful
+ * @throws \Exception
  */
-function pxl_availability_create_calendar_event_from_cart_item($item) {
+function pxl_availability_create_calendar_event_from_cart_item($item, $status = 0) {
   $node = new stdClass();
   $node->type = 'calendar_event';
   $node->language = LANGUAGE_NONE;
   $node->uid = 1;
-  $node->status = 1;
+  $node->status = $status;
   node_object_prepare($node);
 
   // fill fields
-  $node->title = t('Booked');
-  $node->field_state[LANGUAGE_NONE][0]['tid'] = _pxl_availabilty_calendar_event_state_tid('booked');
-  $node->body[LANGUAGE_NONE][0]['value'] = $item->description;
+  $node->title = t('Pending');
+  $node->field_sku_id[LANGUAGE_NONE][0]['target_id'] = $item->id;
+  $node->field_state[LANGUAGE_NONE][0]['tid'] = _pxl_availabilty_calendar_event_state_tid('pending');
   $node->field_event_date[LANGUAGE_NONE][0] = array(
     'value' => format_date($item->start, 'custom', 'Y-m-d H:i:s', 'UTC'),
     'value2' => format_date($item->end, 'custom', 'Y-m-d H:i:s', 'UTC'),
   );
-  $node->field_sku_id[LANGUAGE_NONE][0]['target_id'] = $item->id;
+  // optional fields
+  $node->body[LANGUAGE_NONE][0]['value'] = $item->description;
   $node->field_order_id[LANGUAGE_NONE][0]['value'] = isset($item->chargeID) ? $item->chargeID : '';
   $node->field_user_email[LANGUAGE_NONE][0]['value'] = isset($item->email) ? $item->email : '';
   $node->field_customer_address[LANGUAGE_NONE][0]['name_line'] = isset($item->name) ? $item->name : '';
@@ -286,9 +297,111 @@ function pxl_availability_create_calendar_event_from_cart_item($item) {
   $node->field_customer_address[LANGUAGE_NONE][0]['locality'] = isset($item->city) ? $item->city : '';
   $node->field_customer_address[LANGUAGE_NONE][0]['country'] = isset($item->countryCode) ? $item->countryCode : '';
   node_save($node);
-
+  return $node->nid;
 }
 
+/**
+ * Updates the pending calendar event as successfully booked and optionally
+ * adds some additional data of billing address.
+ *
+ * @param $cal_evt_nid int Calendar event node id.
+ * @param $item object  Optional Item with collected customer information {
+ *              chargeID => id of related \Stripe\Charge object,
+ *              name => customer name (on credit card)
+ *              email => customer email,
+ *              address => street and number
+ *              zip => postal code
+ *              city => city
+ *              countryCode => code of country of address, e.g. CH
+ *              }
+ *
+ * @return bool|mixed|void
+ * @throws \Exception
+ */
+function pxl_availability_calendar_event_successfully_booked($cal_evt_nid, $item = null) {
+  $node = node_load($cal_evt_nid);
+  if ($node->type !== 'calendar_event') return;
+
+  $node->status = 1;
+  $node->title = t('Booked');
+  $node->field_state[LANGUAGE_NONE][0]['tid'] = _pxl_availabilty_calendar_event_state_tid('booked');
+  $node->field_order_id[LANGUAGE_NONE][0]['value'] = isset($item->chargeID) ? $item->chargeID : '';
+  $node->field_user_email[LANGUAGE_NONE][0]['value'] = isset($item->email) ? $item->email : '';
+  $node->field_customer_address[LANGUAGE_NONE][0]['name_line'] = isset($item->name) ? $item->name : '';
+  $node->field_customer_address[LANGUAGE_NONE][0]['thoroughfare'] = isset($item->address) ? $item->address : '';
+  $node->field_customer_address[LANGUAGE_NONE][0]['postal_code'] = isset($item->zip) ? $item->zip : '';
+  $node->field_customer_address[LANGUAGE_NONE][0]['locality'] = isset($item->city) ? $item->city : '';
+  $node->field_customer_address[LANGUAGE_NONE][0]['country'] = isset($item->countryCode) ? $item->countryCode : '';
+  node_save($node);
+  return $node;
+}
+
+/**
+ * Checks the availability of the time slot for a given product.
+ *
+ * @param $sku_id  string sku_id of product.
+ * @return bool
+ *    Returns true, if the given time range is still available for the product, false otherwise.
+ */
+function pxl_availability_time_range_check($sku_id, $startDate, $endDate) {
+  //
+  // check if any stored calendar event of the given product (key) intersects with the input time range
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'calendar_event')
+    ->fieldCondition('field_sku_id', 'target_id', $sku_id);
+  $result = $query->execute();
+
+  if (!isset($result['node'])) return true; // no existing calendar events for given product
+
+  // check each existing event against collision with new one
+  // Condition: startDate < node-endDate && endDate < node-startDate => collision
+  foreach ($result['node'] as $nid => $node) {
+    $cal_evt = node_load($nid);
+    $evt_start = new DateTime($cal_evt->field_event_date[LANGUAGE_NONE][0]['value'], new DateTimeZone("UTC"));
+    $evt_start_timestamp = $evt_start->getTimestamp();
+    $evt_end = new DateTime($cal_evt->field_event_date[LANGUAGE_NONE][0]['value2'], new DateTimeZone("UTC"));
+    $evt_end_timestamp = $evt_end->getTimestamp();
+    if ($startDate < $evt_end_timestamp && $endDate > $evt_start_timestamp) return false; // collison with existing calendar event
+  }
+
+  // no collison with any existing node
+  return true;
+}
+
+/**
+ * Cleanup of all pending calendar events created more than an hour ago.
+ * This method is called whenever a availability form is themed and displayed.
+ */
+function pxl_availability_cleanup_pending_calendar_events() {
+  $one_hour_ago = time() - 3600;
+  $tid_pending = _pxl_availabilty_calendar_event_state_tid('pending');
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'calendar_event')
+    ->propertyCondition('created', $one_hour_ago, '<')
+    ->fieldCondition('field_state', 'tid', $tid_pending);
+  $result = $query->execute();
+
+  // cleanup of all pending calendar events created more than an hour ago.
+  if (isset($result['node'])) {
+    $nids = array_keys($result['node']);
+    try {
+      node_delete_multiple($nids);
+    }
+    catch (Exception $e) {
+      // do nothing, try to delete calendar events next time
+    }
+  }
+}
+
+/**
+ * Helper function
+ * Returns the taxonomy term id (tid) for a given calendar event state name.
+ * @param $name string  Term name.
+ *
+ * @return int|string|null
+ */
 function _pxl_availabilty_calendar_event_state_tid ($name) {
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'taxonomy_term')
